@@ -19,5 +19,7 @@ public class FooTest {
         Assert.assertEquals("Bar", result);
 	}
 	
+	
+	
 
 }
