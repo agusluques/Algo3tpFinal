@@ -20,9 +20,9 @@ public class Juego {
 	
 	private void agregarIslas() {
 		Rectangle islaUno = new Rectangle (new Point(0,0), new Dimension(20,20));
-		Rectangle islaDos = new Rectangle (new Point(0,200), new Dimension(20,20));
-		Rectangle islaTres = new Rectangle (new Point(200,0), new Dimension(20,20));
-		Rectangle islaCuatro = new Rectangle (new Point(200,200), new Dimension(20,20));
+		Rectangle islaDos = new Rectangle (new Point(0,180), new Dimension(20,20));
+		Rectangle islaTres = new Rectangle (new Point(180,0), new Dimension(20,20));
+		Rectangle islaCuatro = new Rectangle (new Point(180,180), new Dimension(20,20));
 
 		this.mapa.add(islaUno);
 		this.mapa.add(islaDos);
