@@ -28,14 +28,14 @@ public class JugadorTest {
 	}
 	
 	@Test
-	public void elJugadorComienzaConCeroMineral() {
-		Assert.assertEquals(0, jugador.getCantidadDeMineral());
+	public void elJugadorComienzaCon200Mineral() {
+		Assert.assertEquals(200, jugador.getCantidadDeMineral());
 	}
 	
 	@Test
-	public void siElJugadorSuma20DeMineralTiene20() {
+	public void siElJugadorSuma20DeMineralTiene220() {
 		jugador.agregarMineral(20);
-		Assert.assertEquals(20, jugador.getCantidadDeMineral());
+		Assert.assertEquals(220, jugador.getCantidadDeMineral());
 	}
 	
 	@Test
@@ -45,10 +45,10 @@ public class JugadorTest {
 	}
 	
 	@Test
-	public void siElJugadorSuma20DeMineralYGasta10Tiene10() {
+	public void siElJugadorSuma20DeMineralYGasta10Tiene210() {
 		jugador.agregarMineral(20);
 		jugador.gastarMineral(10);
-		Assert.assertEquals(10, jugador.getCantidadDeMineral());
+		Assert.assertEquals(210, jugador.getCantidadDeMineral());
 	}
 	
 	@Test
@@ -74,7 +74,7 @@ public class JugadorTest {
 	public void siElJugadorGastaMasMineralDelQueTieneSeLanzaExcepcion() {
 		jugador.agregarMineral(10);
 		try {
-			jugador.gastarMineral(30);
+			jugador.gastarMineral(300);
 			Assert.assertTrue(false);
 		} catch (MineralInsuficienteException e){
 			Assert.assertTrue(true);

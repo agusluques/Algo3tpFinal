@@ -12,7 +12,7 @@ public class Jugador {
 	public Jugador(String nombre) {
 		this.nombre = nombre;
 		this.cantidadDeGas = 0;
-		this.cantidadDeMineral = 0;
+		this.cantidadDeMineral = 200;
 	}
 
 	public String getNombre() {
