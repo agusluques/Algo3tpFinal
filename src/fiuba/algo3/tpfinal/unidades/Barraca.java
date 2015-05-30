@@ -10,8 +10,7 @@ public class Barraca implements Constructible{
 
 	public Barraca(){
 		this.vida = 1000;
-		this.costo = new Costo();
-		this.costo.setMinerales(150);
+		this.costo = new Costo(150);
 		this.tiempo = 12;
 	}
 	

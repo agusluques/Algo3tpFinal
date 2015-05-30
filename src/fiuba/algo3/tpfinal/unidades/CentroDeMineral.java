@@ -10,8 +10,7 @@ public class CentroDeMineral implements Constructible {
 	
 	public CentroDeMineral(){
 		this.vida = 500;
-		this.costo = new Costo();
-		this.costo.setMinerales(50);
+		this.costo = new Costo(50);
 		this.tiempo = 4; 
 	}
 	public int getVida() {
