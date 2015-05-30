@@ -7,27 +7,26 @@ import org.junit.Test;
 
 public class JuegoTest {
 
-	private Juego juego;	
-	
+	private Juego juego;
+
 	@Before
-	public void arrange(){
+	public void arrange() {
 		this.juego = new Juego();
 	}
-	
+
 	@Test
 	public void siCreoUnJuegoElMapaNoEstaVacioPorqueSeCreaConIslas() {
 		Assert.assertFalse(juego.mapaEstaVacio());
 	}
-	
+
 	@Test
-	public void siCreoUnJuegoElMapaNoDeberiaTenerPoblacionInicial(){
+	public void siCreoUnJuegoElMapaNoDeberiaTenerPoblacionInicial() {
 		Assert.assertTrue(juego.cantidadDePoblacion() == 0);
 	}
-	
-	/*@Test
-	public void siCreoUnJuegoDeberiaTenerMineralesYVolcanes(){
-		Assert.assertFalse(juego.quedanMinerales());
-		Assert.assertFalse(juego.quedanVolcanes());
-	}
-*/
+
+	/*
+	 * @Test public void siCreoUnJuegoDeberiaTenerMineralesYVolcanes(){
+	 * Assert.assertFalse(juego.quedanMinerales());
+	 * Assert.assertFalse(juego.quedanVolcanes()); }
+	 */
 }
