@@ -7,11 +7,11 @@ import org.junit.Test;
 
 public class PuertoEstelarTest {
 	
-	private PuertoEstelar puertoEstelar;
+	private PuertoEstelarProtoss puertoEstelar;
 
 	@Before
 	public void arrange() {
-		this.puertoEstelar = new PuertoEstelar();
+		this.puertoEstelar = new PuertoEstelarProtoss();
 	}
 
 	@Test
