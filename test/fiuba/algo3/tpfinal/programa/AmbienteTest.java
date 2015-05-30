@@ -5,13 +5,12 @@ import junit.framework.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-public class JuegoTest {
-
-	private Juego juego;
+public class AmbienteTest {
+	private Ambiente juego;
 
 	@Before
 	public void arrange() {
-		this.juego = new Juego();
+		this.juego = new Ambiente();
 	}
 
 	@Test
@@ -24,9 +23,7 @@ public class JuegoTest {
 		Assert.assertTrue(juego.cantidadDePoblacion() == 0);
 	}
 
-	/*
-	 * @Test public void siCreoUnJuegoDeberiaTenerMineralesYVolcanes(){
-	 * Assert.assertFalse(juego.quedanMinerales());
-	 * Assert.assertFalse(juego.quedanVolcanes()); }
-	 */
 }
+	 
+
+

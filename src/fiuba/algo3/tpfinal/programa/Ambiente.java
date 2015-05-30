@@ -5,14 +5,14 @@ import java.awt.Point;
 import java.awt.Rectangle;
 
 
-public class Juego {
+public class Ambiente {
 	
 	private Rectangle mapa;
 	private int poblacion;
 	
 	//Constructor
 	//inicializa el juego con un mapa(200x200) que contiene 4 islas en cada punta
-	public Juego(){
+	public Ambiente(){
 		mapa = new Rectangle();
 		this.agregarIslas();
 		this.poblacion = 0;
