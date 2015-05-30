@@ -7,6 +7,7 @@ public class NexoMineral extends ConstruccionesProtoss implements RecolectorDeMi
 
 	
 	public NexoMineral() {
+		unidadesHechas = unidadesHechas.concat("centroMineral");
 		this.vida = 250;
 		this.escudo = 250;
 		this.tiempo = 4;

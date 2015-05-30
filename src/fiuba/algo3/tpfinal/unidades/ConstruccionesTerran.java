@@ -7,6 +7,7 @@ public class ConstruccionesTerran {
 	protected int vida;
 	protected Costo costo;
 	protected int tiempo;
+	protected static String unidadesHechas = new String();
 	
 	public int getVida() {
 		return this.vida;

@@ -6,6 +6,7 @@ import fiuba.algo3.tpfinal.programa.Jugador;
 public class Asimilador extends ConstruccionesProtoss implements RecolectorDeGas{
 	
 	public Asimilador() {
+		unidadesHechas = unidadesHechas.concat("asimilidor");
 		this.vida = 450;
 		this.escudo = 450;
 		this.tiempo = 6;
