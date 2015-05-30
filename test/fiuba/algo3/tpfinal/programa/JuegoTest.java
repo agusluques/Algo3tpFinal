@@ -23,5 +23,11 @@ public class JuegoTest {
 	public void siCreoUnJuegoElMapaNoDeberiaTenerPoblacionInicial(){
 		Assert.assertTrue(juego.cantidadDePoblacion() == 0);
 	}
-
+	
+	/*@Test
+	public void siCreoUnJuegoDeberiaTenerMineralesYVolcanes(){
+		Assert.assertFalse(juego.quedanMinerales());
+		Assert.assertFalse(juego.quedanVolcanes());
+	}
+*/
 }
