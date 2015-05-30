@@ -38,5 +38,33 @@ public class NexoMineralTest {
 	public void unNexoDebeCrearseEn4Turnos() {
 		Assert.assertTrue(this.nexo.getTiempo() == 4);
 	}
+	
+	@Test
+	public void siAtacanUnNexoCon100LaVidaQuedaIntactaYElEscudoEn150() {
+		nexo.atacado(100);
+		boolean resultado = (nexo.getVida() == 250 && nexo.getEscudo() == 150);
+		Assert.assertTrue(resultado);
+	}
+	
+	@Test
+	public void siAtacanUnNexoCon250LaVidaQuedaIntactaYElEscudoEn0() {
+		nexo.atacado(250);
+		boolean resultado = (nexo.getVida() == 250 && nexo.getEscudo() == 0);
+		Assert.assertTrue(resultado);
+	}
+	
+	@Test
+	public void siAtacanUnNexoCon300LaVidaQuedaEn200YElEscudoEn0() {
+		nexo.atacado(300);
+		boolean resultado = (nexo.getVida() == 200 && nexo.getEscudo() == 0);
+		Assert.assertTrue(resultado);
+	}
+	
+	@Test
+	public void siAtacanUnNexoCon600LaVidaQuedaEn0YElEscudoEn0() {
+		nexo.atacado(600);
+		boolean resultado = (nexo.getVida() == 0 && nexo.getEscudo() == 0);
+		Assert.assertTrue(resultado);
+	}
 
 }

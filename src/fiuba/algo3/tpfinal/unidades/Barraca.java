@@ -14,7 +14,7 @@ public class Barraca implements Constructible{
 		this.tiempo = 12;
 	}
 	
-	@Override
+
 	public int getVida() {
 		return this.vida;
 	}

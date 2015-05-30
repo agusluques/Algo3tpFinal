@@ -2,22 +2,10 @@ package fiuba.algo3.tpfinal.unidades;
 
 import fiuba.algo3.tpfinal.programa.Costo;
 
-public abstract class ConstruccionesProtoss extends Protoss implements ConstructibleProtoss {
+public abstract class ConstruccionesProtoss extends Protoss implements Constructible {
 
-	protected int vida;
-	protected int escudo;
 	protected Costo costo;
 	protected int tiempo;
-	
-	@Override
-	public int getVida() {
-		return this.vida;
-	}
-	
-	@Override
-	public int getEscudo() {
-		return this.escudo;
-	}
 
 	@Override
 	public int getCostoMineral() {

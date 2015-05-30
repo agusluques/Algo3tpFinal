@@ -2,7 +2,7 @@ package fiuba.algo3.tpfinal.unidades;
 
 import fiuba.algo3.tpfinal.programa.Costo;
 
-public class NexoMineral extends ConstruccionesProtoss implements Constructible {
+public class NexoMineral extends ConstruccionesProtoss {
 
 	
 	public NexoMineral() {
