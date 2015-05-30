@@ -28,6 +28,11 @@ public class PilonTest {
 	public void unPilonDebeCostar100Minerales() {
 		Assert.assertTrue(this.pilon.getCostoMineral() == 100);
 	}
+	
+	@Test
+	public void unPilonDebeCostar0Gases() {
+		Assert.assertTrue(this.pilon.getCostoGas() == 0);
+	}
 
 	@Test
 	public void unNexoDebeCrearseEn5Turnos() {
