@@ -2,6 +2,9 @@ package fiuba.algo3.tpfinal.programa;
 
 import fiuba.algo3.tpfinal.excepciones.GasInsuficienteException;
 import fiuba.algo3.tpfinal.excepciones.MineralInsuficienteException;
+import fiuba.algo3.tpfinal.unidades.Recolector;
+import fiuba.algo3.tpfinal.unidades.RecolectorDeGas;
+import fiuba.algo3.tpfinal.unidades.RecolectorDeMinerales;
 
 public class Jugador {
 
@@ -47,6 +50,20 @@ public class Jugador {
 			throw new GasInsuficienteException();
 		}
 		this.cantidadDeGas -= cantidad;		
+	}
+	
+	public void recolectar(Recolector recolector) {
+		recolector.recolectarPara(this);
+	}
+	
+	public void recolectar(RecolectorDeGas recolector) {
+		int gasRecolectado = recolector.recolectarGas();
+		this.cantidadDeGas += gasRecolectado;
+	}
+	
+	public void recolectar(RecolectorDeMinerales recolector) {
+		int mineralRecolectado = recolector.recolectarMinerales();
+		this.cantidadDeMineral += mineralRecolectado;
 	}
 
 }

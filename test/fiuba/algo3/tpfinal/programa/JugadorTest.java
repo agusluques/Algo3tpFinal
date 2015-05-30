@@ -9,6 +9,11 @@ import org.junit.Test;
 
 import fiuba.algo3.tpfinal.excepciones.GasInsuficienteException;
 import fiuba.algo3.tpfinal.excepciones.MineralInsuficienteException;
+import fiuba.algo3.tpfinal.unidades.Asimilador;
+import fiuba.algo3.tpfinal.unidades.CentroDeMineral;
+import fiuba.algo3.tpfinal.unidades.NexoMineral;
+import fiuba.algo3.tpfinal.unidades.Recolector;
+import fiuba.algo3.tpfinal.unidades.Refineria;
 
 public class JugadorTest {
 
@@ -83,5 +88,32 @@ public class JugadorTest {
 		}
 
 	}
+	
+	@Test
+	public void elJugadorRecolectaMineralesDeUnRecolectorYSuma10() {
+		Recolector recolector = new NexoMineral();
+		jugador.recolectar(recolector);
+		Assert.assertEquals(210, jugador.getCantidadDeMineral());
+	}
+	
+	@Test
+	public void elJugadorRecolectaMineralesDeOtroRecolectorYSuma10() {
+		Recolector recolector = new CentroDeMineral();
+		jugador.recolectar(recolector);
+		Assert.assertEquals(210, jugador.getCantidadDeMineral());
+	}
 
+	@Test
+	public void elJugadorRecolectaGasDeUnRecolectorYSuma10() {
+		Recolector recolector = new Refineria();
+		jugador.recolectar(recolector);
+		Assert.assertEquals(10, jugador.getCantidadDeGas());
+	}
+	
+	@Test
+	public void elJugadorRecolectaGasDeOtroRecolectorYSuma10() {
+		Recolector recolector = new Asimilador();
+		jugador.recolectar(recolector);
+		Assert.assertEquals(10, jugador.getCantidadDeGas());
+	}
 }
