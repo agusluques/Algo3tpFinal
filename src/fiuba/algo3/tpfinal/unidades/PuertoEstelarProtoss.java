@@ -7,8 +7,6 @@ public class PuertoEstelarProtoss extends ConstruccionesProtoss {
 	
 	public PuertoEstelarProtoss() throws ConstruccionRequeridaInexistente {
 		
-		if (!unidadesHechas.contains("acceso")) throw new ConstruccionRequeridaInexistente();
-		unidadesHechas = unidadesHechas.concat("puertoEstelar");
 		this.vida = 600;
 		this.escudo = 600;
 		this.tiempo = 10;

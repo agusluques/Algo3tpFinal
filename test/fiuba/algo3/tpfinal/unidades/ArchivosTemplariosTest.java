@@ -6,7 +6,7 @@ import org.junit.Test;
 import fiuba.algo3.tpfinal.excepciones.ConstruccionRequeridaInexistente;
 
 
-public class ArchivosTemplariosTest extends ConstruccionesProtoss {
+public class ArchivosTemplariosTest {
 	
 	private ArchivosTemplarios archivo;
 	

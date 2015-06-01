@@ -6,7 +6,6 @@ public abstract class ConstruccionesProtoss extends Protoss implements Construct
 
 	protected Costo costo;
 	protected int tiempo;
-	protected static String unidadesHechas = new String();
 
 	@Override
 	public int getCostoMineral() {
