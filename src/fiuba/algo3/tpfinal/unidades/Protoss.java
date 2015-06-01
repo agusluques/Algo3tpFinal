@@ -1,5 +1,7 @@
 package fiuba.algo3.tpfinal.unidades;
 
+import fiuba.algo3.tpfinal.programa.Danio;
+
 public abstract class Protoss implements Atacable{
 	
 	protected int escudo;
@@ -13,11 +15,11 @@ public abstract class Protoss implements Atacable{
 		return this.escudo;
 	}
 	
-	public void atacado(int danio) {
-		if (danio <= this.escudo) {
-			this.escudo -= danio;
+	public void atacado(Danio danio) {
+		if (danio.getDanio() <= this.escudo) {
+			this.escudo -= danio.getDanio();
 		} else {
-			int danioAVida = danio - this.escudo;
+			int danioAVida = danio.getDanio() - this.escudo;
 			this.escudo = 0;
 			this.vida -= danioAVida;
 		}
