@@ -1,0 +1,5 @@
+language: java
+install: ant
+ant test
+jdk:
+  - openjdk7
