@@ -17,11 +17,6 @@ public class FabricaTest {
 		
 	}
 	
-	@Test(expected = ConstruccionRequeridaInexistente.class)
-	public void siNoSeCreaUnaBarracaAntesDeberiaLanzarExcepcion() throws ConstruccionRequeridaInexistente{
-		this.fabrica = new Fabrica();
-	}
-	
 	@Test
 	public void debeTardar12TurnosEnCrearse() throws ConstruccionRequeridaInexistente{
 		this.fabrica = new Fabrica();
