@@ -11,8 +11,14 @@ public class CoordenadaTest {
 		
 		Coordenada coord1 = new Coordenada(3,3);
 		Coordenada coord2 = new Coordenada(3,3);
-		Assert.assertTrue(coord1.equals(coord2));
-		Assert.assertEquals(coord1.hashCode(), coord2.hashCode());
+		Assert.assertTrue(coord1.equals(coord2));		
+	}
+	
+	@Test
+	public void siCreoDosInstanciasDeCoordenadasConLaMismaFilaYColumnaTienenElMismoHashcode(){
 		
+		Coordenada coord1 = new Coordenada(3,3);
+		Coordenada coord2 = new Coordenada(3,3);
+		Assert.assertEquals(coord1.hashCode(), coord2.hashCode());
 	}
 }

@@ -19,7 +19,7 @@ public class AmbienteTest {
 	}
 	
 	@Test
-	public void siEnLaPos4DelArchivoHayUn1DeberiaGuardarseUnaTierra(){
+	public void siEnLaPos4DelArchivoHayUn1DeberiaGuardarseUnAire(){
 		Assert.assertTrue(juego.getMapa().get(4).getNombre() == "aire");
 	}
 	
