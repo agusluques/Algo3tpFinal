@@ -2,7 +2,7 @@ package fiuba.algo3.tpfinal.unidades;
 
 import fiuba.algo3.tpfinal.programa.Costo;
 
-public class ConstruccionesTerran implements Constructible{
+public class ConstruccionesTerran extends Terran implements Constructible{
 	
 	protected int vida;
 	protected Costo costo;

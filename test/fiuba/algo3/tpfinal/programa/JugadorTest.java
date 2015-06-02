@@ -7,8 +7,8 @@ import junit.framework.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import fiuba.algo3.tpfinal.excepciones.GasInsuficienteException;
-import fiuba.algo3.tpfinal.excepciones.MineralInsuficienteException;
+import fiuba.algo3.tpfinal.excepciones.GasInsuficiente;
+import fiuba.algo3.tpfinal.excepciones.MineralInsuficiente;
 import fiuba.algo3.tpfinal.unidades.Asimilador;
 import fiuba.algo3.tpfinal.unidades.CentroDeMineral;
 import fiuba.algo3.tpfinal.unidades.NexoMineral;
@@ -71,7 +71,7 @@ public class JugadorTest {
 		try {
 			jugador.gastarGas(30);
 			Assert.assertTrue(false);
-		} catch (GasInsuficienteException e) {
+		} catch (GasInsuficiente e) {
 			Assert.assertTrue(true);
 		}
 
@@ -83,7 +83,7 @@ public class JugadorTest {
 		try {
 			jugador.gastarMineral(300);
 			Assert.assertTrue(false);
-		} catch (MineralInsuficienteException e) {
+		} catch (MineralInsuficiente e) {
 			Assert.assertTrue(true);
 		}
 
