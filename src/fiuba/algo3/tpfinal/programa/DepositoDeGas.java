@@ -1,4 +1,5 @@
 package fiuba.algo3.tpfinal.programa;
+
 import fiuba.algo3.tpfinal.excepciones.RecursosAgotados;
 
 public class DepositoDeGas implements Superficie {
