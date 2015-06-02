@@ -1,4 +1,8 @@
 language: java
 install: ant
 jdk:
-  - openjdk7
+- oraclejdk7
+- openjdk7
+notifications:
+  slack:
+    secure: Jsrm05eC4SaH6NcLAnvP8l44hTT+6KARZTSWgGrOXz/g+sgGTP8YzFPSxb/cxSISBUmMpfO33DHzaCWaJLPGosYpcTcp+aDL0R31zBbEkI+Ssg9G8+b3VyMes0cEVxDLptc/wuiTeBKlVd639dmFrdSt28GWS48Iq8QAkunv3o2YmfKTzydHw8txUiLaa8SWl/9la1AWpF5IleWD5lDU4L89c64OFs+DeIoVSC+WpNJZZY9NgwvtvNHFfQoLb9+hhIVWHTXCk4LVxHau4XHpJDRh/jlwCC/ZfeklgCC/ALMTU8K0avfD9hbpwswkEgE/bh7x0MJXga9KgHU9EGyAxlzq2JXRyYdUEA+6Hmr1XgHDK+p042geH21jOzOthmt7jPVCB346bi3scp29rmZ2ubnXULZ6tQ1il6tUjJSn0HGH8Nzhqq49kjLUks4UdP92U7goOavGRw5lipx+Is/nLVDPSuSu9vqdQXmBKgzt4+/c6iwntEogS5qBJTnXiUNMn3qRMuTF/2TmM7kFQq+cnfN+t9l8lPf+V2c/LVOT77ToyXCWtG4tTn/mZCt0FBHKtuelOrGVFFgcEmdsOdkelMjzlPoTTdxfgAA9buMSvvM79mGB6wd4mZkcjtXx4GTeRhqpRYDMPYmGtp5BPKbzg7T87jdmpuw1Ihi7CHr646M=
