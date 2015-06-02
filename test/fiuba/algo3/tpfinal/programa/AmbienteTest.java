@@ -9,14 +9,20 @@ public class AmbienteTest {
 	private Ambiente juego;
 
 	@Before
-	public void arrange() {
+	public void arrange() throws Exception {
 		this.juego = new Ambiente();
 	}
-
+	
 	@Test
-	public void siCreoUnJuegoElMapaNoEstaVacioPorqueSeCreaConIslas() {
-		Assert.assertFalse(juego.mapaEstaVacio());
+	public void siEnLaPos5DelArchivoMapa1HayUn1DeberiaGuardarseUnaTierra() throws Exception{
+		Assert.assertTrue(juego.getMapa().get(5).getNombre() == "tierra");
 	}
+	
+	@Test
+	public void siEnLaPos4DelArchivoHayUn1DeberiaGuardarseUnaTierra(){
+		Assert.assertTrue(juego.getMapa().get(4).getNombre() == "aire");
+	}
+	
 
 	@Test
 	public void siCreoUnJuegoElMapaNoDeberiaTenerPoblacionInicial() {
