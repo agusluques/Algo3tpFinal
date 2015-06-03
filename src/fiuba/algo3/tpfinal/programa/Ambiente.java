@@ -1,65 +1,84 @@
 package fiuba.algo3.tpfinal.programa;
 
+import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
 import java.util.HashMap;
+import java.util.Iterator;
 
+import fiuba.algo3.tpfinal.unidades.Atacable;
+import fiuba.algo3.tpfinal.unidades.Zealot;
+ 
 
 public class Ambiente {
 	
 	
-	private HashMap<Integer, Superficie> mapa;
-	private int poblacion;
-	
-	
-	
-	public Ambiente() throws Exception{
+	private HashMap<Coordenada, Parcela> mapa;
+	int fila = 1;
+	BufferedReader buffer = null;
+
+	public Ambiente(String dirDelMapa) throws Exception{
 		mapa = new HashMap<>();
-		this.leerArchivoMapa();
-		this.poblacion = 0;
-	}
+		this.leerArchivoMapa(dirDelMapa);
+	}	
+	
+
+
+	
+
 	
 	//lee cada caracter del archivo y lo manda junto con su posicion a agregarAlMapa()
-	private void leerArchivoMapa() throws Exception{
-		String nombreFichero = "mapa1.txt";
-		FileReader archivo = null;
-		try{
-			archivo = new FileReader(nombreFichero);
-			int caracter = archivo.read();
-			int posicion = 0;
-			while(caracter != -1) {
-				this.agregarAlMapa(posicion,(char)caracter);
-				caracter = archivo.read();
-				posicion ++;
+	private void leerArchivoMapa(String dirDelMapa) throws Exception{
+		
+		try {
+
+			String lineaActual;
+			buffer = new BufferedReader(new FileReader("Mapa1.txt"));
+
+			while ((lineaActual = buffer.readLine()) != null) {
+				for (int columna= 1;columna <= lineaActual.length();columna++){
+					Coordenada coord = new Coordenada(fila,columna);
+					this.agregarAlMapa(coord,lineaActual.charAt(columna-1));
+				}
+				fila++;
+			}
+
+		}catch (FileNotFoundException e) {
+			throw e;
+        } 
+		catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (buffer != null)buffer.close();
+			} catch (IOException ex) {
+				ex.printStackTrace();
 			}
 		}
-		catch (FileNotFoundException e) {
-			throw e;
-        }
-		catch (Exception e) {
-			throw e;
-        }
-        finally {
-        	try {
-        		if(archivo != null)
-                    archivo.close();
-            }
-            catch (Exception e) {
-                throw e;
-            }
-        }
-		
 	}
+
+		
 
 
 	
 	//agrega al HashMap las clases Aire y Tierra
-	private void agregarAlMapa(int posicion, char caracter) {
+	private void agregarAlMapa(Coordenada coord, char caracter) {
 		if (caracter == '0'){
-			mapa.put(posicion, new Aire());
+			Parcela parcela = new Parcela(new Aire());
+			mapa.put(coord, parcela);
 		}
-		if (caracter == '1'){
-			mapa.put(posicion, new Tierra());
+	if (caracter == '1'){
+		Parcela parcela = new Parcela(new Tierra());
+		mapa.put(coord, parcela);
+		}
+	if (caracter == '2'){
+		Parcela parcela = new Parcela(new DepositoDeMinerales());
+		mapa.put(coord, parcela);
+		}
+	if (caracter == '3'){
+		Parcela parcela = new Parcela(new DepositoDeGas());
+		mapa.put(coord, parcela);
 		}
 		
 		
@@ -67,15 +86,39 @@ public class Ambiente {
 
 
 	public Boolean mapaEstaVacio(){
-		return (this.poblacion == 0);
+		
+		for (Parcela parcela : mapa.values()) {
+			if (!parcela.estaVacia()){
+				return false;				
+			}
+		}
+		return true;
 	}
 
-	public int cantidadDePoblacion() {
-		return this.poblacion;
-	}
 
-	public HashMap<Integer, Superficie> getMapa(){
+	public HashMap<Coordenada, Parcela> getMapa(){
 		return mapa;
+	}
+
+
+
+
+
+
+	public void insertarUnidad(Coordenada coord, Atacable unidad) {
+		
+		(mapa.get(coord)).ocupar(unidad);
+		
+	}
+
+
+
+
+
+
+	public Parcela gerParcela(Coordenada coord) {
+		
+		return mapa.get(coord);
 	}
 
 

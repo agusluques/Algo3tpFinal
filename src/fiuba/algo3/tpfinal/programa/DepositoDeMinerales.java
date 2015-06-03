@@ -38,4 +38,15 @@ public class DepositoDeMinerales implements Superficie {
 		return this.mineralesRestantes;
 	}
 
+	@Override
+	public boolean equals(Object o){
+		Superficie sup = (Superficie) o;
+		return (this.nombre == sup.getNombre());
+	}
+	
+	@Override
+	public int hashCode(){
+		return nombre.hashCode();
+		
+	}
 }

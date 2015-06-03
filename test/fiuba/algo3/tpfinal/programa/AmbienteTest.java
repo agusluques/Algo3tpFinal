@@ -5,30 +5,61 @@ import junit.framework.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import fiuba.algo3.tpfinal.unidades.Zealot;
+
 public class AmbienteTest {
-	private Ambiente juego;
+	private Ambiente ambiente;
 
 	@Before
 	public void arrange() throws Exception {
-		this.juego = new Ambiente();
+		this.ambiente = new Ambiente("Mapa1.txt");
 	}
 	
 	@Test
-	public void siEnLaPos5DelArchivoMapa1HayUn1DeberiaGuardarseUnaTierra() throws Exception{
-		Assert.assertTrue(juego.getMapa().get(5).getNombre() == "tierra");
+	public void siCreoUnAmbienteDeberiaEstarVacio() {
+		Assert.assertTrue(ambiente.mapaEstaVacio());
 	}
-	
-	@Test
-	public void siEnLaPos4DelArchivoHayUn1DeberiaGuardarseUnAire(){
-		Assert.assertTrue(juego.getMapa().get(4).getNombre() == "aire");
-	}
-	
 
 	@Test
-	public void siCreoUnJuegoElMapaNoDeberiaTenerPoblacionInicial() {
-		Assert.assertTrue(juego.cantidadDePoblacion() == 0);
+	public void siAgregoUnaUnidadAlAmbienteDejaDeEstarVacio() {
+		
+		Zealot zealot = new Zealot();
+		Coordenada coord = new Coordenada(1,6);
+		ambiente.insertarUnidad(coord, zealot);
+		Assert.assertFalse(ambiente.mapaEstaVacio());
 	}
-
+	
+	@Test
+	public void siCreoMiMapaDePruebaLaPosicion12TieneAire() {
+		
+		Coordenada coord = new Coordenada(1,2);
+		Parcela parcela = ambiente.gerParcela(coord);
+		Assert.assertTrue(parcela.getSuperficie().equals(new Aire()));
+	}
+	
+	@Test
+	public void siCreoMiMapaDePruebaLaPosicion25TieneTierra() {
+		
+		Coordenada coord = new Coordenada(2,5);
+		Parcela parcela = ambiente.gerParcela(coord);
+		Assert.assertTrue(parcela.getSuperficie().equals(new Tierra()));
+	}
+	
+	@Test
+	public void siCreoMiMapaDePruebaLaPosicion18TieneUnDepositoDeMinerales() {
+		
+		Coordenada coord = new Coordenada(1,8);
+		Parcela parcela = ambiente.gerParcela(coord);
+		Assert.assertTrue(parcela.getSuperficie().equals(new DepositoDeMinerales()));
+	}
+	
+	@Test
+	public void siCreoMiMapaDePruebaLaPosicion37TieneUnDepositoDeGas() {
+		
+		Coordenada coord = new Coordenada(3,7);
+		Parcela parcela = ambiente.gerParcela(coord);
+		Assert.assertTrue(parcela.getSuperficie().equals(new DepositoDeGas()));
+	}
 }
 	 
 

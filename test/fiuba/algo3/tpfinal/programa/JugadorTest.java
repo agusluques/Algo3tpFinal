@@ -18,6 +18,7 @@ import fiuba.algo3.tpfinal.unidades.Pilon;
 import fiuba.algo3.tpfinal.unidades.Recolector;
 import fiuba.algo3.tpfinal.unidades.Refineria;
 
+@SuppressWarnings("deprecation")
 public class JugadorTest {
 
 	private Jugador jugador;

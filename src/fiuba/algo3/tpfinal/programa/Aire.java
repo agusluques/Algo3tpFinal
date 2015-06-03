@@ -9,4 +9,16 @@ public class Aire implements Superficie {
 	public String getNombre() {
 		return nombre;
 	}
+
+	@Override
+	public boolean equals(Object o){
+		Superficie sup = (Superficie) o;
+		return (this.nombre == sup.getNombre());
+	}
+	
+	@Override
+	public int hashCode(){
+		return nombre.hashCode();
+		
+	}
 }
