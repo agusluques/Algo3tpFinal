@@ -12,7 +12,7 @@ public class AmbienteTest {
 
 	@Before
 	public void arrange() throws Exception {
-		this.ambiente = new Ambiente("Mapa1.txt");
+		this.ambiente = new Ambiente("mapa1.txt");
 	}
 	
 	@Test

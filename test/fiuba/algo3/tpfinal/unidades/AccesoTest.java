@@ -10,7 +10,7 @@ public class AccesoTest {
 	private Acceso acceso;
 
 	@Before
-	public void arrange() {
+	public void arrenge() {
 		this.acceso = new Acceso();
 	}
 
