@@ -16,14 +16,14 @@ public class Jugador {
 	private String nombre;
 	private int cantidadDeGas;
 	private int cantidadDeMineral;
-	private Collection<Constructible> unidades;
+	private Collection<Constructible> construcciones;
 	private Arquitecto arquitecto;
 
 	public Jugador(String nombre) {
 		this.nombre = nombre;
 		this.cantidadDeGas = 0;
 		this.cantidadDeMineral = 200;
-		this.unidades = new ArrayList<Constructible>();
+		this.construcciones = new ArrayList<Constructible>();
 		this.arquitecto = new Arquitecto();
 	}
 
@@ -81,12 +81,12 @@ public class Jugador {
 	}
 
 	public boolean posee(Constructible construccion) {
-		return this.unidades.contains(construccion);
+		return this.construcciones.contains(construccion);
 		
 	}
 
 	public void agregarConstruccion(Constructible construccion) {
-		this.unidades.add(construccion);
+		this.construcciones.add(construccion);
 		
 	}
 
