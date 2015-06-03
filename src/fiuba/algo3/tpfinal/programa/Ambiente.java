@@ -29,7 +29,7 @@ public class Ambiente {
 		try {
 
 			String lineaActual;
-			buffer = new BufferedReader(new FileReader("Mapa1.txt"));
+			buffer = new BufferedReader(new FileReader(dirDelMapa));
 
 			while ((lineaActual = buffer.readLine()) != null) {
 				for (int columna= 1;columna <= lineaActual.length();columna++){
