@@ -6,7 +6,6 @@ import fiuba.algo3.tpfinal.programa.Costo;
 
 public abstract class ConstruccionesTerran extends Terran implements Constructible{
 	
-	protected int vida;
 	protected Costo costo;
 	protected int tiempo;
 	protected Collection<Constructible> construccionesNecesarias;

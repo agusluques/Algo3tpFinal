@@ -5,6 +5,7 @@ import junit.framework.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import fiuba.algo3.tpfinal.programa.Danio;
 import fiuba.algo3.tpfinal.unidades.CentroDeMineral;
 
 public class CentroDeMineralTest {
@@ -29,6 +30,30 @@ public class CentroDeMineralTest {
 	@Test
 	public void elTiempoDeConstruccionDeberiaSer4Turnos() {
 		Assert.assertTrue(this.centroMineral.getTiempo() == 4);
+	}
+	
+	@Test
+	public void siAtacanUnCentroCon100DeDanioLaVidaQuedaEn400() {
+		Danio danio = new Danio(100);
+		centroMineral.atacado(danio);
+		
+		Assert.assertEquals(400, centroMineral.getVida());
+	}
+	
+	@Test
+	public void siAtacanUnCentroCon500DeDanioLaVidaQuedaEn0() {
+		Danio danio = new Danio(500);
+		centroMineral.atacado(danio);
+		
+		Assert.assertEquals(0, centroMineral.getVida());
+	}
+	
+	@Test
+	public void siAtacanUnCentroCon1000DeDanioLaVidaQuedaEn0() {
+		Danio danio = new Danio(1000);
+		centroMineral.atacado(danio);
+		
+		Assert.assertEquals(0, centroMineral.getVida());
 	}
 	
 	@Test

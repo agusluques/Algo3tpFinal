@@ -1,7 +1,9 @@
 package fiuba.algo3.tpfinal.programa;
 
 import junit.framework.Assert;
+
 import org.junit.Test;
+
 import fiuba.algo3.tpfinal.excepciones.RecursosAgotados;
 
 public class DepositoDeMineralesTest {
@@ -22,5 +24,21 @@ public class DepositoDeMineralesTest {
 		deposito.extraerRecursos(10);
 		
 		
+	}
+	
+	@Test
+	public void dosDepositoDeMineralesSonIguales() {
+		DepositoDeMinerales deposito = new DepositoDeMinerales();
+		DepositoDeMinerales otroDeposito = new DepositoDeMinerales();
+		
+		Assert.assertTrue(deposito.equals(otroDeposito));
+	}
+	
+	@Test
+	public void dosDepositoDeMineralesTienenElMismoHashCode() {
+		DepositoDeMinerales deposito = new DepositoDeMinerales();
+		DepositoDeMinerales otroDeposito = new DepositoDeMinerales();
+		
+		Assert.assertEquals(deposito.hashCode(), otroDeposito.hashCode());
 	}
 }
