@@ -43,5 +43,12 @@ public class PuertoEstelarProtossTest {
 		this.puertoEstelar = new PuertoEstelarProtoss();
 		Assert.assertTrue(this.puertoEstelar.getTiempo() == 10);
 	}
+	
+	@Test
+	public void dosPuertosEstelaresDeberianSerIguales() {
+		this.puertoEstelar = new PuertoEstelarProtoss();
+		Constructible otroPuerto = new PuertoEstelarProtoss();
+		Assert.assertTrue(this.puertoEstelar.equals(otroPuerto));
+	}
 
 }

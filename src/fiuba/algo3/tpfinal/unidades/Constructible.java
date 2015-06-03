@@ -5,5 +5,6 @@ public interface Constructible {
 	public int getCostoMineral();
 	public int getCostoGas();
 	public int getTiempo();
+	public boolean equals(Object o);
 }
 

@@ -38,5 +38,11 @@ public class PilonTest {
 	public void unNexoDebeCrearseEn5Turnos() {
 		Assert.assertTrue(this.pilon.getTiempo() == 5);
 	}
+	
+	@Test
+	public void dosPilonesDeberianSerIguales() {
+		Constructible otroPilon = new Pilon();
+		Assert.assertTrue(this.pilon.equals(otroPilon));
+	}
 
 }

@@ -72,5 +72,11 @@ public class NexoMineralTest {
 		boolean resultado = (nexo.getVida() == 0 && nexo.getEscudo() == 0);
 		Assert.assertTrue(resultado);
 	}
+	
+	@Test
+	public void dosNexosDeberianSerIguales() {
+		Constructible otroNexo = new NexoMineral();
+		Assert.assertTrue(this.nexo.equals(otroNexo));
+	}
 
 }

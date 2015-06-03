@@ -31,5 +31,12 @@ public class FabricaTest {
 		Assert.assertTrue(this.fabrica.getCostoMineral() == 200);
 		Assert.assertTrue(this.fabrica.getCostoGas() == 100);
 	}
+	
+	@Test
+	public void dosFabricasDeberianSerIguales() {
+		this.fabrica = new Fabrica();
+		Constructible otraFabrica = new Fabrica();
+		Assert.assertTrue(this.fabrica.equals(otraFabrica));
+	}
 
 }

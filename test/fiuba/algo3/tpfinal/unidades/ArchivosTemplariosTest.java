@@ -3,6 +3,7 @@ package fiuba.algo3.tpfinal.unidades;
 import junit.framework.Assert;
 
 import org.junit.Test;
+
 import fiuba.algo3.tpfinal.excepciones.ConstruccionRequeridaInexistente;
 
 
@@ -38,6 +39,13 @@ public class ArchivosTemplariosTest {
 	public void unArchivoTemplarioDebeCrearseEn9Turnos() throws ConstruccionRequeridaInexistente {
 		this.archivo = new ArchivosTemplarios();
 		Assert.assertTrue(this.archivo.getTiempo() == 9);
+	}
+	
+	@Test
+	public void dosArchivosTemplariosDeberianSerIguales() {
+		this.archivo = new ArchivosTemplarios();
+		Constructible otroArchivo = new ArchivosTemplarios();
+		Assert.assertTrue(this.archivo.equals(otroArchivo));
 	}
 
 }

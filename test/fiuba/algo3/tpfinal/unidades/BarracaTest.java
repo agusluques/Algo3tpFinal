@@ -28,5 +28,11 @@ public class BarracaTest {
 	public void unaBarracaDebeCrearseEn12Turnos() {
 		Assert.assertTrue(this.barraca.getTiempo() == 12);
 	}
+	
+	@Test
+	public void dosBarracasDeberianSerIguales() {
+		Constructible otraBarraca = new Barraca();
+		Assert.assertTrue(this.barraca.equals(otraBarraca));
+	}
 
 }

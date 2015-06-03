@@ -29,4 +29,9 @@ public class DepositoSuministroTest {
 		Assert.assertTrue(this.depositoSuministro.getCostoMineral() == 100);
 	}
 
+	@Test
+	public void dosDepositosDeberianSerIguales() {
+		Constructible otroDeposito = new DepositoSuministro();
+		Assert.assertTrue(this.depositoSuministro.equals(otroDeposito));
+	}
 }

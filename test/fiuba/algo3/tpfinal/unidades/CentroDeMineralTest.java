@@ -30,5 +30,11 @@ public class CentroDeMineralTest {
 	public void elTiempoDeConstruccionDeberiaSer4Turnos() {
 		Assert.assertTrue(this.centroMineral.getTiempo() == 4);
 	}
+	
+	@Test
+	public void dosCentroDeMineralDeberianSerIguales() {
+		Constructible otroCentro = new CentroDeMineral();
+		Assert.assertTrue(this.centroMineral.equals(otroCentro));
+	}
 
 }

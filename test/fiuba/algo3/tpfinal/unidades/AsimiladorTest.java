@@ -39,4 +39,10 @@ public class AsimiladorTest {
 		Assert.assertTrue(this.asimilador.getTiempo() == 6);
 	}
 	
+	@Test
+	public void dosAsimiladoresDeberianSerIguales() {
+		Constructible otroAsimilador = new Asimilador();
+		Assert.assertTrue(this.asimilador.equals(otroAsimilador));
+	}
+	
 }

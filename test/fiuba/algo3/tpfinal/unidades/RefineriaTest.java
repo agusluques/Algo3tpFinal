@@ -28,4 +28,10 @@ public class RefineriaTest {
 	public void debeCostar100Minerales(){
 		Assert.assertTrue(this.refineria.getCostoMineral() == 100);
 	}
+	
+	@Test
+	public void dosRefineriasDeberianSerIguales() {
+		Constructible otraRefineria = new Refineria();
+		Assert.assertTrue(this.refineria.equals(otraRefineria));
+	}
 }

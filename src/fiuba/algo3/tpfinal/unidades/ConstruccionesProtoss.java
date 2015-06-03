@@ -23,4 +23,10 @@ public abstract class ConstruccionesProtoss extends Protoss implements Construct
 	public int getTiempo() {
 		return this.tiempo;
 	}
+	
+	@Override
+	public boolean equals(Object o) {
+		ConstruccionesProtoss construccion = (ConstruccionesProtoss) o;
+		return (this.getClass() == construccion.getClass());
+	}
 }

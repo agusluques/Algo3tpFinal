@@ -29,6 +29,13 @@ public class PuertoEstelarTerranTest {
 		Assert.assertTrue(this.puertoEstelar.getCostoMineral() == 150);
 		Assert.assertTrue(this.puertoEstelar.getCostoGas() == 100);
 	}
+	
+	@Test
+	public void dosPuertosEstelaresDeberianSerIguales() {
+		this.puertoEstelar = new PuertoEstelarTerran();
+		Constructible otroPuerto = new PuertoEstelarTerran();
+		Assert.assertTrue(this.puertoEstelar.equals(otroPuerto));
+	}
 
 }
 

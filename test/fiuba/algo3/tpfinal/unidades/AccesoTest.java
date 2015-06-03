@@ -38,5 +38,11 @@ public class AccesoTest {
 	public void unAccesoDebeCrearseEn8Turnos() {
 		Assert.assertTrue(this.acceso.getTiempo() == 8);
 	}
+	
+	@Test
+	public void dosAccesosDeberianSerIguales() {
+		Constructible otroAcceso = new Acceso();
+		Assert.assertTrue(this.acceso.equals(otroAcceso));
+	}
 
 }

@@ -11,6 +11,7 @@ import fiuba.algo3.tpfinal.excepciones.GasInsuficiente;
 import fiuba.algo3.tpfinal.excepciones.MineralInsuficiente;
 import fiuba.algo3.tpfinal.unidades.Asimilador;
 import fiuba.algo3.tpfinal.unidades.CentroDeMineral;
+import fiuba.algo3.tpfinal.unidades.Constructible;
 import fiuba.algo3.tpfinal.unidades.NexoMineral;
 import fiuba.algo3.tpfinal.unidades.Recolector;
 import fiuba.algo3.tpfinal.unidades.Refineria;
@@ -115,5 +116,12 @@ public class JugadorTest {
 		Recolector recolector = new Asimilador();
 		jugador.recolectar(recolector);
 		Assert.assertEquals(10, jugador.getCantidadDeGas());
+	}
+	
+	@Test
+	public void elJugadorProtossConstruyeUnNexoMineral() {
+		Constructible construccion = new NexoMineral();
+		jugador.construir(construccion);
+		jugador.posee(construccion);
 	}
 }

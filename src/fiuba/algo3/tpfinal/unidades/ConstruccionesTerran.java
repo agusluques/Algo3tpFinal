@@ -22,4 +22,12 @@ public class ConstruccionesTerran extends Terran implements Constructible{
 	public int getTiempo() {
 		return tiempo;
 	}
+	
+	@Override
+	public boolean equals(Object o) {
+		ConstruccionesTerran construccion = (ConstruccionesTerran) o;
+		System.out.println(this.getClass());
+		System.out.println(construccion.getClass());
+		return (this.getClass() == construccion.getClass());
+	}
 }
