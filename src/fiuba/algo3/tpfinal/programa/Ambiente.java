@@ -14,8 +14,7 @@ public class Ambiente {
 	
 	
 	private HashMap<Coordenada, Parcela> mapa;
-	int fila = 1;
-	BufferedReader buffer = null;
+	
 
 	public Ambiente(String dirDelMapa) throws Exception{
 		mapa = new HashMap<>();
@@ -26,6 +25,8 @@ public class Ambiente {
 	//lee cada caracter del archivo y lo manda junto con su posicion a agregarAlMapa()
 	private void leerArchivoMapa(String dirDelMapa) throws Exception{
 		
+		BufferedReader buffer = null;
+		int fila = 1;
 		try {
 
 			String lineaActual;
