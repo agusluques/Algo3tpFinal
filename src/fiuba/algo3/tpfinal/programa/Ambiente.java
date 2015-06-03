@@ -5,10 +5,9 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
-import java.util.Iterator;
 
 import fiuba.algo3.tpfinal.unidades.Atacable;
-import fiuba.algo3.tpfinal.unidades.Zealot;
+
  
 
 public class Ambiente {
@@ -23,11 +22,7 @@ public class Ambiente {
 		this.leerArchivoMapa(dirDelMapa);
 	}	
 	
-
-
-	
-
-	
+		
 	//lee cada caracter del archivo y lo manda junto con su posicion a agregarAlMapa()
 	private void leerArchivoMapa(String dirDelMapa) throws Exception{
 		
@@ -58,9 +53,6 @@ public class Ambiente {
 		}
 	}
 
-		
-
-
 	
 	//agrega al HashMap las clases Aire y Tierra
 	private void agregarAlMapa(Coordenada coord, char caracter) {
@@ -68,17 +60,17 @@ public class Ambiente {
 			Parcela parcela = new Parcela(new Aire());
 			mapa.put(coord, parcela);
 		}
-	if (caracter == '1'){
-		Parcela parcela = new Parcela(new Tierra());
-		mapa.put(coord, parcela);
+		if (caracter == '1'){
+			Parcela parcela = new Parcela(new Tierra());
+			mapa.put(coord, parcela);
 		}
-	if (caracter == '2'){
-		Parcela parcela = new Parcela(new DepositoDeMinerales());
-		mapa.put(coord, parcela);
+		if (caracter == '2'){
+			Parcela parcela = new Parcela(new DepositoDeMinerales());
+			mapa.put(coord, parcela);
 		}
-	if (caracter == '3'){
-		Parcela parcela = new Parcela(new DepositoDeGas());
-		mapa.put(coord, parcela);
+		if (caracter == '3'){
+			Parcela parcela = new Parcela(new DepositoDeGas());
+			mapa.put(coord, parcela);
 		}
 		
 		
@@ -101,28 +93,17 @@ public class Ambiente {
 	}
 
 
-
-
-
-
 	public void insertarUnidad(Coordenada coord, Atacable unidad) {
 		
 		(mapa.get(coord)).ocupar(unidad);
 		
 	}
 
-
-
-
-
-
 	public Parcela gerParcela(Coordenada coord) {
 		
 		return mapa.get(coord);
 	}
 
-
-	
 	
 	
 }
