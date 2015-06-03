@@ -1,5 +1,7 @@
 package fiuba.algo3.tpfinal.unidades;
 
+import java.util.ArrayList;
+
 import fiuba.algo3.tpfinal.programa.Costo;
 
 public class Pilon extends ConstruccionesProtoss {
@@ -9,6 +11,12 @@ public class Pilon extends ConstruccionesProtoss {
 		this.escudo = 300;
 		this.tiempo = 5;
 		this.costo = new Costo(100);
+		this.setConstruccionesNecesarias();
+	}
+	
+	private void setConstruccionesNecesarias() {
+		this.construccionesNecesarias = new ArrayList<Constructible>();
+		
 	}
 
 }

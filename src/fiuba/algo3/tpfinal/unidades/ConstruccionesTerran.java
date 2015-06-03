@@ -9,7 +9,7 @@ public abstract class ConstruccionesTerran extends Terran implements Constructib
 	protected int vida;
 	protected Costo costo;
 	protected int tiempo;
-	private Collection<Constructible> construccionesNecesarias;
+	protected Collection<Constructible> construccionesNecesarias;
 	
 	public int getVida() {
 		return this.vida;
@@ -29,8 +29,6 @@ public abstract class ConstruccionesTerran extends Terran implements Constructib
 	@Override
 	public boolean equals(Object o) {
 		ConstruccionesTerran construccion = (ConstruccionesTerran) o;
-		System.out.println(this.getClass());
-		System.out.println(construccion.getClass());
 		return (this.getClass() == construccion.getClass());
 	}
 	

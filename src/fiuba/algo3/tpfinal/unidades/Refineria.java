@@ -1,5 +1,7 @@
 package fiuba.algo3.tpfinal.unidades;
 
+import java.util.ArrayList;
+
 import fiuba.algo3.tpfinal.programa.Costo;
 import fiuba.algo3.tpfinal.programa.Jugador;
 
@@ -9,6 +11,7 @@ public class Refineria extends ConstruccionesTerran implements RecolectorDeGas {
 		this.vida = 750;
 		this.tiempo = 6;
 		this.costo = new Costo(100);
+		this.setConstruccionesNecesarias();
 	}
 
 	@Override
@@ -20,6 +23,11 @@ public class Refineria extends ConstruccionesTerran implements RecolectorDeGas {
 	@Override
 	public int recolectarGas() {
 		return 10;
+	}
+	
+	private void setConstruccionesNecesarias() {
+		this.construccionesNecesarias = new ArrayList<Constructible>();
+		
 	}
 	
 	

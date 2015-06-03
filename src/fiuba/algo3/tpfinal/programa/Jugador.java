@@ -3,6 +3,7 @@ package fiuba.algo3.tpfinal.programa;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import fiuba.algo3.tpfinal.excepciones.ConstruccionRequeridaInexistente;
 import fiuba.algo3.tpfinal.excepciones.GasInsuficiente;
 import fiuba.algo3.tpfinal.excepciones.MineralInsuficiente;
 import fiuba.algo3.tpfinal.unidades.Constructible;
@@ -74,7 +75,7 @@ public class Jugador {
 		this.cantidadDeMineral += mineralRecolectado;
 	}
 
-	public void construir(Constructible construccion) {
+	public void construir(Constructible construccion) throws ConstruccionRequeridaInexistente {
 		this.arquitecto.construir(this, construccion);
 		
 	}

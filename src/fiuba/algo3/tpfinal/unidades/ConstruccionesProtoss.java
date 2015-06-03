@@ -8,7 +8,7 @@ public abstract class ConstruccionesProtoss extends Protoss implements Construct
 
 	protected Costo costo;
 	protected int tiempo;
-	private Collection<Constructible> construccionesNecesarias;
+	protected Collection<Constructible> construccionesNecesarias;
 
 	@Override
 	public int getCostoMineral() {
@@ -37,4 +37,5 @@ public abstract class ConstruccionesProtoss extends Protoss implements Construct
 	public Collection<Constructible> construccionesNecesarias() {
 		return this.construccionesNecesarias;
 	}
+	
 }
