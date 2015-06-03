@@ -10,9 +10,6 @@ import fiuba.algo3.tpfinal.unidades.Constructible;
 
 public class Arquitecto {
 	
-	public Arquitecto() {
-	}
-
 	public void construir(Jugador jugador, Constructible construccion) throws ConstruccionRequeridaInexistente {
 		try {
 			this.verificarNecesidades(jugador, construccion);

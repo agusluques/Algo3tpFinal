@@ -4,10 +4,10 @@ import java.util.Collection;
 
 
 public interface Constructible {
-	public int getCostoMineral();
-	public int getCostoGas();
-	public int getTiempo();
-	public boolean equals(Object o);
-	public Collection<Constructible> construccionesNecesarias();
+	int getCostoMineral();
+	int getCostoGas();
+	int getTiempo();
+	boolean equals(Object o);
+	Collection<Constructible> construccionesNecesarias();
 }
 

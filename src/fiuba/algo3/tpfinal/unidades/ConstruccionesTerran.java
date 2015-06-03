@@ -32,6 +32,12 @@ public abstract class ConstruccionesTerran extends Terran implements Constructib
 	}
 	
 	@Override
+	public int hashCode(){
+		return this.hashCode();
+		
+	}
+	
+	@Override
 	public Collection<Constructible> construccionesNecesarias() {
 		return this.construccionesNecesarias;
 	}

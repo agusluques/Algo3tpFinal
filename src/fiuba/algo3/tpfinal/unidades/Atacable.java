@@ -4,6 +4,6 @@ import fiuba.algo3.tpfinal.programa.Danio;
 
 public interface Atacable {
 	
-	public void atacado(Danio danio);
+	void atacado(Danio danio);
 
 }

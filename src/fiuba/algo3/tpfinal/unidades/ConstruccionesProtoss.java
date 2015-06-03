@@ -34,6 +34,12 @@ public abstract class ConstruccionesProtoss extends Protoss implements Construct
 	}
 	
 	@Override
+	public int hashCode(){
+		return this.hashCode();
+		
+	}
+	
+	@Override
 	public Collection<Constructible> construccionesNecesarias() {
 		return this.construccionesNecesarias;
 	}
