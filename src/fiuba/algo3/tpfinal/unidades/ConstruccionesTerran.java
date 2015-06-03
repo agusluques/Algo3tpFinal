@@ -1,12 +1,15 @@
 package fiuba.algo3.tpfinal.unidades;
 
+import java.util.Collection;
+
 import fiuba.algo3.tpfinal.programa.Costo;
 
-public class ConstruccionesTerran extends Terran implements Constructible{
+public abstract class ConstruccionesTerran extends Terran implements Constructible{
 	
 	protected int vida;
 	protected Costo costo;
 	protected int tiempo;
+	private Collection<Constructible> construccionesNecesarias;
 	
 	public int getVida() {
 		return this.vida;
@@ -29,5 +32,10 @@ public class ConstruccionesTerran extends Terran implements Constructible{
 		System.out.println(this.getClass());
 		System.out.println(construccion.getClass());
 		return (this.getClass() == construccion.getClass());
+	}
+	
+	@Override
+	public Collection<Constructible> construccionesNecesarias() {
+		return this.construccionesNecesarias;
 	}
 }

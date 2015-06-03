@@ -1,11 +1,14 @@
 package fiuba.algo3.tpfinal.unidades;
 
+import java.util.Collection;
+
 import fiuba.algo3.tpfinal.programa.Costo;
 
 public abstract class ConstruccionesProtoss extends Protoss implements Constructible {
 
 	protected Costo costo;
 	protected int tiempo;
+	private Collection<Constructible> construccionesNecesarias;
 
 	@Override
 	public int getCostoMineral() {
@@ -28,5 +31,10 @@ public abstract class ConstruccionesProtoss extends Protoss implements Construct
 	public boolean equals(Object o) {
 		ConstruccionesProtoss construccion = (ConstruccionesProtoss) o;
 		return (this.getClass() == construccion.getClass());
+	}
+	
+	@Override
+	public Collection<Constructible> construccionesNecesarias() {
+		return this.construccionesNecesarias;
 	}
 }

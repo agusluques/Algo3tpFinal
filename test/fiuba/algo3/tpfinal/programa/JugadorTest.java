@@ -9,10 +9,12 @@ import org.junit.Test;
 
 import fiuba.algo3.tpfinal.excepciones.GasInsuficiente;
 import fiuba.algo3.tpfinal.excepciones.MineralInsuficiente;
+import fiuba.algo3.tpfinal.unidades.Acceso;
 import fiuba.algo3.tpfinal.unidades.Asimilador;
 import fiuba.algo3.tpfinal.unidades.CentroDeMineral;
 import fiuba.algo3.tpfinal.unidades.Constructible;
 import fiuba.algo3.tpfinal.unidades.NexoMineral;
+import fiuba.algo3.tpfinal.unidades.Pilon;
 import fiuba.algo3.tpfinal.unidades.Recolector;
 import fiuba.algo3.tpfinal.unidades.Refineria;
 
@@ -122,6 +124,56 @@ public class JugadorTest {
 	public void elJugadorProtossConstruyeUnNexoMineral() {
 		Constructible construccion = new NexoMineral();
 		jugador.construir(construccion);
-		jugador.posee(construccion);
+		Assert.assertTrue(jugador.posee(construccion));
 	}
+	
+	@Test
+	public void elJugadorProtossConstruyeUnNexoMineralLeQuedan50DeMinerales() {
+		Constructible construccion = new NexoMineral();
+		jugador.construir(construccion);
+		Assert.assertEquals(150, jugador.getCantidadDeMineral());
+	}
+	
+	@Test
+	public void elJugadorProtossConstruyeUnPilon() {
+		Constructible construccion = new Pilon();
+		jugador.construir(construccion);
+		Assert.assertTrue(jugador.posee(construccion));
+	}
+	
+	@Test
+	public void elJugadorProtossConstruyeUnPilonLeQuedan100DeMinerales() {
+		Constructible construccion = new Pilon();
+		jugador.construir(construccion);
+		Assert.assertEquals(100, jugador.getCantidadDeMineral());
+	}
+	
+	@Test
+	public void elJugadorProtossConstruyeUnAsimilador() {
+		Constructible construccion = new Asimilador();
+		jugador.construir(construccion);
+		Assert.assertTrue(jugador.posee(construccion));
+	}
+	
+	@Test
+	public void elJugadorProtossConstruyeUnAsimiladorLeQuedan100DeMinerales() {
+		Constructible construccion = new Asimilador();
+		jugador.construir(construccion);
+		Assert.assertEquals(100, jugador.getCantidadDeMineral());
+	}
+	
+	@Test
+	public void elJugadorProtossConstruyeUnAcceso() {
+		Constructible construccion = new Acceso();
+		jugador.construir(construccion);
+		Assert.assertTrue(jugador.posee(construccion));
+	}
+	
+	@Test
+	public void elJugadorProtossConstruyeUnAccesoLeQuedan50DeMinerales() {
+		Constructible construccion = new Acceso();
+		jugador.construir(construccion);
+		Assert.assertEquals(50, jugador.getCantidadDeMineral());
+	}
+
 }
