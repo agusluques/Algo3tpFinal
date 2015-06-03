@@ -7,7 +7,6 @@ public class ConstruccionesTerran extends Terran implements Constructible{
 	protected int vida;
 	protected Costo costo;
 	protected int tiempo;
-	protected static String unidadesHechas = new String();
 	
 	public int getVida() {
 		return this.vida;

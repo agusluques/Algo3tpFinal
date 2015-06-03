@@ -2,7 +2,7 @@ package fiuba.algo3.tpfinal.unidades;
 
 import fiuba.algo3.tpfinal.programa.Costo;
 
-public class DepositoSuministro extends ConstruccionesTerran implements Constructible{
+public class DepositoSuministro extends ConstruccionesTerran {
 	
 	public DepositoSuministro(){
 		this.vida = 500;

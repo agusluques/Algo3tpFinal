@@ -3,7 +3,6 @@ package fiuba.algo3.tpfinal.unidades;
 import fiuba.algo3.tpfinal.programa.Danio;
 
 public class Zealot extends UnidadesProtoss{
-
 	
 	public Zealot(){
 		vida = 100;
