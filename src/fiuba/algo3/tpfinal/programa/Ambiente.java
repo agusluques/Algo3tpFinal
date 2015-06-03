@@ -88,11 +88,7 @@ public class Ambiente {
 	}
 
 
-	public HashMap<Coordenada, Parcela> getMapa(){
-		return mapa;
-	}
-
-
+	
 	public void insertarUnidad(Coordenada coord, Atacable unidad) {
 		
 		(mapa.get(coord)).ocupar(unidad);

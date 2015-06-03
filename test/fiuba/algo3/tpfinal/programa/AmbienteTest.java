@@ -1,5 +1,7 @@
 package fiuba.algo3.tpfinal.programa;
 
+import java.io.FileNotFoundException;
+
 import junit.framework.Assert;
 
 import org.junit.Before;
@@ -59,6 +61,12 @@ public class AmbienteTest {
 		Coordenada coord = new Coordenada(3,7);
 		Parcela parcela = ambiente.gerParcela(coord);
 		Assert.assertTrue(parcela.getSuperficie().equals(new DepositoDeGas()));
+	}
+	
+	@Test(expected = FileNotFoundException.class)
+	public void siCreoMapaQueNoExisteDeberiaLanzarExcepcion() throws Exception{
+		@SuppressWarnings("unused")//se usa para que lance la excepcion
+		Ambiente ambienteErroneo = new Ambiente("archivoQueNoExiste,txt");
 	}
 }
 	 
