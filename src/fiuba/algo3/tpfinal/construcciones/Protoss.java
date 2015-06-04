@@ -4,28 +4,19 @@ import fiuba.algo3.tpfinal.programa.Danio;
 
 public abstract class Protoss implements Atacable{
 	
-	protected int escudo;
-	protected int vida;
+	protected Escudo escudo = new Escudo();
+	protected Vida vida = new Vida();
 	
 	public int getVida() {
-		return this.vida;
+		return this.vida.getVida();
 	}
 	
 	public int getEscudo() {
-		return this.escudo;
+		return this.escudo.getEscudo();
 	}
 	
 	public void atacado(Danio danio) {
-		if (danio.getDanio() <= this.escudo) {
-			this.escudo -= danio.getDanio();
-		} else {
-			int danioAVida = danio.getDanio() - this.escudo;
-			this.escudo = 0;
-			this.vida -= danioAVida;
-		}
-		if (this.vida < 0) {
-			this.vida = 0;
-		}
+		this.escudo.bajarEscudo(danio.getDanio(), this.vida);
 	}
 
 }

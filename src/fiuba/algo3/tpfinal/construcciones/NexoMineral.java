@@ -9,8 +9,8 @@ public class NexoMineral extends ConstruccionesProtoss implements RecolectorDeMi
 
 	
 	public NexoMineral() {
-		this.vida = 250;
-		this.escudo = 250;
+		this.vida.inicializarVida(250);
+		this.escudo.inicializarEscudo(250);
 		this.tiempo = 4;
 		this.costo = new Costo(50);
 		this.setConstruccionesNecesarias();

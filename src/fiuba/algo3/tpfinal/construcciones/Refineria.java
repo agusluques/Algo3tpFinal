@@ -8,7 +8,7 @@ import fiuba.algo3.tpfinal.programa.Jugador;
 public class Refineria extends ConstruccionesTerran implements RecolectorDeGas {
 
 	public Refineria(){
-		this.vida = 750;
+		this.vida.inicializarVida(750);
 		this.tiempo = 6;
 		this.costo = new Costo(100);
 		this.setConstruccionesNecesarias();

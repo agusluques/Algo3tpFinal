@@ -5,8 +5,8 @@ import junit.framework.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import fiuba.algo3.tpfinal.unidades.Constructible;
-import fiuba.algo3.tpfinal.unidades.Pilon;
+import fiuba.algo3.tpfinal.construcciones.Constructible;
+import fiuba.algo3.tpfinal.construcciones.Pilon;
 
 public class PilonTest {
 

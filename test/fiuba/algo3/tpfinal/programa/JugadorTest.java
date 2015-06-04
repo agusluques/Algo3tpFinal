@@ -7,23 +7,23 @@ import junit.framework.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import fiuba.algo3.tpfinal.construcciones.Acceso;
+import fiuba.algo3.tpfinal.construcciones.ArchivosTemplarios;
+import fiuba.algo3.tpfinal.construcciones.Asimilador;
+import fiuba.algo3.tpfinal.construcciones.Barraca;
+import fiuba.algo3.tpfinal.construcciones.CentroDeMineral;
+import fiuba.algo3.tpfinal.construcciones.Constructible;
+import fiuba.algo3.tpfinal.construcciones.DepositoSuministro;
+import fiuba.algo3.tpfinal.construcciones.Fabrica;
+import fiuba.algo3.tpfinal.construcciones.NexoMineral;
+import fiuba.algo3.tpfinal.construcciones.Pilon;
+import fiuba.algo3.tpfinal.construcciones.PuertoEstelarProtoss;
+import fiuba.algo3.tpfinal.construcciones.PuertoEstelarTerran;
+import fiuba.algo3.tpfinal.construcciones.Recolector;
+import fiuba.algo3.tpfinal.construcciones.Refineria;
 import fiuba.algo3.tpfinal.excepciones.ConstruccionRequeridaInexistente;
 import fiuba.algo3.tpfinal.excepciones.GasInsuficiente;
 import fiuba.algo3.tpfinal.excepciones.MineralInsuficiente;
-import fiuba.algo3.tpfinal.unidades.Acceso;
-import fiuba.algo3.tpfinal.unidades.ArchivosTemplarios;
-import fiuba.algo3.tpfinal.unidades.Asimilador;
-import fiuba.algo3.tpfinal.unidades.Barraca;
-import fiuba.algo3.tpfinal.unidades.CentroDeMineral;
-import fiuba.algo3.tpfinal.unidades.Constructible;
-import fiuba.algo3.tpfinal.unidades.DepositoSuministro;
-import fiuba.algo3.tpfinal.unidades.Fabrica;
-import fiuba.algo3.tpfinal.unidades.NexoMineral;
-import fiuba.algo3.tpfinal.unidades.Pilon;
-import fiuba.algo3.tpfinal.unidades.PuertoEstelarProtoss;
-import fiuba.algo3.tpfinal.unidades.PuertoEstelarTerran;
-import fiuba.algo3.tpfinal.unidades.Recolector;
-import fiuba.algo3.tpfinal.unidades.Refineria;
 
 public class JugadorTest {
 

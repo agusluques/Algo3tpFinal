@@ -7,7 +7,7 @@ import fiuba.algo3.tpfinal.programa.Costo;
 public class Fabrica extends ConstruccionesTerran {
 
 	public Fabrica() {
-		this.vida = 1250;
+		this.vida.inicializarVida(1250);
 		this.tiempo = 12;
 		this.costo = new Costo (200, 100);
 		this.setConstruccionesNecesarias();

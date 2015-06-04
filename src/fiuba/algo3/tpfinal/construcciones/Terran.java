@@ -4,18 +4,15 @@ import fiuba.algo3.tpfinal.programa.Danio;
 
 public abstract class Terran implements Atacable {
 
-	protected int vida;
+	protected Vida vida = new Vida();
 	
 	public int getVida() {
-		return this.vida;
+		return this.vida.getVida();
 	}
 			
 	public void atacado(Danio danio) {
 		
-		this.vida -= danio.getDanio();
-		if (this.vida < 0) {
-			this.vida = 0;
-		}
+		this.vida.bajarVida(danio.getDanio());
 	}
 
 }

@@ -5,8 +5,8 @@ import junit.framework.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import fiuba.algo3.tpfinal.unidades.Acceso;
-import fiuba.algo3.tpfinal.unidades.Constructible;
+import fiuba.algo3.tpfinal.construcciones.Acceso;
+import fiuba.algo3.tpfinal.construcciones.Constructible;
 
 public class AccesoTest {
 	

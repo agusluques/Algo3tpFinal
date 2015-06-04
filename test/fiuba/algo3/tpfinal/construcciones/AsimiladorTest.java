@@ -5,8 +5,8 @@ import junit.framework.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import fiuba.algo3.tpfinal.unidades.Asimilador;
-import fiuba.algo3.tpfinal.unidades.Constructible;
+import fiuba.algo3.tpfinal.construcciones.Asimilador;
+import fiuba.algo3.tpfinal.construcciones.Constructible;
 
 public class AsimiladorTest {
 

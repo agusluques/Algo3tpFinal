@@ -6,7 +6,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
 
-import fiuba.algo3.tpfinal.unidades.Atacable;
+import fiuba.algo3.tpfinal.construcciones.Atacable;
 
  
 

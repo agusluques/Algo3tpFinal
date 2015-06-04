@@ -8,7 +8,7 @@ import fiuba.algo3.tpfinal.programa.Jugador;
 public class CentroDeMineral extends ConstruccionesTerran implements RecolectorDeMinerales {
 
 	public CentroDeMineral(){
-		this.vida = 500;
+		this.vida.inicializarVida(500);
 		this.costo = new Costo(50);
 		this.tiempo = 4; 
 		this.setConstruccionesNecesarias();

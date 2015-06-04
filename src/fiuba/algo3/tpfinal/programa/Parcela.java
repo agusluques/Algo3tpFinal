@@ -1,8 +1,8 @@
 package fiuba.algo3.tpfinal.programa;
 
+import fiuba.algo3.tpfinal.construcciones.Atacable;
 import fiuba.algo3.tpfinal.excepciones.ParcelaOcupada;
 import fiuba.algo3.tpfinal.excepciones.ParcelaVacia;
-import fiuba.algo3.tpfinal.unidades.Atacable;
 
 public class Parcela {
 

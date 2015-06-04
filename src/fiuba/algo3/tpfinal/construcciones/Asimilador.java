@@ -8,8 +8,8 @@ import fiuba.algo3.tpfinal.programa.Jugador;
 public class Asimilador extends ConstruccionesProtoss implements RecolectorDeGas{
 	
 	public Asimilador() {
-		this.vida = 450;
-		this.escudo = 450;
+		this.vida.inicializarVida(450);
+		this.escudo.inicializarEscudo(450);
 		this.tiempo = 6;
 		this.costo = new Costo(100);
 		this.setConstruccionesNecesarias();

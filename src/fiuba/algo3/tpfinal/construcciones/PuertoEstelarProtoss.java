@@ -8,8 +8,8 @@ public class PuertoEstelarProtoss extends ConstruccionesProtoss {
 	
 	public PuertoEstelarProtoss() {
 		
-		this.vida = 600;
-		this.escudo = 600;
+		this.vida.inicializarVida(600);
+		this.escudo.inicializarEscudo(600);
 		this.tiempo = 10;
 		this.costo = new Costo(150, 150);
 		this.setConstruccionesNecesarias();

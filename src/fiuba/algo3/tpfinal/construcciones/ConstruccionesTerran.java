@@ -10,9 +10,7 @@ public abstract class ConstruccionesTerran extends Terran implements Constructib
 	protected int tiempo;
 	protected Collection<Constructible> construccionesNecesarias;
 	
-	public int getVida() {
-		return this.vida;
-	}
+	
 	public int getCostoMineral() {
 		return costo.getMinerales();
 	}

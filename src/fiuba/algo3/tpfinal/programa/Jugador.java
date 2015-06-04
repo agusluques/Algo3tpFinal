@@ -3,13 +3,13 @@ package fiuba.algo3.tpfinal.programa;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import fiuba.algo3.tpfinal.construcciones.Constructible;
+import fiuba.algo3.tpfinal.construcciones.Recolector;
+import fiuba.algo3.tpfinal.construcciones.RecolectorDeGas;
+import fiuba.algo3.tpfinal.construcciones.RecolectorDeMinerales;
 import fiuba.algo3.tpfinal.excepciones.ConstruccionRequeridaInexistente;
 import fiuba.algo3.tpfinal.excepciones.GasInsuficiente;
 import fiuba.algo3.tpfinal.excepciones.MineralInsuficiente;
-import fiuba.algo3.tpfinal.unidades.Constructible;
-import fiuba.algo3.tpfinal.unidades.Recolector;
-import fiuba.algo3.tpfinal.unidades.RecolectorDeGas;
-import fiuba.algo3.tpfinal.unidades.RecolectorDeMinerales;
 
 public class Jugador {
 
