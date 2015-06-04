@@ -1,4 +1,4 @@
-package fiuba.algo3.tpfinal.unidades;
+package fiuba.algo3.tpfinal.construcciones;
 
 import org.junit.Test;
 
@@ -7,6 +7,8 @@ import junit.framework.Assert;
 
 
 import fiuba.algo3.tpfinal.excepciones.ConstruccionRequeridaInexistente;
+import fiuba.algo3.tpfinal.unidades.Constructible;
+import fiuba.algo3.tpfinal.unidades.Fabrica;
 
 public class FabricaTest {
 

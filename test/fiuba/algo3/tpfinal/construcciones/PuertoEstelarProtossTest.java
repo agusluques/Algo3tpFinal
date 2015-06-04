@@ -1,10 +1,12 @@
-package fiuba.algo3.tpfinal.unidades;
+package fiuba.algo3.tpfinal.construcciones;
 
 import junit.framework.Assert;
 
 import org.junit.Test;
 
 import fiuba.algo3.tpfinal.excepciones.ConstruccionRequeridaInexistente;
+import fiuba.algo3.tpfinal.unidades.Constructible;
+import fiuba.algo3.tpfinal.unidades.PuertoEstelarProtoss;
 
 public class PuertoEstelarProtossTest {
 	
