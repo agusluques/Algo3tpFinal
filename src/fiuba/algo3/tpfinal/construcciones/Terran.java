@@ -10,8 +10,9 @@ public abstract class Terran implements Atacable {
 		return this.vida.getVida();
 	}
 	
+	
 	public void atacado (Danio danio){
-		this.vida.bajarVida(danio.getDanio());
+		this.vida.bajarVida(danio.getDanioTierra());
 	}
 			
 	

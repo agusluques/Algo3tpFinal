@@ -16,7 +16,7 @@ public abstract class Protoss implements Atacable{
 	}
 	
 	public void atacado(Danio danio) {
-		this.escudo.bajarEscudo(danio.getDanio(), this.vida);
+		this.escudo.bajarEscudo(danio.getDanioTierra(), this.vida);
 	}
 
 }

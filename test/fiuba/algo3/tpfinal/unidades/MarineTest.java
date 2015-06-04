@@ -17,7 +17,7 @@ public class MarineTest {
 	@Test
 	public void siAUnMarineLePegan40DebeTener10(){
 		Marine marine = new Marine();
-		Danio danio = new Danio(40);
+		Danio danio = new Danio(0,40);
 		marine.atacado(danio);
 		Assert.assertTrue(marine.getVida() == 10);
 	}
@@ -25,7 +25,7 @@ public class MarineTest {
 	@Test
 	public void siAUnMarineLePegan60DebeTener0(){
 		Marine marine = new Marine();
-		Danio danio = new Danio(60);
+		Danio danio = new Danio(0,60);
 		marine.atacado(danio);
 		Assert.assertTrue(marine.getVida() == 0);
 	}

@@ -7,7 +7,7 @@ public class Zealot extends UnidadesProtoss{
 	public Zealot(){
 		vida.inicializarVida(60);
 		escudo.inicializarEscudo(60);
-		miDanio = new Danio(8);
+		miDanio = new Danio(0,8);
 	}
 
 

@@ -12,7 +12,7 @@ public class ZealotTest {
 	public void siUnZealotRecibeDanioLeBajaElEscudo() {
 				
 		Zealot unZealot = new Zealot();
-		Danio unDanio = new Danio (30);
+		Danio unDanio = new Danio (0,30);
 		unZealot.atacado(unDanio);
 		Assert.assertTrue(unZealot.getEscudo() == 30);
 		
@@ -22,7 +22,7 @@ public class ZealotTest {
 	public void siUnZealotRecibeMasDe60DeDanioLeDestruyeElEscudoYLeBajaLaVida() {
 		
 		Zealot unZealot = new Zealot();
-		Danio unDanio = new Danio (70);
+		Danio unDanio = new Danio (0,70);
 		unZealot.atacado(unDanio);
 		Assert.assertTrue(unZealot.getEscudo() == 0);
 		Assert.assertTrue(unZealot.getVida() == 50);

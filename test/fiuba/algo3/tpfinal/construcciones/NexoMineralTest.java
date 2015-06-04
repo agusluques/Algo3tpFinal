@@ -45,7 +45,7 @@ public class NexoMineralTest {
 	
 	@Test
 	public void siAtacanUnNexoCon100LaVidaQuedaIntactaYElEscudoEn150() {
-		Danio danio = new Danio(100);
+		Danio danio = new Danio(0,100);
 		nexo.atacado(danio);
 		boolean resultado = (nexo.getVida() == 250 && nexo.getEscudo() == 150);
 		Assert.assertTrue(resultado);
@@ -53,7 +53,7 @@ public class NexoMineralTest {
 	
 	@Test
 	public void siAtacanUnNexoCon250LaVidaQuedaIntactaYElEscudoEn0() {
-		Danio danio = new Danio(250);
+		Danio danio = new Danio(0,250);
 		nexo.atacado(danio);
 		boolean resultado = (nexo.getVida() == 250 && nexo.getEscudo() == 0);
 		Assert.assertTrue(resultado);
@@ -61,7 +61,7 @@ public class NexoMineralTest {
 	
 	@Test
 	public void siAtacanUnNexoCon300LaVidaQuedaEn200YElEscudoEn0() {
-		Danio danio = new Danio(300);
+		Danio danio = new Danio(0,300);
 		nexo.atacado(danio);
 		boolean resultado = (nexo.getVida() == 200 && nexo.getEscudo() == 0);
 		Assert.assertTrue(resultado);
@@ -69,7 +69,7 @@ public class NexoMineralTest {
 	
 	@Test
 	public void siAtacanUnNexoCon600LaVidaQuedaEn0YElEscudoEn0() {
-		Danio danio = new Danio(600);
+		Danio danio = new Danio(0,600);
 		nexo.atacado(danio);
 		boolean resultado = (nexo.getVida() == 0 && nexo.getEscudo() == 0);
 		Assert.assertTrue(resultado);

@@ -35,7 +35,7 @@ public class CentroDeMineralTest {
 	
 	@Test
 	public void siAtacanUnCentroCon100DeDanioLaVidaQuedaEn400() {
-		Danio danio = new Danio(100);
+		Danio danio = new Danio(0,100);
 		centroMineral.atacado(danio);
 		
 		Assert.assertEquals(400, centroMineral.getVida());
@@ -43,7 +43,7 @@ public class CentroDeMineralTest {
 	
 	@Test
 	public void siAtacanUnCentroCon500DeDanioLaVidaQuedaEn0() {
-		Danio danio = new Danio(500);
+		Danio danio = new Danio(0,500);
 		centroMineral.atacado(danio);
 		
 		Assert.assertEquals(0, centroMineral.getVida());
@@ -51,7 +51,7 @@ public class CentroDeMineralTest {
 	
 	@Test
 	public void siAtacanUnCentroCon1000DeDanioLaVidaQuedaEn0() {
-		Danio danio = new Danio(1000);
+		Danio danio = new Danio(0,1000);
 		centroMineral.atacado(danio);
 		
 		Assert.assertEquals(0, centroMineral.getVida());

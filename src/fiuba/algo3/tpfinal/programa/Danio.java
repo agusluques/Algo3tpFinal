@@ -2,16 +2,24 @@ package fiuba.algo3.tpfinal.programa;
 
 public class Danio {
 
-	private int danio;
+	private int danioAire;
+	private int danioTierra;
 	
-	public Danio(int danio) {
+	public Danio(int aire, int tierra) {
 	
-		this.danio = danio;
+		this.danioAire = aire;
+		this.danioTierra = tierra;
 	}
 	
-	public int getDanio() {
+	public int getDanioTierra() {
 		
-		return this.danio;
+		return this.danioTierra;
 	}
+	
+	public int getDanioAire() {
+		
+		return this.danioAire;
+	}
+	
 
 }
