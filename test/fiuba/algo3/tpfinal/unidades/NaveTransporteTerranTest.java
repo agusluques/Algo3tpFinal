@@ -29,5 +29,23 @@ public class NaveTransporteTerranTest {
 		nave.atacado(danio);
 		Assert.assertTrue(nave.getVida() == 0);
 	}
+	
+	@Test
+	public void siUnEspectroAtacaAUnaNaveTransporteTerranAlSegundoLeBajaLaVidaA130() {
+		
+		Espectro unEspectro = new Espectro();
+		NaveTransporteTerran nave = new NaveTransporteTerran();
+		unEspectro.atacar(nave);
+		Assert.assertTrue(nave.getVida() == 130);
+	}
+	
+	@Test
+	public void siUnaNaveCienciaAtacaAUnaNaveTransporteTerranAlSegundoNoLeBajaVida() {
+		
+		NaveCiencia naveUno = new NaveCiencia();
+		NaveTransporteTerran naveDos = new NaveTransporteTerran();
+		naveUno.atacar(naveDos);
+		Assert.assertTrue(naveDos.getVida() == 150);
+	}
 
 }

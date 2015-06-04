@@ -6,6 +6,7 @@ public class Espectro extends UnidadesTerran {
 
 	public Espectro(){
 		this.vida.inicializarVida(120);
+		this.miDanio = new Danio (20,8);
 	}
 	
 	@Override

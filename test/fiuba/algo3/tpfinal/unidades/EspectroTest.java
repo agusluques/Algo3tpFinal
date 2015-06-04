@@ -29,5 +29,14 @@ public class EspectroTest {
 		espectro.atacado(danio);
 		Assert.assertTrue(espectro.getVida() == 0);
 	}
+	
+	@Test
+	public void siUnGolliatAtacaAUnEspectroAlSegundoLeBajaLaVidaA110() {
+		
+		Golliat unGolliat = new Golliat();
+		Espectro unEspectro = new Espectro();
+		unGolliat.atacar(unEspectro);
+		Assert.assertTrue(unEspectro.getVida() == 110);
+	}
 
 }

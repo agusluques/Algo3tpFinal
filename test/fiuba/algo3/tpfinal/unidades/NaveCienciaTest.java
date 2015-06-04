@@ -29,5 +29,14 @@ public class NaveCienciaTest {
 		naveCiencia.atacado(danio);
 		Assert.assertTrue(naveCiencia.getVida() == 0);
 	}
+	
+	@Test
+	public void siUnEspectroAtacaAUnaNaveCienciaAlSegundoLeBajaLaVidaA180() {
+		
+		Espectro unEspectro = new Espectro();
+		NaveCiencia unaNaveCiencia = new NaveCiencia();
+		unEspectro.atacar(unaNaveCiencia);
+		Assert.assertTrue(unaNaveCiencia.getVida() == 180);
+	}
 
 }

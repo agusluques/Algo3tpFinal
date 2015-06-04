@@ -29,5 +29,14 @@ public class GolliatTest {
 		golliat.atacado(danio);
 		Assert.assertTrue(golliat.getVida() == 0);
 	}
+	
+	@Test
+	public void siUnGolliatAtacaAOtroAlSegundoLeBajaLaVidaA113() {
+		
+		Golliat unGolliat = new Golliat();
+		Golliat otroGolliat = new Golliat();
+		unGolliat.atacar(otroGolliat);
+		Assert.assertTrue(otroGolliat.getVida() == 113);
+	}
 
 }
