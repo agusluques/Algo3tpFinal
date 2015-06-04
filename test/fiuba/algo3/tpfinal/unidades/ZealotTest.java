@@ -37,4 +37,6 @@ public class ZealotTest {
 		unZealot.atacar(otroZealot);
 		Assert.assertTrue(otroZealot.getEscudo() == 52);
 	}
+	
+	
 }
