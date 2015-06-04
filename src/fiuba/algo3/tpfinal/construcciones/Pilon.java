@@ -1,23 +1,22 @@
-package fiuba.algo3.tpfinal.unidades;
+package fiuba.algo3.tpfinal.construcciones;
 
 import java.util.ArrayList;
 
 import fiuba.algo3.tpfinal.programa.Costo;
 
-public class Acceso extends ConstruccionesProtoss {
-	
-	public Acceso() {
-		this.vida = 500;
-		this.escudo = 500;
-		this.tiempo = 8;
-		this.costo = new Costo(150);
+public class Pilon extends ConstruccionesProtoss {
+
+	public Pilon() {
+		this.vida = 300;
+		this.escudo = 300;
+		this.tiempo = 5;
+		this.costo = new Costo(100);
 		this.setConstruccionesNecesarias();
 	}
-
+	
 	private void setConstruccionesNecesarias() {
 		this.construccionesNecesarias = new ArrayList<Constructible>();
+		
 	}
-	
-	
 
 }

@@ -1,4 +1,4 @@
-package fiuba.algo3.tpfinal.unidades;
+package fiuba.algo3.tpfinal.construcciones;
 
 import fiuba.algo3.tpfinal.programa.Jugador;
 
