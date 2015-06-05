@@ -9,6 +9,7 @@ import java.util.Iterator;
 import java.util.Set;
 
 import fiuba.algo3.tpfinal.construcciones.Atacable;
+import fiuba.algo3.tpfinal.excepciones.MapaInvalido;
 
  
 
@@ -21,6 +22,9 @@ public class Ambiente {
 	public Ambiente(String dirDelMapa) throws Exception{
 		mapa = new HashMap<>();
 		this.leerArchivoMapa(dirDelMapa);
+		if (!this.mapaEsCorrecto()) {
+			throw new MapaInvalido();
+		}
 	}	
 	
 		
@@ -128,6 +132,68 @@ public class Ambiente {
 			}
 		}
 		return altoMax;
+	}
+	
+	private boolean mapaEsCorrecto() {
+
+		int ancho = this.getAncho();
+		int alto = this.getAlto();
+
+		// Primer cuarto
+		Coordenada coordenadaInicial = new Coordenada(1,1);
+		Coordenada coordenadaFinal = new Coordenada(alto/2, ancho/2);
+		int cantidadDeBases1 = this.contarBases(coordenadaInicial, coordenadaFinal);
+
+		// Segundo cuarto
+		coordenadaInicial = new Coordenada(1, ancho/2 + 1);
+		coordenadaFinal = new Coordenada(alto/2, ancho);
+		int cantidadDeBases2 = this.contarBases(coordenadaInicial, coordenadaFinal);
+
+		// Tercer cuarto
+		coordenadaInicial = new Coordenada(alto/2 + 1, 1);
+		coordenadaFinal = new Coordenada(alto, ancho/2);
+		int cantidadDeBases3 = this.contarBases(coordenadaInicial, coordenadaFinal);
+		
+
+		// Cuarto cuarto
+		coordenadaInicial = new Coordenada(alto/2 + 1, ancho/2 + 1);
+		coordenadaFinal = new Coordenada(alto, ancho);
+		int cantidadDeBases4 = this.contarBases(coordenadaInicial, coordenadaFinal);
+		
+		System.out.println(cantidadDeBases1);
+		System.out.println(cantidadDeBases2);
+		System.out.println(cantidadDeBases3);
+		System.out.println(cantidadDeBases4);
+		return (cantidadDeBases1 > 0
+				&& cantidadDeBases1 == cantidadDeBases2
+				&& cantidadDeBases1 == cantidadDeBases3
+				&& cantidadDeBases1 == cantidadDeBases4);
+
+	}
+	
+	private int contarBases(Coordenada coordenadaInicial, Coordenada coordenadaFinal) {
+		int cantidadDeMinerales = 0;
+		int cantidadDeVolcanes = 0;
+		int cantidadDeBases = 0;
+		for (int i = coordenadaInicial.getFila(); i <= coordenadaFinal.getFila(); i++) {
+			for (int j = coordenadaInicial.getColumna(); j <= coordenadaFinal.getColumna(); j++) {
+				Coordenada coordActual = new Coordenada(i, j);
+				Parcela parcelaActual = this.getParcela(coordActual);
+				if (parcelaActual.getSuperficie().equals(
+						new DepositoDeMinerales())) {
+					cantidadDeMinerales += 1;
+				}
+				if (parcelaActual.getSuperficie().equals(new DepositoDeGas())) {
+					cantidadDeVolcanes += 1;
+				}
+				if (cantidadDeMinerales >= 8 && cantidadDeVolcanes == 1) {
+					cantidadDeBases += 1;
+					cantidadDeMinerales = 0;
+					cantidadDeVolcanes = 0;
+				}
+			}
+		}
+		return cantidadDeBases;
 	}
 
 	
