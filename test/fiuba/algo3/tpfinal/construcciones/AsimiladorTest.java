@@ -7,6 +7,7 @@ import org.junit.Test;
 
 import fiuba.algo3.tpfinal.construcciones.Asimilador;
 import fiuba.algo3.tpfinal.construcciones.Constructible;
+import fiuba.algo3.tpfinal.programa.Coordenada;
 
 public class AsimiladorTest {
 
@@ -14,7 +15,7 @@ public class AsimiladorTest {
 
 	@Before
 	public void arrange() {
-		this.asimilador = new Asimilador();
+		this.asimilador = new Asimilador(new Coordenada(1,90));
 	}
 
 	@Test
@@ -44,7 +45,7 @@ public class AsimiladorTest {
 	
 	@Test
 	public void dosAsimiladoresDeberianSerIguales() {
-		Constructible otroAsimilador = new Asimilador();
+		Constructible otroAsimilador = new Asimilador(new Coordenada(6, 26));
 		Assert.assertTrue(this.asimilador.equals(otroAsimilador));
 	}
 	

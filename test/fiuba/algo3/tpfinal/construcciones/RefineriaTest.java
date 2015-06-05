@@ -7,6 +7,7 @@ import org.junit.Test;
 
 import fiuba.algo3.tpfinal.construcciones.Constructible;
 import fiuba.algo3.tpfinal.construcciones.Refineria;
+import fiuba.algo3.tpfinal.programa.Coordenada;
 
 public class RefineriaTest {
 
@@ -14,7 +15,7 @@ public class RefineriaTest {
 
 	@Before
 	public void arrange(){
-		this.refineria = new Refineria();
+		this.refineria = new Refineria(new Coordenada(1, 90));
 	}
 
 	@Test
@@ -34,7 +35,7 @@ public class RefineriaTest {
 	
 	@Test
 	public void dosRefineriasDeberianSerIguales() {
-		Constructible otraRefineria = new Refineria();
+		Constructible otraRefineria = new Refineria(new Coordenada(1, 90));
 		Assert.assertTrue(this.refineria.equals(otraRefineria));
 	}
 }

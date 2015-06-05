@@ -7,6 +7,7 @@ import org.junit.Test;
 
 import fiuba.algo3.tpfinal.construcciones.Constructible;
 import fiuba.algo3.tpfinal.construcciones.NexoMineral;
+import fiuba.algo3.tpfinal.programa.Coordenada;
 import fiuba.algo3.tpfinal.programa.Danio;
 
 public class NexoMineralTest {
@@ -15,7 +16,7 @@ public class NexoMineralTest {
 
 	@Before
 	public void arrange() {
-		this.nexo = new NexoMineral();
+		this.nexo = new NexoMineral(new Coordenada(1, 100));
 	}
 
 	@Test
@@ -77,7 +78,7 @@ public class NexoMineralTest {
 	
 	@Test
 	public void dosNexosDeberianSerIguales() {
-		Constructible otroNexo = new NexoMineral();
+		Constructible otroNexo = new NexoMineral(new Coordenada(1,99));
 		Assert.assertTrue(this.nexo.equals(otroNexo));
 	}
 

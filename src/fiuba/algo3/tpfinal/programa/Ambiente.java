@@ -95,9 +95,7 @@ public class Ambiente {
 
 	
 	public void insertarUnidad(Coordenada coord, Atacable unidad) {
-		
 		(mapa.get(coord)).ocupar(unidad);
-		
 	}
 
 	public Parcela getParcela(Coordenada coord) {

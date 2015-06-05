@@ -28,10 +28,12 @@ import fiuba.algo3.tpfinal.excepciones.MineralInsuficiente;
 public class JugadorTest {
 
 	private Jugador jugador;
+	private Ambiente mapa;
 
 	@Before
-	public void arrange() {
+	public void arrange() throws Exception {
 		this.jugador = new Jugador("Damian");
+		this.mapa = new Ambiente("mapaTierra.txt");
 	}
 
 	@Test
@@ -101,42 +103,42 @@ public class JugadorTest {
 	
 	@Test
 	public void elJugadorRecolectaMineralesDeUnRecolectorYSuma10() {
-		Recolector recolector = new NexoMineral();
-		jugador.recolectar(recolector);
+		Recolector recolector = new NexoMineral(new Coordenada(1,100));
+		recolector.recolectarPara(jugador, mapa);
 		Assert.assertEquals(210, jugador.getPresupuesto().cantidadDeMineral());
 	}
 	
 	@Test
 	public void elJugadorRecolectaMineralesDeOtroRecolectorYSuma10() {
-		Recolector recolector = new CentroDeMineral();
-		jugador.recolectar(recolector);
+		Recolector recolector = new CentroDeMineral(new Coordenada(1,91));
+		recolector.recolectarPara(jugador, mapa);
 		Assert.assertEquals(210, jugador.getPresupuesto().cantidadDeMineral());
 	}
 
 	@Test
 	public void elJugadorRecolectaGasDeUnRecolectorYSuma10() {
-		Recolector recolector = new Refineria();
-		jugador.recolectar(recolector);
+		Recolector recolector = new Refineria(new Coordenada(1, 90));
+		recolector.recolectarPara(jugador, mapa);
 		Assert.assertEquals(10, jugador.getPresupuesto().cantidadDeGas());
 	}
 	
 	@Test
 	public void elJugadorRecolectaGasDeOtroRecolectorYSuma10() {
-		Recolector recolector = new Asimilador();
-		jugador.recolectar(recolector);
+		Recolector recolector = new Asimilador(new Coordenada(1, 90));
+		recolector.recolectarPara(jugador, mapa);
 		Assert.assertEquals(10, jugador.getPresupuesto().cantidadDeGas());
 	}
 	
 	@Test
 	public void elJugadorProtossConstruyeUnNexoMineral() throws ConstruccionRequeridaInexistente {
-		Constructible construccion = new NexoMineral();
+		Constructible construccion = new NexoMineral(new Coordenada(1,100));
 		jugador.construir(construccion);
 		Assert.assertTrue(jugador.getConstrucciones().contains(construccion));
 	}
 	
 	@Test
 	public void elJugadorProtossConstruyeUnNexoMineralLeQuedan50DeMinerales() throws ConstruccionRequeridaInexistente {
-		Constructible construccion = new NexoMineral();
+		Constructible construccion = new NexoMineral(new Coordenada(1,100));
 		jugador.construir(construccion);
 		Assert.assertEquals(150, jugador.getPresupuesto().cantidadDeMineral());
 	}
@@ -157,14 +159,14 @@ public class JugadorTest {
 	
 	@Test
 	public void elJugadorProtossConstruyeUnAsimilador() throws ConstruccionRequeridaInexistente {
-		Constructible construccion = new Asimilador();
+		Constructible construccion = new Asimilador(new Coordenada(1, 90));
 		jugador.construir(construccion);
 		Assert.assertTrue(jugador.getConstrucciones().contains(construccion));
 	}
 	
 	@Test
 	public void elJugadorProtossConstruyeUnAsimiladorLeQuedan100DeMinerales() throws ConstruccionRequeridaInexistente {
-		Constructible construccion = new Asimilador();
+		Constructible construccion = new Asimilador(new Coordenada(1, 90));
 		jugador.construir(construccion);
 		Assert.assertEquals(100, jugador.getPresupuesto().cantidadDeMineral());
 	}
@@ -199,10 +201,10 @@ public class JugadorTest {
 	
 	@Test(expected = GasInsuficiente.class)
 	public void siElJugadorProtossQuiereConstruirUnPuertoEstelarYNoLeAlcanzaElGasLanzaExcepcion() throws ConstruccionRequeridaInexistente {
-		Constructible nexo = new NexoMineral();
+		Constructible nexo = new NexoMineral(new Coordenada(1,100));
 		jugador.construir(nexo);
 		for (int i = 0; i < 20; i++) {
-			jugador.recolectar((Recolector) nexo);
+			((NexoMineral) nexo).recolectarPara(jugador, mapa);
 		}
 		Constructible acceso = new Acceso();
 		jugador.construir(acceso);
@@ -212,16 +214,16 @@ public class JugadorTest {
 	
 	@Test
 	public void elJugadorProtossConstruyeUnPuertoEstelar() throws ConstruccionRequeridaInexistente {
-		Constructible nexo = new NexoMineral();
-		Constructible asimilador = new Asimilador();
+		Constructible nexo = new NexoMineral(new Coordenada(1,100));
+		Constructible asimilador = new Asimilador(new Coordenada(1, 90));
 		Constructible acceso = new Acceso();
 		Constructible puerto = new PuertoEstelarProtoss();
 		
 		jugador.construir(nexo);
 		jugador.construir(asimilador);
 		for (int i = 0; i < 50; i++) {
-			jugador.recolectar((Recolector) nexo);
-			jugador.recolectar((Recolector) asimilador);
+			((NexoMineral) nexo).recolectarPara(jugador, mapa);
+			((Asimilador) asimilador).recolectarPara(jugador, mapa);
 		}
 		jugador.construir(acceso);
 		jugador.construir(puerto);
@@ -237,16 +239,16 @@ public class JugadorTest {
 	
 	@Test(expected = ConstruccionRequeridaInexistente.class)
 	public void elJugadorProtossQuiereConstruirUnArchivoTemplarioConUnAccesoLanzaExcepcion() throws ConstruccionRequeridaInexistente {
-		Constructible nexo = new NexoMineral();
-		Constructible asimilador = new Asimilador();
+		Constructible nexo = new NexoMineral(new Coordenada(1,100));
+		Constructible asimilador = new Asimilador(new Coordenada(1, 90));
 		Constructible acceso = new Acceso();
 		Constructible archivo = new ArchivosTemplarios();
 		
 		jugador.construir(nexo);
 		jugador.construir(asimilador);
 		for (int i = 0; i < 50; i++) {
-			jugador.recolectar((Recolector) nexo);
-			jugador.recolectar((Recolector) asimilador);
+			((NexoMineral) nexo).recolectarPara(jugador, mapa);
+			((Asimilador) asimilador).recolectarPara(jugador, mapa);
 		}
 		jugador.construir(acceso);
 		
@@ -255,8 +257,8 @@ public class JugadorTest {
 	
 	@Test
 	public void elJugadorProtossPuedeConstruirUnArchivoTemplarioConUnPuertoEstelar() throws ConstruccionRequeridaInexistente {
-		Constructible nexo = new NexoMineral();
-		Constructible asimilador = new Asimilador();
+		Constructible nexo = new NexoMineral(new Coordenada(1, 91));
+		Constructible asimilador = new Asimilador(new Coordenada(1, 90));
 		Constructible archivo = new ArchivosTemplarios();
 		Constructible acceso = new Acceso();
 		Constructible puerto = new PuertoEstelarProtoss();
@@ -264,8 +266,8 @@ public class JugadorTest {
 		jugador.construir(nexo);
 		jugador.construir(asimilador);
 		for (int i = 0; i < 50; i++) {
-			jugador.recolectar((Recolector) nexo);
-			jugador.recolectar((Recolector) asimilador);
+			((NexoMineral) nexo).recolectarPara(jugador, mapa);
+			((Asimilador) asimilador).recolectarPara(jugador, mapa);
 		}
 		jugador.construir(acceso);
 		jugador.construir(puerto);
@@ -276,7 +278,7 @@ public class JugadorTest {
 	
 	@Test
 	public void elJugadorTerranConstruyeUnCentroDeMineral() throws ConstruccionRequeridaInexistente {
-		Constructible construccion = new CentroDeMineral();
+		Constructible construccion = new CentroDeMineral(new Coordenada(1,91));
 		jugador.construir(construccion);
 		Assert.assertTrue(jugador.getConstrucciones().contains(construccion));
 	}
@@ -297,22 +299,22 @@ public class JugadorTest {
 	
 	@Test
 	public void elJugadorTerranConstruyeUnaRefineria() throws ConstruccionRequeridaInexistente {
-		Constructible construccion = new Refineria();
+		Constructible construccion = new Refineria(new Coordenada(1, 90));
 		jugador.construir(construccion);
 		Assert.assertTrue(jugador.getConstrucciones().contains(construccion));
 	}
 	
 	@Test(expected = ConstruccionRequeridaInexistente.class)
 	public void elJugadorTerranNoPuedeConstruirUnaFabricaSinUnaBarraca() throws ConstruccionRequeridaInexistente {
-		Constructible centro = new CentroDeMineral();
-		Constructible refineria = new Refineria();
+		Constructible centro = new CentroDeMineral(new Coordenada(1,91));
+		Constructible refineria = new Refineria(new Coordenada(1, 90));
 		Constructible fabrica = new Fabrica();
 		
 		jugador.construir(centro);
 		jugador.construir(refineria);
 		for (int i = 0; i < 50; i++) {
-			jugador.recolectar((Recolector) centro);
-			jugador.recolectar((Recolector) refineria);
+			((Recolector) centro).recolectarPara(jugador, mapa);
+			((Recolector) refineria).recolectarPara(jugador, mapa);
 		}
 		
 		jugador.construir(fabrica);
@@ -321,16 +323,16 @@ public class JugadorTest {
 	
 	@Test
 	public void elJugadorTerranPuedeConstruirUnaFabricaConUnaBarraca() throws ConstruccionRequeridaInexistente {
-		Constructible centro = new CentroDeMineral();
-		Constructible refineria = new Refineria();
+		Constructible centro = new CentroDeMineral(new Coordenada(1,91));
+		Constructible refineria = new Refineria(new Coordenada (1, 90));
 		Constructible barraca = new Barraca();
 		Constructible fabrica = new Fabrica();
 		
 		jugador.construir(centro);
 		jugador.construir(refineria);
 		for (int i = 0; i < 50; i++) {
-			jugador.recolectar((Recolector) centro);
-			jugador.recolectar((Recolector) refineria);
+			((Recolector) centro).recolectarPara(jugador, mapa);
+			((Recolector) refineria).recolectarPara(jugador, mapa);
 		}
 		jugador.construir(barraca);
 		jugador.construir(fabrica);
@@ -341,15 +343,15 @@ public class JugadorTest {
 	
 	@Test(expected = ConstruccionRequeridaInexistente.class)
 	public void elJugadorTerranNoPuedeConstruirUnPuertoEstelarSinUnaFabrica() throws ConstruccionRequeridaInexistente {
-		Constructible centro = new CentroDeMineral();
-		Constructible refineria = new Refineria();
+		Constructible centro = new CentroDeMineral(new Coordenada(1,91));
+		Constructible refineria = new Refineria(new Coordenada(1, 90));
 		Constructible puerto = new PuertoEstelarTerran();
 		
 		jugador.construir(centro);
 		jugador.construir(refineria);
 		for (int i = 0; i < 50; i++) {
-			jugador.recolectar((Recolector) centro);
-			jugador.recolectar((Recolector) refineria);
+			((Recolector) centro).recolectarPara(jugador, mapa);
+			((Recolector) refineria).recolectarPara(jugador, mapa);
 		}
 		
 		jugador.construir(puerto);
@@ -358,16 +360,16 @@ public class JugadorTest {
 	
 	@Test(expected = ConstruccionRequeridaInexistente.class)
 	public void elJugadorTerranNoPuedeConstruirUnPuertoEstelarConSoloUnaBarraca() throws ConstruccionRequeridaInexistente {
-		Constructible centro = new CentroDeMineral();
-		Constructible refineria = new Refineria();
+		Constructible centro = new CentroDeMineral(new Coordenada(1,91));
+		Constructible refineria = new Refineria(new Coordenada(1, 90));
 		Constructible barraca = new Barraca();
 		Constructible puerto = new PuertoEstelarTerran();
 		
 		jugador.construir(centro);
 		jugador.construir(refineria);
 		for (int i = 0; i < 50; i++) {
-			jugador.recolectar((Recolector) centro);
-			jugador.recolectar((Recolector) refineria);
+			((Recolector) centro).recolectarPara(jugador, mapa);
+			((Recolector) refineria).recolectarPara(jugador, mapa);
 		}
 		jugador.construir(barraca);
 		
@@ -377,8 +379,8 @@ public class JugadorTest {
 	
 	@Test
 	public void elJugadorTerranPuedeConstruirUnPuertoEstelarConUnaFabrica() throws ConstruccionRequeridaInexistente {
-		Constructible centro = new CentroDeMineral();
-		Constructible refineria = new Refineria();
+		Constructible centro = new CentroDeMineral(new Coordenada(1,91));
+		Constructible refineria = new Refineria(new Coordenada(1, 90));
 		Constructible barraca = new Barraca();
 		Constructible fabrica = new Fabrica();
 		Constructible puerto = new PuertoEstelarTerran();
@@ -386,8 +388,8 @@ public class JugadorTest {
 		jugador.construir(centro);
 		jugador.construir(refineria);
 		for (int i = 0; i < 50; i++) {
-			jugador.recolectar((Recolector) centro);
-			jugador.recolectar((Recolector) refineria);
+			((Recolector) centro).recolectarPara(jugador, mapa);
+			((Recolector) refineria).recolectarPara(jugador, mapa);
 		}
 		jugador.construir(barraca);
 		jugador.construir(fabrica);

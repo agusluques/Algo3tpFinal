@@ -2,27 +2,37 @@ package fiuba.algo3.tpfinal.construcciones;
 
 import java.util.ArrayList;
 
+import fiuba.algo3.tpfinal.programa.Ambiente;
+import fiuba.algo3.tpfinal.programa.Coordenada;
 import fiuba.algo3.tpfinal.programa.Costo;
+import fiuba.algo3.tpfinal.programa.DepositoDeGas;
 import fiuba.algo3.tpfinal.programa.Jugador;
+import fiuba.algo3.tpfinal.programa.Parcela;
+import fiuba.algo3.tpfinal.programa.Presupuesto;
 
 public class Refineria extends ConstruccionesTerran implements RecolectorDeGas {
 
-	public Refineria(){
+	public Refineria(Coordenada coord){
 		this.vida.inicializarVida(750);
 		this.tiempo = 6;
 		this.costo = new Costo(100);
 		this.setConstruccionesNecesarias();
+		this.posicion = coord;
 	}
 
 	@Override
-	public void recolectarPara(Jugador jugador) {
-		jugador.recolectar(this);
+	public void recolectarPara(Jugador jugador, Ambiente mapa) {
+		int gasRecolectado = recolectarGas(mapa);
+		Presupuesto presupuestoJugador = jugador.getPresupuesto();
+		presupuestoJugador.agregarGas(gasRecolectado);
 		
 	}
 
 	@Override
-	public int recolectarGas() {
-		return 10;
+	public int recolectarGas(Ambiente mapa) {
+		Parcela parcela = mapa.getParcela(posicion);
+		DepositoDeGas superficie = (DepositoDeGas) parcela.getSuperficie();
+		return superficie.extraerRecursos();
 	}
 	
 	private void setConstruccionesNecesarias() {

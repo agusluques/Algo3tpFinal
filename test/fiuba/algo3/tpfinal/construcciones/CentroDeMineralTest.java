@@ -7,15 +7,21 @@ import org.junit.Test;
 
 import fiuba.algo3.tpfinal.construcciones.CentroDeMineral;
 import fiuba.algo3.tpfinal.construcciones.Constructible;
+import fiuba.algo3.tpfinal.programa.Ambiente;
+import fiuba.algo3.tpfinal.programa.Coordenada;
 import fiuba.algo3.tpfinal.programa.Danio;
+import fiuba.algo3.tpfinal.programa.DepositoDeMinerales;
+import fiuba.algo3.tpfinal.programa.Parcela;
 
 public class CentroDeMineralTest {
 
 	private CentroDeMineral centroMineral;
+	private Ambiente ambiente;
 
 	@Before
-	public void arrange() {
-		this.centroMineral = new CentroDeMineral();
+	public void arrange() throws Exception {
+		this.ambiente = new Ambiente("mapaTierra.txt");
+		this.centroMineral = new CentroDeMineral(new Coordenada(1,91));
 	}
 
 	@Test
@@ -59,8 +65,27 @@ public class CentroDeMineralTest {
 	
 	@Test
 	public void dosCentroDeMineralDeberianSerIguales() {
-		Constructible otroCentro = new CentroDeMineral();
+		Constructible otroCentro = new CentroDeMineral(new Coordenada(6,26));
 		Assert.assertTrue(this.centroMineral.equals(otroCentro));
+	}
+	
+	@Test
+	public void unCentroDeMineralPuedeExtraerDeUnDepositoDeMinerales() {
+		Coordenada coord = new Coordenada(1, 91);
+		ambiente.insertarUnidad(coord, this.centroMineral);
+		Assert.assertEquals(10, this.centroMineral.recolectarMinerales(ambiente));
+	}
+	
+	@Test
+	public void siUnCentroDeMineralExtraeDeUnDepositoDeMineralesLeRestan990() {
+		Coordenada coord = new Coordenada(1, 91);
+		ambiente.insertarUnidad(coord, this.centroMineral);
+		Parcela parcela = ambiente.getParcela(coord);
+		DepositoDeMinerales deposito = (DepositoDeMinerales) parcela.getSuperficie();
+		
+		this.centroMineral.recolectarMinerales(ambiente);
+		
+		Assert.assertEquals(990, deposito.getRecursos());
 	}
 
 }
