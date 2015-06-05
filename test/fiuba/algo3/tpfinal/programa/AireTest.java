@@ -19,7 +19,10 @@ public class AireTest {
 		Aire aire = new Aire();
 		Aire otroAire = new Aire();
 		
-		Assert.assertEquals(aire.hashCode(), otroAire.hashCode());
+		int hash1 = aire.hashCode();
+		int hash2 = otroAire.hashCode();
+		
+		Assert.assertEquals(hash1, hash2);
 	}
 
 }

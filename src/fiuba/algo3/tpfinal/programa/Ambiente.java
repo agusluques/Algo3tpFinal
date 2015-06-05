@@ -11,8 +11,6 @@ import java.util.Set;
 import fiuba.algo3.tpfinal.construcciones.Atacable;
 import fiuba.algo3.tpfinal.excepciones.MapaInvalido;
 
- 
-
 public class Ambiente {
 	
 	
@@ -160,10 +158,10 @@ public class Ambiente {
 		coordenadaFinal = new Coordenada(alto, ancho);
 		int cantidadDeBases4 = this.contarBases(coordenadaInicial, coordenadaFinal);
 		
-		System.out.println(cantidadDeBases1);
-		System.out.println(cantidadDeBases2);
-		System.out.println(cantidadDeBases3);
-		System.out.println(cantidadDeBases4);
+		System.out.println("1:" + cantidadDeBases1);
+		System.out.println("2:" + cantidadDeBases2);
+		System.out.println("3:" + cantidadDeBases3);
+		System.out.println("4:" + cantidadDeBases4);
 		return (cantidadDeBases1 > 0
 				&& cantidadDeBases1 == cantidadDeBases2
 				&& cantidadDeBases1 == cantidadDeBases3

@@ -4,7 +4,6 @@ import junit.framework.Assert;
 
 import org.junit.Test;
 
-import fiuba.algo3.tpfinal.excepciones.RecursosAgotados;
 
 public class DepositoDeMineralesTest {
 
@@ -16,14 +15,38 @@ public class DepositoDeMineralesTest {
 		
 	}
 	
-	@Test(expected=RecursosAgotados.class)
-	public void siIntentoExtraerMineralesDeUnDepositoAgotadoRetornaUnaExcepcion() throws RecursosAgotados{
+	@Test
+	public void siExtraigoMineralesDeUnDepositoMeDevuelve10() {
+		DepositoDeMinerales deposito = new DepositoDeMinerales();
+		int cantidadExtraida = 0;
+		cantidadExtraida += deposito.extraerRecursos();
 		
-		DepositoDeMinerales deposito = new DepositoDeMinerales(10);
-		deposito.extraerRecursos(10);
-		deposito.extraerRecursos(10);
+		Assert.assertEquals(10, cantidadExtraida);
+				
+	}
+	
+	@Test
+	public void siExtraigoGasDeUnDeposito100VecesMeDevuelve1000() {
+		DepositoDeMinerales deposito = new DepositoDeMinerales();
+		int cantidadExtraida = 0;
+		for (int i = 0; i < 100; i++) {
+			cantidadExtraida += deposito.extraerRecursos();
+		}
 		
+		Assert.assertEquals(1000, cantidadExtraida);
+				
+	}
+	
+	@Test
+	public void siExtraigoMineralesDeUnDepositoMasDe100VecesMeDevuelve1000() {
+		DepositoDeMinerales deposito = new DepositoDeMinerales();
+		int cantidadExtraida = 0;
+		for (int i = 0; i < 101; i++) {
+			cantidadExtraida += deposito.extraerRecursos();
+		}
 		
+		Assert.assertEquals(1000, cantidadExtraida);
+				
 	}
 	
 	@Test
