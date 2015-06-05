@@ -10,11 +10,11 @@ import fiuba.algo3.tpfinal.excepciones.MineralInsuficiente;
 
 public class Arquitecto {
 	
-	public void construir(Jugador jugador, Constructible construccion) throws ConstruccionRequeridaInexistente {
+	public void construir(Collection<Constructible> construcciones, Constructible construccion, Presupuesto presupuesto) throws ConstruccionRequeridaInexistente {
 		try {
-			this.verificarNecesidades(jugador, construccion);
-			this.cobrarConstruccion(jugador, construccion);
-			jugador.agregarConstruccion(construccion);
+			this.verificarNecesidades(construcciones, construccion);
+			this.cobrarConstruccion(presupuesto, construccion);
+			construcciones.add(construccion);
 		} catch (MineralInsuficiente e) {
 			throw e;
 		} catch (GasInsuficiente e) {
@@ -25,24 +25,23 @@ public class Arquitecto {
 		
 	}
 
-	private void verificarNecesidades(Jugador jugador,
-			Constructible construccion) throws ConstruccionRequeridaInexistente {
+	private void verificarNecesidades(Collection<Constructible> construcciones, Constructible construccion) throws ConstruccionRequeridaInexistente {
 		Collection<Constructible> unidadesNecesarias = construccion.construccionesNecesarias();
 		Iterator<Constructible> iterador = unidadesNecesarias.iterator();
 		while (iterador.hasNext()) {
-			if (!jugador.posee(iterador.next())) {
+			if (!construcciones.contains(iterador.next())) {
 				throw new ConstruccionRequeridaInexistente();
 			}
 		}
 		
 	}
 
-	private void cobrarConstruccion(Jugador jugador, Constructible construccion) {
+	private void cobrarConstruccion(Presupuesto presupuesto, Constructible construccion) {
 		try {
 			int costoConstruccionMineral = construccion.getCostoMineral();
 			int costoConstruccionGas = construccion.getCostoGas();
-			jugador.gastarMineral(costoConstruccionMineral);
-			jugador.gastarGas(costoConstruccionGas);
+			presupuesto.removerMineral(costoConstruccionMineral);
+			presupuesto.removerGas(costoConstruccionGas);
 		} catch (MineralInsuficiente e) {
 			throw e;
 		} catch (GasInsuficiente e) {

@@ -41,45 +41,45 @@ public class JugadorTest {
 
 	@Test
 	public void elJugadorComienzaConCeroGas() {
-		Assert.assertEquals(0, jugador.getCantidadDeGas());
+		Assert.assertEquals(0, jugador.getPresupuesto().cantidadDeGas());
 	}
 
 	@Test
 	public void elJugadorComienzaCon200Mineral() {
-		Assert.assertEquals(200, jugador.getCantidadDeMineral());
+		Assert.assertEquals(200, jugador.getPresupuesto().cantidadDeMineral());
 	}
 
 	@Test
 	public void siElJugadorSuma20DeMineralTiene220() {
-		jugador.agregarMineral(20);
-		Assert.assertEquals(220, jugador.getCantidadDeMineral());
+		jugador.getPresupuesto().agregarMineral(20);
+		Assert.assertEquals(220, jugador.getPresupuesto().cantidadDeMineral());
 	}
 
 	@Test
 	public void siElJugadorSuma20DeGasTiene20() {
-		jugador.agregarGas(20);
-		Assert.assertEquals(20, jugador.getCantidadDeGas());
+		jugador.getPresupuesto().agregarGas(20);
+		Assert.assertEquals(20, jugador.getPresupuesto().cantidadDeGas());
 	}
 
 	@Test
 	public void siElJugadorSuma20DeMineralYGasta10Tiene210() {
-		jugador.agregarMineral(20);
-		jugador.gastarMineral(10);
-		Assert.assertEquals(210, jugador.getCantidadDeMineral());
+		jugador.getPresupuesto().agregarMineral(20);
+		jugador.getPresupuesto().removerMineral(10);
+		Assert.assertEquals(210, jugador.getPresupuesto().cantidadDeMineral());
 	}
 
 	@Test
 	public void siElJugadorSuma20DeGasYGasta10Tiene10() {
-		jugador.agregarGas(20);
-		jugador.gastarGas(10);
-		Assert.assertEquals(10, jugador.getCantidadDeGas());
+		jugador.getPresupuesto().agregarGas(20);
+		jugador.getPresupuesto().removerGas(10);
+		Assert.assertEquals(10, jugador.getPresupuesto().cantidadDeGas());
 	}
 
 	@Test
 	public void siElJugadorGastaMasGasDelQueTieneSeLanzaExcepcion() {
-		jugador.agregarGas(10);
+		jugador.getPresupuesto().agregarGas(20);
 		try {
-			jugador.gastarGas(30);
+			jugador.getPresupuesto().removerGas(30);
 			Assert.assertTrue(false);
 		} catch (GasInsuficiente e) {
 			Assert.assertTrue(true);
@@ -89,9 +89,9 @@ public class JugadorTest {
 
 	@Test
 	public void siElJugadorGastaMasMineralDelQueTieneSeLanzaExcepcion() {
-		jugador.agregarMineral(10);
+		jugador.getPresupuesto().agregarMineral(20);
 		try {
-			jugador.gastarMineral(300);
+			jugador.getPresupuesto().removerMineral(300);
 			Assert.assertTrue(false);
 		} catch (MineralInsuficiente e) {
 			Assert.assertTrue(true);
@@ -103,84 +103,84 @@ public class JugadorTest {
 	public void elJugadorRecolectaMineralesDeUnRecolectorYSuma10() {
 		Recolector recolector = new NexoMineral();
 		jugador.recolectar(recolector);
-		Assert.assertEquals(210, jugador.getCantidadDeMineral());
+		Assert.assertEquals(210, jugador.getPresupuesto().cantidadDeMineral());
 	}
 	
 	@Test
 	public void elJugadorRecolectaMineralesDeOtroRecolectorYSuma10() {
 		Recolector recolector = new CentroDeMineral();
 		jugador.recolectar(recolector);
-		Assert.assertEquals(210, jugador.getCantidadDeMineral());
+		Assert.assertEquals(210, jugador.getPresupuesto().cantidadDeMineral());
 	}
 
 	@Test
 	public void elJugadorRecolectaGasDeUnRecolectorYSuma10() {
 		Recolector recolector = new Refineria();
 		jugador.recolectar(recolector);
-		Assert.assertEquals(10, jugador.getCantidadDeGas());
+		Assert.assertEquals(10, jugador.getPresupuesto().cantidadDeGas());
 	}
 	
 	@Test
 	public void elJugadorRecolectaGasDeOtroRecolectorYSuma10() {
 		Recolector recolector = new Asimilador();
 		jugador.recolectar(recolector);
-		Assert.assertEquals(10, jugador.getCantidadDeGas());
+		Assert.assertEquals(10, jugador.getPresupuesto().cantidadDeGas());
 	}
 	
 	@Test
 	public void elJugadorProtossConstruyeUnNexoMineral() throws ConstruccionRequeridaInexistente {
 		Constructible construccion = new NexoMineral();
 		jugador.construir(construccion);
-		Assert.assertTrue(jugador.posee(construccion));
+		Assert.assertTrue(jugador.getConstrucciones().contains(construccion));
 	}
 	
 	@Test
 	public void elJugadorProtossConstruyeUnNexoMineralLeQuedan50DeMinerales() throws ConstruccionRequeridaInexistente {
 		Constructible construccion = new NexoMineral();
 		jugador.construir(construccion);
-		Assert.assertEquals(150, jugador.getCantidadDeMineral());
+		Assert.assertEquals(150, jugador.getPresupuesto().cantidadDeMineral());
 	}
 	
 	@Test
 	public void elJugadorProtossConstruyeUnPilon() throws ConstruccionRequeridaInexistente {
 		Constructible construccion = new Pilon();
 		jugador.construir(construccion);
-		Assert.assertTrue(jugador.posee(construccion));
+		Assert.assertTrue(jugador.getConstrucciones().contains(construccion));
 	}
 	
 	@Test
 	public void elJugadorProtossConstruyeUnPilonLeQuedan100DeMinerales() throws ConstruccionRequeridaInexistente {
 		Constructible construccion = new Pilon();
 		jugador.construir(construccion);
-		Assert.assertEquals(100, jugador.getCantidadDeMineral());
+		Assert.assertEquals(100, jugador.getPresupuesto().cantidadDeMineral());
 	}
 	
 	@Test
 	public void elJugadorProtossConstruyeUnAsimilador() throws ConstruccionRequeridaInexistente {
 		Constructible construccion = new Asimilador();
 		jugador.construir(construccion);
-		Assert.assertTrue(jugador.posee(construccion));
+		Assert.assertTrue(jugador.getConstrucciones().contains(construccion));
 	}
 	
 	@Test
 	public void elJugadorProtossConstruyeUnAsimiladorLeQuedan100DeMinerales() throws ConstruccionRequeridaInexistente {
 		Constructible construccion = new Asimilador();
 		jugador.construir(construccion);
-		Assert.assertEquals(100, jugador.getCantidadDeMineral());
+		Assert.assertEquals(100, jugador.getPresupuesto().cantidadDeMineral());
 	}
 	
 	@Test
 	public void elJugadorProtossConstruyeUnAcceso() throws ConstruccionRequeridaInexistente {
 		Constructible construccion = new Acceso();
 		jugador.construir(construccion);
-		Assert.assertTrue(jugador.posee(construccion));
+		Assert.assertTrue(jugador.getConstrucciones().contains(construccion));
 	}
 	
 	@Test
 	public void elJugadorProtossConstruyeUnAccesoLeQuedan50DeMinerales() throws ConstruccionRequeridaInexistente {
 		Constructible construccion = new Acceso();
 		jugador.construir(construccion);
-		Assert.assertEquals(50, jugador.getCantidadDeMineral());
+		Assert.assertEquals(50, jugador.getPresupuesto().cantidadDeMineral());
 	}
 
 	@Test(expected = ConstruccionRequeridaInexistente.class)
@@ -226,7 +226,7 @@ public class JugadorTest {
 		jugador.construir(acceso);
 		jugador.construir(puerto);
 		
-		Assert.assertTrue(jugador.posee(puerto));
+		Assert.assertTrue(jugador.getConstrucciones().contains(puerto));
 	}
 	
 	@Test(expected = ConstruccionRequeridaInexistente.class)
@@ -271,35 +271,35 @@ public class JugadorTest {
 		jugador.construir(puerto);
 		jugador.construir(archivo);
 		
-		Assert.assertTrue(jugador.posee(archivo));
+		Assert.assertTrue(jugador.getConstrucciones().contains(archivo));
 	}
 	
 	@Test
 	public void elJugadorTerranConstruyeUnCentroDeMineral() throws ConstruccionRequeridaInexistente {
 		Constructible construccion = new CentroDeMineral();
 		jugador.construir(construccion);
-		Assert.assertTrue(jugador.posee(construccion));
+		Assert.assertTrue(jugador.getConstrucciones().contains(construccion));
 	}
 	
 	@Test
 	public void elJugadorTerranConstruyeUnaBarraca() throws ConstruccionRequeridaInexistente {
 		Constructible construccion = new Barraca();
 		jugador.construir(construccion);
-		Assert.assertTrue(jugador.posee(construccion));
+		Assert.assertTrue(jugador.getConstrucciones().contains(construccion));
 	}
 	
 	@Test
 	public void elJugadorTerranConstruyeUnDepositoSuministro() throws ConstruccionRequeridaInexistente {
 		Constructible construccion = new DepositoSuministro();
 		jugador.construir(construccion);
-		Assert.assertTrue(jugador.posee(construccion));
+		Assert.assertTrue(jugador.getConstrucciones().contains(construccion));
 	}
 	
 	@Test
 	public void elJugadorTerranConstruyeUnaRefineria() throws ConstruccionRequeridaInexistente {
 		Constructible construccion = new Refineria();
 		jugador.construir(construccion);
-		Assert.assertTrue(jugador.posee(construccion));
+		Assert.assertTrue(jugador.getConstrucciones().contains(construccion));
 	}
 	
 	@Test(expected = ConstruccionRequeridaInexistente.class)
@@ -335,7 +335,7 @@ public class JugadorTest {
 		jugador.construir(barraca);
 		jugador.construir(fabrica);
 		
-		Assert.assertTrue(jugador.posee(fabrica));
+		Assert.assertTrue(jugador.getConstrucciones().contains(fabrica));
 		
 	}
 	
@@ -393,7 +393,7 @@ public class JugadorTest {
 		jugador.construir(fabrica);
 		jugador.construir(puerto);
 		
-		Assert.assertTrue(jugador.posee(puerto));
+		Assert.assertTrue(jugador.getConstrucciones().contains(puerto));
 		
 	}
 }
