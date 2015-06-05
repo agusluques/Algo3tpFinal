@@ -28,12 +28,12 @@ import fiuba.algo3.tpfinal.excepciones.MineralInsuficiente;
 public class JugadorTest {
 
 	private Jugador jugador;
-	private Ambiente mapa;
+	private Mapa mapa;
 
 	@Before
 	public void arrange() throws Exception {
 		this.jugador = new Jugador("Damian");
-		this.mapa = new Ambiente("mapaTierra.txt");
+		this.mapa = new Mapa("mapaTierra.txt");
 	}
 
 	@Test

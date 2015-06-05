@@ -11,13 +11,13 @@ import java.util.Set;
 import fiuba.algo3.tpfinal.construcciones.Atacable;
 import fiuba.algo3.tpfinal.excepciones.MapaInvalido;
 
-public class Ambiente {
+public class Mapa {
 	
 	
 	private HashMap<Coordenada, Parcela> mapa;
 	
 
-	public Ambiente(String dirDelMapa) throws Exception{
+	public Mapa(String dirDelMapa) throws Exception{
 		mapa = new HashMap<>();
 		this.leerArchivoMapa(dirDelMapa);
 		if (!this.mapaEsCorrecto()) {

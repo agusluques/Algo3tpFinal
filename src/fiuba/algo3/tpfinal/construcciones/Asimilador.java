@@ -2,7 +2,7 @@ package fiuba.algo3.tpfinal.construcciones;
 
 import java.util.ArrayList;
 
-import fiuba.algo3.tpfinal.programa.Ambiente;
+import fiuba.algo3.tpfinal.programa.Mapa;
 import fiuba.algo3.tpfinal.programa.Coordenada;
 import fiuba.algo3.tpfinal.programa.Costo;
 import fiuba.algo3.tpfinal.programa.DepositoDeGas;
@@ -22,7 +22,7 @@ public class Asimilador extends ConstruccionesProtoss implements RecolectorDeGas
 	}
 	
 	@Override
-	public void recolectarPara(Jugador jugador, Ambiente mapa) {
+	public void recolectarPara(Jugador jugador, Mapa mapa) {
 		int gasRecolectado = recolectarGas(mapa);
 		Presupuesto presupuestoJugador = jugador.getPresupuesto();
 		presupuestoJugador.agregarGas(gasRecolectado);
@@ -30,7 +30,7 @@ public class Asimilador extends ConstruccionesProtoss implements RecolectorDeGas
 	}
 
 	@Override
-	public int recolectarGas(Ambiente mapa) {
+	public int recolectarGas(Mapa mapa) {
 		Parcela parcela = mapa.getParcela(posicion);
 		DepositoDeGas superficie = (DepositoDeGas) parcela.getSuperficie();
 		return superficie.extraerRecursos();

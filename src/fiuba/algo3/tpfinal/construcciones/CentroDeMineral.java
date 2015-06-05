@@ -2,7 +2,7 @@ package fiuba.algo3.tpfinal.construcciones;
 
 import java.util.ArrayList;
 
-import fiuba.algo3.tpfinal.programa.Ambiente;
+import fiuba.algo3.tpfinal.programa.Mapa;
 import fiuba.algo3.tpfinal.programa.Coordenada;
 import fiuba.algo3.tpfinal.programa.Costo;
 import fiuba.algo3.tpfinal.programa.DepositoDeMinerales;
@@ -21,14 +21,14 @@ public class CentroDeMineral extends ConstruccionesTerran implements RecolectorD
 	}
 	
 	@Override
-	public void recolectarPara(Jugador jugador, Ambiente mapa) {
+	public void recolectarPara(Jugador jugador, Mapa mapa) {
 		int mineralesRecolectados = recolectarMinerales(mapa);
 		Presupuesto presupuestoJugador = jugador.getPresupuesto();
 		presupuestoJugador.agregarMineral(mineralesRecolectados);
 	}
 
 	@Override
-	public int recolectarMinerales(Ambiente mapa) {
+	public int recolectarMinerales(Mapa mapa) {
 		Parcela parcela = mapa.getParcela(posicion);
 		DepositoDeMinerales superficie = (DepositoDeMinerales) parcela.getSuperficie();
 		return superficie.extraerRecursos();

@@ -7,7 +7,7 @@ import org.junit.Test;
 
 import fiuba.algo3.tpfinal.construcciones.CentroDeMineral;
 import fiuba.algo3.tpfinal.construcciones.Constructible;
-import fiuba.algo3.tpfinal.programa.Ambiente;
+import fiuba.algo3.tpfinal.programa.Mapa;
 import fiuba.algo3.tpfinal.programa.Coordenada;
 import fiuba.algo3.tpfinal.programa.Danio;
 import fiuba.algo3.tpfinal.programa.DepositoDeMinerales;
@@ -16,11 +16,11 @@ import fiuba.algo3.tpfinal.programa.Parcela;
 public class CentroDeMineralTest {
 
 	private CentroDeMineral centroMineral;
-	private Ambiente ambiente;
+	private Mapa ambiente;
 
 	@Before
 	public void arrange() throws Exception {
-		this.ambiente = new Ambiente("mapaTierra.txt");
+		this.ambiente = new Mapa("mapaTierra.txt");
 		this.centroMineral = new CentroDeMineral(new Coordenada(1,91));
 	}
 
