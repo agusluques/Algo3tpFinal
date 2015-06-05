@@ -5,6 +5,8 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Set;
 
 import fiuba.algo3.tpfinal.construcciones.Atacable;
 
@@ -96,9 +98,36 @@ public class Ambiente {
 		
 	}
 
-	public Parcela gerParcela(Coordenada coord) {
+	public Parcela getParcela(Coordenada coord) {
 		
 		return mapa.get(coord);
+	}
+
+
+	public int getAncho() {
+		Set<Coordenada> coordenadas = mapa.keySet();
+		Iterator<Coordenada> iterador = coordenadas.iterator();
+		int anchoMax = 0;
+		while (iterador.hasNext()) {
+			Coordenada coordenadaActual = iterador.next();
+			if (anchoMax < coordenadaActual.getColumna()) {
+				anchoMax = coordenadaActual.getColumna();
+			}
+		}
+		return anchoMax;
+	}
+	
+	public int getAlto() {
+		Set<Coordenada> coordenadas = mapa.keySet();
+		Iterator<Coordenada> iterador = coordenadas.iterator();
+		int altoMax = 0;
+		while (iterador.hasNext()) {
+			Coordenada coordenadaActual = iterador.next();
+			if (altoMax < coordenadaActual.getFila()) {
+				altoMax = coordenadaActual.getFila();
+			}
+		}
+		return altoMax;
 	}
 
 	

@@ -8,7 +8,6 @@ public class Parcela {
 
 	private Superficie superficie;
 	private Atacable ocupante;
-	private boolean ocupada = false;
 	
 	public Parcela(Superficie superficie){
 		this.superficie = superficie;
@@ -20,19 +19,18 @@ public class Parcela {
 	
 	public void ocupar(Atacable ocupante) throws ParcelaOcupada{
 		
-		if (ocupada){
+		if (!this.estaVacia()){
 			ParcelaOcupada e = new ParcelaOcupada();
 			throw e;
 		}else{
 			this.ocupante = ocupante;
-			ocupada = true;
 		}
 	}
 	
 	
 	public Atacable getOcupante() throws ParcelaVacia{
 		
-		if(!ocupada){
+		if(this.estaVacia()){
 			ParcelaVacia e = new ParcelaVacia();
 			throw e;
 		}else{
@@ -42,8 +40,7 @@ public class Parcela {
 	}
 	
 	public boolean estaVacia(){
-		
-		return !this.ocupada;
+		return this.ocupante == null;
 	}
 
 	
