@@ -7,5 +7,8 @@ public class Dragon extends UnidadesProtoss {
 		this.vida.inicializarVida(100);
 		this.escudo.inicializarEscudo(80);
 		this.miDanio = new Danio(20,20);
+		this.tiempoDeConstruccion = 6;
+		this.suministro = 2;
+		
 	}
 }

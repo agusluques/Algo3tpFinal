@@ -9,6 +9,8 @@ public class Espectro extends UnidadesTerran {
 		this.vida.inicializarVida(120);
 		this.miDanio = new Danio (20,8);
 		this.rango = new Rango(5,0);
+		this.tiempoDeConstruccion = 8;
+		this.suministro = 2;
 		
 		//ACA HAY QUE PEDIR EN EL CONSTRUCTOR QUE SE INDIQUE LA COORDENADA DE ARRANQUE
 		this.posicion = new Coordenada(0,0);

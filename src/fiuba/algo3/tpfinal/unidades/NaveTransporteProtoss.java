@@ -8,6 +8,9 @@ public class NaveTransporteProtoss extends UnidadesProtoss {
 		this.vida.inicializarVida(80);
 		this.escudo.inicializarEscudo(60);
 		this.miDanio = new Danio(0,0);
+		this.tiempoDeConstruccion = 8;
+		this.suministro = 2;
+		
 	}
 	
 	public void atacado(Danio danio){

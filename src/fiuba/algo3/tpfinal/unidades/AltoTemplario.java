@@ -7,6 +7,9 @@ public class AltoTemplario extends UnidadesProtoss {
 		this.vida.inicializarVida(40);
 		this.escudo.inicializarEscudo(40);
 		this.miDanio = new Danio(0,0);
+		this.tiempoDeConstruccion = 7;
+		this.suministro = 2;
+		
 	}
 	
 	

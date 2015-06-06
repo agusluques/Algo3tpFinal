@@ -9,6 +9,9 @@ public class Golliat extends UnidadesTerran {
 		this.vida.inicializarVida(125);
 		this.miDanio = new Danio(10,12);
 		this.rango = new Rango(5,6);
+		this.tiempoDeConstruccion = 6;
+		this.suministro = 2;
+		
 		
 		//ACA HAY QUE PEDIR EN EL CONSTRUCTOR QUE SE INDIQUE LA COORDENADA DE ARRANQUE
 		this.posicion = new Coordenada(0,0);

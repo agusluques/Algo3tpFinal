@@ -8,6 +8,9 @@ public class Zealot extends UnidadesProtoss{
 		vida.inicializarVida(60);
 		escudo.inicializarEscudo(60);
 		miDanio = new Danio(0,8);
+		this.tiempoDeConstruccion = 4;
+		this.suministro = 2;
+		
 	}
 
 
