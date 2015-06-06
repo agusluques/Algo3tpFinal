@@ -26,6 +26,7 @@ public abstract class ConstruccionesTerran extends Terran implements Constructib
 		return tiempo;
 	}
 	
+	@Override
 	public void setJugador(Jugador jugador){
 		this.jugador = jugador;
 	}

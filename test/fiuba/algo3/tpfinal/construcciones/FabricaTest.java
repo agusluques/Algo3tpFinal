@@ -51,7 +51,6 @@ public class FabricaTest {
 		Mapa mapa = new Mapa("mapaTierra.txt");
 		Jugador jugador = new Jugador("Damian", mapa);
 		
-		this.fabrica.setJugador(jugador);
 		jugador.getPresupuesto().agregarMineral(1000);
 		jugador.getPresupuesto().agregarGas(1000);
 		jugador.construir(new Barraca(), new Coordenada(4,4));
@@ -68,7 +67,6 @@ public class FabricaTest {
 		Mapa mapa = new Mapa("mapaTierra.txt");
 		Jugador jugador = new Jugador("Damian", mapa);
 		
-		this.fabrica.setJugador(jugador);
 		jugador.getPresupuesto().agregarMineral(1000);
 		jugador.getPresupuesto().agregarGas(1000);
 		jugador.construir(new Barraca(), new Coordenada(4,4));
@@ -85,7 +83,6 @@ public class FabricaTest {
 		Mapa mapa = new Mapa("mapaTierra.txt");
 		Jugador jugador = new Jugador("Damian", mapa);
 		
-		this.fabrica.setJugador(jugador);
 		jugador.getPresupuesto().agregarMineral(1000);
 		jugador.getPresupuesto().agregarGas(1000);
 		jugador.construir(new Barraca(), new Coordenada(4,4));

@@ -16,14 +16,17 @@ public class Arquitecto {
 	private Mapa mapa;
 	private Presupuesto presupuesto;
 	private Collection<Constructible> construcciones;
+	private Jugador jugador;
 	
-	public Arquitecto(Presupuesto presupuesto,Collection<Constructible> construcciones, Mapa mapa ){
+	public Arquitecto(Presupuesto presupuesto,Collection<Constructible> construcciones, Mapa mapa, Jugador jugador ){
 		this.mapa = mapa;
 		this.presupuesto = presupuesto;
 		this.construcciones = construcciones; 
+		this.jugador = jugador;
 	}
 	
 	public void construir(Constructible construccion, Coordenada posicion) throws ConstruccionRequeridaInexistente {
+		construccion.setJugador(this.jugador);
 		try {
 			this.verificarTerreno(construccion, posicion);
 			this.verificarConstruccionesNecesarias(construccion);

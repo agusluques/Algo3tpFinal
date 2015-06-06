@@ -30,7 +30,7 @@ public class Jugador {
 		this.presupuesto = new Presupuesto(200,0);
 		this.construcciones = new ArrayList<Constructible>();
 		this.mapa = mapa;
-		this.arquitecto = new Arquitecto(presupuesto, construcciones, mapa);
+		this.arquitecto = new Arquitecto(presupuesto, construcciones, mapa,this);
 		this.unidades = new ArrayList<Atacable>();
 		
 	}
