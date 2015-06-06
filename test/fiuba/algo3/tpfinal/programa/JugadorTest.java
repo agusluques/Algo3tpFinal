@@ -44,9 +44,7 @@ public class JugadorTest {
 		this.coordTierra3 = new Coordenada(4,4);
 		this.mapa = new Mapa("mapaTierra.txt");
 		this.jugador = new Jugador("Damian", this.mapa);
-=======
-		
->>>>>>> .r69
+
 	}
 
 	@Test
