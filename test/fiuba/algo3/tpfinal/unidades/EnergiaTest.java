@@ -16,7 +16,7 @@ public class EnergiaTest {
 	}
 	
 	@Test
-	public void siInicioCon50YGasto10Tengo40() {
+	public void siInicioCon50YGasto10Tengo40() throws EnergiaInsuficiente {
 		Energia energia = new Energia(50);
 		
 		energia.gastarEnergia(10);
@@ -25,7 +25,7 @@ public class EnergiaTest {
 	}
 	
 	@Test(expected = EnergiaInsuficiente.class)
-	public void siQuieroGastarMasEnergiaDeLaQueTengoLanzaExcepcion() {
+	public void siQuieroGastarMasEnergiaDeLaQueTengoLanzaExcepcion() throws EnergiaInsuficiente   {
 		Energia energia = new Energia(50);
 		
 		energia.gastarEnergia(60);

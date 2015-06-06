@@ -14,7 +14,7 @@ public class Energia {
 		return cantidadDeEnergia;
 	}
 	
-	public void gastarEnergia(int cantidad) {
+	public void gastarEnergia(int cantidad) throws EnergiaInsuficiente {
 		if (cantidad > cantidadDeEnergia) {
 			throw new EnergiaInsuficiente();
 		}
