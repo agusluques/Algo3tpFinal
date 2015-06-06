@@ -35,4 +35,11 @@ public class Coordenada {
 		this.fila = fila;
 		this.columna = columna;
 	}
+
+	public double distancia(Coordenada coordenadaAtacante) {
+		int distanciaFila = this.fila - coordenadaAtacante.getFila();
+		int distanciaColumna = this.columna - coordenadaAtacante.getColumna();
+		return Math.sqrt(Math.pow(distanciaFila, 2) + Math.pow(distanciaColumna, 2));
+		
+	}
 }

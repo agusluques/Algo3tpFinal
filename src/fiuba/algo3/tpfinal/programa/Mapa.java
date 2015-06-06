@@ -156,10 +156,7 @@ public class Mapa {
 		coordenadaFinal = new Coordenada(alto, ancho);
 		int cantidadDeBases4 = this.contarBases(coordenadaInicial, coordenadaFinal);
 		
-		System.out.println("1:" + cantidadDeBases1);
-		System.out.println("2:" + cantidadDeBases2);
-		System.out.println("3:" + cantidadDeBases3);
-		System.out.println("4:" + cantidadDeBases4);
+		
 		return (cantidadDeBases1 > 0
 				&& cantidadDeBases1 == cantidadDeBases2
 				&& cantidadDeBases1 == cantidadDeBases3
