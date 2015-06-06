@@ -3,6 +3,7 @@ package fiuba.algo3.tpfinal.programa;
 import java.util.Collection;
 import java.util.Iterator;
 
+import fiuba.algo3.tpfinal.construcciones.Atacable;
 import fiuba.algo3.tpfinal.construcciones.Constructible;
 import fiuba.algo3.tpfinal.excepciones.ConstruccionRequeridaInexistente;
 import fiuba.algo3.tpfinal.excepciones.GasInsuficiente;
@@ -28,6 +29,7 @@ public class Arquitecto {
 			this.verificarConstruccionesNecesarias(construccion);
 			this.cobrarConstruccion(construccion);
 			this.construcciones.add(construccion);
+			this.mapa.getParcela(posicion).ocupar((Atacable)construccion);
 		} catch (MineralInsuficiente e) {
 			throw e;
 		} catch (GasInsuficiente e) {

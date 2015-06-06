@@ -18,6 +18,7 @@ public class Jugador {
 	private Arquitecto arquitecto;
 	@SuppressWarnings("unused")
 	private ArrayList<Atacable> unidades;
+	@SuppressWarnings("unused")
 	private Mapa mapa;
 	
 	public Jugador(String nombre, Mapa mapa) {
@@ -26,7 +27,6 @@ public class Jugador {
 		this.construcciones = new ArrayList<Constructible>();
 		this.mapa = mapa;
 		this.arquitecto = new Arquitecto(presupuesto, construcciones, mapa);
-		this.unidades = new ArrayList<Atacable>();
 		this.unidades = new ArrayList<Atacable>();
 	}
 	
