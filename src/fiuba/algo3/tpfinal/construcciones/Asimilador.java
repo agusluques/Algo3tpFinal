@@ -17,6 +17,7 @@ public class Asimilador extends ConstruccionesProtoss implements RecolectorDeGas
 		this.escudo.inicializarEscudo(450);
 		this.tiempo = 6;
 		this.costo = new Costo(100);
+		this.superficieNecesaria = new DepositoDeGas();
 		this.setConstruccionesNecesarias();
 		this.posicion = coord;
 	}
