@@ -14,8 +14,7 @@ public class Barraca extends ConstruccionesTerran {
 
 
 	private Fabricable unidadEnConstruccion;
-	private Jugador jugador;
-	
+		
 	public Barraca(){
 		this.vida.inicializarVida(1000);
 		this.costo = new Costo(150);
@@ -29,10 +28,7 @@ public class Barraca extends ConstruccionesTerran {
 		
 	}
 
-	public void setJugador(Jugador jugador){
-		this.jugador = jugador;
-	}
-
+	
 	public void fabricarMarine(){
 		try{
 			jugador.getPresupuesto().removerMineral(50);

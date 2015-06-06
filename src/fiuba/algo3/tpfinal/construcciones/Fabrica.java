@@ -2,11 +2,20 @@ package fiuba.algo3.tpfinal.construcciones;
 
 import java.util.ArrayList;
 
+import fiuba.algo3.tpfinal.excepciones.LimitePoblacionalAlcanzado;
+import fiuba.algo3.tpfinal.excepciones.MineralInsuficiente;
 import fiuba.algo3.tpfinal.programa.Costo;
+import fiuba.algo3.tpfinal.programa.Jugador;
 import fiuba.algo3.tpfinal.programa.Tierra;
+import fiuba.algo3.tpfinal.unidades.Fabricable;
+import fiuba.algo3.tpfinal.unidades.Golliat;
+import fiuba.algo3.tpfinal.unidades.Marine;
 
 public class Fabrica extends ConstruccionesTerran {
 
+
+	private Fabricable unidadEnConstruccion;
+	
 	public Fabrica() {
 		this.vida.inicializarVida(1250);
 		this.tiempo = 12;
@@ -19,4 +28,28 @@ public class Fabrica extends ConstruccionesTerran {
 		this.construccionesNecesarias = new ArrayList<Constructible>();
 		this.construccionesNecesarias.add(new Barraca());
 	}
+	
+	public void fabricarGolliat(){
+		try{
+			jugador.getPresupuesto().removerMineral(50);
+			unidadEnConstruccion = new Golliat();
+		}catch (MineralInsuficiente e){
+			throw e;
+		}
+	}
+	
+	public void haceLoTuyo(){
+		if (unidadEnConstruccion != null){
+			unidadEnConstruccion.avanzarFabricacion();
+			if(this.unidadEnConstruccion.getTiempoRestante() == 0){
+				try{
+					this.jugador.agregarUnidad(unidadEnConstruccion);
+					this.unidadEnConstruccion = null;
+				}catch (LimitePoblacionalAlcanzado e){
+					throw e;
+				}
+			}
+		}
+	}
+
 }
