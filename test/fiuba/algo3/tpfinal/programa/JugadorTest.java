@@ -24,6 +24,7 @@ import fiuba.algo3.tpfinal.construcciones.Refineria;
 import fiuba.algo3.tpfinal.excepciones.ConstruccionRequeridaInexistente;
 import fiuba.algo3.tpfinal.excepciones.GasInsuficiente;
 import fiuba.algo3.tpfinal.excepciones.MineralInsuficiente;
+import fiuba.algo3.tpfinal.unidades.Marine;
 
 public class JugadorTest {
 
@@ -367,4 +368,39 @@ public class JugadorTest {
 		Assert.assertTrue(jugador.getConstrucciones().contains(puerto));
 		
 	}
+
+	@Test
+	public void elJugadorEmpizaCon0ComoLimitePoblacional(){
+		Assert.assertTrue(jugador.limitePoblacional()==0);
+	}
+	
+	@Test
+	public void siElJugadorConstruyePilonesElLimitePoblacionalAUmentaEn5() throws ConstruccionRequeridaInexistente{
+		
+		jugador.construir(new Pilon(),coordTierra);
+		Assert.assertTrue(jugador.limitePoblacional()==5);
+		jugador.construir(new Pilon(),coordTierra2);
+		Assert.assertTrue(jugador.limitePoblacional()==10);
+	}
+
+	@Test
+	public void siElJugadorConstruyeDepositosDeSuministrosElLimitePoblacionalAUmentaEn5() throws ConstruccionRequeridaInexistente{
+		
+		jugador.construir(new DepositoSuministro(),coordTierra);
+		Assert.assertTrue(jugador.limitePoblacional()==5);
+		jugador.construir(new DepositoSuministro(),coordTierra2);
+		Assert.assertTrue(jugador.limitePoblacional()==10);
+	}
+
+	@Test
+	public void siElJugadorTiene2MarinesSuPoblacionEsDos() throws ConstruccionRequeridaInexistente{
+		
+		jugador.construir(new DepositoSuministro(),coordTierra);
+		jugador.agregarUnidad(new Marine());
+		jugador.agregarUnidad(new Marine());
+		Assert.assertTrue(jugador.contarPoblacion()==2);
+	}
+
+
 }
+

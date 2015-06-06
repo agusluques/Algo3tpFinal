@@ -26,8 +26,7 @@ public abstract class ConstruccionesTerran extends Terran implements Constructib
 	
 	@Override
 	public boolean equals(Object o) {
-		ConstruccionesTerran construccion = (ConstruccionesTerran) o;
-		return (this.getClass() == construccion.getClass());
+		return (this.getClass() == o.getClass());
 	}
 	
 	@Override

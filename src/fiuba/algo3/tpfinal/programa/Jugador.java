@@ -2,13 +2,18 @@ package fiuba.algo3.tpfinal.programa;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Iterator;
 
 import fiuba.algo3.tpfinal.construcciones.Atacable;
 import fiuba.algo3.tpfinal.construcciones.Constructible;
+import fiuba.algo3.tpfinal.construcciones.DepositoSuministro;
+import fiuba.algo3.tpfinal.construcciones.Pilon;
 import fiuba.algo3.tpfinal.construcciones.Recolector;
 import fiuba.algo3.tpfinal.construcciones.RecolectorDeGas;
 import fiuba.algo3.tpfinal.construcciones.RecolectorDeMinerales;
 import fiuba.algo3.tpfinal.excepciones.ConstruccionRequeridaInexistente;
+import fiuba.algo3.tpfinal.excepciones.LimitePoblacionalAlcanzado;
+import fiuba.algo3.tpfinal.unidades.Fabricable;
 
 public class Jugador {
 
@@ -16,7 +21,6 @@ public class Jugador {
 	private Presupuesto presupuesto;
 	private Collection<Constructible> construcciones;
 	private Arquitecto arquitecto;
-	@SuppressWarnings("unused")
 	private ArrayList<Atacable> unidades;
 	@SuppressWarnings("unused")
 	private Mapa mapa;
@@ -28,6 +32,7 @@ public class Jugador {
 		this.mapa = mapa;
 		this.arquitecto = new Arquitecto(presupuesto, construcciones, mapa);
 		this.unidades = new ArrayList<Atacable>();
+		
 	}
 	
 			
@@ -37,6 +42,24 @@ public class Jugador {
 		return this.nombre;
 	}
 
+	public int contarPoblacion(){
+		int i = 0;
+		for (Atacable unidad : unidades){
+			i += ((Fabricable)unidad).getSuministro();
+		}
+		
+		return i;
+	}
+	
+	private int contarCasas(){
+		int i = 0;
+		for ( Constructible cons : this.construcciones){
+			if(cons.equals(new Pilon()) || cons.equals(new DepositoSuministro())) {
+				i++;
+			}
+		}
+		return i;
+	}
 	
 	/*public void recolectar(RecolectorDeGas recolector) {
 		int gasRecolectado = recolector.recolectarGas();
@@ -48,6 +71,10 @@ public class Jugador {
 		this.presupuesto.agregarMineral(mineralRecolectado);
 	}*/
 
+	public int limitePoblacional(){
+		return this.contarCasas()*5;
+		
+	}
 	public void construir(Constructible construccion, Coordenada posicion) throws ConstruccionRequeridaInexistente {
 		this.arquitecto.construir(construccion, posicion);
 		
@@ -59,6 +86,18 @@ public class Jugador {
 	
 	public Collection<Constructible> getConstrucciones(){
 		return construcciones;
+	}
+
+
+
+
+	public void agregarUnidad(Fabricable unidad) throws LimitePoblacionalAlcanzado {
+		if( (this.contarPoblacion()+unidad.getSuministro()) <= this.limitePoblacional()){
+			this.unidades.add((Atacable) unidad);
+		}else{
+			throw new LimitePoblacionalAlcanzado();
+		}
+		
 	}
 
 

@@ -31,8 +31,8 @@ public abstract class ConstruccionesProtoss extends Protoss implements Construct
 	
 	@Override
 	public boolean equals(Object o) {
-		ConstruccionesProtoss construccion = (ConstruccionesProtoss) o;
-		return (this.getClass() == construccion.getClass());
+		
+		return (this.getClass() == o.getClass());
 	}
 	
 	@Override

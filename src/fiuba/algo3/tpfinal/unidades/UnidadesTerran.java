@@ -7,7 +7,7 @@ import fiuba.algo3.tpfinal.programa.Danio;
 public class UnidadesTerran extends Terran{
 	
 	protected Danio miDanio;
-
+	
 	public void atacar(Atacable enemigo) {
 		
 		enemigo.atacado(miDanio);
