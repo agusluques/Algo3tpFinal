@@ -38,5 +38,30 @@ public class MarineTest {
 		unMarine.atacar(otroMarine);
 		Assert.assertTrue(otroMarine.getVida() == 34);
 	}
+	
+	@Test
+	public void siUnMarineAtacaAOtroDentroDelRangoLeSacaVida(){
+		Marine unMarine = new Marine();
+		Marine otroMarine = new Marine();
+		unMarine.mover(5, 4);
+		otroMarine.mover(7, 6);
+		
+		unMarine.atacar(otroMarine);
+		Assert.assertTrue(otroMarine.getVida() == 34);
+		
+	}
+	
+	@Test
+	public void siUnMarineAtacaAOtroFueraDelRangoNoLeSacaVida(){
+		Marine unMarine = new Marine();
+		Marine otroMarine = new Marine();
+		unMarine.mover(5, 4);
+		otroMarine.mover(7, 8);
+		
+		unMarine.atacar(otroMarine);
+		
+		Assert.assertTrue(otroMarine.getVida() == 40);
+		
+	}
 
 }

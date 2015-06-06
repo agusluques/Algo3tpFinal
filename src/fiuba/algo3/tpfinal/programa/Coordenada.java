@@ -30,4 +30,9 @@ public class Coordenada {
 		return (this.fila*3000)+this.columna;
 		
 	}
+
+	public void mover(int fila, int columna) {
+		this.fila = fila;
+		this.columna = columna;
+	}
 }

@@ -20,5 +20,9 @@ public abstract class Protoss implements Atacable{
 	public void atacado(Danio danio) {
 		this.escudo.bajarEscudo(danio.getDanioTierra(), this.vida);
 	}
+	
+	public Coordenada getCoordenada(){
+		return posicion;
+	}
 
 }

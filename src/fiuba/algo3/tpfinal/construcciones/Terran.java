@@ -15,6 +15,10 @@ public abstract class Terran implements Atacable {
 	public void atacado (Danio danio){
 		this.vida.bajarVida(danio.getDanioTierra());
 	}
+	
+	public Coordenada getCoordenada(){
+		return posicion;
+	}
 			
 	
 }
