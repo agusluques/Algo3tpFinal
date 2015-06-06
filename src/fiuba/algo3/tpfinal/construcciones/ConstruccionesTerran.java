@@ -3,13 +3,14 @@ package fiuba.algo3.tpfinal.construcciones;
 import java.util.Collection;
 
 import fiuba.algo3.tpfinal.programa.Costo;
+import fiuba.algo3.tpfinal.programa.Superficie;
 
 public abstract class ConstruccionesTerran extends Terran implements Constructible{
 	
 	protected Costo costo;
 	protected int tiempo;
 	protected Collection<Constructible> construccionesNecesarias;
-	
+	protected Superficie superficieNecesaria;
 	
 	public int getCostoMineral() {
 		return costo.getMinerales();
@@ -39,4 +40,11 @@ public abstract class ConstruccionesTerran extends Terran implements Constructib
 	public Collection<Constructible> construccionesNecesarias() {
 		return this.construccionesNecesarias;
 	}
+	
+	@Override
+	public Superficie superficieNecesaria() {
+		return this.superficieNecesaria;
+	}
+
+
 }

@@ -16,6 +16,7 @@ public class Refineria extends ConstruccionesTerran implements RecolectorDeGas {
 		this.vida.inicializarVida(750);
 		this.tiempo = 6;
 		this.costo = new Costo(100);
+		this.superficieNecesaria = new DepositoDeGas();
 		this.setConstruccionesNecesarias();
 		this.posicion = coord;
 	}
