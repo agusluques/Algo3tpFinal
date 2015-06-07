@@ -1,5 +1,6 @@
 package fiuba.algo3.tpfinal.unidades;
 
+import fiuba.algo3.tpfinal.programa.Costo;
 import fiuba.algo3.tpfinal.programa.Danio;
 
 public class Scout extends UnidadesProtoss {
@@ -10,6 +11,7 @@ public class Scout extends UnidadesProtoss {
 		this.miDanio = new Danio(14,8);
 		this.tiempoDeConstruccion = 9;
 		this.suministro = 3;
+		this.costo = new Costo(300,100);
 		
 	}
 	

@@ -2,10 +2,18 @@ package fiuba.algo3.tpfinal.construcciones;
 
 import java.util.ArrayList;
 
+import fiuba.algo3.tpfinal.excepciones.GasInsuficiente;
+import fiuba.algo3.tpfinal.excepciones.LimitePoblacionalAlcanzado;
+import fiuba.algo3.tpfinal.excepciones.MineralInsuficiente;
 import fiuba.algo3.tpfinal.programa.Costo;
 import fiuba.algo3.tpfinal.programa.Tierra;
+import fiuba.algo3.tpfinal.unidades.Fabricable;
+import fiuba.algo3.tpfinal.unidades.NaveTransporteProtoss;
+import fiuba.algo3.tpfinal.unidades.Scout;
 
 public class PuertoEstelarProtoss extends ConstruccionesProtoss {
+	
+	private Fabricable unidadEnConstruccion;
 	
 	public PuertoEstelarProtoss() {
 		
@@ -22,4 +30,37 @@ public class PuertoEstelarProtoss extends ConstruccionesProtoss {
 		this.construccionesNecesarias.add(new Acceso());
 	}
 
+	public void fabricarScout(){
+		this.fabricar(new Scout());
+	}
+	public void fabricarNaveDeTransporte(){
+		this.fabricar(new NaveTransporteProtoss());
+	}
+	
+	
+	private void fabricar(Fabricable unidad){
+		try{
+			jugador.getPresupuesto().removerMineral(unidad.getCostoMineral());
+			jugador.getPresupuesto().removerGas(unidad.getCostoGas());
+			unidadEnConstruccion = unidad;
+		}catch (MineralInsuficiente e){
+			throw e;
+		}catch (GasInsuficiente e){
+			throw e;
+		}
+	}
+	
+	public void haceLoTuyo(){
+		if (unidadEnConstruccion != null){
+			unidadEnConstruccion.avanzarFabricacion();
+			if(this.unidadEnConstruccion.getTiempoRestante() == 0){
+				try{
+					this.jugador.agregarUnidad(unidadEnConstruccion);
+					this.unidadEnConstruccion = null;
+				}catch (LimitePoblacionalAlcanzado e){
+					throw e;
+				}
+			}
+		}
+	}
 }
