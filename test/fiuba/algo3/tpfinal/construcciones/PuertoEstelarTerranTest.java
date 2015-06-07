@@ -205,6 +205,8 @@ public class PuertoEstelarTerranTest {
 			this.puertoEstelar.haceLoTuyo();
 		}
 		Assert.assertTrue(jugador.contarPoblacion()==2);
+	
+	
 	}
 }
 

@@ -1,5 +1,6 @@
 package fiuba.algo3.tpfinal.unidades;
 
+import fiuba.algo3.tpfinal.programa.Costo;
 import fiuba.algo3.tpfinal.programa.Danio;
 
 public class Zealot extends UnidadesProtoss{
@@ -10,6 +11,7 @@ public class Zealot extends UnidadesProtoss{
 		miDanio = new Danio(0,8);
 		this.tiempoDeConstruccion = 4;
 		this.suministro = 2;
+		this.costo = new Costo(100);
 		
 	}
 

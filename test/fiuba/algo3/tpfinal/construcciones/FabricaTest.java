@@ -13,6 +13,7 @@ import fiuba.algo3.tpfinal.excepciones.LimitePoblacionalAlcanzado;
 import fiuba.algo3.tpfinal.programa.Coordenada;
 import fiuba.algo3.tpfinal.programa.Jugador;
 import fiuba.algo3.tpfinal.programa.Mapa;
+import fiuba.algo3.tpfinal.unidades.Golliat;
 
 public class FabricaTest {
 
@@ -72,7 +73,7 @@ public class FabricaTest {
 		jugador.construir(new Barraca(), new Coordenada(4,4));
 		jugador.construir(this.fabrica, new Coordenada(2,2));
 		this.fabrica.fabricarGolliat();
-		for (int i=0;i<74;i++){
+		for (int i=0;i<6;i++){
 			this.fabrica.haceLoTuyo();
 		}
 	}
@@ -93,6 +94,8 @@ public class FabricaTest {
 			this.fabrica.haceLoTuyo();
 		}
 		Assert.assertTrue(jugador.contarPoblacion()==2);
+		
+	
 	}
 
 

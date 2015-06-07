@@ -88,6 +88,9 @@ public class Jugador {
 		return construcciones;
 	}
 
+	public ArrayList<Atacable> getUnidades(){
+		return this.unidades;
+	}
 
 
 
