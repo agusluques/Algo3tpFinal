@@ -92,6 +92,10 @@ public class Jugador {
 	public void agregarEdificio(Constructible edificio) {
 		this.construcciones.add(edificio);
 	}
+	
+	public void pasarTurno() {
+		arquitecto.pasarTurno();
+	}
 
 
 

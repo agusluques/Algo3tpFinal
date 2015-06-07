@@ -45,7 +45,7 @@ public class ArchivosTemplariosTest {
 	@Test
 	public void unArchivoTemplarioDebeCrearseEn9Turnos() throws ConstruccionRequeridaInexistente {
 		this.archivo = new ArchivosTemplarios();
-		Assert.assertTrue(this.archivo.getTiempo() == 9);
+		Assert.assertTrue(this.archivo.getTiempoRestante() == 9);
 	}
 	
 	@Test
@@ -64,9 +64,21 @@ public class ArchivosTemplariosTest {
 		jugador.getPresupuesto().agregarMineral(1000);
 		jugador.getPresupuesto().agregarGas(1000);
 		jugador.construir(new Acceso(), new Coordenada(2,2));
+		for(int i = 0; i < 8; i++) {
+			jugador.pasarTurno();
+		}
 		jugador.construir(new PuertoEstelarProtoss(), new Coordenada(8,8));
+		for(int i = 0; i < 10; i++) {
+			jugador.pasarTurno();
+		}
 		jugador.construir(this.archivo, new Coordenada(4,4));
+		for(int i = 0; i < 9; i++) {
+			jugador.pasarTurno();
+		}
 		jugador.construir(new Pilon(), new Coordenada(6,6));
+		for(int i = 0; i < 5; i++) {
+			jugador.pasarTurno();
+		}
 		this.archivo.fabricarAltoTemplario();
 		for (int i=0;i<7;i++){
 			this.archivo.haceLoTuyo();

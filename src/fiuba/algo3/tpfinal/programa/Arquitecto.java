@@ -1,5 +1,6 @@
 package fiuba.algo3.tpfinal.programa;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 
@@ -10,6 +11,7 @@ import fiuba.algo3.tpfinal.excepciones.GasInsuficiente;
 import fiuba.algo3.tpfinal.excepciones.MineralInsuficiente;
 import fiuba.algo3.tpfinal.excepciones.ParcelaOcupada;
 import fiuba.algo3.tpfinal.excepciones.TerrenoInapropiado;
+import fiuba.algo3.tpfinal.unidades.Fabricable;
 
 public class Arquitecto {
 	
@@ -17,12 +19,14 @@ public class Arquitecto {
 	private Presupuesto presupuesto;
 	private Collection<Constructible> construcciones;
 	private Jugador jugador;
+	private Collection<Constructible> construccionesEnConstruccion;
 	
 	public Arquitecto(Presupuesto presupuesto,Collection<Constructible> construcciones, Mapa mapa, Jugador jugador ){
 		this.mapa = mapa;
 		this.presupuesto = presupuesto;
 		this.construcciones = construcciones; 
 		this.jugador = jugador;
+		this.construccionesEnConstruccion = new ArrayList<Constructible>();
 	}
 	
 	public void construir(Constructible construccion, Coordenada posicion) throws ConstruccionRequeridaInexistente {
@@ -31,7 +35,7 @@ public class Arquitecto {
 			this.verificarTerreno(construccion, posicion);
 			this.verificarConstruccionesNecesarias(construccion);
 			this.cobrarConstruccion(construccion);
-			this.construcciones.add(construccion);
+			this.construccionesEnConstruccion.add(construccion);
 			this.mapa.getParcela(posicion).ocupar((Atacable)construccion);
 		} catch (MineralInsuficiente e) {
 			throw e;
@@ -80,6 +84,19 @@ public class Arquitecto {
 			throw e;
 		} catch (GasInsuficiente e) {
 			throw e;
+		}
+	}
+	
+	public void pasarTurno() {
+		Iterator<Constructible> iterador = construccionesEnConstruccion.iterator();
+		while(iterador.hasNext()) {
+			Fabricable construccionEnConstruccion = (Fabricable) iterador.next();
+			construccionEnConstruccion.avanzarFabricacion();
+			if (construccionEnConstruccion.getTiempoRestante() == 0) {
+				construcciones.add((Constructible) construccionEnConstruccion);
+				//construccionesEnConstruccion.remove(construccionEnConstruccion);
+			}
+			
 		}
 	}
 	

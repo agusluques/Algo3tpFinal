@@ -145,13 +145,26 @@ public class JugadorTest {
 	public void elJugadorProtossConstruyeUnNexoMineral() throws ConstruccionRequeridaInexistente {
 		Constructible construccion = new NexoMineral(new Coordenada(1,100));
 		jugador.construir(construccion,new Coordenada(1,100));
+		for(int i = 0; i < 4; i++) {
+			jugador.pasarTurno();
+		}
 		Assert.assertTrue(jugador.getConstrucciones().contains(construccion));
+	}
+	
+	@Test
+	public void elJugadorProtossConstruyeUnNexoMineralPeroNoPasanTurnosEntoncesNoLoTiene() throws ConstruccionRequeridaInexistente {
+		Constructible construccion = new NexoMineral(new Coordenada(1,100));
+		jugador.construir(construccion,new Coordenada(1,100));
+		Assert.assertFalse(jugador.getConstrucciones().contains(construccion));
 	}
 	
 	@Test
 	public void elJugadorProtossConstruyeUnNexoMineralLeQuedan50DeMinerales() throws ConstruccionRequeridaInexistente {
 		Constructible construccion = new NexoMineral(new Coordenada(1,100));
 		jugador.construir(construccion,new Coordenada(1,100));
+		for(int i = 0; i < 4; i++) {
+			jugador.pasarTurno();
+		}
 		Assert.assertEquals(150, jugador.getPresupuesto().cantidadDeMineral());
 	}
 	
@@ -159,6 +172,9 @@ public class JugadorTest {
 	public void elJugadorProtossConstruyeUnPilon() throws ConstruccionRequeridaInexistente {
 		Constructible construccion = new Pilon();
 		jugador.construir(construccion, coordTierra);
+		for(int i = 0; i < 5; i++) {
+			jugador.pasarTurno();
+		}
 		Assert.assertTrue(jugador.getConstrucciones().contains(construccion));
 	}
 	
@@ -166,6 +182,9 @@ public class JugadorTest {
 	public void elJugadorProtossConstruyeUnPilonLeQuedan100DeMinerales() throws ConstruccionRequeridaInexistente {
 		Constructible construccion = new Pilon();
 		jugador.construir(construccion,coordTierra);
+		for(int i = 0; i < 5; i++) {
+			jugador.pasarTurno();
+		}
 		Assert.assertEquals(100, jugador.getPresupuesto().cantidadDeMineral());
 	}
 	
@@ -173,6 +192,9 @@ public class JugadorTest {
 	public void elJugadorProtossConstruyeUnAsimilador() throws ConstruccionRequeridaInexistente {
 		Constructible construccion = new Asimilador(new Coordenada(1, 90));
 		jugador.construir(construccion,new Coordenada(1, 90));
+		for(int i = 0; i <6; i++) {
+			jugador.pasarTurno();
+		}
 		Assert.assertTrue(jugador.getConstrucciones().contains(construccion));
 	}
 	
@@ -180,6 +202,9 @@ public class JugadorTest {
 	public void elJugadorProtossConstruyeUnAsimiladorLeQuedan100DeMinerales() throws ConstruccionRequeridaInexistente {
 		Constructible construccion = new Asimilador(new Coordenada(1, 90));
 		jugador.construir(construccion,new Coordenada(1, 90));
+		for(int i = 0; i < 6; i++) {
+			jugador.pasarTurno();
+		}
 		Assert.assertEquals(100, jugador.getPresupuesto().cantidadDeMineral());
 	}
 	
@@ -187,6 +212,9 @@ public class JugadorTest {
 	public void elJugadorProtossConstruyeUnAcceso() throws ConstruccionRequeridaInexistente {
 		Constructible construccion = new Acceso();
 		jugador.construir(construccion,coordTierra);
+		for(int i = 0; i < 8; i++) {
+			jugador.pasarTurno();
+		}
 		Assert.assertTrue(jugador.getConstrucciones().contains(construccion));
 	}
 	
@@ -194,12 +222,18 @@ public class JugadorTest {
 	public void elJugadorProtossConstruyeUnAccesoLeQuedan50DeMinerales() throws ConstruccionRequeridaInexistente {
 		Constructible construccion = new Acceso();
 		jugador.construir(construccion,coordTierra);
+		for(int i = 0; i < 8; i++) {
+			jugador.pasarTurno();
+		}
 		Assert.assertEquals(50, jugador.getPresupuesto().cantidadDeMineral());
 	}
 
 	@Test(expected = ConstruccionRequeridaInexistente.class)
 	public void siElJugadorProtossQuiereConstruirUnPuertoEstelarSinUnAccesoLanzaExcepcion() throws ConstruccionRequeridaInexistente {
 		Constructible puerto = new PuertoEstelarProtoss();
+		for(int i = 0; i < 10; i++) {
+			jugador.pasarTurno();
+		}
 		jugador.construir(puerto,coordTierra);
 	}
 	
@@ -207,6 +241,9 @@ public class JugadorTest {
 	public void siElJugadorProtossQuiereConstruirUnPuertoEstelarYNoLeAlcanzaLanzaExcepcion() throws ConstruccionRequeridaInexistente {
 		Constructible acceso = new Acceso();
 		jugador.construir(acceso,coordTierra);
+		for(int i = 0; i < 8; i++) {
+			jugador.pasarTurno();
+		}
 		Constructible puerto = new PuertoEstelarProtoss();
 		jugador.construir(puerto,coordTierra2);
 	}
@@ -216,6 +253,9 @@ public class JugadorTest {
 		jugador.getPresupuesto().agregarMineral(1000);
 		Constructible acceso = new Acceso();
 		jugador.construir(acceso,coordTierra);
+		for(int i = 0; i < 8; i++) {
+			jugador.pasarTurno();
+		}
 		Constructible puerto = new PuertoEstelarProtoss();
 		jugador.construir(puerto,coordTierra2);
 	}
@@ -229,7 +269,13 @@ public class JugadorTest {
 		jugador.getPresupuesto().agregarMineral(1000);
 		
 		jugador.construir(acceso, coordTierra);
+		for(int i = 0; i < 8; i++) {
+			jugador.pasarTurno();
+		}
 		jugador.construir(puerto, coordTierra2);
+		for(int i = 0; i < 10; i++) {
+			jugador.pasarTurno();
+		}
 		
 		Assert.assertTrue(jugador.getConstrucciones().contains(puerto));
 	}
@@ -249,7 +295,9 @@ public class JugadorTest {
 		jugador.getPresupuesto().agregarMineral(1000);
 		
 		jugador.construir(acceso,coordTierra);
-		
+		for(int i = 0; i < 8; i++) {
+			jugador.pasarTurno();
+		}
 		jugador.construir(archivo,coordTierra2);
 	}
 	
@@ -263,8 +311,17 @@ public class JugadorTest {
 		jugador.getPresupuesto().agregarMineral(1000);
 	
 		jugador.construir(acceso,coordTierra);
+		for(int i = 0; i < 8; i++) {
+			jugador.pasarTurno();
+		}
 		jugador.construir(puerto,coordTierra2);
+		for(int i = 0; i < 10; i++) {
+			jugador.pasarTurno();
+		}
 		jugador.construir(archivo,coordTierra3);
+		for(int i = 0; i < 9; i++) {
+			jugador.pasarTurno();
+		}
 		
 		Assert.assertTrue(jugador.getConstrucciones().contains(archivo));
 	}
@@ -273,6 +330,9 @@ public class JugadorTest {
 	public void elJugadorTerranConstruyeUnCentroDeMineral() throws ConstruccionRequeridaInexistente {
 		Constructible construccion = new CentroDeMineral(new Coordenada(1,91));
 		jugador.construir(construccion,new Coordenada(1,91));
+		for(int i = 0; i < 4; i++) {
+			jugador.pasarTurno();
+		}
 		Assert.assertTrue(jugador.getConstrucciones().contains(construccion));
 	}
 	
@@ -280,6 +340,9 @@ public class JugadorTest {
 	public void elJugadorTerranConstruyeUnaBarraca() throws ConstruccionRequeridaInexistente {
 		Constructible construccion = new Barraca();
 		jugador.construir(construccion,coordTierra);
+		for(int i = 0; i < 12; i++) {
+			jugador.pasarTurno();
+		}
 		Assert.assertTrue(jugador.getConstrucciones().contains(construccion));
 	}
 	
@@ -287,6 +350,9 @@ public class JugadorTest {
 	public void elJugadorTerranConstruyeUnDepositoSuministro() throws ConstruccionRequeridaInexistente {
 		Constructible construccion = new DepositoSuministro();
 		jugador.construir(construccion,coordTierra);
+		for(int i = 0; i < 6; i++) {
+			jugador.pasarTurno();
+		}
 		Assert.assertTrue(jugador.getConstrucciones().contains(construccion));
 	}
 	
@@ -294,6 +360,9 @@ public class JugadorTest {
 	public void elJugadorTerranConstruyeUnaRefineria() throws ConstruccionRequeridaInexistente {
 		Constructible construccion = new Refineria(new Coordenada(1, 90));
 		jugador.construir(construccion,new Coordenada(1, 90));
+		for(int i = 0; i < 6; i++) {
+			jugador.pasarTurno();
+		}
 		Assert.assertTrue(jugador.getConstrucciones().contains(construccion));
 	}
 	
@@ -318,7 +387,13 @@ public class JugadorTest {
 		jugador.getPresupuesto().agregarGas(1000);
 		
 		jugador.construir(barraca,coordTierra);
+		for(int i = 0; i < 12; i++) {
+			jugador.pasarTurno();
+		}
 		jugador.construir(fabrica,coordTierra2);
+		for(int i = 0; i < 12; i++) {
+			jugador.pasarTurno();
+		}
 		
 		Assert.assertTrue(jugador.getConstrucciones().contains(fabrica));
 		
@@ -346,7 +421,9 @@ public class JugadorTest {
 		jugador.getPresupuesto().agregarGas(1000);
 	
 		jugador.construir(barraca,coordTierra);
-		
+		for(int i = 0; i < 12; i++) {
+			jugador.pasarTurno();
+		}
 		jugador.construir(puerto,coordTierra2);
 		
 	}
@@ -362,8 +439,17 @@ public class JugadorTest {
 		jugador.getPresupuesto().agregarGas(1000);
 		
 		jugador.construir(barraca,coordTierra);
+		for(int i = 0; i < 12; i++) {
+			jugador.pasarTurno();
+		}
 		jugador.construir(fabrica,coordTierra2);
+		for(int i = 0; i < 12; i++) {
+			jugador.pasarTurno();
+		}
 		jugador.construir(puerto,coordTierra3);
+		for(int i = 0; i < 10; i++) {
+			jugador.pasarTurno();
+		}
 		
 		Assert.assertTrue(jugador.getConstrucciones().contains(puerto));
 		
@@ -378,8 +464,14 @@ public class JugadorTest {
 	public void siElJugadorConstruyePilonesElLimitePoblacionalAUmentaEn5() throws ConstruccionRequeridaInexistente{
 		
 		jugador.construir(new Pilon(),coordTierra);
+		for(int i = 0; i < 5; i++) {
+			jugador.pasarTurno();
+		}
 		Assert.assertTrue(jugador.limitePoblacional()==5);
 		jugador.construir(new Pilon(),coordTierra2);
+		for(int i = 0; i < 5; i++) {
+			jugador.pasarTurno();
+		}
 		Assert.assertTrue(jugador.limitePoblacional()==10);
 	}
 
@@ -387,8 +479,14 @@ public class JugadorTest {
 	public void siElJugadorConstruyeDepositosDeSuministrosElLimitePoblacionalAUmentaEn5() throws ConstruccionRequeridaInexistente{
 		
 		jugador.construir(new DepositoSuministro(),coordTierra);
+		for(int i = 0; i < 6; i++) {
+			jugador.pasarTurno();
+		}
 		Assert.assertTrue(jugador.limitePoblacional()==5);
 		jugador.construir(new DepositoSuministro(),coordTierra2);
+		for(int i = 0; i < 6; i++) {
+			jugador.pasarTurno();
+		}
 		Assert.assertTrue(jugador.limitePoblacional()==10);
 	}
 
@@ -396,6 +494,9 @@ public class JugadorTest {
 	public void siElJugadorTiene2MarinesSuPoblacionEsDos() throws ConstruccionRequeridaInexistente{
 		
 		jugador.construir(new DepositoSuministro(),coordTierra);
+		for(int i = 0; i < 6; i++) {
+			jugador.pasarTurno();
+		}
 		jugador.agregarUnidad(new Marine());
 		jugador.agregarUnidad(new Marine());
 		Assert.assertTrue(jugador.contarPoblacion()==2);

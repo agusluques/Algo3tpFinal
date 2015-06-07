@@ -12,7 +12,7 @@ public interface Constructible {
 	Superficie superficieNecesaria();
 	int getCostoMineral();
 	int getCostoGas();
-	int getTiempo();
+	int getTiempoRestante();
 	boolean equals(Object o);
 	void setJugador(Jugador jugador);
 	

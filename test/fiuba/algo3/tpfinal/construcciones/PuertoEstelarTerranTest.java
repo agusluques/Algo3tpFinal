@@ -26,7 +26,7 @@ public class PuertoEstelarTerranTest {
 	@Test
 	public void debeTardar10TurnosEnCrearse() throws ConstruccionRequeridaInexistente{
 		this.puertoEstelar = new PuertoEstelarTerran();
-		Assert.assertTrue(this.puertoEstelar.getTiempo() == 10);
+		Assert.assertTrue(this.puertoEstelar.getTiempoRestante() == 10);
 	}
 	
 	@Test
@@ -52,8 +52,17 @@ public class PuertoEstelarTerranTest {
 		jugador.getPresupuesto().agregarMineral(1000);
 		jugador.getPresupuesto().agregarGas(1000);
 		jugador.construir(new Barraca(), new Coordenada(4,4));
+		for(int i = 0; i < 12; i++) {
+			jugador.pasarTurno();
+		}
 		jugador.construir(new Fabrica(), new Coordenada(2,2));
+		for(int i = 0; i < 12; i++) {
+			jugador.pasarTurno();
+		}
 		jugador.construir(this.puertoEstelar, new Coordenada(1,1));
+		for(int i = 0; i < 10; i++) {
+			jugador.pasarTurno();
+		}
 		this.puertoEstelar.fabricarEspectro();
 		
 		Assert.assertTrue(jugador.contarPoblacion()==0);
@@ -69,8 +78,17 @@ public class PuertoEstelarTerranTest {
 		jugador.getPresupuesto().agregarMineral(1000);
 		jugador.getPresupuesto().agregarGas(1000);
 		jugador.construir(new Barraca(), new Coordenada(4,4));
+		for(int i = 0; i < 12; i++) {
+			jugador.pasarTurno();
+		}
 		jugador.construir(new Fabrica(), new Coordenada(2,2));
+		for(int i = 0; i < 12; i++) {
+			jugador.pasarTurno();
+		}
 		jugador.construir(this.puertoEstelar, new Coordenada(1,1));
+		for(int i = 0; i < 10; i++) {
+			jugador.pasarTurno();
+		}
 		this.puertoEstelar.fabricarEspectro();
 		for (int i=0;i<8;i++){
 			this.puertoEstelar.haceLoTuyo();
@@ -87,9 +105,21 @@ public class PuertoEstelarTerranTest {
 		jugador.getPresupuesto().agregarMineral(1000);
 		jugador.getPresupuesto().agregarGas(1000);
 		jugador.construir(new Barraca(), new Coordenada(4,4));
+		for(int i = 0; i < 12; i++) {
+			jugador.pasarTurno();
+		}
 		jugador.construir(new Fabrica(), new Coordenada(2,2));
+		for(int i = 0; i < 12; i++) {
+			jugador.pasarTurno();
+		}
 		jugador.construir(this.puertoEstelar, new Coordenada(1,1));
+		for(int i = 0; i < 10; i++) {
+			jugador.pasarTurno();
+		}
 		jugador.construir(new DepositoSuministro(),new Coordenada(6,6));
+		for(int i = 0; i < 6; i++) {
+			jugador.pasarTurno();
+		}
 		this.puertoEstelar.fabricarEspectro();
 		for (int i=0;i<8;i++){
 			this.puertoEstelar.haceLoTuyo();
@@ -107,8 +137,17 @@ public class PuertoEstelarTerranTest {
 		jugador.getPresupuesto().agregarMineral(1000);
 		jugador.getPresupuesto().agregarGas(1000);
 		jugador.construir(new Barraca(), new Coordenada(4,4));
+		for(int i = 0; i < 12; i++) {
+			jugador.pasarTurno();
+		}
 		jugador.construir(new Fabrica(), new Coordenada(2,2));
+		for(int i = 0; i < 12; i++) {
+			jugador.pasarTurno();
+		}
 		jugador.construir(this.puertoEstelar, new Coordenada(1,1));
+		for(int i = 0; i < 10; i++) {
+			jugador.pasarTurno();
+		}
 		this.puertoEstelar.fabricarNaveDeCiencia();
 		
 		Assert.assertTrue(jugador.contarPoblacion()==0);
@@ -124,8 +163,17 @@ public class PuertoEstelarTerranTest {
 		jugador.getPresupuesto().agregarMineral(1000);
 		jugador.getPresupuesto().agregarGas(1000);
 		jugador.construir(new Barraca(), new Coordenada(4,4));
+		for(int i = 0; i < 12; i++) {
+			jugador.pasarTurno();
+		}
 		jugador.construir(new Fabrica(), new Coordenada(2,2));
+		for(int i = 0; i < 12; i++) {
+			jugador.pasarTurno();
+		}
 		jugador.construir(this.puertoEstelar, new Coordenada(1,1));
+		for(int i = 0; i < 10; i++) {
+			jugador.pasarTurno();
+		}
 		this.puertoEstelar.fabricarNaveDeCiencia();
 		for (int i=0;i<10;i++){
 			this.puertoEstelar.haceLoTuyo();
@@ -142,9 +190,21 @@ public class PuertoEstelarTerranTest {
 		jugador.getPresupuesto().agregarMineral(1000);
 		jugador.getPresupuesto().agregarGas(1000);
 		jugador.construir(new Barraca(), new Coordenada(4,4));
+		for(int i = 0; i < 12; i++) {
+			jugador.pasarTurno();
+		}
 		jugador.construir(new Fabrica(), new Coordenada(2,2));
+		for(int i = 0; i < 12; i++) {
+			jugador.pasarTurno();
+		}
 		jugador.construir(this.puertoEstelar, new Coordenada(1,1));
+		for(int i = 0; i < 10; i++) {
+			jugador.pasarTurno();
+		}
 		jugador.construir(new DepositoSuministro(),new Coordenada(6,6));
+		for(int i = 0; i < 6; i++) {
+			jugador.pasarTurno();
+		}
 		this.puertoEstelar.fabricarNaveDeCiencia();
 		for (int i=0;i<10;i++){
 			this.puertoEstelar.haceLoTuyo();
@@ -162,8 +222,17 @@ public class PuertoEstelarTerranTest {
 		jugador.getPresupuesto().agregarMineral(1000);
 		jugador.getPresupuesto().agregarGas(1000);
 		jugador.construir(new Barraca(), new Coordenada(4,4));
+		for(int i = 0; i < 12; i++) {
+			jugador.pasarTurno();
+		}
 		jugador.construir(new Fabrica(), new Coordenada(2,2));
+		for(int i = 0; i < 12; i++) {
+			jugador.pasarTurno();
+		}
 		jugador.construir(this.puertoEstelar, new Coordenada(1,1));
+		for(int i = 0; i < 10; i++) {
+			jugador.pasarTurno();
+		}
 		this.puertoEstelar.fabricarNaveDeTransporte();
 		
 		Assert.assertTrue(jugador.contarPoblacion()==0);
@@ -179,8 +248,17 @@ public class PuertoEstelarTerranTest {
 		jugador.getPresupuesto().agregarMineral(1000);
 		jugador.getPresupuesto().agregarGas(1000);
 		jugador.construir(new Barraca(), new Coordenada(4,4));
+		for(int i = 0; i < 12; i++) {
+			jugador.pasarTurno();
+		}
 		jugador.construir(new Fabrica(), new Coordenada(2,2));
+		for(int i = 0; i < 12; i++) {
+			jugador.pasarTurno();
+		}
 		jugador.construir(this.puertoEstelar, new Coordenada(1,1));
+		for(int i = 0; i < 10; i++) {
+			jugador.pasarTurno();
+		}
 		this.puertoEstelar.fabricarNaveDeTransporte();
 		for (int i=0;i<10;i++){
 			this.puertoEstelar.haceLoTuyo();
@@ -197,9 +275,21 @@ public class PuertoEstelarTerranTest {
 		jugador.getPresupuesto().agregarMineral(1000);
 		jugador.getPresupuesto().agregarGas(1000);
 		jugador.construir(new Barraca(), new Coordenada(4,4));
+		for(int i = 0; i < 12; i++) {
+			jugador.pasarTurno();
+		}
 		jugador.construir(new Fabrica(), new Coordenada(2,2));
+		for(int i = 0; i < 12; i++) {
+			jugador.pasarTurno();
+		}
 		jugador.construir(this.puertoEstelar, new Coordenada(1,1));
+		for(int i = 0; i < 10; i++) {
+			jugador.pasarTurno();
+		}
 		jugador.construir(new DepositoSuministro(),new Coordenada(6,6));
+		for(int i = 0; i < 6; i++) {
+			jugador.pasarTurno();
+		}
 		this.puertoEstelar.fabricarNaveDeTransporte();
 		for (int i=0;i<7;i++){
 			this.puertoEstelar.haceLoTuyo();

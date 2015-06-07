@@ -33,7 +33,7 @@ public class BarracaTest {
 
 	@Test
 	public void unaBarracaDebeCrearseEn12Turnos() {
-		Assert.assertTrue(this.barraca.getTiempo() == 12);
+		Assert.assertTrue(this.barraca.getTiempoRestante() == 12);
 	}
 	
 	@Test
@@ -78,8 +78,11 @@ public class BarracaTest {
 		Jugador jugador = new Jugador("Damian", mapa);
 		
 		jugador.getPresupuesto().agregarMineral(1000);
-		jugador.construir(this.barraca, new Coordenada(2,2));
-		jugador.construir(new DepositoSuministro(),new Coordenada(4,4));
+		this.barraca.setJugador(jugador);
+		jugador.agregarEdificio(this.barraca);
+		Constructible deposito = new DepositoSuministro();
+		deposito.setJugador(jugador);
+		jugador.agregarEdificio(deposito);
 		this.barraca.fabricarMarine();
 		for (int i=0;i<4;i++){
 			this.barraca.haceLoTuyo();

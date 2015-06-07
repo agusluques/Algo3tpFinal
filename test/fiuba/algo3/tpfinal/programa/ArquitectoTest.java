@@ -64,7 +64,7 @@ public class ArquitectoTest {
 	}
 	
 	@Test
-	public void siElArquitectoCOnstruyeUnEdificioElMismoApareceEnElMapa() throws ConstruccionRequeridaInexistente{
+	public void siElArquitectoConstruyeUnEdificioElMismoApareceEnElMapa() throws ConstruccionRequeridaInexistente{
 		Constructible construccion = new Pilon();
 		Coordenada posicion = new Coordenada(3,3);
 		jugador.construir(construccion, posicion);

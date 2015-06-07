@@ -28,7 +28,7 @@ public class FabricaTest {
 	@Test
 	public void debeTardar12TurnosEnCrearse() throws ConstruccionRequeridaInexistente{
 		this.fabrica = new Fabrica();
-		Assert.assertTrue(this.fabrica.getTiempo() == 12);
+		Assert.assertTrue(this.fabrica.getTiempoRestante() == 12);
 	}
 	
 	@Test
@@ -54,8 +54,17 @@ public class FabricaTest {
 		jugador.getPresupuesto().agregarMineral(1000);
 		jugador.getPresupuesto().agregarGas(1000);
 		jugador.construir(new Barraca(), new Coordenada(4,4));
+		for(int i = 0; i < 12; i++) {
+			jugador.pasarTurno();
+		}
 		jugador.construir(this.fabrica, new Coordenada(2,2));
+		for(int i = 0; i < 12; i++) {
+			jugador.pasarTurno();
+		}
 		jugador.construir(new DepositoSuministro(),new Coordenada(6,6));
+		for(int i = 0; i < 6; i++) {
+			jugador.pasarTurno();
+		}
 		this.fabrica.fabricarGolliat();
 		
 		Assert.assertTrue(jugador.contarPoblacion()==0);
@@ -70,7 +79,13 @@ public class FabricaTest {
 		jugador.getPresupuesto().agregarMineral(1000);
 		jugador.getPresupuesto().agregarGas(1000);
 		jugador.construir(new Barraca(), new Coordenada(4,4));
+		for(int i = 0; i < 13; i++) {
+			jugador.pasarTurno();
+		}
 		jugador.construir(this.fabrica, new Coordenada(2,2));
+		for(int i = 0; i < 13; i++) {
+			jugador.pasarTurno();
+		}
 		this.fabrica.fabricarGolliat();
 		for (int i=0;i<6;i++){
 			this.fabrica.haceLoTuyo();
@@ -86,10 +101,19 @@ public class FabricaTest {
 		jugador.getPresupuesto().agregarMineral(1000);
 		jugador.getPresupuesto().agregarGas(1000);
 		jugador.construir(new Barraca(), new Coordenada(4,4));
+		for(int i = 0; i < 12; i++) {
+			jugador.pasarTurno();
+		}
 		jugador.construir(this.fabrica, new Coordenada(2,2));
+		for(int i = 0; i < 12; i++) {
+			jugador.pasarTurno();
+		}
 		jugador.construir(new DepositoSuministro(),new Coordenada(6,6));
+		for(int i = 0; i < 6; i++) {
+			jugador.pasarTurno();
+		}
 		this.fabrica.fabricarGolliat();
-		for (int i=0;i<7;i++){
+		for (int i = 0; i < 7; i++){
 			this.fabrica.haceLoTuyo();
 		}
 		Assert.assertTrue(jugador.contarPoblacion()==2);

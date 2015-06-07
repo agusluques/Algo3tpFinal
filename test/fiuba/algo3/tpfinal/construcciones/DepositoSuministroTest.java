@@ -24,7 +24,7 @@ public class DepositoSuministroTest {
 	
 	@Test
 	public void debeTardar6TurnosEnCrearse(){
-		Assert.assertTrue(this.depositoSuministro.getTiempo() == 6);
+		Assert.assertTrue(this.depositoSuministro.getTiempoRestante() == 6);
 	}
 	
 	@Test

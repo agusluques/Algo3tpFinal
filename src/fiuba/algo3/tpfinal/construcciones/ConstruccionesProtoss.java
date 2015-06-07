@@ -5,8 +5,9 @@ import java.util.Collection;
 import fiuba.algo3.tpfinal.programa.Costo;
 import fiuba.algo3.tpfinal.programa.Jugador;
 import fiuba.algo3.tpfinal.programa.Superficie;
+import fiuba.algo3.tpfinal.unidades.Fabricable;
 
-public abstract class ConstruccionesProtoss extends Protoss implements Constructible {
+public abstract class ConstruccionesProtoss extends Protoss implements Constructible, Fabricable {
 
 	protected Costo costo;
 	protected int tiempo;
@@ -27,7 +28,7 @@ public abstract class ConstruccionesProtoss extends Protoss implements Construct
 	}
 
 	@Override
-	public int getTiempo() {
+	public int getTiempoRestante() {
 		return this.tiempo;
 	}
 	
@@ -56,6 +57,16 @@ public abstract class ConstruccionesProtoss extends Protoss implements Construct
 	@Override
 	public Superficie superficieNecesaria() {
 		return this.superficieNecesaria;
+	}
+	
+	@Override
+	public void avanzarFabricacion() {
+		tiempo -= 1;
+	}
+	
+	@Override
+	public int getSuministro() {
+		return 0;
 	}
 
 }

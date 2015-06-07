@@ -7,7 +7,6 @@ import org.junit.Test;
 
 import fiuba.algo3.tpfinal.construcciones.Acceso;
 import fiuba.algo3.tpfinal.construcciones.Constructible;
-import fiuba.algo3.tpfinal.programa.Coordenada;
 import fiuba.algo3.tpfinal.programa.Jugador;
 import fiuba.algo3.tpfinal.programa.Mapa;
 import fiuba.algo3.tpfinal.unidades.Dragon;
@@ -44,7 +43,7 @@ public class AccesoTest {
 
 	@Test
 	public void unAccesoDebeCrearseEn8Turnos() {
-		Assert.assertTrue(this.acceso.getTiempo() == 8);
+		Assert.assertTrue(this.acceso.getTiempoRestante() == 8);
 	}
 	
 	@Test
@@ -60,8 +59,10 @@ public class AccesoTest {
 		
 		jugador.getPresupuesto().agregarMineral(1000);
 		jugador.getPresupuesto().agregarGas(1000);
-		jugador.construir(this.acceso, new Coordenada(4,4));
-		jugador.construir(new Pilon(), new Coordenada(2,2));
+		this.acceso.setJugador(jugador);
+		Constructible nuevoPilon = new Pilon();
+		jugador.agregarEdificio(nuevoPilon);
+		nuevoPilon.setJugador(jugador);
 		this.acceso.fabricarZealot();
 		for (int i=0;i<4;i++){
 			this.acceso.haceLoTuyo();
@@ -79,8 +80,11 @@ public class AccesoTest {
 		
 		jugador.getPresupuesto().agregarMineral(1000);
 		jugador.getPresupuesto().agregarGas(1000);
-		jugador.construir(this.acceso, new Coordenada(4,4));
-		jugador.construir(new Pilon(), new Coordenada(2,2));
+		jugador.agregarEdificio(this.acceso);
+		this.acceso.setJugador(jugador);
+		Constructible nuevoPilon = new Pilon();
+		jugador.agregarEdificio(nuevoPilon);
+		nuevoPilon.setJugador(jugador);
 		this.acceso.fabricarDragon();
 		for (int i=0;i<6;i++){
 			this.acceso.haceLoTuyo();

@@ -5,8 +5,9 @@ import java.util.Collection;
 import fiuba.algo3.tpfinal.programa.Costo;
 import fiuba.algo3.tpfinal.programa.Jugador;
 import fiuba.algo3.tpfinal.programa.Superficie;
+import fiuba.algo3.tpfinal.unidades.Fabricable;
 
-public abstract class ConstruccionesTerran extends Terran implements Constructible{
+public abstract class ConstruccionesTerran extends Terran implements Constructible, Fabricable{
 	
 	protected Costo costo;
 	protected int tiempo;
@@ -14,15 +15,18 @@ public abstract class ConstruccionesTerran extends Terran implements Constructib
 	protected Superficie superficieNecesaria;
 	protected Jugador jugador;
 	
+	@Override
 	public int getCostoMineral() {
 		return costo.getMinerales();
 	}
 	
+	@Override
 	public int getCostoGas() {
 		return costo.getGas();
 	}
 	
-	public int getTiempo() {
+	@Override
+	public int getTiempoRestante() {
 		return tiempo;
 	}
 	
@@ -50,6 +54,16 @@ public abstract class ConstruccionesTerran extends Terran implements Constructib
 	@Override
 	public Superficie superficieNecesaria() {
 		return this.superficieNecesaria;
+	}
+	
+	@Override
+	public void avanzarFabricacion() {
+		tiempo -= 1;
+	}
+	
+	@Override
+	public int getSuministro() {
+		return 0;
 	}
 
 

@@ -49,7 +49,7 @@ public class PuertoEstelarProtossTest {
 	public void unPuertoEstelarDebeCrearseEn10Turnos() throws ConstruccionRequeridaInexistente {
 		
 		this.puertoEstelar = new PuertoEstelarProtoss();
-		Assert.assertTrue(this.puertoEstelar.getTiempo() == 10);
+		Assert.assertTrue(this.puertoEstelar.getTiempoRestante() == 10);
 	}
 	
 	@Test
@@ -68,8 +68,17 @@ public class PuertoEstelarProtossTest {
 		jugador.getPresupuesto().agregarMineral(1000);
 		jugador.getPresupuesto().agregarGas(1000);
 		jugador.construir(new Acceso(), new Coordenada(2,2));
+		for(int i = 0; i < 8; i++) {
+			jugador.pasarTurno();
+		}
 		jugador.construir(this.puertoEstelar, new Coordenada(4,4));
+		for(int i = 0; i < 10; i++) {
+			jugador.pasarTurno();
+		}
 		jugador.construir(new Pilon(), new Coordenada(6,6));
+		for(int i = 0; i < 5; i++) {
+			jugador.pasarTurno();
+		}
 		this.puertoEstelar.fabricarScout();
 		for (int i=0;i<9;i++){
 			this.puertoEstelar.haceLoTuyo();
@@ -89,8 +98,17 @@ public class PuertoEstelarProtossTest {
 		jugador.getPresupuesto().agregarMineral(1000);
 		jugador.getPresupuesto().agregarGas(1000);
 		jugador.construir(new Acceso(), new Coordenada(2,2));
+		for(int i = 0; i < 8; i++) {
+			jugador.pasarTurno();
+		}
 		jugador.construir(this.puertoEstelar, new Coordenada(4,4));
+		for(int i = 0; i < 10; i++) {
+			jugador.pasarTurno();
+		}
 		jugador.construir(new Pilon(), new Coordenada(6,6));
+		for(int i = 0; i < 5; i++) {
+			jugador.pasarTurno();
+		}
 		this.puertoEstelar.fabricarNaveDeTransporte();
 		for (int i=0;i<8;i++){
 			this.puertoEstelar.haceLoTuyo();

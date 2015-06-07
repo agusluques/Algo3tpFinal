@@ -41,7 +41,7 @@ public class NexoMineralTest {
 
 	@Test
 	public void unNexoDebeCrearseEn4Turnos() {
-		Assert.assertTrue(this.nexo.getTiempo() == 4);
+		Assert.assertTrue(this.nexo.getTiempoRestante() == 4);
 	}
 	
 	@Test

@@ -25,7 +25,7 @@ public class RefineriaTest {
 	
 	@Test
 	public void debeTardar6TurnosEnCrearse(){
-		Assert.assertTrue(this.refineria.getTiempo() == 6);
+		Assert.assertTrue(this.refineria.getTiempoRestante() == 6);
 	}
 	
 	@Test

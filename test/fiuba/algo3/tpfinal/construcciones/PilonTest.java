@@ -39,7 +39,7 @@ public class PilonTest {
 
 	@Test
 	public void unNexoDebeCrearseEn5Turnos() {
-		Assert.assertTrue(this.pilon.getTiempo() == 5);
+		Assert.assertTrue(this.pilon.getTiempoRestante() == 5);
 	}
 	
 	@Test

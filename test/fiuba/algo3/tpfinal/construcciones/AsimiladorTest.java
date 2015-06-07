@@ -40,7 +40,7 @@ public class AsimiladorTest {
 	
 	@Test
 	public void unAsimiladorDebeCrearseEn6Turnos() {
-		Assert.assertTrue(this.asimilador.getTiempo() == 6);
+		Assert.assertTrue(this.asimilador.getTiempoRestante() == 6);
 	}
 	
 	@Test
