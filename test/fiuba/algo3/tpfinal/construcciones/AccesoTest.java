@@ -7,7 +7,6 @@ import org.junit.Test;
 
 import fiuba.algo3.tpfinal.construcciones.Acceso;
 import fiuba.algo3.tpfinal.construcciones.Constructible;
-import fiuba.algo3.tpfinal.excepciones.LimitePoblacionalAlcanzado;
 import fiuba.algo3.tpfinal.programa.Coordenada;
 import fiuba.algo3.tpfinal.programa.Jugador;
 import fiuba.algo3.tpfinal.programa.Mapa;

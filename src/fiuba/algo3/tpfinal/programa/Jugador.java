@@ -2,15 +2,11 @@ package fiuba.algo3.tpfinal.programa;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Iterator;
 
 import fiuba.algo3.tpfinal.construcciones.Atacable;
 import fiuba.algo3.tpfinal.construcciones.Constructible;
 import fiuba.algo3.tpfinal.construcciones.DepositoSuministro;
 import fiuba.algo3.tpfinal.construcciones.Pilon;
-import fiuba.algo3.tpfinal.construcciones.Recolector;
-import fiuba.algo3.tpfinal.construcciones.RecolectorDeGas;
-import fiuba.algo3.tpfinal.construcciones.RecolectorDeMinerales;
 import fiuba.algo3.tpfinal.excepciones.ConstruccionRequeridaInexistente;
 import fiuba.algo3.tpfinal.excepciones.LimitePoblacionalAlcanzado;
 import fiuba.algo3.tpfinal.unidades.Fabricable;
@@ -60,16 +56,6 @@ public class Jugador {
 		}
 		return i;
 	}
-	
-	/*public void recolectar(RecolectorDeGas recolector) {
-		int gasRecolectado = recolector.recolectarGas();
-		this.presupuesto.agregarGas(gasRecolectado);
-	}*/
-	
-	/*public void recolectar(RecolectorDeMinerales recolector) {
-		int mineralRecolectado = recolector.recolectarMinerales();
-		this.presupuesto.agregarMineral(mineralRecolectado);
-	}*/
 
 	public int limitePoblacional(){
 		return this.contarCasas()*5;
@@ -92,8 +78,6 @@ public class Jugador {
 		return this.unidades;
 	}
 
-
-
 	public void agregarUnidad(Fabricable unidad) throws LimitePoblacionalAlcanzado {
 		if( (this.contarPoblacion()+unidad.getSuministro()) <= this.limitePoblacional()){
 			this.unidades.add((Atacable) unidad);
@@ -101,6 +85,12 @@ public class Jugador {
 			throw new LimitePoblacionalAlcanzado();
 		}
 		
+	}
+	
+	// UTILIZADO SOLAMENTE PARA SIMPLIFICAR PRUEBAS 
+	// DE CREACION DE UNIDADES
+	public void agregarEdificio(Constructible edificio) {
+		this.construcciones.add(edificio);
 	}
 
 
