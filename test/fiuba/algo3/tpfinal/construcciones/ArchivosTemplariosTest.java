@@ -7,6 +7,12 @@ import org.junit.Test;
 import fiuba.algo3.tpfinal.construcciones.ArchivosTemplarios;
 import fiuba.algo3.tpfinal.construcciones.Constructible;
 import fiuba.algo3.tpfinal.excepciones.ConstruccionRequeridaInexistente;
+import fiuba.algo3.tpfinal.programa.Coordenada;
+import fiuba.algo3.tpfinal.programa.Jugador;
+import fiuba.algo3.tpfinal.programa.Mapa;
+import fiuba.algo3.tpfinal.unidades.AltoTemplario;
+import fiuba.algo3.tpfinal.unidades.NaveTransporteProtoss;
+
 
 
 public class ArchivosTemplariosTest {
@@ -50,4 +56,27 @@ public class ArchivosTemplariosTest {
 		Assert.assertTrue(this.archivo.equals(otroArchivo));
 	}
 
+	@Test
+	public void siFabricoUnAltoTemplarioElMismoApareceEnLaListaDeUnidadesDelJugador() throws Exception{
+		this.archivo = new ArchivosTemplarios();
+		Mapa mapa = new Mapa("mapaTierra.txt");
+		Jugador jugador = new Jugador("Damian", mapa);
+		
+		jugador.getPresupuesto().agregarMineral(1000);
+		jugador.getPresupuesto().agregarGas(1000);
+		jugador.construir(new Acceso(), new Coordenada(2,2));
+		jugador.construir(new PuertoEstelarProtoss(), new Coordenada(8,8));
+		jugador.construir(this.archivo, new Coordenada(4,4));
+		jugador.construir(new Pilon(), new Coordenada(6,6));
+		this.archivo.fabricarAltoTemplario();
+		for (int i=0;i<7;i++){
+			this.archivo.haceLoTuyo();
+		}
+		for(Atacable unidad : jugador.getUnidades()){
+			Assert.assertTrue(unidad.getClass()==(new AltoTemplario()).getClass());
+		}
+		
+	}
+	
+	
 }
