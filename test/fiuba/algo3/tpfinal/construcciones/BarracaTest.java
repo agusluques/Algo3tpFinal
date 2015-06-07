@@ -78,11 +78,14 @@ public class BarracaTest {
 		Jugador jugador = new Jugador("Damian", mapa);
 		
 		jugador.getPresupuesto().agregarMineral(1000);
-		this.barraca.setJugador(jugador);
-		jugador.agregarEdificio(this.barraca);
-		Constructible deposito = new DepositoSuministro();
-		deposito.setJugador(jugador);
-		jugador.agregarEdificio(deposito);
+		jugador.construir(barraca, new Coordenada(1,1));
+		for (int i=0;i<12;i++){
+			jugador.pasarTurno();
+		}
+		jugador.construir(new DepositoSuministro(),  new Coordenada(1,2));
+		for (int i=0;i<6;i++){
+			jugador.pasarTurno();
+		}
 		this.barraca.fabricarMarine();
 		for (int i=0;i<4;i++){
 			this.barraca.haceLoTuyo();

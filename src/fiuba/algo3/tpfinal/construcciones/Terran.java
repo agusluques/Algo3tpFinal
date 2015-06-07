@@ -19,6 +19,11 @@ public abstract class Terran implements Atacable {
 	public Coordenada getCoordenada(){
 		return posicion;
 	}
+	
+	@Override
+	public boolean estaMuerto() {
+		return (this.vida.getVida() == 0);
+	}
 			
 	
 }

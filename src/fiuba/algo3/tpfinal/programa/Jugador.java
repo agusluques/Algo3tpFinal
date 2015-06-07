@@ -28,11 +28,7 @@ public class Jugador {
 		this.mapa = mapa;
 		this.arquitecto = new Arquitecto(presupuesto, construcciones, mapa,this);
 		this.unidades = new ArrayList<Atacable>();
-		
 	}
-	
-			
-
 	
 	public String getNombre() {
 		return this.nombre;
@@ -87,14 +83,18 @@ public class Jugador {
 		
 	}
 	
-	// UTILIZADO SOLAMENTE PARA SIMPLIFICAR PRUEBAS 
-	// DE CREACION DE UNIDADES
-	public void agregarEdificio(Constructible edificio) {
-		this.construcciones.add(edificio);
-	}
-	
 	public void pasarTurno() {
 		arquitecto.pasarTurno();
+	}
+	
+	public void empezarTurno() {
+		Collection<Atacable> unidadesMuertas = new ArrayList<Atacable>();
+		for(Atacable unidad : unidades) {
+			if(unidad.estaMuerto()) {
+				unidadesMuertas.add(unidad);
+			}
+		}
+		unidades.removeAll(unidadesMuertas);
 	}
 
 

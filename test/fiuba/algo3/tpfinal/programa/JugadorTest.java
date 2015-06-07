@@ -501,6 +501,26 @@ public class JugadorTest {
 		jugador.agregarUnidad(new Marine());
 		Assert.assertTrue(jugador.contarPoblacion()==2);
 	}
+	
+	@Test
+	public void siElJugadorTieneUnMarineYSeLoMatanSuPoblacionVuelveACero() throws ConstruccionRequeridaInexistente {
+		jugador.construir(new DepositoSuministro(),coordTierra);
+		for(int i = 0; i < 6; i++) {
+			jugador.pasarTurno();
+		}
+		Marine marine = new Marine();
+		jugador.agregarUnidad(marine);
+		jugador.pasarTurno();
+		
+		Marine enemigo = new Marine();
+		while(!marine.estaMuerto()) {
+			enemigo.atacar(marine);
+		}
+		
+		jugador.empezarTurno();
+		
+		Assert.assertEquals(0, jugador.contarPoblacion());
+	}
 
 
 }

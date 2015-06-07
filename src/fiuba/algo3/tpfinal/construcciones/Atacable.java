@@ -9,4 +9,6 @@ public interface Atacable {
 
 	Coordenada getCoordenada();
 
+	boolean estaMuerto();
+
 }

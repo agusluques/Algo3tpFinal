@@ -4,6 +4,7 @@ import fiuba.algo3.tpfinal.programa.Costo;
 import fiuba.algo3.tpfinal.programa.Danio;
 
 public class AltoTemplario extends UnidadesProtoss {
+	
 	public AltoTemplario(){
 		this.vida.inicializarVida(40);
 		this.escudo.inicializarEscudo(40);
