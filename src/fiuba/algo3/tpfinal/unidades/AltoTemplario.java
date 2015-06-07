@@ -1,5 +1,6 @@
 package fiuba.algo3.tpfinal.unidades;
 
+import fiuba.algo3.tpfinal.programa.Costo;
 import fiuba.algo3.tpfinal.programa.Danio;
 
 public class AltoTemplario extends UnidadesProtoss {
@@ -9,7 +10,7 @@ public class AltoTemplario extends UnidadesProtoss {
 		this.miDanio = new Danio(0,0);
 		this.tiempoDeConstruccion = 7;
 		this.suministro = 2;
-		
+		this.costo = new Costo(50,150);
 	}
 	
 	

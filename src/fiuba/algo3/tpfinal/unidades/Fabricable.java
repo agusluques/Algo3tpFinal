@@ -5,4 +5,6 @@ public interface Fabricable {
 	void avanzarFabricacion();
 	int getTiempoRestante();
 	int getSuministro();
+	int getCostoMineral();
+	int getCostoGas();
 }

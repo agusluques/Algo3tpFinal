@@ -2,6 +2,7 @@ package fiuba.algo3.tpfinal.construcciones;
 
 import java.util.ArrayList;
 
+import fiuba.algo3.tpfinal.excepciones.GasInsuficiente;
 import fiuba.algo3.tpfinal.excepciones.LimitePoblacionalAlcanzado;
 import fiuba.algo3.tpfinal.excepciones.MineralInsuficiente;
 import fiuba.algo3.tpfinal.programa.Costo;
@@ -31,9 +32,12 @@ public class Fabrica extends ConstruccionesTerran {
 	
 	public void fabricarGolliat(){
 		try{
-			jugador.getPresupuesto().removerMineral(50);
+			jugador.getPresupuesto().removerMineral(100);
+			jugador.getPresupuesto().removerGas(50);
 			unidadEnConstruccion = new Golliat();
 		}catch (MineralInsuficiente e){
+			throw e;
+		}catch (GasInsuficiente e){
 			throw e;
 		}
 	}

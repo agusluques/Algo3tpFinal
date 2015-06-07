@@ -3,6 +3,7 @@ package fiuba.algo3.tpfinal.unidades;
 import fiuba.algo3.tpfinal.construcciones.Atacable;
 import fiuba.algo3.tpfinal.construcciones.Terran;
 import fiuba.algo3.tpfinal.programa.Coordenada;
+import fiuba.algo3.tpfinal.programa.Costo;
 import fiuba.algo3.tpfinal.programa.Danio;
 
 public class UnidadesTerran extends Terran implements Fabricable{
@@ -11,6 +12,7 @@ public class UnidadesTerran extends Terran implements Fabricable{
 	protected int tiempoDeConstruccion;
 	protected int suministro;
 	protected Rango rango;
+	protected Costo costo;
 	
 	public int getTiempoRestante(){
 		return this.tiempoDeConstruccion;
@@ -51,4 +53,18 @@ public class UnidadesTerran extends Terran implements Fabricable{
 	public void mover(int fila, int columna){
 		this.posicion.mover(fila, columna);
 	}
+	
+	@Override
+	public int getCostoMineral() {
+		int mineralNecesario = this.costo.getMinerales();
+		return mineralNecesario;
+	}
+
+	@Override
+	public int getCostoGas() {
+		int gasNecesario = this.costo.getGas();
+		return gasNecesario;
+	}
+
+
 }

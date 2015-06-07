@@ -2,6 +2,7 @@ package fiuba.algo3.tpfinal.unidades;
 
 import fiuba.algo3.tpfinal.construcciones.Atacable;
 import fiuba.algo3.tpfinal.construcciones.Protoss;
+import fiuba.algo3.tpfinal.programa.Costo;
 import fiuba.algo3.tpfinal.programa.Danio;
 
 public abstract class UnidadesProtoss extends Protoss implements Fabricable {
@@ -9,6 +10,7 @@ public abstract class UnidadesProtoss extends Protoss implements Fabricable {
 	protected Danio miDanio;
 	protected int tiempoDeConstruccion;
 	protected int suministro;
+	protected Costo costo;
 	
 	public int getTiempoRestante(){
 		return this.tiempoDeConstruccion;
@@ -23,6 +25,18 @@ public abstract class UnidadesProtoss extends Protoss implements Fabricable {
 	//Es la cantidad que aumenta la poblacion cuando se construye uno
 	public int getSuministro(){
 		return this.suministro;
+	}
+
+	@Override
+	public int getCostoMineral() {
+		int mineralNecesario = this.costo.getMinerales();
+		return mineralNecesario;
+	}
+
+	@Override
+	public int getCostoGas() {
+		int gasNecesario = this.costo.getGas();
+		return gasNecesario;
 	}
 
 	public void atacar(Atacable enemigo) {

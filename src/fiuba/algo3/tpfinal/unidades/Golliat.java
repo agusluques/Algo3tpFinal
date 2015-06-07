@@ -1,6 +1,7 @@
 package fiuba.algo3.tpfinal.unidades;
 
 import fiuba.algo3.tpfinal.programa.Coordenada;
+import fiuba.algo3.tpfinal.programa.Costo;
 import fiuba.algo3.tpfinal.programa.Danio;
 
 public class Golliat extends UnidadesTerran {
@@ -11,6 +12,7 @@ public class Golliat extends UnidadesTerran {
 		this.rango = new Rango(5,6);
 		this.tiempoDeConstruccion = 6;
 		this.suministro = 2;
+		this.costo = new Costo(100,50);
 		
 		
 		//ACA HAY QUE PEDIR EN EL CONSTRUCTOR QUE SE INDIQUE LA COORDENADA DE ARRANQUE
