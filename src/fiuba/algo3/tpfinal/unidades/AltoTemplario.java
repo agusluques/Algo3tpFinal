@@ -11,6 +11,7 @@ public class AltoTemplario extends UnidadesProtoss {
 		this.tiempoDeConstruccion = 7;
 		this.suministro = 2;
 		this.costo = new Costo(50,150);
+		this.transporte = 2;
 	}
 	
 	

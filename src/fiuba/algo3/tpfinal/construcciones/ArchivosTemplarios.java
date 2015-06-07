@@ -18,7 +18,7 @@ public class ArchivosTemplarios extends ConstruccionesProtoss {
 	public ArchivosTemplarios() {
 		this.vida .inicializarVida(500);
 		this.escudo.inicializarEscudo(500);
-		this.tiempo = 9;
+		this.tiempoDeConstruccion = 9;
 		this.costo = new Costo(150, 200);
 		this.superficieNecesaria = new Tierra();
 		this.setConstruccionesNecesarias();

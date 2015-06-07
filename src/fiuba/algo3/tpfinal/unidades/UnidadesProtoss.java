@@ -5,12 +5,13 @@ import fiuba.algo3.tpfinal.construcciones.Protoss;
 import fiuba.algo3.tpfinal.programa.Costo;
 import fiuba.algo3.tpfinal.programa.Danio;
 
-public abstract class UnidadesProtoss extends Protoss implements Fabricable {
+public abstract class UnidadesProtoss extends Protoss implements Fabricable, Atacante {
 	
 	protected Danio miDanio;
-	protected int tiempoDeConstruccion;
 	protected int suministro;
 	protected Costo costo;
+	protected int tiempoDeConstruccion;
+	protected int transporte; //El espacio que ocupa en la nave
 	
 	public int getTiempoRestante(){
 		return this.tiempoDeConstruccion;
@@ -39,9 +40,8 @@ public abstract class UnidadesProtoss extends Protoss implements Fabricable {
 		return gasNecesario;
 	}
 
+	@Override
 	public void atacar(Atacable enemigo) {
-		
 		enemigo.atacado(miDanio);
-		
 	}
 }

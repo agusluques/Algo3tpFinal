@@ -12,7 +12,7 @@ public class Zealot extends UnidadesProtoss{
 		this.tiempoDeConstruccion = 4;
 		this.suministro = 2;
 		this.costo = new Costo(100);
-		
+		this.transporte = 2;
 	}
 
 

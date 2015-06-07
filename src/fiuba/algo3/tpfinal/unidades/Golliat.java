@@ -13,6 +13,7 @@ public class Golliat extends UnidadesTerran {
 		this.tiempoDeConstruccion = 6;
 		this.suministro = 2;
 		this.costo = new Costo(100,50);
+		this.transporte = 2;
 		
 		
 		//ACA HAY QUE PEDIR EN EL CONSTRUCTOR QUE SE INDIQUE LA COORDENADA DE ARRANQUE

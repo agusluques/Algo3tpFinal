@@ -9,6 +9,7 @@ public abstract class Protoss implements Atacable{
 	protected Vida vida = new Vida();
 	protected Coordenada posicion;
 	
+	
 	public int getVida() {
 		return this.vida.getVida();
 	}

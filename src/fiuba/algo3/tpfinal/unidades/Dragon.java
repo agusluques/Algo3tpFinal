@@ -11,5 +11,6 @@ public class Dragon extends UnidadesProtoss {
 		this.tiempoDeConstruccion = 6;
 		this.suministro = 2;
 		this.costo = new Costo(125,50);
+		this.transporte = 4;
 	}
 }

@@ -13,6 +13,7 @@ public class NaveCiencia extends UnidadesTerran {
 		this.tiempoDeConstruccion = 10;
 		this.suministro = 2;
 		this.costo = new Costo(100,225);
+		this.transporte = 0;
 		
 		
 		//ACA HAY QUE PEDIR EN EL CONSTRUCTOR QUE SE INDIQUE LA COORDENADA DE ARRANQUE

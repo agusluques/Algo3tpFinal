@@ -19,7 +19,7 @@ public class PuertoEstelarProtoss extends ConstruccionesProtoss {
 		
 		this.vida.inicializarVida(600);
 		this.escudo.inicializarEscudo(600);
-		this.tiempo = 10;
+		this.tiempoDeConstruccion = 10;
 		this.costo = new Costo(150, 150);
 		this.superficieNecesaria = new Tierra();
 		this.setConstruccionesNecesarias();

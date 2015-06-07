@@ -10,7 +10,7 @@ public class Pilon extends ConstruccionesProtoss {
 	public Pilon() {
 		this.vida.inicializarVida(300);
 		this.escudo.inicializarEscudo(300);
-		this.tiempo = 5;
+		this.tiempoDeConstruccion = 5;
 		this.costo = new Costo(100);
 		this.superficieNecesaria = new Tierra();
 		this.setConstruccionesNecesarias();

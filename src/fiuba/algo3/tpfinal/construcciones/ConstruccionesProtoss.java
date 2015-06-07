@@ -9,11 +9,11 @@ import fiuba.algo3.tpfinal.unidades.Fabricable;
 
 public abstract class ConstruccionesProtoss extends Protoss implements Constructible, Fabricable {
 
-	protected Costo costo;
-	protected int tiempo;
 	protected Collection<Constructible> construccionesNecesarias;
 	protected Superficie superficieNecesaria;
 	protected Jugador jugador;
+	protected Costo costo;
+	protected int tiempoDeConstruccion;
 	
 	@Override
 	public int getCostoMineral() {
@@ -29,7 +29,7 @@ public abstract class ConstruccionesProtoss extends Protoss implements Construct
 
 	@Override
 	public int getTiempoRestante() {
-		return this.tiempo;
+		return this.tiempoDeConstruccion;
 	}
 	
 	@Override
@@ -61,7 +61,7 @@ public abstract class ConstruccionesProtoss extends Protoss implements Construct
 	
 	@Override
 	public void avanzarFabricacion() {
-		tiempo -= 1;
+		tiempoDeConstruccion -= 1;
 	}
 	
 	@Override

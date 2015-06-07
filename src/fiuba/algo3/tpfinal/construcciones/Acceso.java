@@ -18,7 +18,7 @@ public class Acceso extends ConstruccionesProtoss {
 	public Acceso() {
 		this.vida.inicializarVida(500);
 		this.escudo.inicializarEscudo(500);
-		this.tiempo = 8;
+		this.tiempoDeConstruccion = 8;
 		this.costo = new Costo(150);
 		this.superficieNecesaria = new Tierra();
 		this.setConstruccionesNecesarias();

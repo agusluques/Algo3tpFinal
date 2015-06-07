@@ -6,13 +6,14 @@ import fiuba.algo3.tpfinal.programa.Coordenada;
 import fiuba.algo3.tpfinal.programa.Costo;
 import fiuba.algo3.tpfinal.programa.Danio;
 
-public class UnidadesTerran extends Terran implements Fabricable{
+public class UnidadesTerran extends Terran implements Fabricable, Atacante{
 	
 	protected Danio miDanio;
 	protected int tiempoDeConstruccion;
 	protected int suministro;
 	protected Rango rango;
 	protected Costo costo;
+	protected int transporte;
 	
 	public int getTiempoRestante(){
 		return this.tiempoDeConstruccion;
@@ -28,6 +29,8 @@ public class UnidadesTerran extends Terran implements Fabricable{
 	public int getSuministro(){
 		return this.suministro;
 	}
+	
+	@Override
 	public void atacar(Atacable enemigo) {
 		if (this.estaEnRangoDeAtaque(enemigo)){
 			enemigo.atacado(miDanio);
