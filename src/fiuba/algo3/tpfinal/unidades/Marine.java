@@ -16,7 +16,7 @@ public class Marine extends UnidadesTerran {
 		this.costo = new Costo(50);
 		this.transporte = 1;
 		
-		//ACA HAY QUE PEDIR EN EL CONSTRUCTOR QUE SE INDIQUE LA COORDENADA DE ARRANQUE
+		//se inicializa en (0,0) solo para los tests
 		this.posicion = new Coordenada(0,0);
 	
 	}

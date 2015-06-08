@@ -1,5 +1,6 @@
 package fiuba.algo3.tpfinal.unidades;
 
+import fiuba.algo3.tpfinal.programa.Coordenada;
 import fiuba.algo3.tpfinal.programa.Costo;
 import fiuba.algo3.tpfinal.programa.Danio;
 
@@ -12,5 +13,9 @@ public class Dragon extends UnidadesProtoss {
 		this.suministro = 2;
 		this.costo = new Costo(125,50);
 		this.transporte = 4;
+		this.rango = new Rango(4,0);
+		
+		//se inicializa en (0,0) solo para los tests
+		this.posicion = new Coordenada(0,0);
 	}
 }

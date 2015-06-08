@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 import fiuba.algo3.tpfinal.excepciones.CapacidadInsuficiente;
+import fiuba.algo3.tpfinal.programa.Coordenada;
 import fiuba.algo3.tpfinal.programa.Costo;
 import fiuba.algo3.tpfinal.programa.Danio;
 
@@ -22,6 +23,10 @@ public class NaveTransporteProtoss extends UnidadesProtoss {
 		this.pasajeros = new ArrayList<UnidadesProtoss>();
 		this.transporte = 9; //Decidi que sea 9 para que una nave no pueda estar en otra
 		this.capacidad = 8;
+		this.rango = new Rango(0,0);
+		
+		//se inicializa en (0,0) solo para los tests
+		this.posicion = new Coordenada(0,0);
 	}
 	
 	public void atacado(Danio danio){

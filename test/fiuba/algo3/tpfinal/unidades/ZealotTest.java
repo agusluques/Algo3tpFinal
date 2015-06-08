@@ -38,5 +38,16 @@ public class ZealotTest {
 		Assert.assertTrue(otroZealot.getEscudo() == 52);
 	}
 	
+	@Test
+	public void siUnZealotAtacaAOtroFueraDelRangoNoLeSacaEscudo(){
+		Zealot unZealot = new Zealot();
+		Zealot otroZealot = new Zealot();
+		unZealot.mover(2,2);
+		otroZealot.mover(3, 3);
+		
+		unZealot.atacar(otroZealot);
+		
+		Assert.assertTrue(otroZealot.getEscudo() == 60);
+	}
 	
 }

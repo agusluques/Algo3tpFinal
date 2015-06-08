@@ -2,6 +2,7 @@ package fiuba.algo3.tpfinal.unidades;
 
 import fiuba.algo3.tpfinal.construcciones.Atacable;
 import fiuba.algo3.tpfinal.construcciones.Protoss;
+import fiuba.algo3.tpfinal.programa.Coordenada;
 import fiuba.algo3.tpfinal.programa.Costo;
 import fiuba.algo3.tpfinal.programa.Danio;
 
@@ -12,6 +13,7 @@ public abstract class UnidadesProtoss extends Protoss implements Fabricable, Ata
 	protected Costo costo;
 	protected int tiempoDeConstruccion;
 	protected int transporte; //El espacio que ocupa en la nave
+	protected Rango rango;
 	
 	public int getTiempoRestante(){
 		return this.tiempoDeConstruccion;
@@ -42,6 +44,27 @@ public abstract class UnidadesProtoss extends Protoss implements Fabricable, Ata
 
 	@Override
 	public void atacar(Atacable enemigo) {
-		enemigo.atacado(miDanio);
+		if (this.estaEnRangoDeAtaque(enemigo)){
+			enemigo.atacado(miDanio);
+		}
+		enemigo.atacado(new Danio(0,0));
+	}
+	
+	private boolean estaEnRangoDeAtaque(Atacable enemigo) {
+		Coordenada coordenadaEnemigo = enemigo.getCoordenada();
+		Coordenada coordenadaAtacante = this.getCoordenada();
+		double distancia = coordenadaEnemigo.distancia(coordenadaAtacante);
+		
+		boolean estaEnRango = (this.rangoDeAtaque() >= distancia);
+		return estaEnRango;
+	}
+	
+	private int rangoDeAtaque() {
+		//HAY QUE ARREGLAR ESTO PORQUE ALGUNOS ATACAN A AIRE
+		return this.rango.getRangoTierra();
+	}
+	
+	public void mover(int fila, int columna){
+		this.posicion.mover(fila, columna);
 	}
 }

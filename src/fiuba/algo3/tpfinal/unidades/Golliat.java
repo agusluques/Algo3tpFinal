@@ -16,7 +16,7 @@ public class Golliat extends UnidadesTerran {
 		this.transporte = 2;
 		
 		
-		//ACA HAY QUE PEDIR EN EL CONSTRUCTOR QUE SE INDIQUE LA COORDENADA DE ARRANQUE
+		//se inicializa en (0,0) solo para los tests
 		this.posicion = new Coordenada(0,0);
 	}
 }

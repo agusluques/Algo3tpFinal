@@ -1,6 +1,7 @@
 package fiuba.algo3.tpfinal.unidades;
 
 import fiuba.algo3.tpfinal.excepciones.EnergiaInsuficiente;
+import fiuba.algo3.tpfinal.programa.Coordenada;
 import fiuba.algo3.tpfinal.programa.Costo;
 import fiuba.algo3.tpfinal.programa.Danio;
 
@@ -16,6 +17,9 @@ public class AltoTemplario extends UnidadesProtoss {
 		this.suministro = 2;
 		this.costo = new Costo(50,150);
 		this.transporte = 2;
+		this.rango = new Rango(0,0);
+		//se inicializa en (0,0) solo para los tests
+		this.posicion = new Coordenada(0,0);
 		
 	}
 	
