@@ -60,7 +60,7 @@ public class Mapa {
 	}
 
 	
-	//agrega al HashMap las clases Aire y Tierra
+	//agrega al HashMap las clases Aire, Tierra, DepositoDeMinerales y DepositoDeGas
 	private void agregarAlMapa(Coordenada coord, char caracter) {
 		if (caracter == '0'){
 			Parcela parcela = new Parcela(new Aire());
@@ -106,7 +106,6 @@ public class Mapa {
 	}
 
 	public Parcela getParcela(Coordenada coord) {
-		
 		return mapa.get(coord);
 	}
 
@@ -194,6 +193,14 @@ public class Mapa {
 			}
 		}
 		return cantidadDeBases;
+	}
+	
+	public void intercambiarParcelas(Coordenada coord1, Coordenada coord2) {
+		Parcela parcela1 = this.getParcela(coord1);
+		Parcela parcela2 = this.getParcela(coord2);
+		
+		this.mapa.put(coord1, parcela2);
+		this.mapa.put(coord2, parcela1);
 	}
 
 	public void ubicarCercaDe(Atacable unidad, Coordenada posicion){

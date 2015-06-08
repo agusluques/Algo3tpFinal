@@ -1,8 +1,5 @@
 package fiuba.algo3.tpfinal.unidades;
 
-import java.util.Iterator;
-
-import fiuba.algo3.tpfinal.construcciones.Constructible;
 import fiuba.algo3.tpfinal.excepciones.EnergiaInsuficiente;
 import fiuba.algo3.tpfinal.programa.Costo;
 import fiuba.algo3.tpfinal.programa.Danio;

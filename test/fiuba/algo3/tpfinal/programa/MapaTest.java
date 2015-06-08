@@ -84,8 +84,20 @@ public class MapaTest {
 		@SuppressWarnings("unused")
 		Mapa ambiente = new Mapa("mapa1.txt");
 	}
-
-
+	
+	@Test
+	public void siIntercambioUnCentroDeMineralesConUnaTierraSeIntercambianCorrectamente() throws Exception {
+		Mapa ambiente = new Mapa("mapaTierra.txt");
+		Coordenada coordenadaTierra = new Coordenada(1,1);
+		Coordenada coordenadaMineral = new Coordenada(1,100);
+		Parcela parcelaTierra = ambiente.getParcela(coordenadaTierra);
+		Parcela parcelaMineral = ambiente.getParcela(coordenadaMineral);
+		
+		ambiente.intercambiarParcelas(coordenadaTierra, coordenadaMineral);
+		
+		Assert.assertEquals(parcelaTierra, ambiente.getParcela(coordenadaMineral));
+		Assert.assertEquals(parcelaMineral, ambiente.getParcela(coordenadaTierra));
+	}
 
 	@Test
 	public void siIntentoUbicarUnaUnidadEnUnaPosicionVaciaQuedaEnEsaPosicion() throws Exception {
