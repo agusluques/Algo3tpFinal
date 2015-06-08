@@ -7,10 +7,16 @@ import org.junit.Test;
 import fiuba.algo3.tpfinal.construcciones.Atacable;
 import fiuba.algo3.tpfinal.construcciones.Pilon;
 import fiuba.algo3.tpfinal.excepciones.EnergiaInsuficiente;
+import fiuba.algo3.tpfinal.excepciones.MovimientoInvalido;
+import fiuba.algo3.tpfinal.programa.Aire;
 import fiuba.algo3.tpfinal.programa.Coordenada;
 import fiuba.algo3.tpfinal.programa.Danio;
+import fiuba.algo3.tpfinal.programa.DepositoDeGas;
+import fiuba.algo3.tpfinal.programa.DepositoDeMinerales;
 import fiuba.algo3.tpfinal.programa.Jugador;
 import fiuba.algo3.tpfinal.programa.Mapa;
+import fiuba.algo3.tpfinal.programa.Superficie;
+import fiuba.algo3.tpfinal.programa.Tierra;
 
 public class AltoTemplarioTest {
 
@@ -79,6 +85,71 @@ public class AltoTemplarioTest {
 		
 		Assert.assertTrue(cantidadDeAlucinaciones == 2);
 				
+	}
+	
+	@Test
+	public void unAltoTemplarioSePuedeMoverEnLaTierraPeroNoEnAireNiMineralNiGas() {
+		AltoTemplario unidad = new AltoTemplario();
+		
+		Assert.assertFalse(unidad.sePuedeMoverA((Superficie) new Aire()));
+		Assert.assertTrue(unidad.sePuedeMoverA((Superficie) new Tierra()));
+		Assert.assertFalse(unidad.sePuedeMoverA((Superficie) new DepositoDeGas()));
+		Assert.assertFalse(unidad.sePuedeMoverA((Superficie) new DepositoDeMinerales()));
+	}
+	
+	@Test
+	public void unAltoTemplarioSePuedeMoverAUnaCeldaVecinaSiHayTierra() throws Exception {
+		AltoTemplario unidad = new AltoTemplario();
+		Mapa mapa = new Mapa("mapaTierra.txt");
+		
+		mapa.insertarUnidad(new Coordenada(1,1), unidad);
+		Coordenada destino = new Coordenada(1,2);
+		unidad.trasladarA(destino, mapa);
+		
+		Assert.assertEquals(destino, unidad.getCoordenada());
+		Assert.assertEquals(unidad, mapa.getParcela(destino).getOcupante());
+	}
+	
+	@Test(expected = MovimientoInvalido.class)
+	public void unAltoTemplarioNoSePuedeMoverAOtraCeldaSiHayAire() throws Exception {
+		AltoTemplario unidad = new AltoTemplario();
+		Mapa mapa = new Mapa("mapaTierra.txt");
+		
+		mapa.insertarUnidad(new Coordenada(1,1), unidad);
+		Coordenada destino = new Coordenada(1,50);
+		unidad.trasladarA(destino, mapa);
+	}
+	
+	@Test(expected = MovimientoInvalido.class)
+	public void unAltoTemplarioNoSePuedeMoverAOtraCeldaSiHayMineral() throws Exception {
+		AltoTemplario unidad = new AltoTemplario();
+		Mapa mapa = new Mapa("mapaTierra.txt");
+		
+		mapa.insertarUnidad(new Coordenada(1,51), unidad);
+		Coordenada destino = new Coordenada(1,100);
+		unidad.trasladarA(destino, mapa);
+	}
+	
+	@Test(expected = MovimientoInvalido.class)
+	public void unAltoTemplarioNoSePuedeMoverAOtraCeldaSiHayGas() throws Exception {
+		AltoTemplario unidad = new AltoTemplario();
+		Mapa mapa = new Mapa("mapaTierra.txt");
+		
+		mapa.insertarUnidad(new Coordenada(1,51), unidad);
+		Coordenada destino = new Coordenada(1,90);
+		unidad.trasladarA(destino, mapa);
+	}
+	
+	@Test(expected = MovimientoInvalido.class)
+	public void unAltoTemplarioNoSePuedeMoverAOtraCeldaSiEstaOcupada() throws Exception {
+		AltoTemplario unidad = new AltoTemplario();
+		Zealot zealot = new Zealot();
+		Mapa mapa = new Mapa("mapaTierra.txt");
+		
+		mapa.insertarUnidad(new Coordenada(1,1), unidad);
+		Coordenada destino = new Coordenada(1,2);
+		mapa.insertarUnidad(destino, zealot);
+		unidad.trasladarA(destino, mapa);
 	}
 
 }

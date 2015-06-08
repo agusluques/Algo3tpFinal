@@ -1,6 +1,6 @@
 package fiuba.algo3.tpfinal.programa;
 
-import fiuba.algo3.tpfinal.unidades.UnidadesTerran;
+import fiuba.algo3.tpfinal.unidades.Trasladable;
 
 public abstract class Superficie {
 
@@ -21,5 +21,5 @@ public abstract class Superficie {
 		return this.nombre.hashCode();
 	}
 	
-	public abstract boolean puedeRecibir(UnidadesTerran unidadesTerran);
+	public abstract boolean puedeRecibir(Trasladable unidad);
 }

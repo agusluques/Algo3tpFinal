@@ -1,6 +1,6 @@
 package fiuba.algo3.tpfinal.programa;
 
-import fiuba.algo3.tpfinal.unidades.UnidadesTerran;
+import fiuba.algo3.tpfinal.unidades.Trasladable;
 
 
 public class DepositoDeGas extends Superficie {
@@ -26,8 +26,8 @@ public class DepositoDeGas extends Superficie {
 	}
 	
 	@Override
-	public boolean puedeRecibir(UnidadesTerran unidadesTerran) {
-		return unidadesTerran.sePuedeMoverA(this);
+	public boolean puedeRecibir(Trasladable unidad) {
+		return unidad.sePuedeMoverA(this);
 	}
 	
 

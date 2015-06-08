@@ -102,5 +102,17 @@ public class EspectroTest {
 		Coordenada destino = new Coordenada(1,90);
 		unidad.trasladarA(destino, mapa);
 	}
+	
+	@Test(expected = MovimientoInvalido.class)
+	public void unEspectroNoSePuedeMoverAOtraCeldaSiEstaOcupada() throws Exception {
+		Espectro unidad = new Espectro();
+		Zealot zealot = new Zealot();
+		Mapa mapa = new Mapa("mapaTierra.txt");
+		
+		mapa.insertarUnidad(new Coordenada(1,1), unidad);
+		Coordenada destino = new Coordenada(1,2);
+		mapa.insertarUnidad(destino, zealot);
+		unidad.trasladarA(destino, mapa);
+	}
 
 }

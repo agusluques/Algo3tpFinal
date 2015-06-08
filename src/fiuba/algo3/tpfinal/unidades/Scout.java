@@ -1,5 +1,6 @@
 package fiuba.algo3.tpfinal.unidades;
 
+import fiuba.algo3.tpfinal.programa.Aire;
 import fiuba.algo3.tpfinal.programa.Coordenada;
 import fiuba.algo3.tpfinal.programa.Costo;
 import fiuba.algo3.tpfinal.programa.Danio;
@@ -23,5 +24,10 @@ public class Scout extends UnidadesProtoss {
 	
 	public void atacado(Danio danio){
 		this.escudo.bajarEscudo(danio.getDanioAire(), this.vida);
+	}
+	
+	@Override
+	public boolean sePuedeMoverA(Aire superficie) {
+		return true;
 	}
 }

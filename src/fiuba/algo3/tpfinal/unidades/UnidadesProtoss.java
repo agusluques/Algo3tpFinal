@@ -2,11 +2,19 @@ package fiuba.algo3.tpfinal.unidades;
 
 import fiuba.algo3.tpfinal.construcciones.Atacable;
 import fiuba.algo3.tpfinal.construcciones.Protoss;
+import fiuba.algo3.tpfinal.excepciones.MovimientoInvalido;
+import fiuba.algo3.tpfinal.programa.Aire;
 import fiuba.algo3.tpfinal.programa.Coordenada;
 import fiuba.algo3.tpfinal.programa.Costo;
 import fiuba.algo3.tpfinal.programa.Danio;
+import fiuba.algo3.tpfinal.programa.DepositoDeGas;
+import fiuba.algo3.tpfinal.programa.DepositoDeMinerales;
+import fiuba.algo3.tpfinal.programa.Mapa;
+import fiuba.algo3.tpfinal.programa.Parcela;
+import fiuba.algo3.tpfinal.programa.Superficie;
+import fiuba.algo3.tpfinal.programa.Tierra;
 
-public abstract class UnidadesProtoss extends Protoss implements Fabricable, Atacante {
+public abstract class UnidadesProtoss extends Protoss implements Fabricable, Atacante, Trasladable {
 	
 	protected Danio miDanio;
 	protected int suministro;
@@ -66,5 +74,41 @@ public abstract class UnidadesProtoss extends Protoss implements Fabricable, Ata
 	
 	public void mover(int fila, int columna){
 		this.posicion.mover(fila, columna);
+	}
+	
+	@Override
+	public void trasladarA(Coordenada coord, Mapa mapa) {
+		Parcela parcelaNueva = mapa.getParcela(coord);
+		if (parcelaNueva.estaVacia() && this.sePuedeMoverA(parcelaNueva.getSuperficie())) {
+			mapa.moverUnidad(posicion, coord);
+			this.posicion = coord;
+		} else {
+			throw new MovimientoInvalido();
+		}
+	}
+
+	@Override
+	public boolean sePuedeMoverA(Superficie superficie) {
+		return superficie.puedeRecibir(this);
+	}
+
+	@Override
+	public boolean sePuedeMoverA(Tierra superficie) {
+		return true;
+	}
+
+	@Override
+	public boolean sePuedeMoverA(Aire superficie) {
+		return false;
+	}
+
+	@Override
+	public boolean sePuedeMoverA(DepositoDeMinerales superficie) {
+		return false;
+	}
+
+	@Override
+	public boolean sePuedeMoverA(DepositoDeGas superficie) {
+		return false;
 	}
 }
