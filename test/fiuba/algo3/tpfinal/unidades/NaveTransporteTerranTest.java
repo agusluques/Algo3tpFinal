@@ -1,6 +1,6 @@
 package fiuba.algo3.tpfinal.unidades;
 
-import java.util.Collection;
+
 
 import junit.framework.Assert;
 
@@ -8,6 +8,7 @@ import org.junit.Test;
 
 import fiuba.algo3.tpfinal.excepciones.CapacidadInsuficiente;
 import fiuba.algo3.tpfinal.excepciones.MovimientoInvalido;
+import fiuba.algo3.tpfinal.excepciones.NoHayPasajerosEnLaNave;
 import fiuba.algo3.tpfinal.programa.Aire;
 import fiuba.algo3.tpfinal.programa.Coordenada;
 import fiuba.algo3.tpfinal.programa.Danio;
@@ -59,11 +60,11 @@ public class NaveTransporteTerranTest {
 		Assert.assertTrue(naveDos.getVida() == 150);
 	}
 	
-	@Test
-	public void unaNaveSinPasajerosDesciendeUnaListaVacia() {
+	@Test(expected = NoHayPasajerosEnLaNave.class)
+	public void unaNaveSinPasajerosDesciendeUnaListaVacia() throws NoHayPasajerosEnLaNave {
 		NaveTransporteTerran nave = new NaveTransporteTerran();
-		Collection<UnidadesTerran> pasajerosDescendidos= nave.descenderPasajeros();
-		Assert.assertTrue(pasajerosDescendidos.isEmpty());
+		nave.bajarPasajeros();
+		
 	}
 	
 	@Test
@@ -74,16 +75,7 @@ public class NaveTransporteTerranTest {
 		
 	}
 	
-	@Test
-	public void unaNaveConUnMarineDesciendeUnaListaConUnMarine() {
-		NaveTransporteTerran nave = new NaveTransporteTerran();
-		Marine marine = new Marine();
-		
-		nave.subirPasajero(marine);
-		Collection<UnidadesTerran> pasajerosDescendidos= nave.descenderPasajeros();
-		
-		Assert.assertTrue(pasajerosDescendidos.contains(marine));
-	}
+
 	
 	@Test
 	public void unaNaveConUnMarineTieneCapacidad7() {

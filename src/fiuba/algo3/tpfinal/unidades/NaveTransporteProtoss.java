@@ -2,12 +2,19 @@ package fiuba.algo3.tpfinal.unidades;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Iterator;
 
 import fiuba.algo3.tpfinal.excepciones.CapacidadInsuficiente;
+
+import fiuba.algo3.tpfinal.excepciones.NoHayPasajerosEnLaNave;
+
 import fiuba.algo3.tpfinal.programa.Aire;
+
 import fiuba.algo3.tpfinal.programa.Coordenada;
 import fiuba.algo3.tpfinal.programa.Costo;
 import fiuba.algo3.tpfinal.programa.Danio;
+import fiuba.algo3.tpfinal.programa.Mapa;
+import fiuba.algo3.tpfinal.programa.Parcela;
 
 public class NaveTransporteProtoss extends UnidadesProtoss {
 
@@ -43,19 +50,36 @@ public class NaveTransporteProtoss extends UnidadesProtoss {
 		}
 	}
 	
-	public Collection<UnidadesProtoss> descenderPasajeros() {
-		Collection<UnidadesProtoss> pasajerosDescendidos = this.pasajeros;
-		this.pasajeros = new ArrayList<UnidadesProtoss>();
-		this.capacidad = 8;
-		return pasajerosDescendidos;
+	public void bajarPasajeros() throws NoHayPasajerosEnLaNave{
+		if (this.cantidadDePasajeros() == 0){
+			throw new NoHayPasajerosEnLaNave();
+		}
+		Iterator<UnidadesProtoss> iterador = this.pasajeros.iterator();
+		while(iterador.hasNext()) {
+			UnidadesProtoss unidad = iterador.next();
+			Mapa mapa = jugador.getMapa();
+			Parcela parcela = mapa.getParcela(this.posicion);
+			while (unidad.sePuedeMoverA(parcela.getSuperficie())){
+				this.pasajeros.remove(unidad);
+				mapa.ubicarCercaDe(unidad, this.posicion);
+				this.capacidad = 8;
+			}
+		}
 	}
 
 	public int getCapacidad() {
 		return this.capacidad;
 	}
+
+
+	public int cantidadDePasajeros() {
+		return pasajeros.size();
+	}
+
 	
 	@Override
 	public boolean sePuedeMoverA(Aire superficie) {
 		return true;
 	}
+
 }

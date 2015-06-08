@@ -11,6 +11,7 @@ import fiuba.algo3.tpfinal.excepciones.ConstruccionRequeridaInexistente;
 import fiuba.algo3.tpfinal.excepciones.LimitePoblacionalAlcanzado;
 import fiuba.algo3.tpfinal.unidades.Fabricable;
 
+
 public class Jugador {
 
 	private String nombre;
@@ -96,6 +97,10 @@ public class Jugador {
 			}
 		}
 		unidades.removeAll(unidadesMuertas);
+	}
+
+	public Mapa getMapa() {
+		return mapa;
 	}
 
 

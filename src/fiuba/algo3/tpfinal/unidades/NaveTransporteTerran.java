@@ -2,12 +2,16 @@ package fiuba.algo3.tpfinal.unidades;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Iterator;
 
 import fiuba.algo3.tpfinal.excepciones.CapacidadInsuficiente;
+import fiuba.algo3.tpfinal.excepciones.NoHayPasajerosEnLaNave;
 import fiuba.algo3.tpfinal.programa.Aire;
 import fiuba.algo3.tpfinal.programa.Coordenada;
 import fiuba.algo3.tpfinal.programa.Costo;
 import fiuba.algo3.tpfinal.programa.Danio;
+import fiuba.algo3.tpfinal.programa.Mapa;
+import fiuba.algo3.tpfinal.programa.Parcela;
 
 public class NaveTransporteTerran extends UnidadesTerran {
 
@@ -43,11 +47,22 @@ public class NaveTransporteTerran extends UnidadesTerran {
 		}
 	}
 	
-	public Collection<UnidadesTerran> descenderPasajeros() {
-		Collection<UnidadesTerran> pasajerosDescendidos = this.pasajeros;
-		this.pasajeros = new ArrayList<UnidadesTerran>();
-		this.capacidad = 8;
-		return pasajerosDescendidos;
+	public void bajarPasajeros() throws NoHayPasajerosEnLaNave{
+		if (this.cantidadDePasajeros() == 0){
+			throw new NoHayPasajerosEnLaNave();
+		}
+		Iterator<UnidadesTerran> iterador = this.pasajeros.iterator();
+		while(iterador.hasNext()) {
+			UnidadesTerran unidad = iterador.next();
+			Mapa mapa = jugador.getMapa();
+			Parcela parcela = mapa.getParcela(this.posicion);
+			while (unidad.sePuedeMoverA(parcela.getSuperficie())){
+				this.pasajeros.remove(unidad);
+				mapa.ubicarCercaDe(unidad, this.posicion);
+				this.capacidad = 8;
+			}
+			
+		}
 	}
 
 	public int getCapacidad() {
@@ -57,5 +72,9 @@ public class NaveTransporteTerran extends UnidadesTerran {
 	@Override
 	public boolean sePuedeMoverA(Aire superficie) {
 		return true;
+	}
+	
+	public int cantidadDePasajeros() {
+		return pasajeros.size();
 	}
 }

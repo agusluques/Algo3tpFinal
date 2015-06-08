@@ -1,7 +1,5 @@
 package fiuba.algo3.tpfinal.unidades;
 
-import java.util.Collection;
-
 import junit.framework.Assert;
 
 import org.junit.Test;
@@ -11,11 +9,16 @@ import fiuba.algo3.tpfinal.excepciones.MovimientoInvalido;
 import fiuba.algo3.tpfinal.programa.Aire;
 import fiuba.algo3.tpfinal.programa.Coordenada;
 import fiuba.algo3.tpfinal.programa.Danio;
+
+import fiuba.algo3.tpfinal.excepciones.NoHayPasajerosEnLaNave;
+
+
 import fiuba.algo3.tpfinal.programa.DepositoDeGas;
 import fiuba.algo3.tpfinal.programa.DepositoDeMinerales;
 import fiuba.algo3.tpfinal.programa.Mapa;
 import fiuba.algo3.tpfinal.programa.Superficie;
 import fiuba.algo3.tpfinal.programa.Tierra;
+
 
 public class NaveTransporteProtossTest {
 
@@ -52,11 +55,10 @@ public class NaveTransporteProtossTest {
 		Assert.assertTrue(nave.getEscudo() == 40);
 	}
 	
-	@Test
-	public void unaNaveSinPasajerosDesciendeUnaListaVacia() {
+	@Test(expected = NoHayPasajerosEnLaNave.class)
+	public void siQuieroDescenderLosPasajerosDeUnaNaveSinPasajerosLanzaExcpecion() throws NoHayPasajerosEnLaNave {
 		NaveTransporteProtoss nave = new NaveTransporteProtoss();
-		Collection<UnidadesProtoss> pasajerosDescendidos= nave.descenderPasajeros();
-		Assert.assertTrue(pasajerosDescendidos.isEmpty());
+		nave.bajarPasajeros();
 	}
 	
 	@Test
@@ -67,16 +69,7 @@ public class NaveTransporteProtossTest {
 		
 	}
 	
-	@Test
-	public void unaNaveConUnZealotDesciendeUnaListaConUnZealot() {
-		NaveTransporteProtoss nave = new NaveTransporteProtoss();
-		Zealot zealot = new Zealot();
-		
-		nave.subirPasajero(zealot);
-		Collection<UnidadesProtoss> pasajerosDescendidos= nave.descenderPasajeros();
-		
-		Assert.assertTrue(pasajerosDescendidos.contains(zealot));
-	}
+
 	
 	@Test
 	public void unaNaveConUnZealotTieneCapacidad6() {
