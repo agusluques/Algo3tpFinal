@@ -45,7 +45,7 @@ public class Fabrica extends ConstruccionesTerran {
 			unidadEnConstruccion.avanzarFabricacion();
 			if(this.unidadEnConstruccion.getTiempoRestante() == 0){
 				try{
-					this.jugador.agregarUnidad(unidadEnConstruccion);
+					this.jugador.agregarUnidad(unidadEnConstruccion,this.posicion);
 					this.unidadEnConstruccion = null;
 				}catch (LimitePoblacionalAlcanzado e){
 					throw e;

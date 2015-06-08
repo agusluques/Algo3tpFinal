@@ -6,6 +6,7 @@ import junit.framework.Assert;
 
 import org.junit.Test;
 
+import fiuba.algo3.tpfinal.construcciones.Atacable;
 import fiuba.algo3.tpfinal.excepciones.MapaInvalido;
 import fiuba.algo3.tpfinal.unidades.Zealot;
 
@@ -83,6 +84,53 @@ public class MapaTest {
 		@SuppressWarnings("unused")
 		Mapa ambiente = new Mapa("mapa1.txt");
 	}
+
+
+
+	@Test
+	public void siIntentoUbicarUnaUnidadEnUnaPosicionVaciaQuedaEnEsaPosicion() throws Exception {
+		Mapa ambiente = new Mapa("mapaTierra.txt");
+		Zealot unZealot = new Zealot();
+		Coordenada coord = new Coordenada(3,3);
+		ambiente.ubicarCercaDe(unZealot, coord);
+		Assert.assertTrue(unZealot.getCoordenada().equals(coord));
+		Assert.assertTrue(ambiente.getParcela(coord).getOcupante().equals(unZealot));
+	}
+
+	@Test
+	public void siTengoUnaUnidadEnLaEsquinaDelMapaLaOtraSeUbicaAlLado() throws Exception {
+		Mapa ambiente = new Mapa("mapaTierra.txt");
+		Zealot unZealot = new Zealot();
+		Zealot otroZealot = new Zealot();
+		Coordenada coord = new Coordenada(1,1);
+		Coordenada coord2 = new Coordenada(1,2);
+		
+		ambiente.insertarUnidad(coord, unZealot);
+		ambiente.ubicarCercaDe(otroZealot, coord);
+		
+		Assert.assertTrue(otroZealot.getCoordenada().equals(coord2));
+		Assert.assertTrue(ambiente.getParcela(coord2).getOcupante().equals(otroZealot));
+		
+	}
+	
+	@Test
+	public void siUbico8UnidadesCercaDeUnaEstasLaRodean() throws Exception {
+		Mapa ambiente = new Mapa("mapaTierra.txt");
+		Zealot unZealot = new Zealot();
+		Atacable otroZealot;
+		ambiente.insertarUnidad(new Coordenada(3,3), unZealot);
+		for (int i=0;i<8;i++){
+			ambiente.ubicarCercaDe(new Zealot(), new Coordenada(3,3));
+		}
+		for (int y=2;y<=4;y++){
+			for(int x=2;x<=4;x++){
+				otroZealot = ambiente.getParcela(new Coordenada(y,x)).getOcupante();
+				Assert.assertTrue(unZealot.getClass()==otroZealot.getClass());
+			}
+		}
+		
+	}
+
 }
 	 
 

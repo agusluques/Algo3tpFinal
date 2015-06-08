@@ -10,6 +10,7 @@ import java.util.Set;
 
 import fiuba.algo3.tpfinal.construcciones.Atacable;
 import fiuba.algo3.tpfinal.excepciones.MapaInvalido;
+import fiuba.algo3.tpfinal.excepciones.ParcelaOcupada;
 
 public class Mapa {
 	
@@ -95,7 +96,13 @@ public class Mapa {
 
 	
 	public void insertarUnidad(Coordenada coord, Atacable unidad) {
-		(mapa.get(coord)).ocupar(unidad);
+		try{
+			(mapa.get(coord)).ocupar(unidad);
+			unidad.setCoordenada(coord);
+		}catch (ParcelaOcupada e){
+			throw e;
+		}
+		
 	}
 
 	public Parcela getParcela(Coordenada coord) {
@@ -189,6 +196,33 @@ public class Mapa {
 		return cantidadDeBases;
 	}
 
-	
+	public void ubicarCercaDe(Atacable unidad, Coordenada posicion){
+		int fila = posicion.getFila();
+		int columna = posicion.getColumna();
+		int modColumna = 0;
+		int modFila = 0;
+		Parcela parcela;
+		boolean ubicada = false;
+		while (!ubicada){
+			for (int y = fila - modFila;y<=fila+modFila;y++){
+				for (int x = columna - modColumna;x<=fila+modColumna;x++){
+					parcela = this.mapa.get(new Coordenada(y,x));
+					if (parcela != null){
+						if(parcela.estaVacia() && !ubicada){
+							parcela.ocupar(unidad);
+							unidad.setCoordenada(new Coordenada(y,x));
+							ubicada = true;
+						}
+						
+					}
+				}
+			}
+		
+			if (!ubicada){
+				modFila++;
+				modColumna++;
+			}
+		}
+	}
 	
 }

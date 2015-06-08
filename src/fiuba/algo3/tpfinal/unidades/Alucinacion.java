@@ -7,5 +7,6 @@ public class Alucinacion extends UnidadesProtoss{
 		this.vida.inicializarVida(0);
 		this.escudo.inicializarEscudo(escudo);
 		this.miDanio = new Danio(0,0);
+		this.suministro = 0;
 	}
 }

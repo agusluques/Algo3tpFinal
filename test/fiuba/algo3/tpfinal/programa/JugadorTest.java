@@ -499,8 +499,8 @@ public class JugadorTest {
 		for(int i = 0; i < 6; i++) {
 			jugador.pasarTurno();
 		}
-		jugador.agregarUnidad(new Marine());
-		jugador.agregarUnidad(new Marine());
+		jugador.agregarUnidad(new Marine(),new Coordenada(1,1));
+		jugador.agregarUnidad(new Marine(),new Coordenada(1,2));
 		Assert.assertTrue(jugador.contarPoblacion()==2);
 	}
 	
@@ -511,7 +511,7 @@ public class JugadorTest {
 			jugador.pasarTurno();
 		}
 		Marine marine = new Marine();
-		jugador.agregarUnidad(marine);
+		jugador.agregarUnidad(marine,new Coordenada(1,1));
 		jugador.pasarTurno();
 		
 		Marine enemigo = new Marine();

@@ -5,7 +5,7 @@ import java.util.Collection;
 import fiuba.algo3.tpfinal.programa.Costo;
 import fiuba.algo3.tpfinal.programa.Jugador;
 import fiuba.algo3.tpfinal.programa.Superficie;
-import fiuba.algo3.tpfinal.unidades.Fabricable;
+
 
 public abstract class ConstruccionesProtoss extends Protoss implements Constructible{
 
@@ -32,7 +32,7 @@ public abstract class ConstruccionesProtoss extends Protoss implements Construct
 		return this.tiempoDeConstruccion;
 	}
 	
-	@Override
+	
 	public void setJugador(Jugador jugador){
 		this.jugador = jugador;
 	}

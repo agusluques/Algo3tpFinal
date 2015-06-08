@@ -4,7 +4,13 @@ import junit.framework.Assert;
 
 import org.junit.Test;
 
+import fiuba.algo3.tpfinal.construcciones.Atacable;
+import fiuba.algo3.tpfinal.construcciones.Pilon;
+import fiuba.algo3.tpfinal.excepciones.EnergiaInsuficiente;
+import fiuba.algo3.tpfinal.programa.Coordenada;
 import fiuba.algo3.tpfinal.programa.Danio;
+import fiuba.algo3.tpfinal.programa.Jugador;
+import fiuba.algo3.tpfinal.programa.Mapa;
 
 public class AltoTemplarioTest {
 
@@ -41,6 +47,38 @@ public class AltoTemplarioTest {
 		Assert.assertTrue(altoTemplario.getVida() == 40);
 		Assert.assertTrue(altoTemplario.getEscudo() == 20);
 		
+	}
+
+	@Test (expected = EnergiaInsuficiente.class)
+	public void siUnAltoTemplarioIntentaCrearAlucinacionesSinTenerEnergiaSuficienteLanzaUnaExcepcion() throws EnergiaInsuficiente {
+		
+		AltoTemplario altoTemplario = new AltoTemplario();
+		altoTemplario.crearAlucinaciones();
+		
+	}
+
+	@Test
+	public void siUnAltoTemplarioCreaIlusionesLasMismasAparecenEnLasUnidadesDelJugador() throws Exception, EnergiaInsuficiente {
+		
+		AltoTemplario altoTemplario = new AltoTemplario();
+		Mapa mapa = new Mapa("mapaTierra.txt");
+		Jugador jugador = new Jugador("Damian", mapa);
+		int cantidadDeAlucinaciones=0;
+		
+		jugador.getConstrucciones().add(new Pilon());
+		jugador.agregarUnidad(altoTemplario, new Coordenada(3,3));
+		for (int i=0;i<4;i++){
+			altoTemplario.pasarTurno();
+		}
+		altoTemplario.crearAlucinaciones();
+		for(Atacable unidad : jugador.getUnidades()){
+			if(unidad.getClass()==(new Alucinacion(10)).getClass()){
+				cantidadDeAlucinaciones++;
+			}
+		}
+		
+		Assert.assertTrue(cantidadDeAlucinaciones == 2);
+				
 	}
 
 }

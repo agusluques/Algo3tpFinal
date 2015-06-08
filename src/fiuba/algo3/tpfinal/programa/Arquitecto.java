@@ -11,7 +11,7 @@ import fiuba.algo3.tpfinal.excepciones.GasInsuficiente;
 import fiuba.algo3.tpfinal.excepciones.MineralInsuficiente;
 import fiuba.algo3.tpfinal.excepciones.ParcelaOcupada;
 import fiuba.algo3.tpfinal.excepciones.TerrenoInapropiado;
-import fiuba.algo3.tpfinal.unidades.Fabricable;
+
 
 public class Arquitecto {
 	
@@ -19,7 +19,7 @@ public class Arquitecto {
 	private Presupuesto presupuesto;
 	private Collection<Constructible> construcciones;
 	private Jugador jugador;
-	public Collection<Constructible> construccionesEnConstruccion;
+	private Collection<Constructible> construccionesEnConstruccion;
 	
 	public Arquitecto(Presupuesto presupuesto,Collection<Constructible> construcciones, Mapa mapa, Jugador jugador ){
 		this.mapa = mapa;
@@ -37,6 +37,7 @@ public class Arquitecto {
 			this.cobrarConstruccion(construccion);
 			this.construccionesEnConstruccion.add(construccion);
 			this.mapa.getParcela(posicion).ocupar((Atacable)construccion);
+			((Atacable)construccion).setCoordenada(posicion);
 		} catch (MineralInsuficiente e) {
 			throw e;
 		} catch (GasInsuficiente e) {

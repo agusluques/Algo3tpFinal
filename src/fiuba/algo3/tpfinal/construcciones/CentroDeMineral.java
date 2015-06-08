@@ -39,5 +39,7 @@ public class CentroDeMineral extends ConstruccionesTerran implements RecolectorD
 		this.construccionesNecesarias = new ArrayList<Constructible>();
 		
 	}
+
+	
 	
 }

@@ -16,9 +16,8 @@ public class Jugador {
 	private String nombre;
 	private Presupuesto presupuesto;
 	private Collection<Constructible> construcciones;
-	public Arquitecto arquitecto;
+	private Arquitecto arquitecto;
 	private ArrayList<Atacable> unidades;
-	@SuppressWarnings("unused")
 	private Mapa mapa;
 	
 	public Jugador(String nombre, Mapa mapa) {
@@ -74,9 +73,11 @@ public class Jugador {
 		return this.unidades;
 	}
 
-	public void agregarUnidad(Fabricable unidad) throws LimitePoblacionalAlcanzado {
+	public void agregarUnidad(Fabricable unidad, Coordenada coord) throws LimitePoblacionalAlcanzado {
 		if( (this.contarPoblacion()+unidad.getSuministro()) <= this.limitePoblacional()){
 			this.unidades.add((Atacable) unidad);
+			this.mapa.ubicarCercaDe((Atacable)unidad, coord);
+			((Atacable)unidad).setJugador(this);
 		}else{
 			throw new LimitePoblacionalAlcanzado();
 		}

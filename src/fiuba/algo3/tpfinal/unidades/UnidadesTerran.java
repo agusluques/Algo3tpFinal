@@ -5,6 +5,7 @@ import fiuba.algo3.tpfinal.construcciones.Terran;
 import fiuba.algo3.tpfinal.programa.Coordenada;
 import fiuba.algo3.tpfinal.programa.Costo;
 import fiuba.algo3.tpfinal.programa.Danio;
+import fiuba.algo3.tpfinal.programa.Jugador;
 
 public class UnidadesTerran extends Terran implements Fabricable, Atacante{
 	
@@ -14,6 +15,7 @@ public class UnidadesTerran extends Terran implements Fabricable, Atacante{
 	protected Rango rango;
 	protected Costo costo;
 	protected int transporte;
+	protected Jugador jugador;
 	
 	public int getTiempoRestante(){
 		return this.tiempoDeConstruccion;
@@ -39,6 +41,10 @@ public class UnidadesTerran extends Terran implements Fabricable, Atacante{
 		
 	}
 
+	public void setJugador(Jugador jugador){
+		this.jugador = jugador;
+	}
+	
 	private boolean estaEnRangoDeAtaque(Atacable enemigo) {
 		Coordenada coordenadaEnemigo = enemigo.getCoordenada();
 		Coordenada coordenadaAtacante = this.getCoordenada();

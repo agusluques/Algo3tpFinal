@@ -11,6 +11,7 @@ import fiuba.algo3.tpfinal.excepciones.LimitePoblacionalAlcanzado;
 import fiuba.algo3.tpfinal.programa.Coordenada;
 import fiuba.algo3.tpfinal.programa.Jugador;
 import fiuba.algo3.tpfinal.programa.Mapa;
+import fiuba.algo3.tpfinal.unidades.Marine;
 
 public class BarracaTest {
 
@@ -92,4 +93,29 @@ public class BarracaTest {
 		}
 		Assert.assertTrue(jugador.contarPoblacion()==1);
 	}
+	
+	@Test
+	public void siFabricoUnMarineApareceEnElMapaAlrededorDeLaBarraca() throws Exception{
+		
+		Mapa mapa = new Mapa("mapaTierra.txt");
+		Jugador jugador = new Jugador("Damian", mapa);
+		
+		jugador.getPresupuesto().agregarMineral(1000);
+		jugador.construir(barraca, new Coordenada(1,1));
+		for (int i=0;i<12;i++){
+			jugador.pasarTurno();
+		}
+		jugador.construir(new DepositoSuministro(),  new Coordenada(1,2));
+		for (int i=0;i<6;i++){
+			jugador.pasarTurno();
+		}
+		this.barraca.fabricarMarine();
+		for (int i=0;i<4;i++){
+			this.barraca.haceLoTuyo();
+		}
+		Atacable marine = mapa.getParcela(new Coordenada(2,1)).getOcupante();
+		Assert.assertTrue(marine.getClass()== (new Marine()).getClass());
+
+	}
 }
+
