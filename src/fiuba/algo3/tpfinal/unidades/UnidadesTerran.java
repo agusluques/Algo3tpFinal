@@ -2,12 +2,18 @@ package fiuba.algo3.tpfinal.unidades;
 
 import fiuba.algo3.tpfinal.construcciones.Atacable;
 import fiuba.algo3.tpfinal.construcciones.Terran;
+import fiuba.algo3.tpfinal.excepciones.MovimientoInvalido;
+import fiuba.algo3.tpfinal.programa.Aire;
 import fiuba.algo3.tpfinal.programa.Coordenada;
 import fiuba.algo3.tpfinal.programa.Costo;
 import fiuba.algo3.tpfinal.programa.Danio;
 import fiuba.algo3.tpfinal.programa.Jugador;
+import fiuba.algo3.tpfinal.programa.Mapa;
+import fiuba.algo3.tpfinal.programa.Parcela;
+import fiuba.algo3.tpfinal.programa.Superficie;
+import fiuba.algo3.tpfinal.programa.Tierra;
 
-public class UnidadesTerran extends Terran implements Fabricable, Atacante{
+public class UnidadesTerran extends Terran implements Fabricable, Atacante, Trasladable {
 	
 	protected Danio miDanio;
 	protected int tiempoDeConstruccion;
@@ -73,6 +79,34 @@ public class UnidadesTerran extends Terran implements Fabricable, Atacante{
 	public int getCostoGas() {
 		int gasNecesario = this.costo.getGas();
 		return gasNecesario;
+	}
+
+	@Override
+	public void trarladarA(Coordenada coord, Mapa mapa) {
+		Parcela parcelaNueva = mapa.getParcela(coord);
+		if (this.sePuedeMoverA(parcelaNueva.getSuperficie())) {
+			mapa.moverUnidad(posicion, coord);
+			this.posicion = coord;
+		} else {
+			throw new MovimientoInvalido();
+		}
+	}
+
+	@Override
+	public boolean sePuedeMoverA(Superficie superficie) {
+		return false;
+	}
+
+	@Override
+	public boolean sePuedeMoverA(Tierra superficie) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean sePuedeMoverA(Aire superficie) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 

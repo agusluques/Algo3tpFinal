@@ -4,6 +4,7 @@ import junit.framework.Assert;
 
 import org.junit.Test;
 
+import fiuba.algo3.tpfinal.construcciones.Atacable;
 import fiuba.algo3.tpfinal.excepciones.ParcelaOcupada;
 import fiuba.algo3.tpfinal.excepciones.ParcelaVacia;
 import fiuba.algo3.tpfinal.unidades.Zealot;
@@ -60,6 +61,40 @@ public class ParcelaTest {
 		Parcela parcela = new Parcela(tierra);
 		parcela.getOcupante();
 		
+	}
+	
+	@Test
+	public void siDesocupoUnaParcelaMeDevuelteSuOcupante() {
+		Tierra tierra = new Tierra();
+		Parcela parcela = new Parcela(tierra);
+		Zealot zealot1 = new Zealot();
+		parcela.ocupar(zealot1);
+		
+		Atacable desocupado = parcela.desocupar();
+		
+		Assert.assertEquals(zealot1, desocupado);
+	}
+	
+	@Test
+	public void siDesocupoUnaParcelaQuedaVacia() {
+		Tierra tierra = new Tierra();
+		Parcela parcela = new Parcela(tierra);
+		Zealot zealot1 = new Zealot();
+		parcela.ocupar(zealot1);
+		
+		@SuppressWarnings("unused")
+		Atacable desocupado = parcela.desocupar();
+		
+		Assert.assertTrue(parcela.estaVacia());
+	}
+	
+	@Test(expected = ParcelaVacia.class)
+	public void siDesocupoUnaParcelaVaciaLanzaUnaExcepcion() {
+		Tierra tierra = new Tierra();
+		Parcela parcela = new Parcela(tierra);
+		
+		@SuppressWarnings("unused")
+		Atacable desocupado = parcela.desocupar();
 	}
 	
 	

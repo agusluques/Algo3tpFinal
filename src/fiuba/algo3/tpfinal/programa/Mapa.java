@@ -195,12 +195,11 @@ public class Mapa {
 		return cantidadDeBases;
 	}
 	
-	public void intercambiarParcelas(Coordenada coord1, Coordenada coord2) {
+	public void moverUnidad(Coordenada coord1, Coordenada coord2) {
 		Parcela parcela1 = this.getParcela(coord1);
 		Parcela parcela2 = this.getParcela(coord2);
 		
-		this.mapa.put(coord1, parcela2);
-		this.mapa.put(coord2, parcela1);
+		parcela2.ocupar(parcela1.desocupar());
 	}
 
 	public void ubicarCercaDe(Atacable unidad, Coordenada posicion){

@@ -86,17 +86,17 @@ public class MapaTest {
 	}
 	
 	@Test
-	public void siIntercambioUnCentroDeMineralesConUnaTierraSeIntercambianCorrectamente() throws Exception {
-		Mapa ambiente = new Mapa("mapaTierra.txt");
+	public void siMuevoUnZealotSeCambiaDePosicionCorrectamente() throws Exception {
+		Mapa mapa = new Mapa("mapaTierra.txt");
 		Coordenada coordenadaTierra = new Coordenada(1,1);
-		Coordenada coordenadaMineral = new Coordenada(1,100);
-		Parcela parcelaTierra = ambiente.getParcela(coordenadaTierra);
-		Parcela parcelaMineral = ambiente.getParcela(coordenadaMineral);
+		Coordenada coordenadaTierra2 = new Coordenada(1,2);
+		Atacable zealot = new Zealot();
+		mapa.insertarUnidad(coordenadaTierra, zealot);
+		Parcela parcelaTierra2 = mapa.getParcela(coordenadaTierra2);
 		
-		ambiente.intercambiarParcelas(coordenadaTierra, coordenadaMineral);
+		mapa.moverUnidad(coordenadaTierra, coordenadaTierra2);
 		
-		Assert.assertEquals(parcelaTierra, ambiente.getParcela(coordenadaMineral));
-		Assert.assertEquals(parcelaMineral, ambiente.getParcela(coordenadaTierra));
+		Assert.assertEquals(zealot, parcelaTierra2.getOcupante());
 	}
 
 	@Test

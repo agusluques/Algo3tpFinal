@@ -42,6 +42,15 @@ public class Parcela {
 	public boolean estaVacia(){
 		return this.ocupante == null;
 	}
+	
+	public Atacable desocupar() {
+		if (this.ocupante == null) {
+			throw new ParcelaVacia();
+		}
+		Atacable ocupante = this.ocupante;
+		this.ocupante = null;
+		return ocupante;
+	}
 
 	
 }
