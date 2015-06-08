@@ -1,5 +1,6 @@
 package fiuba.algo3.tpfinal.unidades;
 
+import fiuba.algo3.tpfinal.programa.Aire;
 import fiuba.algo3.tpfinal.programa.Coordenada;
 import fiuba.algo3.tpfinal.programa.Costo;
 import fiuba.algo3.tpfinal.programa.Danio;
@@ -23,5 +24,10 @@ public class NaveCiencia extends UnidadesTerran {
 	@Override
 	public void atacado (Danio danio){
 		this.vida.bajarVida(danio.getDanioAire());
+	}
+	
+	@Override
+	public boolean sePuedeMoverA(Aire superficie) {
+		return true;
 	}
 }

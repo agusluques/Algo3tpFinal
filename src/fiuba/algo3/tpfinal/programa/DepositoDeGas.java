@@ -1,5 +1,7 @@
 package fiuba.algo3.tpfinal.programa;
 
+import fiuba.algo3.tpfinal.unidades.UnidadesTerran;
+
 
 public class DepositoDeGas extends Superficie {
 	
@@ -21,6 +23,11 @@ public class DepositoDeGas extends Superficie {
 
 	public int getRecursos(){
 		return this.gasRestante;
+	}
+	
+	@Override
+	public boolean puedeRecibir(UnidadesTerran unidadesTerran) {
+		return unidadesTerran.sePuedeMoverA(this);
 	}
 	
 

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 import fiuba.algo3.tpfinal.excepciones.CapacidadInsuficiente;
+import fiuba.algo3.tpfinal.programa.Aire;
 import fiuba.algo3.tpfinal.programa.Coordenada;
 import fiuba.algo3.tpfinal.programa.Costo;
 import fiuba.algo3.tpfinal.programa.Danio;
@@ -51,5 +52,10 @@ public class NaveTransporteTerran extends UnidadesTerran {
 
 	public int getCapacidad() {
 		return this.capacidad;
+	}
+	
+	@Override
+	public boolean sePuedeMoverA(Aire superficie) {
+		return true;
 	}
 }

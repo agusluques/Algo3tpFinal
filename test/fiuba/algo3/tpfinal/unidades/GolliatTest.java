@@ -4,7 +4,15 @@ import junit.framework.Assert;
 
 import org.junit.Test;
 
+import fiuba.algo3.tpfinal.excepciones.MovimientoInvalido;
+import fiuba.algo3.tpfinal.programa.Aire;
+import fiuba.algo3.tpfinal.programa.Coordenada;
 import fiuba.algo3.tpfinal.programa.Danio;
+import fiuba.algo3.tpfinal.programa.DepositoDeGas;
+import fiuba.algo3.tpfinal.programa.DepositoDeMinerales;
+import fiuba.algo3.tpfinal.programa.Mapa;
+import fiuba.algo3.tpfinal.programa.Superficie;
+import fiuba.algo3.tpfinal.programa.Tierra;
 
 public class GolliatTest {
 
@@ -37,6 +45,59 @@ public class GolliatTest {
 		Golliat otroGolliat = new Golliat();
 		unGolliat.atacar(otroGolliat);
 		Assert.assertTrue(otroGolliat.getVida() == 113);
+	}
+	
+	@Test
+	public void unGolliatSePuedeMoverEnLaTierraPeroNoEnAireNiMineralNiGas() {
+		Golliat unidad = new Golliat();
+		
+		Assert.assertFalse(unidad.sePuedeMoverA((Superficie) new Aire()));
+		Assert.assertTrue(unidad.sePuedeMoverA((Superficie) new Tierra()));
+		Assert.assertFalse(unidad.sePuedeMoverA((Superficie) new DepositoDeGas()));
+		Assert.assertFalse(unidad.sePuedeMoverA((Superficie) new DepositoDeMinerales()));
+	}
+	
+	@Test
+	public void unGolliatSePuedeMoverAUnaCeldaVecinaSiHayTierra() throws Exception {
+		Golliat unidad = new Golliat();
+		Mapa mapa = new Mapa("mapaTierra.txt");
+		
+		mapa.insertarUnidad(new Coordenada(1,1), unidad);
+		Coordenada destino = new Coordenada(1,2);
+		unidad.trasladarA(destino, mapa);
+		
+		Assert.assertEquals(destino, unidad.getCoordenada());
+		Assert.assertEquals(unidad, mapa.getParcela(destino).getOcupante());
+	}
+	
+	@Test(expected = MovimientoInvalido.class)
+	public void unGolliatNoSePuedeMoverAOtraCeldaSiHayAire() throws Exception {
+		Golliat unidad = new Golliat();
+		Mapa mapa = new Mapa("mapaTierra.txt");
+		
+		mapa.insertarUnidad(new Coordenada(1,1), unidad);
+		Coordenada destino = new Coordenada(1,50);
+		unidad.trasladarA(destino, mapa);
+	}
+	
+	@Test(expected = MovimientoInvalido.class)
+	public void unGolliatNoSePuedeMoverAOtraCeldaSiHayMineral() throws Exception {
+		Golliat unidad = new Golliat();
+		Mapa mapa = new Mapa("mapaTierra.txt");
+		
+		mapa.insertarUnidad(new Coordenada(1,51), unidad);
+		Coordenada destino = new Coordenada(1,100);
+		unidad.trasladarA(destino, mapa);
+	}
+	
+	@Test(expected = MovimientoInvalido.class)
+	public void unGolliatNoSePuedeMoverAOtraCeldaSiHayGas() throws Exception {
+		Golliat unidad = new Golliat();
+		Mapa mapa = new Mapa("mapaTierra.txt");
+		
+		mapa.insertarUnidad(new Coordenada(1,51), unidad);
+		Coordenada destino = new Coordenada(1,90);
+		unidad.trasladarA(destino, mapa);
 	}
 
 }

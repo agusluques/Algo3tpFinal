@@ -7,7 +7,15 @@ import junit.framework.Assert;
 import org.junit.Test;
 
 import fiuba.algo3.tpfinal.excepciones.CapacidadInsuficiente;
+import fiuba.algo3.tpfinal.excepciones.MovimientoInvalido;
+import fiuba.algo3.tpfinal.programa.Aire;
+import fiuba.algo3.tpfinal.programa.Coordenada;
 import fiuba.algo3.tpfinal.programa.Danio;
+import fiuba.algo3.tpfinal.programa.DepositoDeGas;
+import fiuba.algo3.tpfinal.programa.DepositoDeMinerales;
+import fiuba.algo3.tpfinal.programa.Mapa;
+import fiuba.algo3.tpfinal.programa.Superficie;
+import fiuba.algo3.tpfinal.programa.Tierra;
 
 public class NaveTransporteTerranTest {
 
@@ -115,6 +123,62 @@ public class NaveTransporteTerranTest {
 		NaveTransporteTerran nave2 = new NaveTransporteTerran();
 		
 		nave1.subirPasajero(nave2);
+	}
+	
+	@Test
+	public void unaNaveTransporteSePuedeMoverEnLaTierraYEnElAirePeroNoEnMineralYGas() {
+		NaveTransporteTerran unidad = new NaveTransporteTerran();
+		
+		Assert.assertTrue(unidad.sePuedeMoverA((Superficie) new Aire()));
+		Assert.assertTrue(unidad.sePuedeMoverA((Superficie) new Tierra()));
+		Assert.assertFalse(unidad.sePuedeMoverA((Superficie) new DepositoDeGas()));
+		Assert.assertFalse(unidad.sePuedeMoverA((Superficie) new DepositoDeMinerales()));
+	}
+	
+	@Test
+	public void unNaveTransporteTerranSePuedeMoverAUnaCeldaVecinaSiHayTierra() throws Exception {
+		NaveTransporteTerran unidad = new NaveTransporteTerran();
+		Mapa mapa = new Mapa("mapaTierra.txt");
+		
+		mapa.insertarUnidad(new Coordenada(1,1), unidad);
+		Coordenada destino = new Coordenada(1,2);
+		unidad.trasladarA(destino, mapa);
+		
+		Assert.assertEquals(destino, unidad.getCoordenada());
+		Assert.assertEquals(unidad, mapa.getParcela(destino).getOcupante());
+	}
+	
+	@Test
+	public void unNaveTransporteTerranSePuedeMoverAOtraCeldaSiHayAire() throws Exception {
+		NaveTransporteTerran unidad = new NaveTransporteTerran();
+		Mapa mapa = new Mapa("mapaTierra.txt");
+		
+		mapa.insertarUnidad(new Coordenada(1,1), unidad);
+		Coordenada destino = new Coordenada(1,50);
+		unidad.trasladarA(destino, mapa);
+		
+		Assert.assertEquals(destino, unidad.getCoordenada());
+		Assert.assertEquals(unidad, mapa.getParcela(destino).getOcupante());
+	}
+	
+	@Test(expected = MovimientoInvalido.class)
+	public void unNaveTransporteTerranNoSePuedeMoverAOtraCeldaSiHayMineral() throws Exception {
+		NaveTransporteTerran unidad = new NaveTransporteTerran();
+		Mapa mapa = new Mapa("mapaTierra.txt");
+		
+		mapa.insertarUnidad(new Coordenada(1,51), unidad);
+		Coordenada destino = new Coordenada(1,100);
+		unidad.trasladarA(destino, mapa);
+	}
+	
+	@Test(expected = MovimientoInvalido.class)
+	public void unNaveTransporteTerranNoSePuedeMoverAOtraCeldaSiHayGas() throws Exception {
+		NaveTransporteTerran unidad = new NaveTransporteTerran();
+		Mapa mapa = new Mapa("mapaTierra.txt");
+		
+		mapa.insertarUnidad(new Coordenada(1,51), unidad);
+		Coordenada destino = new Coordenada(1,90);
+		unidad.trasladarA(destino, mapa);
 	}
 
 }

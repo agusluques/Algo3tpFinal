@@ -1,5 +1,7 @@
 package fiuba.algo3.tpfinal.programa;
 
+import fiuba.algo3.tpfinal.unidades.UnidadesTerran;
+
 public class DepositoDeMinerales extends Superficie {
 	
 	private int mineralesRestantes;
@@ -20,6 +22,11 @@ public class DepositoDeMinerales extends Superficie {
 
 	public int getRecursos(){
 		return this.mineralesRestantes;
+	}
+	
+	@Override
+	public boolean puedeRecibir(UnidadesTerran unidadesTerran) {
+		return unidadesTerran.sePuedeMoverA(this);
 	}
 
 }
