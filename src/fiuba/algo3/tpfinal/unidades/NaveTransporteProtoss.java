@@ -60,7 +60,7 @@ public class NaveTransporteProtoss extends UnidadesProtoss {
 			Mapa mapa = jugador.getMapa();
 			Parcela parcela = mapa.getParcela(this.posicion);
 			while (unidad.sePuedeMoverA(parcela.getSuperficie())){
-				this.pasajeros.remove(unidad);
+				iterador.remove();
 				mapa.ubicarCercaDe(unidad, this.posicion);
 				this.capacidad = 8;
 			}
