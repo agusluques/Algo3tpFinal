@@ -2,6 +2,7 @@ package fiuba.algo3.tpfinal.programa;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Iterator;
 
 import fiuba.algo3.tpfinal.construcciones.Atacable;
 import fiuba.algo3.tpfinal.construcciones.Constructible;
@@ -89,14 +90,30 @@ public class Jugador {
 		arquitecto.pasarTurno();
 	}
 	
-	public void empezarTurno() {
-		Collection<Atacable> unidadesMuertas = new ArrayList<Atacable>();
-		for(Atacable unidad : unidades) {
-			if(unidad.estaMuerto()) {
-				unidadesMuertas.add(unidad);
+	public void empezarTurno() {		
+		eliminarUnidadesMuertas();
+		eliminarConstruccionesMuertas();
+		
+	}
+
+	private void eliminarConstruccionesMuertas() {
+		Iterator<Constructible> iteradorConstrucciones = construcciones.iterator();
+		while(iteradorConstrucciones.hasNext()) {
+			Atacable unidadActual = (Atacable) iteradorConstrucciones.next();
+			if (unidadActual.estaMuerto()) {
+				iteradorConstrucciones.remove();
 			}
 		}
-		unidades.removeAll(unidadesMuertas);
+	}
+
+	private void eliminarUnidadesMuertas() {
+		Iterator<Atacable> iteradorUnidades = unidades.iterator();
+		while(iteradorUnidades.hasNext()) {
+			Atacable unidadActual = iteradorUnidades.next();
+			if (unidadActual.estaMuerto()) {
+				iteradorUnidades.remove();
+			}
+		}
 	}
 
 	public Mapa getMapa() {

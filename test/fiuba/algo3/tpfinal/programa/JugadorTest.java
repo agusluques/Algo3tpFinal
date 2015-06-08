@@ -522,6 +522,48 @@ public class JugadorTest {
 		jugador.empezarTurno();
 		
 		Assert.assertEquals(0, jugador.contarPoblacion());
+		
+	}
+	
+	@Test
+	public void siElJugadorTieneUnDepositoYSeLoMatanSuPoblacionLimiteVuelveACero() throws ConstruccionRequeridaInexistente {
+		DepositoSuministro deposito = new DepositoSuministro();
+		jugador.construir(deposito,coordTierra);
+		for(int i = 0; i < 6; i++) {
+			jugador.pasarTurno();
+		}
+		jugador.pasarTurno();
+		
+		Marine enemigo = new Marine();
+		while(!deposito.estaMuerto()) {
+			enemigo.atacar(deposito);
+		}
+		jugador.empezarTurno();
+		
+		Assert.assertEquals(0, jugador.limitePoblacional());
+		Assert.assertFalse(jugador.getConstrucciones().contains(deposito));
+	}
+	
+	@Test
+	public void siElJugadorTieneDosDepositosYLeMatanUnoSuPoblacionLimiteVuelveACinco() throws ConstruccionRequeridaInexistente {
+		DepositoSuministro deposito = new DepositoSuministro();
+		DepositoSuministro otroDeposito = new DepositoSuministro();
+		Coordenada otraCoordenada = new Coordenada(1,2);
+		jugador.construir(deposito, coordTierra);
+		jugador.construir(otroDeposito, otraCoordenada);
+		for(int i = 0; i < 6; i++) {
+			jugador.pasarTurno();
+		}
+		jugador.pasarTurno();
+		Assert.assertEquals(10, jugador.limitePoblacional());
+		
+		Marine enemigo = new Marine();
+		while(!deposito.estaMuerto()) {
+			enemigo.atacar(deposito);
+		}
+		jugador.empezarTurno();
+		
+		Assert.assertEquals(5, jugador.limitePoblacional());
 	}
 
 
