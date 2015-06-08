@@ -16,7 +16,7 @@ public class Jugador {
 	private String nombre;
 	private Presupuesto presupuesto;
 	private Collection<Constructible> construcciones;
-	private Arquitecto arquitecto;
+	public Arquitecto arquitecto;
 	private ArrayList<Atacable> unidades;
 	@SuppressWarnings("unused")
 	private Mapa mapa;

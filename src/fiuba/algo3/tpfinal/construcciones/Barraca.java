@@ -17,7 +17,7 @@ public class Barraca extends ConstruccionesTerran {
 	public Barraca(){
 		this.vida.inicializarVida(1000);
 		this.costo = new Costo(150);
-		this.tiempo = 12;
+		this.tiempoDeConstruccion = 12;
 		this.superficieNecesaria = new Tierra();
 		this.setConstruccionesNecesarias();
 	}

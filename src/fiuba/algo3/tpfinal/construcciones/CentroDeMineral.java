@@ -15,7 +15,7 @@ public class CentroDeMineral extends ConstruccionesTerran implements RecolectorD
 	public CentroDeMineral(Coordenada coordenada){
 		this.vida.inicializarVida(500);
 		this.costo = new Costo(50);
-		this.tiempo = 4; 
+		this.tiempoDeConstruccion = 4; 
 		this.superficieNecesaria = new DepositoDeMinerales();
 		this.setConstruccionesNecesarias();
 		this.posicion = coordenada;

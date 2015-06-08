@@ -17,7 +17,7 @@ public class Fabrica extends ConstruccionesTerran {
 	
 	public Fabrica() {
 		this.vida.inicializarVida(1250);
-		this.tiempo = 12;
+		this.tiempoDeConstruccion = 12;
 		this.costo = new Costo (200, 100);
 		this.superficieNecesaria = new Tierra();
 		this.setConstruccionesNecesarias();

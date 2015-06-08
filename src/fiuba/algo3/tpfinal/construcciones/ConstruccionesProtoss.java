@@ -7,7 +7,7 @@ import fiuba.algo3.tpfinal.programa.Jugador;
 import fiuba.algo3.tpfinal.programa.Superficie;
 import fiuba.algo3.tpfinal.unidades.Fabricable;
 
-public abstract class ConstruccionesProtoss extends Protoss implements Constructible, Fabricable {
+public abstract class ConstruccionesProtoss extends Protoss implements Constructible{
 
 	protected Collection<Constructible> construccionesNecesarias;
 	protected Superficie superficieNecesaria;
@@ -60,13 +60,11 @@ public abstract class ConstruccionesProtoss extends Protoss implements Construct
 	}
 	
 	@Override
-	public void avanzarFabricacion() {
-		tiempoDeConstruccion -= 1;
+	public void avanzarConstruccion() {
+		if (this.tiempoDeConstruccion > 0){
+			this.tiempoDeConstruccion -= 1;
+		}
 	}
 	
-	@Override
-	public int getSuministro() {
-		return 0;
-	}
-
+	
 }

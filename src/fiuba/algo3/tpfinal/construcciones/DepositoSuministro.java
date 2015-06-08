@@ -10,7 +10,7 @@ public class DepositoSuministro extends ConstruccionesTerran {
 	public DepositoSuministro(){
 		this.vida.inicializarVida(500);
 		this.costo = new Costo(100);
-		this.tiempo = 6;
+		this.tiempoDeConstruccion = 6;
 		this.superficieNecesaria = new Tierra();
 		this.setConstruccionesNecesarias();
 		

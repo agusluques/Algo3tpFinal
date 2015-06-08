@@ -12,6 +12,7 @@ import fiuba.algo3.tpfinal.construcciones.Pilon;
 import fiuba.algo3.tpfinal.excepciones.ConstruccionRequeridaInexistente;
 import fiuba.algo3.tpfinal.excepciones.ParcelaOcupada;
 import fiuba.algo3.tpfinal.excepciones.TerrenoInapropiado;
+import fiuba.algo3.tpfinal.unidades.Fabricable;
 
 public class ArquitectoTest {
 

@@ -15,6 +15,6 @@ public interface Constructible {
 	int getTiempoRestante();
 	boolean equals(Object o);
 	void setJugador(Jugador jugador);
-	
+	void avanzarConstruccion();
 }
 

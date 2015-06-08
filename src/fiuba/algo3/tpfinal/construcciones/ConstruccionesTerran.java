@@ -7,10 +7,10 @@ import fiuba.algo3.tpfinal.programa.Jugador;
 import fiuba.algo3.tpfinal.programa.Superficie;
 import fiuba.algo3.tpfinal.unidades.Fabricable;
 
-public abstract class ConstruccionesTerran extends Terran implements Constructible, Fabricable{
+public abstract class ConstruccionesTerran extends Terran implements Constructible{
 	
 	protected Costo costo;
-	protected int tiempo;
+	protected int tiempoDeConstruccion;
 	protected Collection<Constructible> construccionesNecesarias;
 	protected Superficie superficieNecesaria;
 	protected Jugador jugador;
@@ -27,7 +27,7 @@ public abstract class ConstruccionesTerran extends Terran implements Constructib
 	
 	@Override
 	public int getTiempoRestante() {
-		return tiempo;
+		return tiempoDeConstruccion;
 	}
 	
 	@Override
@@ -57,14 +57,13 @@ public abstract class ConstruccionesTerran extends Terran implements Constructib
 	}
 	
 	@Override
-	public void avanzarFabricacion() {
-		tiempo -= 1;
+	public void avanzarConstruccion() {
+		if (this.tiempoDeConstruccion > 0){
+			this.tiempoDeConstruccion -= 1;
+		}
 	}
 	
-	@Override
-	public int getSuministro() {
-		return 0;
-	}
+
 
 
 }

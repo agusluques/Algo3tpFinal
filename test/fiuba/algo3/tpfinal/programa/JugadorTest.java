@@ -471,8 +471,10 @@ public class JugadorTest {
 		jugador.construir(new Pilon(),coordTierra2);
 		for(int i = 0; i < 5; i++) {
 			jugador.pasarTurno();
+			
 		}
 		Assert.assertTrue(jugador.limitePoblacional()==10);
+		
 	}
 
 	@Test

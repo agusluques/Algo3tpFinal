@@ -19,7 +19,7 @@ public class Arquitecto {
 	private Presupuesto presupuesto;
 	private Collection<Constructible> construcciones;
 	private Jugador jugador;
-	private Collection<Constructible> construccionesEnConstruccion;
+	public Collection<Constructible> construccionesEnConstruccion;
 	
 	public Arquitecto(Presupuesto presupuesto,Collection<Constructible> construcciones, Mapa mapa, Jugador jugador ){
 		this.mapa = mapa;
@@ -90,13 +90,12 @@ public class Arquitecto {
 	public void pasarTurno() {
 		Iterator<Constructible> iterador = construccionesEnConstruccion.iterator();
 		while(iterador.hasNext()) {
-			Fabricable construccionEnConstruccion = (Fabricable) iterador.next();
-			construccionEnConstruccion.avanzarFabricacion();
+			Constructible construccionEnConstruccion = iterador.next();
+			construccionEnConstruccion.avanzarConstruccion();
 			if (construccionEnConstruccion.getTiempoRestante() == 0) {
-				construcciones.add((Constructible) construccionEnConstruccion);
-				//construccionesEnConstruccion.remove(construccionEnConstruccion);
+				construcciones.add(construccionEnConstruccion);
+				iterador.remove();
 			}
-			
 		}
 	}
 	
