@@ -6,6 +6,8 @@ import org.junit.Test;
 
 import fiuba.algo3.tpfinal.construcciones.Atacable;
 import fiuba.algo3.tpfinal.construcciones.DepositoSuministro;
+import fiuba.algo3.tpfinal.construcciones.Pilon;
+import fiuba.algo3.tpfinal.construcciones.Protoss;
 import fiuba.algo3.tpfinal.excepciones.EnergiaInsuficiente;
 import fiuba.algo3.tpfinal.excepciones.MovimientoInvalido;
 import fiuba.algo3.tpfinal.excepciones.UnidadInvalida;
@@ -145,14 +147,16 @@ public class NaveCienciaTest {
 		Assert.assertEquals(2, unidad.rangoDeAtaqueCorrespondiente(rango));
 	}
 
-	@Test (expected = EnergiaInsuficiente.class)
+	@Test 
 	public void siIntentoIrradiarUnaUnidadCuandoNoTengoEnergiaRetornaUnaExcepcion() throws Exception{
 		Mapa mapa = new Mapa("mapaTierra.txt");
 		Jugador jugador = new Jugador("Damian", mapa);
 		Jugador jugador2 = new Jugador("Luciano", mapa);
 		NaveCiencia nave = new NaveCiencia();
 		Atacable marine = new Marine();
-	
+		for (int i=1;i<5;i++){
+			nave.pasarTurno();
+		}
 		jugador.getConstrucciones().add(new DepositoSuministro());
 		jugador2.getConstrucciones().add(new DepositoSuministro());
 		jugador.agregarUnidad((Fabricable)nave, new Coordenada(3,3));
@@ -161,4 +165,76 @@ public class NaveCienciaTest {
 		nave.irradiar(marine);
 	
 	}
+
+	@Test (expected = EnergiaInsuficiente.class)
+	public void siIntentoLanzarUnEMPCuandoNoTengoEnergiaRetormaUnaExcepcion() throws Exception{
+	
+		NaveCiencia nave = new NaveCiencia();
+		
+		nave.lanzarEMP(new Coordenada(3,3));
+	
+	}
+
+	@Test
+	public void siLeTiroUnEMPAUnaUnidadProtossLaMismaPierdeElEscudo() throws Exception{
+		Mapa mapa = new Mapa("mapaTierra.txt");
+		Jugador jugador = new Jugador("Damian", mapa);
+		Jugador jugador2 = new Jugador("Luciano", mapa);
+		NaveCiencia nave = new NaveCiencia();
+		Atacable zealot = new Zealot();
+		for (int i=1;i<6;i++){
+			nave.pasarTurno();
+		}
+		jugador.getConstrucciones().add(new DepositoSuministro());
+		jugador2.getConstrucciones().add(new Pilon());
+		jugador.agregarUnidad((Fabricable)nave, new Coordenada(2,2));
+		jugador2.agregarUnidad((Fabricable)zealot, new Coordenada(5,5));
+	
+		nave.lanzarEMP(new Coordenada(4,4));
+		Assert.assertTrue(((Protoss)zealot).getEscudo()==0);
+	
+	}
+	
+	@Test
+	public void siLeTiroUnEMPAUnaUnidadConEnergiaLaPierdeToda() throws Exception{
+		Mapa mapa = new Mapa("mapaTierra.txt");
+		Jugador jugador = new Jugador("Damian", mapa);
+		Jugador jugador2 = new Jugador("Luciano", mapa);
+		NaveCiencia nave = new NaveCiencia();
+		Atacable templar = new AltoTemplario();
+		for (int i=1;i<6;i++){
+			nave.pasarTurno();
+		}
+		jugador.getConstrucciones().add(new DepositoSuministro());
+		jugador2.getConstrucciones().add(new Pilon());
+		
+		jugador.agregarUnidad((Fabricable)nave, new Coordenada(2,2));
+		jugador2.agregarUnidad((Fabricable)templar, new Coordenada(5,5));
+	
+		nave.lanzarEMP(new Coordenada(4,4));
+		Assert.assertTrue(((Protoss)templar).getEscudo()==0);
+		Assert.assertTrue( ((AltoTemplario)templar).getEnergia()==0  );
+	
+	}
+	
+	@Test
+	public void siLeLanzoUnEMPAUnaUnidadAliadaNoLeAfecta() throws Exception{
+		Mapa mapa = new Mapa("mapaTierra.txt");
+		Jugador jugador = new Jugador("Damian", mapa);
+		NaveCiencia nave = new NaveCiencia();
+		Atacable templar = new AltoTemplario();
+		for (int i=1;i<6;i++){
+			nave.pasarTurno();
+		}
+		jugador.getConstrucciones().add(new DepositoSuministro());
+		jugador.agregarUnidad((Fabricable)nave, new Coordenada(2,2));
+		jugador.agregarUnidad((Fabricable)templar, new Coordenada(5,5));
+	
+		nave.lanzarEMP(new Coordenada(4,4));
+		Assert.assertTrue(((Protoss)templar).getEscudo()==40);
+		Assert.assertTrue( ((AltoTemplario)templar).getEnergia()==50  );
+	
+	}
+
+	
 }

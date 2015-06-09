@@ -61,4 +61,28 @@ public class NaveCiencia extends UnidadesTerran {
 			}
 		}
 	}
+	
+	public void lanzarEMP(Coordenada posicion) throws EnergiaInsuficiente{
+		NaveCiencia nuevaNave = new NaveCiencia();
+		nuevaNave.setCoordenada(posicion);
+		if (this.estaEnRangoDeAtaque(nuevaNave)){
+			try{
+				this.miEnergia.gastarEnergia(100);
+				for(Atacable unidadActual : this.getJugador().getMapa().unidadesEnUnRadio(posicion, 1)){
+					if (!this.jugador.equals(unidadActual.getJugador())){
+						((AfectablePorEMP)unidadActual).recibirImpactoEMP();
+					}
+				}
+			}catch (EnergiaInsuficiente e){
+				throw e;
+			}
+			
+
+		}
+	}
+	
+	@Override
+	public void recibirImpactoEMP(){
+		this.miEnergia = new Energia(0);
+	}
 }

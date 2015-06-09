@@ -4,12 +4,15 @@ import fiuba.algo3.tpfinal.programa.Coordenada;
 import fiuba.algo3.tpfinal.programa.Danio;
 import fiuba.algo3.tpfinal.programa.Jugador;
 import fiuba.algo3.tpfinal.programa.Mapa;
+import fiuba.algo3.tpfinal.unidades.AfectablePorEMP;
 
-public abstract class Terran implements Atacable {
+public abstract class Terran implements Atacable, AfectablePorEMP {
 
 	protected Vida vida = new Vida();
 	protected Coordenada posicion;
 	protected Jugador jugador;
+	
+	public void recibirImpactoEMP(){};
 	
 	public int getVida() {
 		return this.vida.getVida();

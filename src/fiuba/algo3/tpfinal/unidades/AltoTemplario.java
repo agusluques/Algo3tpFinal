@@ -25,6 +25,11 @@ public class AltoTemplario extends UnidadesProtoss {
 		
 	}
 	
+	//Solamente para probar que al recibir un EMP la unidad pierde la energia
+	public int getEnergia(){
+		return miEnergia.getEnergia();
+	}
+	
 	public void crearAlucinaciones() throws EnergiaInsuficiente{
 		try{
 			this.miEnergia.gastarEnergia(100);
@@ -61,4 +66,10 @@ public class AltoTemplario extends UnidadesProtoss {
 		}
 	}
 	
+	@Override
+	public void recibirImpactoEMP(){
+		escudo.destruirEscudo();
+		this.miEnergia = new Energia(0);
+	}
+
 }
