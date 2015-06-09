@@ -15,7 +15,7 @@ public class NaveCiencia extends UnidadesTerran {
 	public NaveCiencia(){
 		this.vida.inicializarVida(200);
 		this.miDanio = new Danio(0,0);
-		this.rango = new Rango(9,9);
+		this.rango = new Rango(10,10);
 		this.tiempoDeConstruccion = 10;
 		this.suministro = 2;
 		this.costo = new Costo(100,225);
