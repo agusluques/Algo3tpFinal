@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import fiuba.algo3.tpfinal.programa.Costo;
 import fiuba.algo3.tpfinal.programa.Tierra;
+import fiuba.algo3.tpfinal.unidades.Rango;
 
 public class DepositoSuministro extends ConstruccionesTerran {
 	
@@ -19,6 +20,10 @@ public class DepositoSuministro extends ConstruccionesTerran {
 	private void setConstruccionesNecesarias() {
 		this.construccionesNecesarias = new ArrayList<Constructible>();
 		
+	}
+	
+	public int rangoDeAtaqueCorrespondiente(Rango rango) {
+		return rango.getRangoTierra();
 	}
 
 }

@@ -9,6 +9,7 @@ import fiuba.algo3.tpfinal.programa.DepositoDeGas;
 import fiuba.algo3.tpfinal.programa.Jugador;
 import fiuba.algo3.tpfinal.programa.Parcela;
 import fiuba.algo3.tpfinal.programa.Presupuesto;
+import fiuba.algo3.tpfinal.unidades.Rango;
 
 public class Refineria extends ConstruccionesTerran implements RecolectorDeGas {
 
@@ -44,6 +45,10 @@ public class Refineria extends ConstruccionesTerran implements RecolectorDeGas {
 	public void pasarTurno(Jugador jugador, Mapa mapa) {
 		this.recolectarPara(jugador, mapa);
 		super.pasarTurno(jugador, mapa);
+	}
+	
+	public int rangoDeAtaqueCorrespondiente(Rango rango) {
+		return rango.getRangoTierra();
 	}
 
 	

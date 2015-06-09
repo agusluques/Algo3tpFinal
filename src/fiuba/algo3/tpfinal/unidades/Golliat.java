@@ -19,4 +19,8 @@ public class Golliat extends UnidadesTerran {
 		//se inicializa en (0,0) solo para los tests
 		this.posicion = new Coordenada(0,0);
 	}
+	
+	public int rangoDeAtaqueCorrespondiente(Rango rango) {
+		return rango.getRangoTierra();
+	}
 }

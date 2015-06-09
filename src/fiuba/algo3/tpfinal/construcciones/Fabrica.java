@@ -9,6 +9,7 @@ import fiuba.algo3.tpfinal.programa.Costo;
 import fiuba.algo3.tpfinal.programa.Tierra;
 import fiuba.algo3.tpfinal.unidades.Fabricable;
 import fiuba.algo3.tpfinal.unidades.Golliat;
+import fiuba.algo3.tpfinal.unidades.Rango;
 
 public class Fabrica extends ConstruccionesTerran {
 
@@ -52,6 +53,10 @@ public class Fabrica extends ConstruccionesTerran {
 				}
 			}
 		}
+	}
+	
+	public int rangoDeAtaqueCorrespondiente(Rango rango) {
+		return rango.getRangoTierra();
 	}
 
 }

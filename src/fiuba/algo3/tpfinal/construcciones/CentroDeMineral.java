@@ -9,6 +9,7 @@ import fiuba.algo3.tpfinal.programa.DepositoDeMinerales;
 import fiuba.algo3.tpfinal.programa.Jugador;
 import fiuba.algo3.tpfinal.programa.Parcela;
 import fiuba.algo3.tpfinal.programa.Presupuesto;
+import fiuba.algo3.tpfinal.unidades.Rango;
 
 public class CentroDeMineral extends ConstruccionesTerran implements RecolectorDeMinerales {
 
@@ -45,7 +46,9 @@ public class CentroDeMineral extends ConstruccionesTerran implements RecolectorD
 		super.pasarTurno(jugador, mapa);
 	}
 
-
+	public int rangoDeAtaqueCorrespondiente(Rango rango) {
+		return rango.getRangoTierra();
+	}
 	
 	
 }

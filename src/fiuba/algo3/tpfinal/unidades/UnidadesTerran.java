@@ -15,7 +15,7 @@ import fiuba.algo3.tpfinal.programa.Parcela;
 import fiuba.algo3.tpfinal.programa.Superficie;
 import fiuba.algo3.tpfinal.programa.Tierra;
 
-public class UnidadesTerran extends Terran implements Fabricable, Atacante, Trasladable {
+public abstract class UnidadesTerran extends Terran implements Fabricable, Atacante, Trasladable {
 	
 	protected Danio miDanio;
 	protected int tiempoDeConstruccion;
@@ -58,17 +58,12 @@ public class UnidadesTerran extends Terran implements Fabricable, Atacante, Tras
 		Coordenada coordenadaAtacante = this.getCoordenada();
 		double distancia = coordenadaEnemigo.distancia(coordenadaAtacante);
 		
-		boolean estaEnRango = (this.rangoDeAtaque() >= distancia);
+		boolean estaEnRango = (this.rangoDeAtaque(enemigo) >= distancia);
 		return estaEnRango;
 	}
 
-	private int rangoDeAtaque() {
-		//HAY QUE ARREGLAR ESTO PORQUE ALGUNOS ATACAN A AIRE
-		return this.rango.getRangoTierra();
-	}
-	
-	public void mover(int fila, int columna){
-		this.posicion.mover(fila, columna);
+	private int rangoDeAtaque(Atacable enemigo) {
+		return enemigo.rangoDeAtaqueCorrespondiente(this.rango);
 	}
 	
 	@Override

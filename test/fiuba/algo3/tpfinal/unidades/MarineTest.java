@@ -51,8 +51,8 @@ public class MarineTest {
 	public void siUnMarineAtacaAOtroDentroDelRangoLeSacaVida(){
 		Marine unMarine = new Marine();
 		Marine otroMarine = new Marine();
-		unMarine.mover(5, 4);
-		otroMarine.mover(7, 6);
+		unMarine.setCoordenada(new Coordenada(5, 4));
+		otroMarine.setCoordenada(new Coordenada(7, 6));
 		
 		unMarine.atacar(otroMarine);
 		Assert.assertTrue(otroMarine.getVida() == 34);
@@ -63,8 +63,8 @@ public class MarineTest {
 	public void siUnMarineAtacaAOtroFueraDelRangoNoLeSacaVida(){
 		Marine unMarine = new Marine();
 		Marine otroMarine = new Marine();
-		unMarine.mover(5, 4);
-		otroMarine.mover(7, 8);
+		unMarine.setCoordenada(new Coordenada(5, 4));
+		otroMarine.setCoordenada(new Coordenada(7, 8));
 		
 		unMarine.atacar(otroMarine);
 		

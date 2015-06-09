@@ -36,4 +36,8 @@ public class AltoTemplario extends UnidadesProtoss {
 	public void pasarTurno() {
 		this.miEnergia.aumentarEnergia(15);
 	}
+	
+	public int rangoDeAtaqueCorrespondiente(Rango rango) {
+		return rango.getRangoTierra();
+	}
 }

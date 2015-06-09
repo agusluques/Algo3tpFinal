@@ -3,6 +3,7 @@ package fiuba.algo3.tpfinal.construcciones;
 import fiuba.algo3.tpfinal.programa.Coordenada;
 import fiuba.algo3.tpfinal.programa.Danio;
 import fiuba.algo3.tpfinal.programa.Jugador;
+import fiuba.algo3.tpfinal.unidades.Rango;
 
 public interface Atacable {
 	
@@ -15,4 +16,6 @@ public interface Atacable {
 	void setCoordenada(Coordenada posicion);
 
 	void setJugador(Jugador jugador);
+
+	int rangoDeAtaqueCorrespondiente(Rango rango);
 }

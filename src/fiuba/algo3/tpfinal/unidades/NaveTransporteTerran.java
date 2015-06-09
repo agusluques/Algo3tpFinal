@@ -77,4 +77,8 @@ public class NaveTransporteTerran extends UnidadesTerran {
 	public int cantidadDePasajeros() {
 		return pasajeros.size();
 	}
+	
+	public int rangoDeAtaqueCorrespondiente(Rango rango) {
+		return rango.getRangoTierra();
+	}
 }

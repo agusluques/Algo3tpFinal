@@ -20,4 +20,8 @@ public class Marine extends UnidadesTerran {
 		this.posicion = new Coordenada(0,0);
 	
 	}
+	
+	public int rangoDeAtaqueCorrespondiente(Rango rango) {
+		return rango.getRangoTierra();
+	}
 }

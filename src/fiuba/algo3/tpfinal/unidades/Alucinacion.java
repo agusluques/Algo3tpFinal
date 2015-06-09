@@ -9,4 +9,8 @@ public class Alucinacion extends UnidadesProtoss{
 		this.miDanio = new Danio(0,0);
 		this.suministro = 0;
 	}
+	
+	public int rangoDeAtaqueCorrespondiente(Rango rango) {
+		return rango.getRangoTierra();
+	}
 }

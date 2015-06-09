@@ -20,6 +20,10 @@ public class Zealot extends UnidadesProtoss{
 		this.posicion = new Coordenada(0,0);
 		
 	}
+	
+	public int rangoDeAtaqueCorrespondiente(Rango rango) {
+		return rango.getRangoTierra();
+	}
 
 
 }

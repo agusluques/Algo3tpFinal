@@ -29,4 +29,8 @@ public class Espectro extends UnidadesTerran {
 	public boolean sePuedeMoverA(Aire superficie) {
 		return true;
 	}
+	
+	public int rangoDeAtaqueCorrespondiente(Rango rango) {
+		return rango.getRangoAire();
+	}
 }
