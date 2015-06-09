@@ -7,6 +7,7 @@ import org.junit.Test;
 
 import fiuba.algo3.tpfinal.construcciones.Constructible;
 import fiuba.algo3.tpfinal.construcciones.Pilon;
+import fiuba.algo3.tpfinal.unidades.Rango;
 
 public class PilonTest {
 
@@ -46,6 +47,13 @@ public class PilonTest {
 	public void dosPilonesDeberianSerIguales() {
 		Constructible otroPilon = new Pilon();
 		Assert.assertTrue(this.pilon.equals(otroPilon));
+	}
+	
+	@Test
+	public void devuelveElRangoDeAtaqueCorrespondiente() {
+		Rango rango = new Rango(1,2);
+		
+		Assert.assertEquals(1, this.pilon.rangoDeAtaqueCorrespondiente(rango));
 	}
 
 }

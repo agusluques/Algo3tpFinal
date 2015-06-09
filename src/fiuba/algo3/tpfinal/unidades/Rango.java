@@ -5,7 +5,7 @@ public class Rango {
 	private int rangoTierra;
 	private int rangoAire;
 
-	Rango(int tierra, int aire){
+	public Rango(int tierra, int aire){
 		this.rangoTierra = tierra;
 		this.rangoAire = aire;
 	}

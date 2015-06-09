@@ -13,6 +13,7 @@ import fiuba.algo3.tpfinal.excepciones.LimitePoblacionalAlcanzado;
 import fiuba.algo3.tpfinal.programa.Coordenada;
 import fiuba.algo3.tpfinal.programa.Jugador;
 import fiuba.algo3.tpfinal.programa.Mapa;
+import fiuba.algo3.tpfinal.unidades.Rango;
 
 public class FabricaTest {
 
@@ -119,6 +120,14 @@ public class FabricaTest {
 		Assert.assertTrue(jugador.contarPoblacion()==2);
 		
 	
+	}
+	
+	@Test
+	public void devuelveElRangoDeAtaqueCorrespondiente() {
+		this.fabrica = new Fabrica();
+		Rango rango = new Rango(1,2);
+		
+		Assert.assertEquals(1, this.fabrica.rangoDeAtaqueCorrespondiente(rango));
 	}
 
 

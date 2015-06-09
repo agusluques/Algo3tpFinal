@@ -79,6 +79,6 @@ public class NaveTransporteTerran extends UnidadesTerran {
 	}
 	
 	public int rangoDeAtaqueCorrespondiente(Rango rango) {
-		return rango.getRangoTierra();
+		return rango.getRangoAire();
 	}
 }

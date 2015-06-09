@@ -127,4 +127,12 @@ public class ScoutTest {
 		mapa.insertarUnidad(destino, zealot);
 		unidad.trasladarA(destino, mapa);
 	}
+	
+	@Test
+	public void devuelveElRangoDeAtaqueCorrespondiente() {
+		Scout unidad = new Scout();
+		Rango rango = new Rango(1,2);
+		
+		Assert.assertEquals(2, unidad.rangoDeAtaqueCorrespondiente(rango));
+	}
 }

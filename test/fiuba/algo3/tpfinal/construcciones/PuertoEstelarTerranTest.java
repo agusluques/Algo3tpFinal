@@ -11,6 +11,7 @@ import fiuba.algo3.tpfinal.excepciones.LimitePoblacionalAlcanzado;
 import fiuba.algo3.tpfinal.programa.Coordenada;
 import fiuba.algo3.tpfinal.programa.Jugador;
 import fiuba.algo3.tpfinal.programa.Mapa;
+import fiuba.algo3.tpfinal.unidades.Rango;
 
 public class PuertoEstelarTerranTest {
 
@@ -297,6 +298,14 @@ public class PuertoEstelarTerranTest {
 		Assert.assertTrue(jugador.contarPoblacion()==2);
 	
 	
+	}
+	
+	@Test
+	public void devuelveElRangoDeAtaqueCorrespondiente() {
+		this.puertoEstelar = new PuertoEstelarTerran();
+		Rango rango = new Rango(1,2);
+		
+		Assert.assertEquals(1, this.puertoEstelar.rangoDeAtaqueCorrespondiente(rango));
 	}
 }
 

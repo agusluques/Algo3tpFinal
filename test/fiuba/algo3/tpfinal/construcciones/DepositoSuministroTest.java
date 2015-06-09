@@ -7,6 +7,7 @@ import org.junit.Test;
 
 import fiuba.algo3.tpfinal.construcciones.Constructible;
 import fiuba.algo3.tpfinal.construcciones.DepositoSuministro;
+import fiuba.algo3.tpfinal.unidades.Rango;
 
 public class DepositoSuministroTest {
 
@@ -36,5 +37,12 @@ public class DepositoSuministroTest {
 	public void dosDepositosDeberianSerIguales() {
 		Constructible otroDeposito = new DepositoSuministro();
 		Assert.assertTrue(this.depositoSuministro.equals(otroDeposito));
+	}
+	
+	@Test
+	public void devuelveElRangoDeAtaqueCorrespondiente() {
+		Rango rango = new Rango(1,2);
+		
+		Assert.assertEquals(1, this.depositoSuministro.rangoDeAtaqueCorrespondiente(rango));
 	}
 }

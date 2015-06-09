@@ -111,5 +111,13 @@ public class GolliatTest {
 		mapa.insertarUnidad(destino, zealot);
 		unidad.trasladarA(destino, mapa);
 	}
+	
+	@Test
+	public void devuelveElRangoDeAtaqueCorrespondiente() {
+		Golliat unidad = new Golliat();
+		Rango rango = new Rango(1,2);
+		
+		Assert.assertEquals(1, unidad.rangoDeAtaqueCorrespondiente(rango));
+	}
 
 }

@@ -12,6 +12,7 @@ import fiuba.algo3.tpfinal.programa.Coordenada;
 import fiuba.algo3.tpfinal.programa.Jugador;
 import fiuba.algo3.tpfinal.programa.Mapa;
 import fiuba.algo3.tpfinal.unidades.Marine;
+import fiuba.algo3.tpfinal.unidades.Rango;
 
 public class BarracaTest {
 
@@ -116,6 +117,13 @@ public class BarracaTest {
 		Atacable marine = mapa.getParcela(new Coordenada(2,1)).getOcupante();
 		Assert.assertTrue(marine.getClass()== (new Marine()).getClass());
 
+	}
+	
+	@Test
+	public void devuelveElRangoDeAtaqueCorrespondiente() {
+		Rango rango = new Rango(1,2);
+		
+		Assert.assertEquals(1, this.barraca.rangoDeAtaqueCorrespondiente(rango));
 	}
 }
 

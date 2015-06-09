@@ -11,6 +11,7 @@ import fiuba.algo3.tpfinal.programa.Coordenada;
 import fiuba.algo3.tpfinal.programa.Jugador;
 import fiuba.algo3.tpfinal.programa.Mapa;
 import fiuba.algo3.tpfinal.unidades.AltoTemplario;
+import fiuba.algo3.tpfinal.unidades.Rango;
 
 
 
@@ -83,10 +84,19 @@ public class ArchivosTemplariosTest {
 		for (int i=0;i<7;i++){
 			this.archivo.haceLoTuyo();
 		}
+		
 		for(Atacable unidad : jugador.getUnidades()){
 			Assert.assertTrue(unidad.getClass()==(new AltoTemplario()).getClass());
 		}
 		
+	}
+	
+	@Test
+	public void devuelveElRangoDeAtaqueCorrespondiente() {
+		this.archivo = new ArchivosTemplarios();
+		Rango rango = new Rango(1,2);
+		
+		Assert.assertEquals(1, this.archivo.rangoDeAtaqueCorrespondiente(rango));
 	}
 	
 	

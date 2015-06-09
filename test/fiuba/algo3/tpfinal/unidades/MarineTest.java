@@ -136,5 +136,13 @@ public class MarineTest {
 		mapa.insertarUnidad(destino, zealot);
 		unidad.trasladarA(destino, mapa);
 	}
+	
+	@Test
+	public void devuelveElRangoDeAtaqueCorrespondiente() {
+		Marine unidad = new Marine();
+		Rango rango = new Rango(1,2);
+		
+		Assert.assertEquals(1, unidad.rangoDeAtaqueCorrespondiente(rango));
+	}
 
 }

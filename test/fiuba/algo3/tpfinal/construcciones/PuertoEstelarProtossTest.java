@@ -11,6 +11,7 @@ import fiuba.algo3.tpfinal.programa.Coordenada;
 import fiuba.algo3.tpfinal.programa.Jugador;
 import fiuba.algo3.tpfinal.programa.Mapa;
 import fiuba.algo3.tpfinal.unidades.NaveTransporteProtoss;
+import fiuba.algo3.tpfinal.unidades.Rango;
 import fiuba.algo3.tpfinal.unidades.Scout;
 
 
@@ -117,6 +118,14 @@ public class PuertoEstelarProtossTest {
 			Assert.assertTrue(unidad.getClass()==(new NaveTransporteProtoss()).getClass());
 		}
 		
+	}
+	
+	@Test
+	public void devuelveElRangoDeAtaqueCorrespondiente() {
+		this.puertoEstelar = new PuertoEstelarProtoss();
+		Rango rango = new Rango(1,2);
+		
+		Assert.assertEquals(1, this.puertoEstelar.rangoDeAtaqueCorrespondiente(rango));
 	}
 
 }

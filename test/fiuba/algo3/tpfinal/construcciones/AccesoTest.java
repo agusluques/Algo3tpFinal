@@ -11,6 +11,7 @@ import fiuba.algo3.tpfinal.programa.Coordenada;
 import fiuba.algo3.tpfinal.programa.Jugador;
 import fiuba.algo3.tpfinal.programa.Mapa;
 import fiuba.algo3.tpfinal.unidades.Dragon;
+import fiuba.algo3.tpfinal.unidades.Rango;
 import fiuba.algo3.tpfinal.unidades.Zealot;
 
 public class AccesoTest {
@@ -101,6 +102,13 @@ public class AccesoTest {
 			Assert.assertTrue(unidad.getClass()==(new Dragon()).getClass());
 		}
 		
+	}
+	
+	@Test
+	public void devuelveElRangoDeAtaqueCorrespondiente() {
+		Rango rango = new Rango(1,2);
+		
+		Assert.assertEquals(1,  acceso.rangoDeAtaqueCorrespondiente(rango));
 	}
 
 }

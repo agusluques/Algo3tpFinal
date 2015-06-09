@@ -184,5 +184,13 @@ public class NaveTransporteTerranTest {
 		mapa.insertarUnidad(destino, zealot);
 		unidad.trasladarA(destino, mapa);
 	}
+	
+	@Test
+	public void devuelveElRangoDeAtaqueCorrespondiente() {
+		NaveTransporteTerran unidad = new NaveTransporteTerran();
+		Rango rango = new Rango(1,2);
+		
+		Assert.assertEquals(2, unidad.rangoDeAtaqueCorrespondiente(rango));
+	}
 
 }

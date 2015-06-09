@@ -10,6 +10,7 @@ import fiuba.algo3.tpfinal.construcciones.Refineria;
 import fiuba.algo3.tpfinal.programa.Coordenada;
 import fiuba.algo3.tpfinal.programa.Jugador;
 import fiuba.algo3.tpfinal.programa.Mapa;
+import fiuba.algo3.tpfinal.unidades.Rango;
 import fiuba.algo3.tpfinal.unidades.Zealot;
 
 public class RefineriaTest {
@@ -54,5 +55,12 @@ public class RefineriaTest {
 		
 		Assert.assertEquals(742, refineria.getVida());
 		Assert.assertEquals(10, jugador.getPresupuesto().cantidadDeGas());
+	}
+	
+	@Test
+	public void devuelveElRangoDeAtaqueCorrespondiente() {
+		Rango rango = new Rango(1,2);
+		
+		Assert.assertEquals(1, this.refineria.rangoDeAtaqueCorrespondiente(rango));
 	}
 }

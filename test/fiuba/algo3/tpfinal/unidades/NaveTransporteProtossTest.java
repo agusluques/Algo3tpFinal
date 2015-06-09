@@ -9,10 +9,7 @@ import fiuba.algo3.tpfinal.excepciones.MovimientoInvalido;
 import fiuba.algo3.tpfinal.programa.Aire;
 import fiuba.algo3.tpfinal.programa.Coordenada;
 import fiuba.algo3.tpfinal.programa.Danio;
-
 import fiuba.algo3.tpfinal.excepciones.NoHayPasajerosEnLaNave;
-
-
 import fiuba.algo3.tpfinal.programa.DepositoDeGas;
 import fiuba.algo3.tpfinal.programa.DepositoDeMinerales;
 import fiuba.algo3.tpfinal.programa.Mapa;
@@ -180,6 +177,14 @@ public class NaveTransporteProtossTest {
 		Coordenada destino = new Coordenada(1,2);
 		mapa.insertarUnidad(destino, zealot);
 		unidad.trasladarA(destino, mapa);
+	}
+	
+	@Test
+	public void devuelveElRangoDeAtaqueCorrespondiente() {
+		NaveTransporteProtoss unidad = new NaveTransporteProtoss();
+		Rango rango = new Rango(1,2);
+		
+		Assert.assertEquals(2, unidad.rangoDeAtaqueCorrespondiente(rango));
 	}
 	
 	
