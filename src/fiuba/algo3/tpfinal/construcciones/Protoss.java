@@ -40,5 +40,9 @@ public abstract class Protoss implements Atacable{
 	public boolean estaMuerto() {
 		return ((this.vida.getVida() == 0) && (this.escudo.getEscudo() == 0));
 	}
+	
+	public void pasarTurno() {
+		this.escudo.pasarTurno();
+	}
 
 }

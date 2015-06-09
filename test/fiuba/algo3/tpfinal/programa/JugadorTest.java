@@ -31,10 +31,6 @@ public class JugadorTest {
 	private Jugador jugador;
 	private Mapa mapa;
 	private Coordenada coordTierra, coordTierra2, coordTierra3;
-	
-
-	
-
 
 	@Before
 	public void arrange() throws Exception {
