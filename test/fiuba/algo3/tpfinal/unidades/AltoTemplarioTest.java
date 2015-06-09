@@ -74,7 +74,7 @@ public class AltoTemplarioTest {
 		jugador.getConstrucciones().add(new Pilon());
 		jugador.agregarUnidad(altoTemplario, new Coordenada(3,3));
 		for (int i=0;i<4;i++){
-			altoTemplario.pasarTurno();
+			altoTemplario.pasarTurno(jugador, mapa);
 		}
 		altoTemplario.crearAlucinaciones();
 		for(Atacable unidad : jugador.getUnidades()){

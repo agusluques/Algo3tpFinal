@@ -88,6 +88,12 @@ public class Jugador {
 	
 	public void pasarTurno() {
 		arquitecto.pasarTurno();
+		for(Atacable unidad : unidades) {
+			unidad.pasarTurno(this, mapa);
+		}
+		for(Constructible construccion : construcciones) {
+			((Atacable) construccion).pasarTurno(this, mapa);
+		}
 	}
 	
 	public void empezarTurno() {		
