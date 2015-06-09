@@ -52,6 +52,7 @@ public class NaveCiencia extends UnidadesTerran {
 				try{
 					this.miEnergia.gastarEnergia(75);
 					Radiacion radiacion = new Radiacion(unidad);
+					this.jugador.agregarMagia(radiacion);
 				}catch (EnergiaInsuficiente e){
 					throw e;
 				}

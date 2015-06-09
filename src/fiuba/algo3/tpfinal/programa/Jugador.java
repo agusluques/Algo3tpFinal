@@ -11,6 +11,7 @@ import fiuba.algo3.tpfinal.construcciones.Pilon;
 import fiuba.algo3.tpfinal.excepciones.ConstruccionRequeridaInexistente;
 import fiuba.algo3.tpfinal.excepciones.LimitePoblacionalAlcanzado;
 import fiuba.algo3.tpfinal.unidades.Fabricable;
+import fiuba.algo3.tpfinal.unidades.Magia;
 
 
 public class Jugador {
@@ -21,6 +22,7 @@ public class Jugador {
 	private Arquitecto arquitecto;
 	private ArrayList<Atacable> unidades;
 	private Mapa mapa;
+	private ArrayList<Magia> magias;
 	
 	public Jugador(String nombre, Mapa mapa) {
 		this.nombre = nombre;
@@ -29,6 +31,7 @@ public class Jugador {
 		this.mapa = mapa;
 		this.arquitecto = new Arquitecto(presupuesto, construcciones, mapa,this);
 		this.unidades = new ArrayList<Atacable>();
+		this.magias = new ArrayList<Magia>();
 	}
 	
 	public String getNombre() {
@@ -86,6 +89,10 @@ public class Jugador {
 		
 	}
 	
+	public void agregarMagia(Magia magia){
+		this.magias.add(magia);
+	}
+	
 	public void pasarTurno() {
 		for(Atacable unidad : unidades) {
 			unidad.pasarTurno(this, mapa);
@@ -93,13 +100,16 @@ public class Jugador {
 		for(Constructible construccion : construcciones) {
 			((Atacable) construccion).pasarTurno(this, mapa);
 		}
+		for(Magia magiaActual : magias) {
+			magiaActual.pasarTurno();
+		}
 		arquitecto.pasarTurno();
 	}
 	
 	public void empezarTurno() {		
 		eliminarUnidadesMuertas();
 		eliminarConstruccionesMuertas();
-		
+		eliminarMagiasMuertas();
 	}
 
 	private void eliminarConstruccionesMuertas() {
@@ -118,6 +128,16 @@ public class Jugador {
 			Atacable unidadActual = iteradorUnidades.next();
 			if (unidadActual.estaMuerto()) {
 				iteradorUnidades.remove();
+			}
+		}
+	}
+	
+	private void eliminarMagiasMuertas() {
+		Iterator<Magia> iteradorMagias = magias.iterator();
+		while(iteradorMagias.hasNext()) {
+			Magia magiaActual = iteradorMagias.next();
+			if (magiaActual.estaMuerto()) {
+				iteradorMagias.remove();
 			}
 		}
 	}
