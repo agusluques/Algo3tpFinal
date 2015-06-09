@@ -43,4 +43,22 @@ public class AltoTemplario extends UnidadesProtoss {
 	public int rangoDeAtaqueCorrespondiente(Rango rango) {
 		return rango.getRangoTierra();
 	}
+	
+	public void lanzarTormentaPsionica(Coordenada posicion) throws EnergiaInsuficiente{
+		//esto que estoy haciendo aca es un asco, pero queria usar el metodo que ya teniamos
+		AltoTemplario nuevoTemplario = new AltoTemplario();
+		nuevoTemplario.setCoordenada(posicion);
+		if (this.estaEnRangoDeAtaque(nuevoTemplario)){
+			try{
+				this.miEnergia.gastarEnergia(75);
+				TormentaPsionica tormenta = new TormentaPsionica(this.jugador,this.jugador.getMapa(),posicion);
+				this.jugador.agregarMagia(tormenta);
+			}catch (EnergiaInsuficiente e){
+				throw e;
+			}
+				
+
+		}
+	}
+	
 }

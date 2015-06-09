@@ -160,5 +160,16 @@ public class AltoTemplarioTest {
 		Assert.assertEquals(1, unidad.rangoDeAtaqueCorrespondiente(rango));
 	}
 
+
+	@Test (expected = EnergiaInsuficiente.class)
+	public void siIntentoLanzarUnaTormentaCuandoNoTengoManaLanzaUnaExcepcion() throws Exception{
+
+		AltoTemplario templar = new AltoTemplario();
+		templar.lanzarTormentaPsionica(new Coordenada(3,3));
+		
+	
+	}
+	
+	
 	
 }

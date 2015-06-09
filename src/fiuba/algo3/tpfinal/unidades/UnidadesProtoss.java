@@ -58,7 +58,7 @@ public abstract class UnidadesProtoss extends Protoss implements Fabricable, Ata
 		enemigo.atacado(new Danio(0,0));
 	}
 	
-	private boolean estaEnRangoDeAtaque(Atacable enemigo) {
+	protected boolean estaEnRangoDeAtaque(Atacable enemigo) {
 		Coordenada coordenadaEnemigo = enemigo.getCoordenada();
 		Coordenada coordenadaAtacante = this.getCoordenada();
 		double distancia = coordenadaEnemigo.distancia(coordenadaAtacante);

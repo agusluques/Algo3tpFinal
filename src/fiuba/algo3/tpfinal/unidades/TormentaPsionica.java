@@ -6,7 +6,7 @@ import fiuba.algo3.tpfinal.programa.Jugador;
 import fiuba.algo3.tpfinal.programa.Mapa;
 import fiuba.algo3.tpfinal.programa.Parcela;
 
-public class TormentaPsionica {
+public class TormentaPsionica extends Magia {
 
 	protected Mapa mapa;
 	protected Jugador lanzador;
