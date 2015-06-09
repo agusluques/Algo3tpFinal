@@ -155,7 +155,7 @@ public class JugadorTest {
 	}
 	
 	@Test
-	public void elJugadorProtossConstruyeUnNexoMineralLeQuedan50DeMinerales() throws ConstruccionRequeridaInexistente {
+	public void elJugadorProtossConstruyeUnNexoMineralLeQuedan150DeMinerales() throws ConstruccionRequeridaInexistente {
 		Constructible construccion = new NexoMineral(new Coordenada(1,100));
 		jugador.construir(construccion,new Coordenada(1,100));
 		for(int i = 0; i < 4; i++) {
