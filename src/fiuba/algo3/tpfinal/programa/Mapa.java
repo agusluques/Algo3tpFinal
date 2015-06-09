@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Set;
@@ -230,4 +231,19 @@ public class Mapa {
 		}
 	}
 	
+	public ArrayList<Atacable> unidadesEnUnRadio(Coordenada centro,int radio){
+		int fila = centro.getFila();
+		int columna = centro.getColumna();
+		Parcela parcela;
+		ArrayList<Atacable> unidadesEncontradas = new ArrayList<Atacable>();
+		for(int y=fila-radio;y<=fila+radio;y++){
+			for(int x=columna-radio;x<=columna+radio;x++){
+				parcela = this.mapa.get(new Coordenada(y,x));
+				if (parcela!=null && !parcela.estaVacia()){
+					unidadesEncontradas.add(parcela.getOcupante());
+				}
+			}
+		}
+		return unidadesEncontradas;
+	}
 }
