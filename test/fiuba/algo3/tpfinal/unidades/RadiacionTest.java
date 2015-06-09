@@ -29,7 +29,7 @@ public class RadiacionTest {
 	
 	
 	@Test
-	public void siIrradioUnaUnidadSusAliadasCercanasTambienSufranDaño() throws Exception{
+	public void siIrradioUnaUnidadSusAliadasCercanasTambienSufranDanio() throws Exception{
 		Mapa mapa = new Mapa("mapaTierra.txt");
 		Jugador jugador = new Jugador("Damian", mapa);
 		Atacable marine = new Marine();
@@ -50,7 +50,7 @@ public class RadiacionTest {
 	}
 	
 	@Test
-	public void siUnaUnidadIrradiadaEstaCercaDeUnaUnidadHostilLaSegundaNoSufreDaño() throws Exception{
+	public void siUnaUnidadIrradiadaEstaCercaDeUnaUnidadHostilLaSegundaNoSufreDanio() throws Exception{
 		Mapa mapa = new Mapa("mapaTierra.txt");
 		Jugador unJugador = new Jugador("Damian", mapa);
 		Jugador otroJugador = new Jugador("Luciano", mapa);
