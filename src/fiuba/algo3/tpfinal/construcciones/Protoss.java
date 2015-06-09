@@ -3,6 +3,7 @@ package fiuba.algo3.tpfinal.construcciones;
 import fiuba.algo3.tpfinal.programa.Coordenada;
 import fiuba.algo3.tpfinal.programa.Danio;
 import fiuba.algo3.tpfinal.programa.Jugador;
+import fiuba.algo3.tpfinal.programa.Mapa;
 
 public abstract class Protoss implements Atacable{
 	
@@ -41,8 +42,8 @@ public abstract class Protoss implements Atacable{
 		return ((this.vida.getVida() == 0) && (this.escudo.getEscudo() == 0));
 	}
 	
-	public void pasarTurno() {
-		this.escudo.pasarTurno();
+	public void pasarTurno(Jugador jugador, Mapa mapa) {
+		this.escudo.pasarTurno(jugador, mapa);
 	}
 
 }

@@ -41,6 +41,12 @@ public class NexoMineral extends ConstruccionesProtoss implements RecolectorDeMi
 		DepositoDeMinerales superficie = (DepositoDeMinerales) parcela.getSuperficie();
 		return superficie.extraerRecursos();
 	}
+	
+	public void pasarTurno(Jugador jugador, Mapa mapa) {
+		this.recolectarPara(jugador, mapa);
+		super.pasarTurno(jugador, mapa);
+	}
+
 
 	
 	

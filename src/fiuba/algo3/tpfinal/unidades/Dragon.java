@@ -13,7 +13,7 @@ public class Dragon extends UnidadesProtoss {
 		this.suministro = 2;
 		this.costo = new Costo(125,50);
 		this.transporte = 4;
-		this.rango = new Rango(4,0);
+		this.rango = new Rango(4,4);
 		
 		//se inicializa en (0,0) solo para los tests
 		this.posicion = new Coordenada(0,0);

@@ -41,5 +41,11 @@ public class Refineria extends ConstruccionesTerran implements RecolectorDeGas {
 		
 	}
 	
+	public void pasarTurno(Jugador jugador, Mapa mapa) {
+		this.recolectarPara(jugador, mapa);
+		super.pasarTurno(jugador, mapa);
+	}
+
+	
 	
 }

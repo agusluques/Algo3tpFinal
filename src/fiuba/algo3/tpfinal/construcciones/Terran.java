@@ -2,6 +2,8 @@ package fiuba.algo3.tpfinal.construcciones;
 
 import fiuba.algo3.tpfinal.programa.Coordenada;
 import fiuba.algo3.tpfinal.programa.Danio;
+import fiuba.algo3.tpfinal.programa.Jugador;
+import fiuba.algo3.tpfinal.programa.Mapa;
 
 public abstract class Terran implements Atacable {
 
@@ -28,6 +30,10 @@ public abstract class Terran implements Atacable {
 	public boolean estaMuerto() {
 		return (this.vida.getVida() == 0);
 	}
+	
+	public void pasarTurno(Jugador jugador, Mapa mapa) {
+	}
+
 			
 	
 }

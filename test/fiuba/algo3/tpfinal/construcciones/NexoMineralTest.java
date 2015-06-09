@@ -9,6 +9,9 @@ import fiuba.algo3.tpfinal.construcciones.Constructible;
 import fiuba.algo3.tpfinal.construcciones.NexoMineral;
 import fiuba.algo3.tpfinal.programa.Coordenada;
 import fiuba.algo3.tpfinal.programa.Danio;
+import fiuba.algo3.tpfinal.programa.Jugador;
+import fiuba.algo3.tpfinal.programa.Mapa;
+import fiuba.algo3.tpfinal.unidades.Zealot;
 
 public class NexoMineralTest {
 
@@ -80,6 +83,20 @@ public class NexoMineralTest {
 	public void dosNexosDeberianSerIguales() {
 		Constructible otroNexo = new NexoMineral(new Coordenada(1,99));
 		Assert.assertTrue(this.nexo.equals(otroNexo));
+	}
+	
+	@Test
+	public void siPasaTurnoLeCargaMineralAlJugadorYLaVidaQuedaIgual() throws Exception {
+		Mapa mapa = new Mapa("mapaTierra.txt");
+		Jugador jugador = new Jugador("Damian", mapa);
+		Zealot zealot = new Zealot();
+		zealot.setCoordenada(new Coordenada(2,91));
+		
+		zealot.atacar(nexo);
+		nexo.pasarTurno(jugador, mapa);
+		
+		Assert.assertEquals(250, nexo.getEscudo());
+		Assert.assertEquals(210, jugador.getPresupuesto().cantidadDeMineral());
 	}
 
 }

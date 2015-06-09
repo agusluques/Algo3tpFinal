@@ -10,7 +10,7 @@ public class Espectro extends UnidadesTerran {
 	public Espectro(){
 		this.vida.inicializarVida(120);
 		this.miDanio = new Danio (20,8);
-		this.rango = new Rango(5,0);
+		this.rango = new Rango(5,5);
 		this.tiempoDeConstruccion = 8;
 		this.suministro = 2;
 		this.costo = new Costo(150,100);

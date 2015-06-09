@@ -3,6 +3,9 @@ package fiuba.algo3.tpfinal.construcciones;
 import org.junit.Assert;
 import org.junit.Test;
 
+import fiuba.algo3.tpfinal.programa.Jugador;
+import fiuba.algo3.tpfinal.programa.Mapa;
+
 public class EscudoTest {
 	
 	@Test
@@ -54,43 +57,49 @@ public class EscudoTest {
 	}
 	
 	@Test
-	public void sielEscudoNoEstaCompletoYSePasaElTurnoSeRegeneraCompletamente() {
+	public void sielEscudoNoEstaCompletoYSePasaElTurnoSeRegeneraCompletamente() throws Exception {
 		Escudo escudo = new Escudo();
 		Vida vida = new Vida();
 		escudo.inicializarEscudo(500);
 		vida.inicializarVida(500);
+		Mapa mapa = new Mapa("mapaTierra.txt");
+		Jugador jugador = new Jugador("Damian", mapa);
 		
 		escudo.bajarEscudo(600, vida);
-		escudo.pasarTurno();
+		escudo.pasarTurno(jugador, mapa);
 		
 		Assert.assertEquals(500, escudo.getEscudo());
 	}
 	
 	@Test
-	public void sielEscudoNoEstaCompletoYSePasaElTurnoSeRegeneraCompletamentePeroLaVidaNoSeCambia() {
+	public void sielEscudoNoEstaCompletoYSePasaElTurnoSeRegeneraCompletamentePeroLaVidaNoSeCambia() throws Exception {
 		Escudo escudo = new Escudo();
 		Vida vida = new Vida();
 		escudo.inicializarEscudo(500);
 		vida.inicializarVida(500);
+		Mapa mapa = new Mapa("mapaTierra.txt");
+		Jugador jugador = new Jugador("Damian", mapa);
 		
 		escudo.bajarEscudo(600, vida);
-		escudo.pasarTurno();
+		escudo.pasarTurno(jugador, mapa);
 		
 		Assert.assertEquals(400, vida.getVida());
 	}
 	
 	@Test
-	public void siSePasanMuchosTurnosElEscudoNoSePasaDeSuLimite() {
+	public void siSePasanMuchosTurnosElEscudoNoSePasaDeSuLimite() throws Exception {
 		Escudo escudo = new Escudo();
 		Vida vida = new Vida();
 		escudo.inicializarEscudo(500);
 		vida.inicializarVida(500);
+		Mapa mapa = new Mapa("mapaTierra.txt");
+		Jugador jugador = new Jugador("Damian", mapa);
 		
 		escudo.bajarEscudo(600, vida);
-		escudo.pasarTurno();
-		escudo.pasarTurno();
-		escudo.pasarTurno();
-		escudo.pasarTurno();
+		escudo.pasarTurno(jugador, mapa);
+		escudo.pasarTurno(jugador, mapa);
+		escudo.pasarTurno(jugador, mapa);
+		escudo.pasarTurno(jugador, mapa);
 		
 		Assert.assertEquals(500, escudo.getEscudo());
 	}

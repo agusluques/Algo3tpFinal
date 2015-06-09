@@ -1,5 +1,8 @@
 package fiuba.algo3.tpfinal.construcciones;
 
+import fiuba.algo3.tpfinal.programa.Jugador;
+import fiuba.algo3.tpfinal.programa.Mapa;
+
 public class Escudo {
 	
 	private int escudo = 0;
@@ -22,7 +25,7 @@ public class Escudo {
 		this.escudoLimite = escudoInicial;
 	}
 
-	public void pasarTurno() {
+	public void pasarTurno(Jugador jugador, Mapa mapa) {
 		/*this.escudo += 10;
 		if (this.escudo > escudoLimite) {
 			this.escudo = escudoLimite;

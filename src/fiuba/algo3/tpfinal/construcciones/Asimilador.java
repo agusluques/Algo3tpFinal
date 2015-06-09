@@ -41,5 +41,10 @@ public class Asimilador extends ConstruccionesProtoss implements RecolectorDeGas
 		this.construccionesNecesarias = new ArrayList<Constructible>();
 		
 	}
+	
+	public void pasarTurno(Jugador jugador, Mapa mapa) {
+		this.recolectarPara(jugador, mapa);
+		super.pasarTurno(jugador, mapa);
+	}
 
 }

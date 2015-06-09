@@ -7,11 +7,13 @@ import org.junit.Test;
 
 import fiuba.algo3.tpfinal.construcciones.CentroDeMineral;
 import fiuba.algo3.tpfinal.construcciones.Constructible;
+import fiuba.algo3.tpfinal.programa.Jugador;
 import fiuba.algo3.tpfinal.programa.Mapa;
 import fiuba.algo3.tpfinal.programa.Coordenada;
 import fiuba.algo3.tpfinal.programa.Danio;
 import fiuba.algo3.tpfinal.programa.DepositoDeMinerales;
 import fiuba.algo3.tpfinal.programa.Parcela;
+import fiuba.algo3.tpfinal.unidades.Zealot;
 
 public class CentroDeMineralTest {
 
@@ -88,4 +90,17 @@ public class CentroDeMineralTest {
 		Assert.assertEquals(990, deposito.getRecursos());
 	}
 
+	@Test
+	public void siPasaTurnoLeCargaMineralAlJugadorYLaVidaQuedaIgual() throws Exception {
+		Mapa mapa = new Mapa("mapaTierra.txt");
+		Jugador jugador = new Jugador("Damian", mapa);
+		Zealot zealot = new Zealot();
+		zealot.setCoordenada(new Coordenada(2,91));
+		
+		zealot.atacar(centroMineral);
+		centroMineral.pasarTurno(jugador, mapa);
+		
+		Assert.assertEquals(492, centroMineral.getVida());
+		Assert.assertEquals(210, jugador.getPresupuesto().cantidadDeMineral());
+	}
 }
