@@ -4,12 +4,17 @@ import junit.framework.Assert;
 
 import org.junit.Test;
 
+import fiuba.algo3.tpfinal.construcciones.Atacable;
+import fiuba.algo3.tpfinal.construcciones.DepositoSuministro;
+import fiuba.algo3.tpfinal.excepciones.EnergiaInsuficiente;
 import fiuba.algo3.tpfinal.excepciones.MovimientoInvalido;
+import fiuba.algo3.tpfinal.excepciones.UnidadInvalida;
 import fiuba.algo3.tpfinal.programa.Aire;
 import fiuba.algo3.tpfinal.programa.Coordenada;
 import fiuba.algo3.tpfinal.programa.Danio;
 import fiuba.algo3.tpfinal.programa.DepositoDeGas;
 import fiuba.algo3.tpfinal.programa.DepositoDeMinerales;
+import fiuba.algo3.tpfinal.programa.Jugador;
 import fiuba.algo3.tpfinal.programa.Mapa;
 import fiuba.algo3.tpfinal.programa.Superficie;
 import fiuba.algo3.tpfinal.programa.Tierra;
@@ -115,6 +120,23 @@ public class NaveCienciaTest {
 		unidad.trasladarA(destino, mapa);
 	}
 	
+	@Test (expected = UnidadInvalida.class)
+	public void siIntentoIrradiarUnaUnidadAliadaRetornaUnaExcepcion() throws Exception{
+		Mapa mapa = new Mapa("mapaTierra.txt");
+		Jugador jugador = new Jugador("Damian", mapa);
+		NaveCiencia nave = new NaveCiencia();
+		Atacable marine = new Marine();
+		for (int i=1;i<5;i++){
+			nave.pasarTurno();
+		}
+		jugador.getConstrucciones().add(new DepositoSuministro());
+		jugador.agregarUnidad((Fabricable)nave, new Coordenada(3,3));
+		jugador.agregarUnidad((Fabricable)marine, new Coordenada(2,3));
+			
+		nave.irradiar(marine);
+	
+	}
+	
 	@Test
 	public void devuelveElRangoDeAtaqueCorrespondiente() {
 		NaveCiencia unidad = new NaveCiencia();
@@ -123,4 +145,20 @@ public class NaveCienciaTest {
 		Assert.assertEquals(2, unidad.rangoDeAtaqueCorrespondiente(rango));
 	}
 
+	@Test (expected = EnergiaInsuficiente.class)
+	public void siIntentoIrradiarUnaUnidadCuandoNoTengoEnergiaRetornaUnaExcepcion() throws Exception{
+		Mapa mapa = new Mapa("mapaTierra.txt");
+		Jugador jugador = new Jugador("Damian", mapa);
+		Jugador jugador2 = new Jugador("Luciano", mapa);
+		NaveCiencia nave = new NaveCiencia();
+		Atacable marine = new Marine();
+	
+		jugador.getConstrucciones().add(new DepositoSuministro());
+		jugador2.getConstrucciones().add(new DepositoSuministro());
+		jugador.agregarUnidad((Fabricable)nave, new Coordenada(3,3));
+		jugador2.agregarUnidad((Fabricable)marine, new Coordenada(3,3));
+	
+		nave.irradiar(marine);
+	
+	}
 }

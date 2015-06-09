@@ -160,4 +160,5 @@ public class AltoTemplarioTest {
 		Assert.assertEquals(1, unidad.rangoDeAtaqueCorrespondiente(rango));
 	}
 
+	
 }

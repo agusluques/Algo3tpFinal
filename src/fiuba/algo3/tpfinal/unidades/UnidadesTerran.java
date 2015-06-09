@@ -50,7 +50,7 @@ public abstract class UnidadesTerran extends Terran implements Fabricable, Ataca
 
 	
 	
-	private boolean estaEnRangoDeAtaque(Atacable enemigo) {
+	protected boolean estaEnRangoDeAtaque(Atacable enemigo) {
 		Coordenada coordenadaEnemigo = enemigo.getCoordenada();
 		Coordenada coordenadaAtacante = this.getCoordenada();
 		double distancia = coordenadaEnemigo.distancia(coordenadaAtacante);
