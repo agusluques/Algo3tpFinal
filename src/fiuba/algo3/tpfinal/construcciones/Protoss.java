@@ -37,6 +37,9 @@ public abstract class Protoss implements Atacable{
 		this.jugador = jugador;
 	}
 	
+	public Jugador getJugador(){
+		return this.jugador;
+	}
 	@Override
 	public boolean estaMuerto() {
 		return ((this.vida.getVida() == 0) && (this.escudo.getEscudo() == 0));

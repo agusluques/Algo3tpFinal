@@ -205,13 +205,12 @@ public class Mapa {
 	public void ubicarCercaDe(Atacable unidad, Coordenada posicion){
 		int fila = posicion.getFila();
 		int columna = posicion.getColumna();
-		int modColumna = 0;
-		int modFila = 0;
+		int mod= 0;
 		Parcela parcela;
 		boolean ubicada = false;
 		while (!ubicada){
-			for (int y = fila - modFila;y<=fila+modFila;y++){
-				for (int x = columna - modColumna;x<=fila+modColumna;x++){
+			for (int y = fila-mod ; y<=fila+mod ; y++){
+				for (int x = columna-mod ; x<=columna+mod ; x++){
 					parcela = this.mapa.get(new Coordenada(y,x));
 					if (parcela != null){
 						if(parcela.estaVacia() && !ubicada){
@@ -225,8 +224,8 @@ public class Mapa {
 			}
 		
 			if (!ubicada){
-				modFila++;
-				modColumna++;
+				mod++;
+				
 			}
 		}
 	}

@@ -9,6 +9,7 @@ public abstract class Terran implements Atacable {
 
 	protected Vida vida = new Vida();
 	protected Coordenada posicion;
+	protected Jugador jugador;
 	
 	public int getVida() {
 		return this.vida.getVida();
@@ -25,7 +26,12 @@ public abstract class Terran implements Atacable {
 	public void setCoordenada(Coordenada posicion){
 		this.posicion = posicion;
 	}
-	
+	public void setJugador(Jugador jugador){
+		this.jugador = jugador;
+	}
+	public Jugador getJugador(){
+		return this.jugador;
+	}
 	@Override
 	public boolean estaMuerto() {
 		return (this.vida.getVida() == 0);

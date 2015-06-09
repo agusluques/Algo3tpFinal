@@ -117,9 +117,18 @@ public class Jugador {
 	}
 
 	public Mapa getMapa() {
-		return mapa;
+		return this.mapa;
 	}
-
-
+	
+	@Override
+	public boolean equals(Object o){
+		Jugador jugador = (Jugador)o;
+		return (jugador.getNombre()== this.nombre);
+	}
+	
+	@Override
+	public int hashCode(){
+		return this.nombre.hashCode();
+	}
 
 }
