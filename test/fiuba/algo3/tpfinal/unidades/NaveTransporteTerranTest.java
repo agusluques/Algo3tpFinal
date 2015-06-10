@@ -61,7 +61,7 @@ public class NaveTransporteTerranTest {
 	}
 	
 	@Test(expected = NoHayPasajerosEnLaNave.class)
-	public void unaNaveSinPasajerosDesciendeUnaListaVacia() throws NoHayPasajerosEnLaNave {
+	public void unaNaveSinPasajerosQueTrataDedescenderLanzaExcepcion() throws NoHayPasajerosEnLaNave {
 		NaveTransporteTerran nave = new NaveTransporteTerran();
 		nave.bajarPasajeros();
 		
@@ -72,7 +72,6 @@ public class NaveTransporteTerranTest {
 		NaveTransporteTerran nave = new NaveTransporteTerran();
 		
 		Assert.assertEquals(8, nave.getCapacidad());
-		
 	}
 	
 

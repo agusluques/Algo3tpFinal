@@ -263,12 +263,12 @@ public class Mapa {
 	
 	public Coordenada encontrarUltimaBase() {
 		Coordenada ultimaBase = new Coordenada(0,0);
-		for (int i = 1; i <= this.getAlto(); i++) {
-			for (int j = 1; j <= this.getAncho(); j++) {
-				Coordenada coordenadaActual = new Coordenada(i, j);
-				Parcela parcelaActual = this.getParcela(coordenadaActual);
+		for (int i = this.getAlto(); i >= 1 ; i--) {
+			for (int j = this.getAncho(); j >= 1; j--) {
+				ultimaBase = new Coordenada(i, j);
+				Parcela parcelaActual = this.getParcela(ultimaBase);
 				if (parcelaActual.getSuperficie().equals(new DepositoDeGas())) {
-					ultimaBase = coordenadaActual;
+					return ultimaBase;
 				}
 			}
 		}

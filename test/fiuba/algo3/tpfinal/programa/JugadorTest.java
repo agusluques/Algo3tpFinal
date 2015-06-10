@@ -452,28 +452,6 @@ public class JugadorTest {
 	}
 
 	@Test
-	public void elJugadorEmpizaCon5ComoLimitePoblacional(){
-		Assert.assertTrue(jugador.limitePoblacional()==5);
-	}
-	
-	@Test
-	public void siElJugadorConstruyePilonesElLimitePoblacionalAUmentaEn5() throws ConstruccionRequeridaInexistente{
-		
-		jugador.construir(new Pilon(),coordTierra);
-		for(int i = 0; i < 5; i++) {
-			jugador.pasarTurno();
-		}
-		Assert.assertTrue(jugador.limitePoblacional()==10);
-		jugador.construir(new Pilon(),coordTierra2);
-		for(int i = 0; i < 5; i++) {
-			jugador.pasarTurno();
-			
-		}
-		Assert.assertTrue(jugador.limitePoblacional()==15);
-		
-	}
-
-	@Test
 	public void siElJugadorConstruyeDepositosDeSuministrosElLimitePoblacionalAUmentaEn5() throws ConstruccionRequeridaInexistente{
 		
 		jugador.construir(new DepositoSuministro(),coordTierra);
@@ -486,18 +464,6 @@ public class JugadorTest {
 			jugador.pasarTurno();
 		}
 		Assert.assertTrue(jugador.limitePoblacional()==15);
-	}
-
-	@Test
-	public void siElJugadorTiene2MarinesSuPoblacionEsDos() throws ConstruccionRequeridaInexistente{
-		
-		jugador.construir(new DepositoSuministro(),coordTierra);
-		for(int i = 0; i < 6; i++) {
-			jugador.pasarTurno();
-		}
-		jugador.agregarUnidad(new Marine(),new Coordenada(1,1));
-		jugador.agregarUnidad(new Marine(),new Coordenada(1,2));
-		Assert.assertTrue(jugador.contarPoblacion()==2);
 	}
 	
 	@Test
@@ -541,7 +507,7 @@ public class JugadorTest {
 	}
 	
 	@Test
-	public void siElJugadorTieneDosDepositosYLeMatanUnoSuPoblacionLimiteVuelveACinco() throws ConstruccionRequeridaInexistente {
+	public void siElJugadorTieneDosDepositosYLeMatanUnoSuPoblacionLimiteVuelveADiez() throws ConstruccionRequeridaInexistente {
 		DepositoSuministro deposito = new DepositoSuministro();
 		DepositoSuministro otroDeposito = new DepositoSuministro();
 		Coordenada otraCoordenada = new Coordenada(1,2);
@@ -563,7 +529,7 @@ public class JugadorTest {
 	}
 	
 	@Test
-	public void unJugadorAlIniciarNoEstaExtinto() {
+	public void unJugadorAlIniciarConRazaNoEstaExtinto() {
 		jugador.setRaza("Terran");
 		Assert.assertFalse(jugador.estaExtinto());
 	}
