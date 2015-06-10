@@ -31,5 +31,7 @@ public class Escudo {
 		this.escudo = escudoLimite;
 	}
 	
-	
+	public void destruirEscudo(){
+		this.escudo=0;
+	}
 }

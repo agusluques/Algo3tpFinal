@@ -1,8 +1,10 @@
 package fiuba.algo3.tpfinal.programa;
 
 import fiuba.algo3.tpfinal.construcciones.Atacable;
+import fiuba.algo3.tpfinal.unidades.AfectablePorEMP;
+import fiuba.algo3.tpfinal.unidades.Energia;
 
-public abstract class Protoss implements Atacable{
+public abstract class Protoss implements Atacable, AfectablePorEMP{
 	
 	protected Escudo escudo = new Escudo();
 	protected Vida vida = new Vida();
@@ -46,4 +48,8 @@ public abstract class Protoss implements Atacable{
 		this.escudo.pasarTurno(jugador, mapa);
 	}
 
+	public void recibirImpactoEMP(){
+		escudo.destruirEscudo();
+	
+	}
 }

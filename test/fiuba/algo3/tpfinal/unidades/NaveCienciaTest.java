@@ -7,7 +7,7 @@ import org.junit.Test;
 import fiuba.algo3.tpfinal.construcciones.Atacable;
 import fiuba.algo3.tpfinal.construcciones.DepositoSuministro;
 import fiuba.algo3.tpfinal.construcciones.Pilon;
-import fiuba.algo3.tpfinal.construcciones.Protoss;
+import fiuba.algo3.tpfinal.programa.Protoss;
 import fiuba.algo3.tpfinal.excepciones.EnergiaInsuficiente;
 import fiuba.algo3.tpfinal.excepciones.MovimientoInvalido;
 import fiuba.algo3.tpfinal.excepciones.UnidadInvalida;

@@ -1,8 +1,9 @@
 package fiuba.algo3.tpfinal.programa;
 
 import fiuba.algo3.tpfinal.construcciones.Atacable;
+import fiuba.algo3.tpfinal.unidades.AfectablePorEMP;
 
-public abstract class Terran implements Atacable {
+public abstract class Terran implements Atacable, AfectablePorEMP {
 
 	protected Vida vida = new Vida();
 	protected Coordenada posicion;
@@ -36,7 +37,8 @@ public abstract class Terran implements Atacable {
 	
 	public void pasarTurno(Jugador jugador, Mapa mapa) {
 	}
-
+	
+	public void recibirImpactoEMP(){};
 			
 	
 }
