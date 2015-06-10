@@ -1,4 +1,4 @@
-package fiuba.algo3.tpfinal.construcciones;
+package fiuba.algo3.tpfinal.programa;
 
 public class Vida {
 

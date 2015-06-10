@@ -1,12 +1,8 @@
-package fiuba.algo3.tpfinal.construcciones;
+package fiuba.algo3.tpfinal.programa;
 
-import fiuba.algo3.tpfinal.programa.Coordenada;
-import fiuba.algo3.tpfinal.programa.Danio;
-import fiuba.algo3.tpfinal.programa.Jugador;
-import fiuba.algo3.tpfinal.programa.Mapa;
-import fiuba.algo3.tpfinal.unidades.AfectablePorEMP;
+import fiuba.algo3.tpfinal.construcciones.Atacable;
 
-public abstract class Protoss implements Atacable, AfectablePorEMP{
+public abstract class Protoss implements Atacable{
 	
 	protected Escudo escudo = new Escudo();
 	protected Vida vida = new Vida();
@@ -49,9 +45,5 @@ public abstract class Protoss implements Atacable, AfectablePorEMP{
 	public void pasarTurno(Jugador jugador, Mapa mapa) {
 		this.escudo.pasarTurno(jugador, mapa);
 	}
-	
-	public void recibirImpactoEMP(){
-		escudo.destruirEscudo();
-	
-	}
+
 }

@@ -1,7 +1,6 @@
 package fiuba.algo3.tpfinal.unidades;
 
 import fiuba.algo3.tpfinal.construcciones.Atacable;
-import fiuba.algo3.tpfinal.construcciones.Terran;
 import fiuba.algo3.tpfinal.excepciones.MovimientoInvalido;
 import fiuba.algo3.tpfinal.programa.Aire;
 import fiuba.algo3.tpfinal.programa.Coordenada;
@@ -12,6 +11,7 @@ import fiuba.algo3.tpfinal.programa.DepositoDeMinerales;
 import fiuba.algo3.tpfinal.programa.Mapa;
 import fiuba.algo3.tpfinal.programa.Parcela;
 import fiuba.algo3.tpfinal.programa.Superficie;
+import fiuba.algo3.tpfinal.programa.Terran;
 import fiuba.algo3.tpfinal.programa.Tierra;
 
 public abstract class UnidadesTerran extends Terran implements Fabricable, Atacante, Trasladable {

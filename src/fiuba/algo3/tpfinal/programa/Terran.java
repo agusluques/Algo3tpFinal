@@ -1,18 +1,12 @@
-package fiuba.algo3.tpfinal.construcciones;
+package fiuba.algo3.tpfinal.programa;
 
-import fiuba.algo3.tpfinal.programa.Coordenada;
-import fiuba.algo3.tpfinal.programa.Danio;
-import fiuba.algo3.tpfinal.programa.Jugador;
-import fiuba.algo3.tpfinal.programa.Mapa;
-import fiuba.algo3.tpfinal.unidades.AfectablePorEMP;
+import fiuba.algo3.tpfinal.construcciones.Atacable;
 
-public abstract class Terran implements Atacable, AfectablePorEMP {
+public abstract class Terran implements Atacable {
 
 	protected Vida vida = new Vida();
 	protected Coordenada posicion;
 	protected Jugador jugador;
-	
-	public void recibirImpactoEMP(){};
 	
 	public int getVida() {
 		return this.vida.getVida();

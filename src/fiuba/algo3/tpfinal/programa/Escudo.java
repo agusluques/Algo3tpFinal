@@ -1,7 +1,5 @@
-package fiuba.algo3.tpfinal.construcciones;
+package fiuba.algo3.tpfinal.programa;
 
-import fiuba.algo3.tpfinal.programa.Jugador;
-import fiuba.algo3.tpfinal.programa.Mapa;
 
 public class Escudo {
 	
@@ -33,7 +31,5 @@ public class Escudo {
 		this.escudo = escudoLimite;
 	}
 	
-	public void destruirEscudo(){
-		this.escudo = 0;
-	}
+	
 }
