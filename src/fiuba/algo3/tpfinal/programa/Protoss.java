@@ -2,7 +2,6 @@ package fiuba.algo3.tpfinal.programa;
 
 import fiuba.algo3.tpfinal.construcciones.Atacable;
 import fiuba.algo3.tpfinal.unidades.AfectablePorEMP;
-import fiuba.algo3.tpfinal.unidades.Energia;
 
 public abstract class Protoss implements Atacable, AfectablePorEMP{
 	
