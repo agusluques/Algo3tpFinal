@@ -67,9 +67,11 @@ public class BarracaTest {
 		
 		jugador.getPresupuesto().agregarMineral(1000);
 		jugador.construir(this.barraca, new Coordenada(2,2));
-		this.barraca.fabricarMarine();
-		for (int i=0;i<4;i++){
-			this.barraca.haceLoTuyo();
+		for (int x = 0; x < 6; x++) {
+			this.barraca.fabricarMarine();
+			for (int i=0;i<4;i++){
+				this.barraca.haceLoTuyo();
+			}
 		}
 	}
 	

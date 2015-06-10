@@ -12,6 +12,8 @@ import fiuba.algo3.tpfinal.excepciones.ConstruccionRequeridaInexistente;
 import fiuba.algo3.tpfinal.excepciones.LimitePoblacionalAlcanzado;
 import fiuba.algo3.tpfinal.unidades.Fabricable;
 import fiuba.algo3.tpfinal.unidades.Magia;
+import fiuba.algo3.tpfinal.unidades.Marine;
+import fiuba.algo3.tpfinal.unidades.Zealot;
 
 
 public class Jugador {
@@ -58,7 +60,7 @@ public class Jugador {
 	}
 
 	public int limitePoblacional(){
-		return this.contarCasas()*5;
+		return 5 + this.contarCasas()*5;
 		
 	}
 	public void construir(Constructible construccion, Coordenada posicion) throws ConstruccionRequeridaInexistente {
@@ -155,6 +157,20 @@ public class Jugador {
 	@Override
 	public int hashCode(){
 		return this.nombre.hashCode();
+	}
+	
+	public boolean estaExtinto() {
+		return this.construcciones.isEmpty() && this.unidades.isEmpty();
+	}
+	
+	public void setRaza(String raza) {
+		Fabricable unidadBasica;
+		if (raza == "Terran") {
+			unidadBasica = new Marine();
+		} else {
+			unidadBasica = new Zealot();
+		}
+		this.agregarUnidad(unidadBasica, mapa.encontrarPrimeraBase());
 	}
 
 }

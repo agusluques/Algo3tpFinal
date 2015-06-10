@@ -246,4 +246,33 @@ public class Mapa {
 		}
 		return unidadesEncontradas;
 	}
+	
+	public Coordenada encontrarPrimeraBase() {
+		Coordenada primeraBase = new Coordenada(0,0);
+		for (int i = 1; i <= this.getAlto(); i++) {
+			for (int j = 1; j <= this.getAncho(); j++) {
+				primeraBase = new Coordenada(i, j);
+				Parcela parcelaActual = this.getParcela(primeraBase);
+				if (parcelaActual.getSuperficie().equals(new DepositoDeGas())) {
+					return primeraBase;
+				}
+			}
+		}
+		return primeraBase;
+	}
+	
+	public Coordenada encontrarUltimaBase() {
+		Coordenada ultimaBase = new Coordenada(0,0);
+		for (int i = 1; i <= this.getAlto(); i++) {
+			for (int j = 1; j <= this.getAncho(); j++) {
+				Coordenada coordenadaActual = new Coordenada(i, j);
+				Parcela parcelaActual = this.getParcela(coordenadaActual);
+				if (parcelaActual.getSuperficie().equals(new DepositoDeGas())) {
+					ultimaBase = coordenadaActual;
+				}
+			}
+		}
+		return ultimaBase;
+		
+	}
 }

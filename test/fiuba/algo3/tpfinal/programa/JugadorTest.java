@@ -452,8 +452,8 @@ public class JugadorTest {
 	}
 
 	@Test
-	public void elJugadorEmpizaCon0ComoLimitePoblacional(){
-		Assert.assertTrue(jugador.limitePoblacional()==0);
+	public void elJugadorEmpizaCon5ComoLimitePoblacional(){
+		Assert.assertTrue(jugador.limitePoblacional()==5);
 	}
 	
 	@Test
@@ -463,13 +463,13 @@ public class JugadorTest {
 		for(int i = 0; i < 5; i++) {
 			jugador.pasarTurno();
 		}
-		Assert.assertTrue(jugador.limitePoblacional()==5);
+		Assert.assertTrue(jugador.limitePoblacional()==10);
 		jugador.construir(new Pilon(),coordTierra2);
 		for(int i = 0; i < 5; i++) {
 			jugador.pasarTurno();
 			
 		}
-		Assert.assertTrue(jugador.limitePoblacional()==10);
+		Assert.assertTrue(jugador.limitePoblacional()==15);
 		
 	}
 
@@ -480,12 +480,12 @@ public class JugadorTest {
 		for(int i = 0; i < 6; i++) {
 			jugador.pasarTurno();
 		}
-		Assert.assertTrue(jugador.limitePoblacional()==5);
+		Assert.assertTrue(jugador.limitePoblacional()==10);
 		jugador.construir(new DepositoSuministro(),coordTierra2);
 		for(int i = 0; i < 6; i++) {
 			jugador.pasarTurno();
 		}
-		Assert.assertTrue(jugador.limitePoblacional()==10);
+		Assert.assertTrue(jugador.limitePoblacional()==15);
 	}
 
 	@Test
@@ -522,7 +522,7 @@ public class JugadorTest {
 	}
 	
 	@Test
-	public void siElJugadorTieneUnDepositoYSeLoMatanSuPoblacionLimiteVuelveACero() throws ConstruccionRequeridaInexistente {
+	public void siElJugadorTieneUnDepositoYSeLoMatanSuPoblacionLimiteVuelveACinco() throws ConstruccionRequeridaInexistente {
 		DepositoSuministro deposito = new DepositoSuministro();
 		jugador.construir(deposito,coordTierra);
 		for(int i = 0; i < 6; i++) {
@@ -536,7 +536,7 @@ public class JugadorTest {
 		}
 		jugador.empezarTurno();
 		
-		Assert.assertEquals(0, jugador.limitePoblacional());
+		Assert.assertEquals(5, jugador.limitePoblacional());
 		Assert.assertFalse(jugador.getConstrucciones().contains(deposito));
 	}
 	
@@ -551,7 +551,7 @@ public class JugadorTest {
 			jugador.pasarTurno();
 		}
 		jugador.pasarTurno();
-		Assert.assertEquals(10, jugador.limitePoblacional());
+		Assert.assertEquals(15, jugador.limitePoblacional());
 		
 		Marine enemigo = new Marine();
 		while(!deposito.estaMuerto()) {
@@ -559,7 +559,13 @@ public class JugadorTest {
 		}
 		jugador.empezarTurno();
 		
-		Assert.assertEquals(5, jugador.limitePoblacional());
+		Assert.assertEquals(10, jugador.limitePoblacional());
+	}
+	
+	@Test
+	public void unJugadorAlIniciarNoEstaExtinto() {
+		jugador.setRaza("Terran");
+		Assert.assertFalse(jugador.estaExtinto());
 	}
 
 

@@ -78,9 +78,16 @@ public class PuertoEstelarTerranTest {
 		
 		jugador.getPresupuesto().agregarMineral(1000);
 		jugador.getPresupuesto().agregarGas(1000);
-		jugador.construir(new Barraca(), new Coordenada(4,4));
+		Barraca barraca = new Barraca();
+		jugador.construir(barraca, new Coordenada(4,4));
 		for(int i = 0; i < 12; i++) {
 			jugador.pasarTurno();
+		}
+		for (int x = 0; x < 5; x++) {
+			barraca.fabricarMarine();
+			for (int i = 0; i < 10; i++) {
+				barraca.haceLoTuyo();
+			}
 		}
 		jugador.construir(new Fabrica(), new Coordenada(2,2));
 		for(int i = 0; i < 12; i++) {
@@ -163,9 +170,16 @@ public class PuertoEstelarTerranTest {
 		
 		jugador.getPresupuesto().agregarMineral(1000);
 		jugador.getPresupuesto().agregarGas(1000);
-		jugador.construir(new Barraca(), new Coordenada(4,4));
+		Barraca barraca = new Barraca();
+		jugador.construir(barraca, new Coordenada(4,4));
 		for(int i = 0; i < 12; i++) {
 			jugador.pasarTurno();
+		}
+		for (int x = 0; x < 5; x++) {
+			barraca.fabricarMarine();
+			for (int i = 0; i < 10; i++) {
+				barraca.haceLoTuyo();
+			}
 		}
 		jugador.construir(new Fabrica(), new Coordenada(2,2));
 		for(int i = 0; i < 12; i++) {
@@ -248,9 +262,16 @@ public class PuertoEstelarTerranTest {
 		
 		jugador.getPresupuesto().agregarMineral(1000);
 		jugador.getPresupuesto().agregarGas(1000);
-		jugador.construir(new Barraca(), new Coordenada(4,4));
+		Barraca barraca = new Barraca();
+		jugador.construir(barraca, new Coordenada(4,4));
 		for(int i = 0; i < 12; i++) {
 			jugador.pasarTurno();
+		}
+		for (int x = 0; x < 5; x++) {
+			barraca.fabricarMarine();
+			for (int i = 0; i < 10; i++) {
+				barraca.haceLoTuyo();
+			}
 		}
 		jugador.construir(new Fabrica(), new Coordenada(2,2));
 		for(int i = 0; i < 12; i++) {

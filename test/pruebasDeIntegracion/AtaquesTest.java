@@ -14,7 +14,7 @@ import fiuba.algo3.tpfinal.unidades.NaveCiencia;
 import fiuba.algo3.tpfinal.unidades.Scout;
 import fiuba.algo3.tpfinal.unidades.Zealot;
 
-public class PruebasDeAtaques {
+public class AtaquesTest {
 
 	// Ataques del Zealot
 	@Test
