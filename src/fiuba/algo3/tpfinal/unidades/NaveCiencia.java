@@ -62,6 +62,9 @@ public class NaveCiencia extends UnidadesTerran {
 		}
 	}
 	
+	public int getEnergia(){
+		return this.miEnergia.getEnergia();
+	}
 	public void lanzarEMP(Coordenada posicion) throws EnergiaInsuficiente{
 		NaveCiencia nuevaNave = new NaveCiencia();
 		nuevaNave.setCoordenada(posicion);

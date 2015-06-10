@@ -56,10 +56,16 @@ public class AltoTemplarioTest {
 	}
 
 	@Test (expected = EnergiaInsuficiente.class)
-	public void siUnAltoTemplarioIntentaCrearAlucinacionesSinTenerEnergiaSuficienteLanzaUnaExcepcion() throws EnergiaInsuficiente {
+	public void siUnAltoTemplarioIntentaCrearAlucinacionesSinTenerEnergiaSuficienteLanzaUnaExcepcion() throws Exception {
 		
 		AltoTemplario altoTemplario = new AltoTemplario();
-		altoTemplario.crearAlucinaciones();
+		Zealot zealot = new Zealot();
+		Mapa mapa = new Mapa("mapaTierra.txt");
+		Jugador jugador = new Jugador("Damian", mapa);
+		jugador.getConstrucciones().add(new Pilon());
+		jugador.agregarUnidad(altoTemplario, new Coordenada(3,3));
+		jugador.agregarUnidad(zealot, new Coordenada(4,4));
+		altoTemplario.crearAlucinaciones(zealot);
 		
 	}
 
@@ -67,18 +73,20 @@ public class AltoTemplarioTest {
 	public void siUnAltoTemplarioCreaIlusionesLasMismasAparecenEnLasUnidadesDelJugador() throws Exception, EnergiaInsuficiente {
 		
 		AltoTemplario altoTemplario = new AltoTemplario();
+		Zealot zealot = new Zealot();
 		Mapa mapa = new Mapa("mapaTierra.txt");
 		Jugador jugador = new Jugador("Damian", mapa);
 		int cantidadDeAlucinaciones=0;
 		
 		jugador.getConstrucciones().add(new Pilon());
 		jugador.agregarUnidad(altoTemplario, new Coordenada(3,3));
+		jugador.agregarUnidad(zealot, new Coordenada(4,4));
 		for (int i=0;i<4;i++){
 			altoTemplario.pasarTurno(jugador, mapa);
 		}
-		altoTemplario.crearAlucinaciones();
+		altoTemplario.crearAlucinaciones(zealot);
 		for(Atacable unidad : jugador.getUnidades()){
-			if(unidad.getClass()==(new Alucinacion(10)).getClass()){
+			if(unidad.getClass()==(new Alucinacion(zealot)).getClass()){
 				cantidadDeAlucinaciones++;
 			}
 		}

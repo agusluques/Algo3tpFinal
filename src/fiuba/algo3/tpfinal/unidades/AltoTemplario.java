@@ -30,13 +30,15 @@ public class AltoTemplario extends UnidadesProtoss {
 		return miEnergia.getEnergia();
 	}
 	
-	public void crearAlucinaciones() throws EnergiaInsuficiente{
-		try{
-			this.miEnergia.gastarEnergia(100);
-			this.jugador.agregarUnidad(new Alucinacion(this.escudo.getEscudo()), this.posicion);
-			this.jugador.agregarUnidad(new Alucinacion(this.escudo.getEscudo()), this.posicion);
-		}catch(EnergiaInsuficiente e){
-			throw e;
+	public void crearAlucinaciones(UnidadesProtoss unidad) throws EnergiaInsuficiente{
+		if(unidad.getJugador().equals(this.jugador)){
+			try{
+				this.miEnergia.gastarEnergia(100);
+				this.jugador.agregarUnidad(new Alucinacion(unidad), unidad.getCoordenada());
+				this.jugador.agregarUnidad(new Alucinacion(unidad), unidad.getCoordenada());
+			}catch(EnergiaInsuficiente e){
+				throw e;
+			}
 		}
 	}
 	

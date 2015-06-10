@@ -110,4 +110,8 @@ public abstract class UnidadesProtoss extends Protoss implements Fabricable, Ata
 	public boolean sePuedeMoverA(DepositoDeGas superficie) {
 		return false;
 	}
+	
+	public Rango getRangoCompleto(){
+		return this.rango;
+	}
 }
