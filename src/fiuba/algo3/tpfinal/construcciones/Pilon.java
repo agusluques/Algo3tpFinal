@@ -16,12 +16,12 @@ public class Pilon extends ConstruccionProtoss {
 		this.superficieNecesaria = new Tierra();
 		this.setConstruccionesNecesarias();
 	}
-	
+
 	private void setConstruccionesNecesarias() {
 		this.construccionesNecesarias = new ArrayList<Constructible>();
-		
+
 	}
-	
+
 	public int rangoDeAtaqueCorrespondiente(Rango rango) {
 		return rango.getRangoTierra();
 	}

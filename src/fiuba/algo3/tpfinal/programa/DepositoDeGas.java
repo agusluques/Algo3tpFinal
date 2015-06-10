@@ -2,16 +2,14 @@ package fiuba.algo3.tpfinal.programa;
 
 import fiuba.algo3.tpfinal.unidades.Trasladable;
 
-
 public class DepositoDeGas extends Superficie {
-	
+
 	private int gasRestante;
-	
-	public DepositoDeGas(){
+
+	public DepositoDeGas() {
 		gasRestante = 3000;
 		nombre = "depositoDeGas";
 	}
-	
 
 	public int extraerRecursos() {
 		if (this.gasRestante > 0) {
@@ -21,14 +19,13 @@ public class DepositoDeGas extends Superficie {
 		return 0;
 	}
 
-	public int getRecursos(){
+	public int getRecursos() {
 		return this.gasRestante;
 	}
-	
+
 	@Override
 	public boolean puedeRecibir(Trasladable unidad) {
 		return unidad.sePuedeMoverA(this);
 	}
-	
 
 }

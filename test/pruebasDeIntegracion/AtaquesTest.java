@@ -383,7 +383,7 @@ public class AtaquesTest {
 		Assert.assertEquals(100, enemigoAire.getEscudo());
 		Assert.assertEquals(150, enemigoAire.getVida());
 	}
-	
+
 	@Test
 	public void unJugadorMataAOtroSiLeMataTodasLasUnidades() throws Exception {
 		Mapa mapa = new Mapa("mapaTierra.txt");
@@ -391,16 +391,16 @@ public class AtaquesTest {
 		jugador1.setRaza("Terran");
 		Jugador jugador2 = new Jugador("Juan", mapa);
 		jugador2.setRaza("Protoss");
-		
+
 		Assert.assertFalse(jugador1.estaExtinto());
 		Assert.assertFalse(jugador1.estaExtinto());
-		
+
 		ArrayList<Atacable> unidades1 = jugador1.getUnidades();
 		ArrayList<Atacable> unidades2 = jugador2.getUnidades();
 		Marine marine = (Marine) unidades1.get(0);
 		Zealot zealot = (Zealot) unidades2.get(0);
-		
-		while( !marine.estaMuerto()) {
+
+		while (!marine.estaMuerto()) {
 			marine.atacar(zealot);
 			jugador1.pasarTurno();
 			jugador2.empezarTurno();
@@ -408,7 +408,7 @@ public class AtaquesTest {
 			jugador2.pasarTurno();
 			jugador1.empezarTurno();
 		}
-		
+
 		Assert.assertEquals(60, zealot.getEscudo());
 		Assert.assertEquals(100, zealot.getVida());
 		Assert.assertTrue(marine.estaMuerto());

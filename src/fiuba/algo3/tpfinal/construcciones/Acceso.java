@@ -13,9 +13,9 @@ import fiuba.algo3.tpfinal.unidades.Rango;
 import fiuba.algo3.tpfinal.unidades.Zealot;
 
 public class Acceso extends ConstruccionProtoss {
-	
+
 	private Fabricable unidadEnConstruccion;
-	
+
 	public Acceso() {
 		this.vida.inicializarVida(500);
 		this.escudo.inicializarEscudo(500);
@@ -23,47 +23,48 @@ public class Acceso extends ConstruccionProtoss {
 		this.costo = new Costo(150);
 		this.superficieNecesaria = new Tierra();
 		this.setConstruccionesNecesarias();
-		
+
 	}
 
 	private void setConstruccionesNecesarias() {
 		this.construccionesNecesarias = new ArrayList<Constructible>();
 	}
-	
-	public void fabricarZealot(){
+
+	public void fabricarZealot() {
 		this.fabricar(new Zealot());
 	}
-	public void fabricarDragon(){
+
+	public void fabricarDragon() {
 		this.fabricar(new Dragon());
 	}
-	
-	
-	private void fabricar(Fabricable unidad){
-		try{
+
+	private void fabricar(Fabricable unidad) {
+		try {
 			jugador.getPresupuesto().removerMineral(unidad.getCostoMineral());
 			jugador.getPresupuesto().removerGas(unidad.getCostoGas());
 			unidadEnConstruccion = unidad;
-		}catch (MineralInsuficiente e){
+		} catch (MineralInsuficiente e) {
 			throw e;
-		}catch (GasInsuficiente e){
+		} catch (GasInsuficiente e) {
 			throw e;
 		}
 	}
-	
-	public void haceLoTuyo(){
-		if (unidadEnConstruccion != null){
+
+	public void haceLoTuyo() {
+		if (unidadEnConstruccion != null) {
 			unidadEnConstruccion.avanzarFabricacion();
-			if(this.unidadEnConstruccion.getTiempoRestante() == 0){
-				try{
-					this.jugador.agregarUnidad(unidadEnConstruccion,this.posicion);
+			if (this.unidadEnConstruccion.getTiempoRestante() == 0) {
+				try {
+					this.jugador.agregarUnidad(unidadEnConstruccion,
+							this.posicion);
 					this.unidadEnConstruccion = null;
-				}catch (LimitePoblacionalAlcanzado e){
+				} catch (LimitePoblacionalAlcanzado e) {
 					throw e;
 				}
 			}
 		}
 	}
-	
+
 	public int rangoDeAtaqueCorrespondiente(Rango rango) {
 		return rango.getRangoTierra();
 	}

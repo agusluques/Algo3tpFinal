@@ -7,7 +7,7 @@ import fiuba.algo3.tpfinal.programa.Mapa;
 import fiuba.algo3.tpfinal.unidades.Rango;
 
 public interface Atacable {
-	
+
 	void atacado(Danio danio);
 
 	Coordenada getCoordenada();
@@ -17,7 +17,7 @@ public interface Atacable {
 	void setCoordenada(Coordenada posicion);
 
 	void setJugador(Jugador jugador);
-	
+
 	Jugador getJugador();
 
 	int rangoDeAtaqueCorrespondiente(Rango rango);

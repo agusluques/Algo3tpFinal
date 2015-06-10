@@ -5,8 +5,6 @@ import junit.framework.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import fiuba.algo3.tpfinal.construcciones.Barraca;
-import fiuba.algo3.tpfinal.construcciones.Constructible;
 import fiuba.algo3.tpfinal.excepciones.LimitePoblacionalAlcanzado;
 import fiuba.algo3.tpfinal.programa.Coordenada;
 import fiuba.algo3.tpfinal.programa.Jugador;
@@ -37,95 +35,97 @@ public class BarracaTest {
 	public void unaBarracaDebeCrearseEn12Turnos() {
 		Assert.assertTrue(this.barraca.getTiempoRestante() == 12);
 	}
-	
+
 	@Test
 	public void dosBarracasDeberianSerIguales() {
 		Constructible otraBarraca = new Barraca();
 		Assert.assertTrue(this.barraca.equals(otraBarraca));
 	}
 
-
 	@Test
-	public void siPongoAConstruirUnMarineNoOcupaPoblacionHastaQueEstaTerminado() throws Exception{
-		
+	public void siPongoAConstruirUnMarineNoOcupaPoblacionHastaQueEstaTerminado()
+			throws Exception {
+
 		Mapa mapa = new Mapa("mapaTierra.txt");
 		Jugador jugador = new Jugador("Damian", mapa);
-		
+
 		jugador.getPresupuesto().agregarMineral(1000);
-		jugador.construir(this.barraca, new Coordenada(2,2));
-		jugador.construir(new DepositoSuministro(),new Coordenada(4,4));
+		jugador.construir(this.barraca, new Coordenada(2, 2));
+		jugador.construir(new DepositoSuministro(), new Coordenada(4, 4));
 		this.barraca.fabricarMarine();
-		
-		Assert.assertTrue(jugador.contarPoblacion()==0);
+
+		Assert.assertTrue(jugador.contarPoblacion() == 0);
 	}
-	
-	@Test (expected = LimitePoblacionalAlcanzado.class )
-	public void siFabricoUnMarineCuandoEstoyAlMaximoDePoblacionRetornaUnaExcepcion() throws Throwable{
-		
+
+	@Test(expected = LimitePoblacionalAlcanzado.class)
+	public void siFabricoUnMarineCuandoEstoyAlMaximoDePoblacionRetornaUnaExcepcion()
+			throws Throwable {
+
 		Mapa mapa = new Mapa("mapaTierra.txt");
 		Jugador jugador = new Jugador("Damian", mapa);
-		
+
 		jugador.getPresupuesto().agregarMineral(1000);
-		jugador.construir(this.barraca, new Coordenada(2,2));
+		jugador.construir(this.barraca, new Coordenada(2, 2));
 		for (int x = 0; x < 6; x++) {
 			this.barraca.fabricarMarine();
-			for (int i=0;i<4;i++){
+			for (int i = 0; i < 4; i++) {
 				this.barraca.haceLoTuyo();
 			}
 		}
 	}
-	
+
 	@Test
-	public void siFabricoUnMarineCuandoEstaTerminadoAumentaLaPoblacion() throws Exception{
-		
+	public void siFabricoUnMarineCuandoEstaTerminadoAumentaLaPoblacion()
+			throws Exception {
+
 		Mapa mapa = new Mapa("mapaTierra.txt");
 		Jugador jugador = new Jugador("Damian", mapa);
-		
+
 		jugador.getPresupuesto().agregarMineral(1000);
-		jugador.construir(barraca, new Coordenada(1,1));
-		for (int i=0;i<12;i++){
+		jugador.construir(barraca, new Coordenada(1, 1));
+		for (int i = 0; i < 12; i++) {
 			jugador.pasarTurno();
 		}
-		jugador.construir(new DepositoSuministro(),  new Coordenada(1,2));
-		for (int i=0;i<6;i++){
+		jugador.construir(new DepositoSuministro(), new Coordenada(1, 2));
+		for (int i = 0; i < 6; i++) {
 			jugador.pasarTurno();
 		}
 		this.barraca.fabricarMarine();
-		for (int i=0;i<4;i++){
+		for (int i = 0; i < 4; i++) {
 			this.barraca.haceLoTuyo();
 		}
-		Assert.assertTrue(jugador.contarPoblacion()==1);
+		Assert.assertTrue(jugador.contarPoblacion() == 1);
 	}
-	
+
 	@Test
-	public void siFabricoUnMarineApareceEnElMapaAlrededorDeLaBarraca() throws Exception{
-		
+	public void siFabricoUnMarineApareceEnElMapaAlrededorDeLaBarraca()
+			throws Exception {
+
 		Mapa mapa = new Mapa("mapaTierra.txt");
 		Jugador jugador = new Jugador("Damian", mapa);
-		
+
 		jugador.getPresupuesto().agregarMineral(1000);
-		jugador.construir(barraca, new Coordenada(1,1));
-		for (int i=0;i<12;i++){
+		jugador.construir(barraca, new Coordenada(1, 1));
+		for (int i = 0; i < 12; i++) {
 			jugador.pasarTurno();
 		}
-		jugador.construir(new DepositoSuministro(),  new Coordenada(1,2));
-		for (int i=0;i<6;i++){
+		jugador.construir(new DepositoSuministro(), new Coordenada(1, 2));
+		for (int i = 0; i < 6; i++) {
 			jugador.pasarTurno();
 		}
 		this.barraca.fabricarMarine();
-		for (int i=0;i<4;i++){
+		for (int i = 0; i < 4; i++) {
 			this.barraca.haceLoTuyo();
 		}
-		Atacable marine = mapa.getParcela(new Coordenada(2,1)).getOcupante();
-		Assert.assertTrue(marine.getClass()== (new Marine()).getClass());
+		Atacable marine = mapa.getParcela(new Coordenada(2, 1)).getOcupante();
+		Assert.assertTrue(marine.getClass() == (new Marine()).getClass());
 
 	}
-	
+
 	@Test
 	public void devuelveElRangoDeAtaqueCorrespondiente() {
-		Rango rango = new Rango(1,2);
-		
+		Rango rango = new Rango(1, 2);
+
 		Assert.assertEquals(1, this.barraca.rangoDeAtaqueCorrespondiente(rango));
 	}
 }
-

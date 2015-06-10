@@ -4,7 +4,7 @@ public class Coordenada {
 
 	private int fila;
 	private int columna;
-	
+
 	public Coordenada(int fila, int columna) {
 		this.fila = fila;
 		this.columna = columna;
@@ -17,17 +17,17 @@ public class Coordenada {
 	public int getColumna() {
 		return this.columna;
 	}
-	
+
 	@Override
-	public boolean equals(Object o){
+	public boolean equals(Object o) {
 		Coordenada coord = (Coordenada) o;
-		return ((coord.getColumna()==this.columna) && (coord.getFila()==this.fila));
+		return ((coord.getColumna() == this.columna) && (coord.getFila() == this.fila));
 	}
-	
+
 	@Override
-	public int hashCode(){
-		return (this.fila*3000)+this.columna;
-		
+	public int hashCode() {
+		return (this.fila * 3000) + this.columna;
+
 	}
 
 	public void mover(int fila, int columna) {
@@ -38,7 +38,8 @@ public class Coordenada {
 	public double distancia(Coordenada coordenadaAtacante) {
 		int distanciaFila = this.fila - coordenadaAtacante.getFila();
 		int distanciaColumna = this.columna - coordenadaAtacante.getColumna();
-		return Math.sqrt(Math.pow(distanciaFila, 2) + Math.pow(distanciaColumna, 2));
-		
+		return Math.sqrt(Math.pow(distanciaFila, 2)
+				+ Math.pow(distanciaColumna, 2));
+
 	}
 }

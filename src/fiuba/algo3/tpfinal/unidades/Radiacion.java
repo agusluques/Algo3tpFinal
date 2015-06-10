@@ -10,26 +10,26 @@ public class Radiacion extends Magia {
 	protected Atacable afectado;
 	protected Mapa mapa;
 	protected Jugador jugador;
-	
-	public Radiacion(Atacable afectado){
+
+	public Radiacion(Atacable afectado) {
 		this.afectado = afectado;
 		this.jugador = afectado.getJugador();
 		this.mapa = afectado.getJugador().getMapa();
-		
+
 	}
-	
-	public boolean estaMuerto(){
+
+	public boolean estaMuerto() {
 		return this.afectado.estaMuerto();
 	}
-	
-	public void pasarTurno(){
-		if(!estaMuerto()){
-			for(Atacable unidadActual : mapa.unidadesEnUnRadio(afectado.getCoordenada(),1)){
-				if(afectado.getJugador().equals(unidadActual.getJugador())){
-					unidadActual.atacado(new Danio(30,30));
+
+	public void pasarTurno() {
+		if (!estaMuerto()) {
+			for (Atacable unidadActual : mapa.unidadesEnUnRadio(
+					afectado.getCoordenada(), 1)) {
+				if (afectado.getJugador().equals(unidadActual.getJugador())) {
+					unidadActual.atacado(new Danio(30, 30));
 				}
 			}
-		}	
+		}
 	}
 }
-

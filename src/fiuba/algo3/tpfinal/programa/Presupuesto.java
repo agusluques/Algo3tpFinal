@@ -4,10 +4,10 @@ import fiuba.algo3.tpfinal.excepciones.GasInsuficiente;
 import fiuba.algo3.tpfinal.excepciones.MineralInsuficiente;
 
 public class Presupuesto {
-	
+
 	private int cantidadDeGas;
 	private int cantidadDeMineral;
-	
+
 	public Presupuesto(int mineral, int gas) {
 		this.cantidadDeGas = gas;
 		this.cantidadDeMineral = mineral;
@@ -42,6 +42,5 @@ public class Presupuesto {
 		}
 		this.cantidadDeGas -= cantidad;
 	}
-	
-	
+
 }

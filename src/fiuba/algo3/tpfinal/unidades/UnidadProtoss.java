@@ -14,27 +14,28 @@ import fiuba.algo3.tpfinal.programa.Protoss;
 import fiuba.algo3.tpfinal.programa.Superficie;
 import fiuba.algo3.tpfinal.programa.Tierra;
 
-public abstract class UnidadProtoss extends Protoss implements Fabricable, Atacante, Trasladable {
-	
+public abstract class UnidadProtoss extends Protoss implements Fabricable,
+		Atacante, Trasladable {
+
 	protected Danio miDanio;
 	protected int suministro;
 	protected Costo costo;
 	protected int tiempoDeConstruccion;
-	protected int transporte; //El espacio que ocupa en la nave
+	protected int transporte; // El espacio que ocupa en la nave
 	protected Rango rango;
-	
-	public int getTiempoRestante(){
+
+	public int getTiempoRestante() {
 		return this.tiempoDeConstruccion;
 	}
-	
-	public void avanzarFabricacion(){
-		if (this.tiempoDeConstruccion > 0){
+
+	public void avanzarFabricacion() {
+		if (this.tiempoDeConstruccion > 0) {
 			this.tiempoDeConstruccion -= 1;
 		}
 	}
-	
-	//Es la cantidad que aumenta la poblacion cuando se construye uno
-	public int getSuministro(){
+
+	// Es la cantidad que aumenta la poblacion cuando se construye uno
+	public int getSuministro() {
 		return this.suministro;
 	}
 
@@ -52,33 +53,34 @@ public abstract class UnidadProtoss extends Protoss implements Fabricable, Ataca
 
 	@Override
 	public void atacar(Atacable enemigo) {
-		if (this.estaEnRangoDeAtaque(enemigo)){
+		if (this.estaEnRangoDeAtaque(enemigo)) {
 			enemigo.atacado(miDanio);
 		}
-		enemigo.atacado(new Danio(0,0));
+		enemigo.atacado(new Danio(0, 0));
 	}
-	
+
 	protected boolean estaEnRangoDeAtaque(Atacable enemigo) {
 		Coordenada coordenadaEnemigo = enemigo.getCoordenada();
 		Coordenada coordenadaAtacante = this.getCoordenada();
 		double distancia = coordenadaEnemigo.distancia(coordenadaAtacante);
-		
+
 		boolean estaEnRango = (this.rangoDeAtaque(enemigo) >= distancia);
 		return estaEnRango;
 	}
-	
+
 	private int rangoDeAtaque(Atacable enemigo) {
 		return enemigo.rangoDeAtaqueCorrespondiente(this.rango);
 	}
-	
-	public void mover(int fila, int columna){
+
+	public void mover(int fila, int columna) {
 		this.posicion.mover(fila, columna);
 	}
-	
+
 	@Override
 	public void trasladarA(Coordenada coord, Mapa mapa) {
 		Parcela parcelaNueva = mapa.getParcela(coord);
-		if (parcelaNueva.estaVacia() && this.sePuedeMoverA(parcelaNueva.getSuperficie())) {
+		if (parcelaNueva.estaVacia()
+				&& this.sePuedeMoverA(parcelaNueva.getSuperficie())) {
 			mapa.moverUnidad(posicion, coord);
 			this.posicion = coord;
 		} else {
@@ -110,8 +112,8 @@ public abstract class UnidadProtoss extends Protoss implements Fabricable, Ataca
 	public boolean sePuedeMoverA(DepositoDeGas superficie) {
 		return false;
 	}
-	
-	public Rango getRangoCompleto(){
+
+	public Rango getRangoCompleto() {
 		return this.rango;
 	}
 }

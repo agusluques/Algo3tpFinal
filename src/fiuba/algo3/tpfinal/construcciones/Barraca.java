@@ -12,46 +12,45 @@ import fiuba.algo3.tpfinal.unidades.Rango;
 
 public class Barraca extends ConstruccionTerran {
 
-
 	private Fabricable unidadEnConstruccion;
-		
-	public Barraca(){
+
+	public Barraca() {
 		this.vida.inicializarVida(1000);
 		this.costo = new Costo(150);
 		this.tiempoDeConstruccion = 12;
 		this.superficieNecesaria = new Tierra();
 		this.setConstruccionesNecesarias();
 	}
-	
+
 	private void setConstruccionesNecesarias() {
 		this.construccionesNecesarias = new ArrayList<Constructible>();
-		
+
 	}
 
-	
-	public void fabricarMarine(){
-		try{
+	public void fabricarMarine() {
+		try {
 			jugador.getPresupuesto().removerMineral(50);
 			unidadEnConstruccion = new Marine();
-		}catch (MineralInsuficiente e){
+		} catch (MineralInsuficiente e) {
 			throw e;
 		}
 	}
-	
-	public void haceLoTuyo(){
-		if (unidadEnConstruccion != null){
+
+	public void haceLoTuyo() {
+		if (unidadEnConstruccion != null) {
 			unidadEnConstruccion.avanzarFabricacion();
-			if(this.unidadEnConstruccion.getTiempoRestante() == 0){
-				try{
-					this.jugador.agregarUnidad(unidadEnConstruccion,this.posicion);
+			if (this.unidadEnConstruccion.getTiempoRestante() == 0) {
+				try {
+					this.jugador.agregarUnidad(unidadEnConstruccion,
+							this.posicion);
 					this.unidadEnConstruccion = null;
-				}catch (LimitePoblacionalAlcanzado e){
+				} catch (LimitePoblacionalAlcanzado e) {
 					throw e;
 				}
 			}
 		}
 	}
-	
+
 	public int rangoDeAtaqueCorrespondiente(Rango rango) {
 		return rango.getRangoTierra();
 	}

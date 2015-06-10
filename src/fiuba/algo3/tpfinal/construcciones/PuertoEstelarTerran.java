@@ -16,58 +16,59 @@ import fiuba.algo3.tpfinal.unidades.Rango;
 public class PuertoEstelarTerran extends ConstruccionTerran {
 
 	private Fabricable unidadEnConstruccion;
-	
+
 	public PuertoEstelarTerran() {
 		this.vida.inicializarVida(1300);
 		this.tiempoDeConstruccion = 10;
-		this.costo = new Costo (150, 100);
+		this.costo = new Costo(150, 100);
 		this.superficieNecesaria = new Tierra();
 		this.setConstruccionesNecesarias();
 	}
-	
+
 	private void setConstruccionesNecesarias() {
 		this.construccionesNecesarias = new ArrayList<Constructible>();
 		this.construccionesNecesarias.add(new Fabrica());
 	}
-	
 
-	public void fabricarEspectro(){
+	public void fabricarEspectro() {
 		this.fabricar(new Espectro());
 	}
-	public void fabricarNaveDeTransporte(){
+
+	public void fabricarNaveDeTransporte() {
 		this.fabricar(new NaveTransporteTerran());
 	}
-	
-	public void fabricarNaveDeCiencia(){
+
+	public void fabricarNaveDeCiencia() {
 		this.fabricar(new NaveCiencia());
 	}
-	
-	private void fabricar(Fabricable unidad){
-		try{
+
+	private void fabricar(Fabricable unidad) {
+		try {
 			jugador.getPresupuesto().removerMineral(unidad.getCostoMineral());
 			jugador.getPresupuesto().removerGas(unidad.getCostoGas());
 			unidadEnConstruccion = unidad;
-		}catch (MineralInsuficiente e){
+		} catch (MineralInsuficiente e) {
 			throw e;
-		}catch (GasInsuficiente e){
+		} catch (GasInsuficiente e) {
 			throw e;
 		}
 	}
-	
-	public void haceLoTuyo(){
-		if (unidadEnConstruccion != null){
+
+	public void haceLoTuyo() {
+		if (unidadEnConstruccion != null) {
 			unidadEnConstruccion.avanzarFabricacion();
-			if(this.unidadEnConstruccion.getTiempoRestante() == 0){
-				try{
-					this.jugador.agregarUnidad(unidadEnConstruccion,this.posicion);
+			if (this.unidadEnConstruccion.getTiempoRestante() == 0) {
+				try {
+					this.jugador.agregarUnidad(unidadEnConstruccion,
+							this.posicion);
 					this.unidadEnConstruccion = null;
-				}catch (LimitePoblacionalAlcanzado e){
+				} catch (LimitePoblacionalAlcanzado e) {
 					throw e;
 				}
 			}
 		}
 	}
-	
+
 	public int rangoDeAtaqueCorrespondiente(Rango rango) {
 		return rango.getRangoTierra();
 	}
