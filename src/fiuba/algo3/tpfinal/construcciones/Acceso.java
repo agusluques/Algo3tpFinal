@@ -12,7 +12,7 @@ import fiuba.algo3.tpfinal.unidades.Fabricable;
 import fiuba.algo3.tpfinal.unidades.Rango;
 import fiuba.algo3.tpfinal.unidades.Zealot;
 
-public class Acceso extends ConstruccionesProtoss {
+public class Acceso extends ConstruccionProtoss {
 	
 	private Fabricable unidadEnConstruccion;
 	

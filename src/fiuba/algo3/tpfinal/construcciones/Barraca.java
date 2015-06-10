@@ -10,7 +10,7 @@ import fiuba.algo3.tpfinal.unidades.Fabricable;
 import fiuba.algo3.tpfinal.unidades.Marine;
 import fiuba.algo3.tpfinal.unidades.Rango;
 
-public class Barraca extends ConstruccionesTerran {
+public class Barraca extends ConstruccionTerran {
 
 
 	private Fabricable unidadEnConstruccion;

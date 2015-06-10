@@ -4,7 +4,7 @@ import fiuba.algo3.tpfinal.programa.Coordenada;
 import fiuba.algo3.tpfinal.programa.Costo;
 import fiuba.algo3.tpfinal.programa.Danio;
 
-public class Marine extends UnidadesTerran {
+public class Marine extends UnidadTerran {
 	
 	
 	public Marine(){

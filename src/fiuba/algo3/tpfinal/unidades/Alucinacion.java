@@ -2,13 +2,13 @@ package fiuba.algo3.tpfinal.unidades;
 
 import fiuba.algo3.tpfinal.programa.Danio;
 
-public class Alucinacion extends UnidadesProtoss{
+public class Alucinacion extends UnidadProtoss{
 	
 	
 	@SuppressWarnings("unused")
-	private UnidadesProtoss unidadCopiada;
+	private UnidadProtoss unidadCopiada;
 	
-	public Alucinacion(UnidadesProtoss unidad){
+	public Alucinacion(UnidadProtoss unidad){
 		this.vida.inicializarVida(0);
 		this.escudo.inicializarEscudo(unidad.getEscudo());
 		this.miDanio = new Danio(0,0);

@@ -11,7 +11,7 @@ import fiuba.algo3.tpfinal.programa.Parcela;
 import fiuba.algo3.tpfinal.programa.Presupuesto;
 import fiuba.algo3.tpfinal.unidades.Rango;
 
-public class Asimilador extends ConstruccionesProtoss implements RecolectorDeGas{
+public class Asimilador extends ConstruccionProtoss implements RecolectorDeGas{
 	
 	public Asimilador(Coordenada coord) {
 		this.vida.inicializarVida(450);

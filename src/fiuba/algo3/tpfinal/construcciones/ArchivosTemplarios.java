@@ -12,7 +12,7 @@ import fiuba.algo3.tpfinal.unidades.Fabricable;
 import fiuba.algo3.tpfinal.unidades.Rango;
 
 
-public class ArchivosTemplarios extends ConstruccionesProtoss {
+public class ArchivosTemplarios extends ConstruccionProtoss {
 	
 	private Fabricable unidadEnConstruccion;
 	

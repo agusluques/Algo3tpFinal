@@ -7,7 +7,7 @@ import fiuba.algo3.tpfinal.programa.Danio;
 import fiuba.algo3.tpfinal.programa.Jugador;
 import fiuba.algo3.tpfinal.programa.Mapa;
 
-public class AltoTemplario extends UnidadesProtoss {
+public class AltoTemplario extends UnidadProtoss {
 	
 	protected Energia miEnergia = new Energia(50);
 	
@@ -30,7 +30,7 @@ public class AltoTemplario extends UnidadesProtoss {
 		return miEnergia.getEnergia();
 	}
 	
-	public void crearAlucinaciones(UnidadesProtoss unidad) throws EnergiaInsuficiente{
+	public void crearAlucinaciones(UnidadProtoss unidad) throws EnergiaInsuficiente{
 		if(unidad.getJugador().equals(this.jugador)){
 			try{
 				this.miEnergia.gastarEnergia(100);

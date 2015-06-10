@@ -8,7 +8,7 @@ import fiuba.algo3.tpfinal.programa.Protoss;
 import fiuba.algo3.tpfinal.programa.Superficie;
 
 
-public abstract class ConstruccionesProtoss extends Protoss implements Constructible{
+public abstract class ConstruccionProtoss extends Protoss implements Constructible{
 
 	protected Collection<Constructible> construccionesNecesarias;
 	protected Superficie superficieNecesaria;

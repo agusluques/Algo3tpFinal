@@ -19,7 +19,7 @@ import fiuba.algo3.tpfinal.unidades.Fabricable;
 import fiuba.algo3.tpfinal.unidades.Golliat;
 import fiuba.algo3.tpfinal.unidades.NaveCiencia;
 import fiuba.algo3.tpfinal.unidades.TormentaPsionica;
-import fiuba.algo3.tpfinal.unidades.UnidadesProtoss;
+import fiuba.algo3.tpfinal.unidades.UnidadProtoss;
 import fiuba.algo3.tpfinal.unidades.Zealot;
 import fiuba.algo3.tpfinal.unidades.Atacante;
 
@@ -195,7 +195,7 @@ public class MagiasTest {
 		Mapa mapa = new Mapa("mapaTierra.txt");
 		Jugador jugador = new Jugador("Damian", mapa);
 		Jugador jugador2 = new Jugador("Luciano", mapa);
-		UnidadesProtoss zealot = new Zealot();
+		UnidadProtoss zealot = new Zealot();
 		AltoTemplario templar = new AltoTemplario();
 		NaveCiencia otraNave = new NaveCiencia();
 		

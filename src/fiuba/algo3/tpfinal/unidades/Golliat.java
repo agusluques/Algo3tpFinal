@@ -4,7 +4,7 @@ import fiuba.algo3.tpfinal.programa.Coordenada;
 import fiuba.algo3.tpfinal.programa.Costo;
 import fiuba.algo3.tpfinal.programa.Danio;
 
-public class Golliat extends UnidadesTerran {
+public class Golliat extends UnidadTerran {
 	
 	public Golliat(){
 		this.vida.inicializarVida(125);

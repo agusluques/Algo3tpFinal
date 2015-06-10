@@ -13,9 +13,9 @@ import fiuba.algo3.tpfinal.programa.Danio;
 import fiuba.algo3.tpfinal.programa.Mapa;
 import fiuba.algo3.tpfinal.programa.Parcela;
 
-public class NaveTransporteProtoss extends UnidadesProtoss {
+public class NaveTransporteProtoss extends UnidadProtoss {
 
-	private Collection<UnidadesProtoss> pasajeros;
+	private Collection<UnidadProtoss> pasajeros;
 	private int capacidad;
 
 	public NaveTransporteProtoss(){
@@ -25,7 +25,7 @@ public class NaveTransporteProtoss extends UnidadesProtoss {
 		this.suministro = 2;
 		this.costo = new Costo(200);
 		this.miDanio = new Danio(0,0);
-		this.pasajeros = new ArrayList<UnidadesProtoss>();
+		this.pasajeros = new ArrayList<UnidadProtoss>();
 		this.transporte = 9; //Decidi que sea 9 para que una nave no pueda estar en otra
 		this.capacidad = 8;
 		this.rango = new Rango(0,0);
@@ -38,7 +38,7 @@ public class NaveTransporteProtoss extends UnidadesProtoss {
 		this.escudo.bajarEscudo(danio.getDanioAire(), this.vida);
 	}
 	
-	public void subirPasajero(UnidadesProtoss pasajero) {
+	public void subirPasajero(UnidadProtoss pasajero) {
 		if (pasajero.transporte > this.capacidad) {
 			throw new CapacidadInsuficiente();
 		} else {
@@ -51,9 +51,9 @@ public class NaveTransporteProtoss extends UnidadesProtoss {
 		if (this.cantidadDePasajeros() == 0){
 			throw new NoHayPasajerosEnLaNave();
 		}
-		Iterator<UnidadesProtoss> iterador = this.pasajeros.iterator();
+		Iterator<UnidadProtoss> iterador = this.pasajeros.iterator();
 		while(iterador.hasNext()) {
-			UnidadesProtoss unidad = iterador.next();
+			UnidadProtoss unidad = iterador.next();
 			Mapa mapa = jugador.getMapa();
 			Parcela parcela = mapa.getParcela(this.posicion);
 			while (unidad.sePuedeMoverA(parcela.getSuperficie())){

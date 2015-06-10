@@ -6,7 +6,7 @@ import fiuba.algo3.tpfinal.programa.Costo;
 import fiuba.algo3.tpfinal.programa.Tierra;
 import fiuba.algo3.tpfinal.unidades.Rango;
 
-public class Pilon extends ConstruccionesProtoss {
+public class Pilon extends ConstruccionProtoss {
 
 	public Pilon() {
 		this.vida.inicializarVida(300);

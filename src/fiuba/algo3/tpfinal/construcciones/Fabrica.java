@@ -11,7 +11,7 @@ import fiuba.algo3.tpfinal.unidades.Fabricable;
 import fiuba.algo3.tpfinal.unidades.Golliat;
 import fiuba.algo3.tpfinal.unidades.Rango;
 
-public class Fabrica extends ConstruccionesTerran {
+public class Fabrica extends ConstruccionTerran {
 
 
 	private Fabricable unidadEnConstruccion;

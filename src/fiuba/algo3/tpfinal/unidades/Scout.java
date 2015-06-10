@@ -5,7 +5,7 @@ import fiuba.algo3.tpfinal.programa.Coordenada;
 import fiuba.algo3.tpfinal.programa.Costo;
 import fiuba.algo3.tpfinal.programa.Danio;
 
-public class Scout extends UnidadesProtoss {
+public class Scout extends UnidadProtoss {
 
 	public Scout(){
 		this.vida.inicializarVida(150);

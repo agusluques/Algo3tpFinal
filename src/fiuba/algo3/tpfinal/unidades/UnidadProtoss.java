@@ -14,7 +14,7 @@ import fiuba.algo3.tpfinal.programa.Protoss;
 import fiuba.algo3.tpfinal.programa.Superficie;
 import fiuba.algo3.tpfinal.programa.Tierra;
 
-public abstract class UnidadesProtoss extends Protoss implements Fabricable, Atacante, Trasladable {
+public abstract class UnidadProtoss extends Protoss implements Fabricable, Atacante, Trasladable {
 	
 	protected Danio miDanio;
 	protected int suministro;

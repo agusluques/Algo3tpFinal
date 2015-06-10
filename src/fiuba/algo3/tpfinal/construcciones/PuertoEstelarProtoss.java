@@ -12,7 +12,7 @@ import fiuba.algo3.tpfinal.unidades.NaveTransporteProtoss;
 import fiuba.algo3.tpfinal.unidades.Rango;
 import fiuba.algo3.tpfinal.unidades.Scout;
 
-public class PuertoEstelarProtoss extends ConstruccionesProtoss {
+public class PuertoEstelarProtoss extends ConstruccionProtoss {
 	
 	private Fabricable unidadEnConstruccion;
 	

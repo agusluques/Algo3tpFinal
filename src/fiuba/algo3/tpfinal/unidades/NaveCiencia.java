@@ -8,7 +8,7 @@ import fiuba.algo3.tpfinal.programa.Coordenada;
 import fiuba.algo3.tpfinal.programa.Costo;
 import fiuba.algo3.tpfinal.programa.Danio;
 
-public class NaveCiencia extends UnidadesTerran {
+public class NaveCiencia extends UnidadTerran {
 
 	protected Energia miEnergia = new Energia(50);
 	

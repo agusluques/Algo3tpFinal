@@ -11,7 +11,7 @@ import fiuba.algo3.tpfinal.programa.Parcela;
 import fiuba.algo3.tpfinal.programa.Presupuesto;
 import fiuba.algo3.tpfinal.unidades.Rango;
 
-public class Refineria extends ConstruccionesTerran implements RecolectorDeGas {
+public class Refineria extends ConstruccionTerran implements RecolectorDeGas {
 
 	public Refineria(Coordenada coord){
 		this.vida.inicializarVida(750);

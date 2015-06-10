@@ -13,10 +13,10 @@ import fiuba.algo3.tpfinal.programa.Danio;
 import fiuba.algo3.tpfinal.programa.Mapa;
 import fiuba.algo3.tpfinal.programa.Parcela;
 
-public class NaveTransporteTerran extends UnidadesTerran {
+public class NaveTransporteTerran extends UnidadTerran {
 
 	private int capacidad;
-	private Collection<UnidadesTerran> pasajeros;
+	private Collection<UnidadTerran> pasajeros;
 
 	public NaveTransporteTerran(){
 		this.vida.inicializarVida(150);
@@ -26,7 +26,7 @@ public class NaveTransporteTerran extends UnidadesTerran {
 		this.suministro = 2;
 		this.costo = new Costo(100,100);
 		this.capacidad = 8;
-		this.pasajeros = new ArrayList<UnidadesTerran>();
+		this.pasajeros = new ArrayList<UnidadTerran>();
 		this.transporte = 9;
 		
 		
@@ -38,7 +38,7 @@ public class NaveTransporteTerran extends UnidadesTerran {
 		this.vida.bajarVida(danio.getDanioAire());
 	}
 	
-	public void subirPasajero(UnidadesTerran pasajero) {
+	public void subirPasajero(UnidadTerran pasajero) {
 		if (pasajero.transporte > this.capacidad) {
 			throw new CapacidadInsuficiente();
 		} else {
@@ -51,9 +51,9 @@ public class NaveTransporteTerran extends UnidadesTerran {
 		if (this.cantidadDePasajeros() == 0){
 			throw new NoHayPasajerosEnLaNave();
 		}
-		Iterator<UnidadesTerran> iterador = this.pasajeros.iterator();
+		Iterator<UnidadTerran> iterador = this.pasajeros.iterator();
 		while(iterador.hasNext()) {
-			UnidadesTerran unidad = iterador.next();
+			UnidadTerran unidad = iterador.next();
 			Mapa mapa = jugador.getMapa();
 			Parcela parcela = mapa.getParcela(this.posicion);
 			while (unidad.sePuedeMoverA(parcela.getSuperficie())){

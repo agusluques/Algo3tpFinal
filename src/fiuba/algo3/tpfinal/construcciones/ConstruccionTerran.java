@@ -8,7 +8,7 @@ import fiuba.algo3.tpfinal.programa.Superficie;
 import fiuba.algo3.tpfinal.programa.Terran;
 
 
-public abstract class ConstruccionesTerran extends Terran implements Constructible{
+public abstract class ConstruccionTerran extends Terran implements Constructible{
 	
 	protected Costo costo;
 	protected int tiempoDeConstruccion;

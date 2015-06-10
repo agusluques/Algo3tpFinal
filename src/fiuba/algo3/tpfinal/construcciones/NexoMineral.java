@@ -11,7 +11,7 @@ import fiuba.algo3.tpfinal.programa.Parcela;
 import fiuba.algo3.tpfinal.programa.Presupuesto;
 import fiuba.algo3.tpfinal.unidades.Rango;
 
-public class NexoMineral extends ConstruccionesProtoss implements RecolectorDeMinerales{
+public class NexoMineral extends ConstruccionProtoss implements RecolectorDeMinerales{
 
 	
 	public NexoMineral(Coordenada coord) {

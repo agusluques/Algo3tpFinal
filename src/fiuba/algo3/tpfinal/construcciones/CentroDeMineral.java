@@ -11,7 +11,7 @@ import fiuba.algo3.tpfinal.programa.Parcela;
 import fiuba.algo3.tpfinal.programa.Presupuesto;
 import fiuba.algo3.tpfinal.unidades.Rango;
 
-public class CentroDeMineral extends ConstruccionesTerran implements RecolectorDeMinerales {
+public class CentroDeMineral extends ConstruccionTerran implements RecolectorDeMinerales {
 
 	public CentroDeMineral(Coordenada coordenada){
 		this.vida.inicializarVida(500);
