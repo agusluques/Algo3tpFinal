@@ -20,6 +20,6 @@ public class Dragon extends UnidadesProtoss {
 	}
 	
 	public int rangoDeAtaqueCorrespondiente(Rango rango) {
-		return rango.getRangoAire();
+		return rango.getRangoTierra();
 	}
 }

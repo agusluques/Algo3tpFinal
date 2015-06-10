@@ -7,7 +7,7 @@ import fiuba.algo3.tpfinal.programa.Danio;
 public class Zealot extends UnidadesProtoss{
 	
 	public Zealot(){
-		vida.inicializarVida(60);
+		vida.inicializarVida(100);
 		escudo.inicializarEscudo(60);
 		miDanio = new Danio(0,8);
 		this.tiempoDeConstruccion = 4;

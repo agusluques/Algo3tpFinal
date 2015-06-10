@@ -9,7 +9,7 @@ public class Golliat extends UnidadesTerran {
 	public Golliat(){
 		this.vida.inicializarVida(125);
 		this.miDanio = new Danio(10,12);
-		this.rango = new Rango(5,6);
+		this.rango = new Rango(6,5);
 		this.tiempoDeConstruccion = 6;
 		this.suministro = 2;
 		this.costo = new Costo(100,50);

@@ -34,7 +34,7 @@ public class ZealotTest {
 		Danio unDanio = new Danio (0,70);
 		unZealot.atacado(unDanio);
 		Assert.assertTrue(unZealot.getEscudo() == 0);
-		Assert.assertTrue(unZealot.getVida() == 50);
+		Assert.assertTrue(unZealot.getVida() == 90);
 	
 	}
 
