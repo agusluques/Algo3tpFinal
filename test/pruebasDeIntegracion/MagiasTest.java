@@ -157,7 +157,7 @@ public class MagiasTest {
 	}
 	
 	@Test
-	public void lasIlusionesNoHacenDaño() throws Exception, EnergiaInsuficiente {
+	public void lasIlusionesNoHacenDanio() throws Exception, EnergiaInsuficiente {
 		
 		AltoTemplario altoTemplario = new AltoTemplario();
 		Dragon dragon = new Dragon();
