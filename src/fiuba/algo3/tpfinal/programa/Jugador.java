@@ -6,8 +6,6 @@ import java.util.Iterator;
 
 import fiuba.algo3.tpfinal.construcciones.Atacable;
 import fiuba.algo3.tpfinal.construcciones.Constructible;
-import fiuba.algo3.tpfinal.construcciones.DepositoSuministro;
-import fiuba.algo3.tpfinal.construcciones.Pilon;
 import fiuba.algo3.tpfinal.excepciones.ConstruccionRequeridaInexistente;
 import fiuba.algo3.tpfinal.excepciones.LimitePoblacionalAlcanzado;
 import fiuba.algo3.tpfinal.unidades.Fabricable;
@@ -24,6 +22,7 @@ public class Jugador {
 	private ArrayList<Atacable> unidades;
 	private Mapa mapa;
 	private ArrayList<Magia> magias;
+	private int limitePoblacionalInicial;
 
 	public Jugador(String nombre, Mapa mapa) {
 		this.nombre = nombre;
@@ -34,6 +33,7 @@ public class Jugador {
 				this);
 		this.unidades = new ArrayList<Atacable>();
 		this.magias = new ArrayList<Magia>();
+		this.limitePoblacionalInicial = 5;
 	}
 
 	public String getNombre() {
@@ -52,16 +52,13 @@ public class Jugador {
 	private int contarCasas() {
 		int i = 0;
 		for (Constructible cons : this.construcciones) {
-			if (cons.equals(new Pilon())
-					|| cons.equals(new DepositoSuministro())) {
-				i++;
-			}
+			i = i + cons.aumentoDePoblacion();
 		}
 		return i;
 	}
 
 	public int limitePoblacional() {
-		return 5 + this.contarCasas() * 5;
+		return limitePoblacionalInicial + this.contarCasas();
 
 	}
 

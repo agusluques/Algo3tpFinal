@@ -62,5 +62,10 @@ public abstract class ConstruccionTerran extends Terran implements
 			this.tiempoDeConstruccion -= 1;
 		}
 	}
+	
+	@Override
+	public int aumentoDePoblacion(){
+		return 0;
+	}
 
 }

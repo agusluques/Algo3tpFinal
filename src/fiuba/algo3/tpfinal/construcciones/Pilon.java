@@ -26,4 +26,8 @@ public class Pilon extends ConstruccionProtoss {
 		return rango.getRangoTierra();
 	}
 
+	@Override
+	public int aumentoDePoblacion(){
+		return 5;
+	}
 }

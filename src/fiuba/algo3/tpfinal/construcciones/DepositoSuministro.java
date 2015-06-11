@@ -25,5 +25,10 @@ public class DepositoSuministro extends ConstruccionTerran {
 	public int rangoDeAtaqueCorrespondiente(Rango rango) {
 		return rango.getRangoTierra();
 	}
+	
+	@Override
+	public int aumentoDePoblacion(){
+		return 5;
+	}
 
 }

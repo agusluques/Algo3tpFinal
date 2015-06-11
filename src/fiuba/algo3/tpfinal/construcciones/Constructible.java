@@ -22,4 +22,6 @@ public interface Constructible {
 	void setJugador(Jugador jugador);
 
 	void avanzarConstruccion();
+
+	int aumentoDePoblacion();
 }

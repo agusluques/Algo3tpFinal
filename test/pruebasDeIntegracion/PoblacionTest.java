@@ -33,7 +33,7 @@ public class PoblacionTest {
 	}
 
 	@Test
-	public void elJugadorEmpizaCon5ComoLimitePoblacional() {
+	public void elJugadorEmpiezaCon5ComoLimitePoblacional() {
 		Assert.assertTrue(jugador.limitePoblacional() == 5);
 	}
 
