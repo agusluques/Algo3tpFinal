@@ -74,14 +74,13 @@ public class PoblacionTest {
 		}
 
 		Assert.assertEquals(200, jugador.limitePoblacional());
-//Este test no pasa, tira NullPointerException y no se porque, lo estoy mirando
-//		for (int x = 0; x < 5; x++) {
-//			jugador.construir(new Pilon(), new Coordenada(5,x));
-//			for (int i = 0; i < 5; i++) {
-//				jugador.pasarTurno();
-//			}
-//		}
-
+		for (int x = 1; x <=5; x++) {
+			jugador.construir(new Pilon(), new Coordenada(13,x));
+			for (int i = 0; i < 5; i++) {
+				jugador.pasarTurno();
+			}
+		}
+	
 	
 		Assert.assertEquals(200, jugador.limitePoblacional());
 	}

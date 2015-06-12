@@ -26,7 +26,7 @@ public class Coordenada {
 
 	@Override
 	public int hashCode() {
-		return (this.fila * 3000) + this.columna;
+		return ((this.fila * 30000) + this.columna);
 
 	}
 
