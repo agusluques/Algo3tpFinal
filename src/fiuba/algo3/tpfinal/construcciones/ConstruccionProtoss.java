@@ -3,13 +3,14 @@ package fiuba.algo3.tpfinal.construcciones;
 import java.util.Collection;
 
 import fiuba.algo3.tpfinal.programa.Costo;
+import fiuba.algo3.tpfinal.programa.Parcela;
 import fiuba.algo3.tpfinal.programa.Protoss;
 import fiuba.algo3.tpfinal.programa.Superficie;
 
 public abstract class ConstruccionProtoss extends Protoss implements
 		Constructible {
 
-	protected Collection<Constructible> construccionesNecesarias;
+
 	protected Superficie superficieNecesaria;
 	protected Costo costo;
 	protected int tiempoDeConstruccion;
@@ -45,15 +46,6 @@ public abstract class ConstruccionProtoss extends Protoss implements
 
 	}
 
-	@Override
-	public Collection<Constructible> construccionesNecesarias() {
-		return this.construccionesNecesarias;
-	}
-
-	@Override
-	public Superficie superficieNecesaria() {
-		return this.superficieNecesaria;
-	}
 
 	@Override
 	public void avanzarConstruccion() {
@@ -67,5 +59,13 @@ public abstract class ConstruccionProtoss extends Protoss implements
 		return 0;
 	}
 	
+	protected boolean esValidaLaUbicacion(Parcela ubicacion){
+		return (ubicacion.estaVacia()&& ubicacion.getSuperficie().equals(superficieNecesaria));
+	}
+	
+	@Override
+	public boolean podesConstruirte(Parcela ubicacion, Collection<Constructible> construcciones ){
+		return this.esValidaLaUbicacion(ubicacion);
+	}
 
 }

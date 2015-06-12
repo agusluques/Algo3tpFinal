@@ -2,13 +2,10 @@ package fiuba.algo3.tpfinal.construcciones;
 
 import java.util.Collection;
 
-import fiuba.algo3.tpfinal.programa.Superficie;
+import fiuba.algo3.tpfinal.programa.Parcela;
 
 public interface Constructible {
 
-	Collection<Constructible> construccionesNecesarias();
-
-	Superficie superficieNecesaria();
 
 	int getCostoMineral();
 
@@ -21,4 +18,6 @@ public interface Constructible {
 	void avanzarConstruccion();
 
 	int aumentoDePoblacion();
+
+	boolean podesConstruirte(Parcela ubicacion, Collection<Constructible> construcciones );
 }

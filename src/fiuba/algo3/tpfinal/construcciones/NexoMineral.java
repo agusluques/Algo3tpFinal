@@ -1,7 +1,5 @@
 package fiuba.algo3.tpfinal.construcciones;
 
-import java.util.ArrayList;
-
 import fiuba.algo3.tpfinal.programa.Coordenada;
 import fiuba.algo3.tpfinal.programa.Costo;
 import fiuba.algo3.tpfinal.programa.DepositoDeMinerales;
@@ -20,7 +18,6 @@ public class NexoMineral extends ConstruccionProtoss implements
 		this.tiempoDeConstruccion = 4;
 		this.costo = new Costo(50);
 		this.superficieNecesaria = new DepositoDeMinerales();
-		this.setConstruccionesNecesarias();
 		this.posicion = coord;
 	}
 
@@ -31,10 +28,7 @@ public class NexoMineral extends ConstruccionProtoss implements
 		presupuestoJugador.agregarMineral(mineralesRecolectados);
 	}
 
-	private void setConstruccionesNecesarias() {
-		this.construccionesNecesarias = new ArrayList<Constructible>();
 
-	}
 
 	@Override
 	public int recolectarMinerales(Mapa mapa) {

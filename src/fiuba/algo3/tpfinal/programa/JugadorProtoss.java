@@ -13,7 +13,7 @@ public class JugadorProtoss extends Jugador {
 		super(nombre, mapa);
 		Atacable unidadBasica = new Zealot();
 		this.unidades.add(unidadBasica);
-	//	this.arquitecto = new ArquitectoProtoss(presupuesto, construcciones, mapa,this);
+	
 	}
 	
 	public void construir(ConstruccionProtoss construccion, Coordenada posicion)

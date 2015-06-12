@@ -1,11 +1,13 @@
 package fiuba.algo3.tpfinal.construcciones;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
 import fiuba.algo3.tpfinal.excepciones.GasInsuficiente;
 import fiuba.algo3.tpfinal.excepciones.LimitePoblacionalAlcanzado;
 import fiuba.algo3.tpfinal.excepciones.MineralInsuficiente;
 import fiuba.algo3.tpfinal.programa.Costo;
+import fiuba.algo3.tpfinal.programa.Parcela;
 import fiuba.algo3.tpfinal.programa.Tierra;
 import fiuba.algo3.tpfinal.unidades.Fabricable;
 import fiuba.algo3.tpfinal.unidades.NaveTransporteProtoss;
@@ -16,7 +18,7 @@ import fiuba.algo3.tpfinal.unidades.UnidadProtoss;
 public class PuertoEstelarProtoss extends ConstruccionProtoss {
 
 	private Fabricable unidadEnConstruccion;
-
+	private ArrayList<Constructible> construccionesNecesarias;
 	public PuertoEstelarProtoss() {
 
 		this.vida.inicializarVida(600);
@@ -69,5 +71,20 @@ public class PuertoEstelarProtoss extends ConstruccionProtoss {
 
 	public int rangoDeAtaqueCorrespondiente(Rango rango) {
 		return rango.getRangoTierra();
+	}
+	protected boolean construccionesRequeridasEncontradas(Collection<Constructible> construcciones){
+		boolean aux = true;
+		for (Constructible construccionRequerida : this.construccionesNecesarias){
+			if(!construcciones.contains(construccionRequerida)){
+				aux = false;
+			}
+		}
+		return aux;
+	}
+
+	
+	@Override
+	public boolean podesConstruirte(Parcela ubicacion, Collection<Constructible> construcciones ){
+		return (this.esValidaLaUbicacion(ubicacion) && this.construccionesRequeridasEncontradas(construcciones));
 	}
 }

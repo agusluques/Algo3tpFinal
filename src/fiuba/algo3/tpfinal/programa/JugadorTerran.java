@@ -13,7 +13,7 @@ public class JugadorTerran extends Jugador {
 		super(nombre, mapa);
 		Atacable unidadBasica = new Marine();
 		this.unidades.add(unidadBasica);
-	//	this.arquitecto = new ArquitectoTerran(presupuesto, construcciones, mapa,this);
+	
 	}
 
 	public void construir(ConstruccionTerran construccion, Coordenada posicion)

@@ -1,7 +1,5 @@
 package fiuba.algo3.tpfinal.construcciones;
 
-import java.util.ArrayList;
-
 import fiuba.algo3.tpfinal.programa.Coordenada;
 import fiuba.algo3.tpfinal.programa.Costo;
 import fiuba.algo3.tpfinal.programa.DepositoDeGas;
@@ -18,7 +16,6 @@ public class Refineria extends ConstruccionTerran implements RecolectorDeGas {
 		this.tiempoDeConstruccion = 6;
 		this.costo = new Costo(100);
 		this.superficieNecesaria = new DepositoDeGas();
-		this.setConstruccionesNecesarias();
 		this.posicion = coord;
 	}
 
@@ -37,10 +34,6 @@ public class Refineria extends ConstruccionTerran implements RecolectorDeGas {
 		return superficie.extraerRecursos();
 	}
 
-	private void setConstruccionesNecesarias() {
-		this.construccionesNecesarias = new ArrayList<Constructible>();
-
-	}
 
 	public void pasarTurno(Jugador jugador, Mapa mapa) {
 		this.recolectarPara(jugador, mapa);

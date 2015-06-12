@@ -1,7 +1,5 @@
 package fiuba.algo3.tpfinal.construcciones;
 
-import java.util.ArrayList;
-
 import fiuba.algo3.tpfinal.excepciones.LimitePoblacionalAlcanzado;
 import fiuba.algo3.tpfinal.excepciones.MineralInsuficiente;
 import fiuba.algo3.tpfinal.programa.Costo;
@@ -20,13 +18,10 @@ public class Barraca extends ConstruccionTerran {
 		this.costo = new Costo(150);
 		this.tiempoDeConstruccion = 12;
 		this.superficieNecesaria = new Tierra();
-		this.setConstruccionesNecesarias();
+	
 	}
 
-	private void setConstruccionesNecesarias() {
-		this.construccionesNecesarias = new ArrayList<Constructible>();
 
-	}
 
 	public void fabricarMarine() {
 		try {

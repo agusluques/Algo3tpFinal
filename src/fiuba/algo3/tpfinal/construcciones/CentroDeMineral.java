@@ -1,7 +1,5 @@
 package fiuba.algo3.tpfinal.construcciones;
 
-import java.util.ArrayList;
-
 import fiuba.algo3.tpfinal.programa.Coordenada;
 import fiuba.algo3.tpfinal.programa.Costo;
 import fiuba.algo3.tpfinal.programa.DepositoDeMinerales;
@@ -19,7 +17,6 @@ public class CentroDeMineral extends ConstruccionTerran implements
 		this.costo = new Costo(50);
 		this.tiempoDeConstruccion = 4;
 		this.superficieNecesaria = new DepositoDeMinerales();
-		this.setConstruccionesNecesarias();
 		this.posicion = coordenada;
 	}
 
@@ -38,10 +35,7 @@ public class CentroDeMineral extends ConstruccionTerran implements
 		return superficie.extraerRecursos();
 	}
 
-	private void setConstruccionesNecesarias() {
-		this.construccionesNecesarias = new ArrayList<Constructible>();
 
-	}
 
 	public void pasarTurno(Jugador jugador, Mapa mapa) {
 		this.recolectarPara(jugador, mapa);

@@ -3,6 +3,7 @@ package fiuba.algo3.tpfinal.construcciones;
 import java.util.Collection;
 
 import fiuba.algo3.tpfinal.programa.Costo;
+import fiuba.algo3.tpfinal.programa.Parcela;
 import fiuba.algo3.tpfinal.programa.Superficie;
 import fiuba.algo3.tpfinal.programa.Terran;
 
@@ -11,7 +12,6 @@ public abstract class ConstruccionTerran extends Terran implements
 
 	protected Costo costo;
 	protected int tiempoDeConstruccion;
-	protected Collection<Constructible> construccionesNecesarias;
 	protected Superficie superficieNecesaria;
 
 	@Override
@@ -42,16 +42,6 @@ public abstract class ConstruccionTerran extends Terran implements
 	}
 
 	@Override
-	public Collection<Constructible> construccionesNecesarias() {
-		return this.construccionesNecesarias;
-	}
-
-	@Override
-	public Superficie superficieNecesaria() {
-		return this.superficieNecesaria;
-	}
-
-	@Override
 	public void avanzarConstruccion() {
 		if (this.tiempoDeConstruccion > 0) {
 			this.tiempoDeConstruccion -= 1;
@@ -61,6 +51,15 @@ public abstract class ConstruccionTerran extends Terran implements
 	@Override
 	public int aumentoDePoblacion(){
 		return 0;
+	}
+	
+	protected boolean esValidaLaUbicacion(Parcela ubicacion){
+		return (ubicacion.estaVacia()&& ubicacion.getSuperficie().equals(superficieNecesaria));
+	}
+	
+	@Override
+	public boolean podesConstruirte(Parcela ubicacion, Collection<Constructible> construcciones ){
+		return this.esValidaLaUbicacion(ubicacion);
 	}
 
 }

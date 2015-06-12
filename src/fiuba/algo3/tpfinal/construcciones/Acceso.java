@@ -1,7 +1,5 @@
 package fiuba.algo3.tpfinal.construcciones;
 
-import java.util.ArrayList;
-
 import fiuba.algo3.tpfinal.excepciones.GasInsuficiente;
 import fiuba.algo3.tpfinal.excepciones.LimitePoblacionalAlcanzado;
 import fiuba.algo3.tpfinal.excepciones.MineralInsuficiente;
@@ -23,13 +21,9 @@ public class Acceso extends ConstruccionProtoss {
 		this.tiempoDeConstruccion = 8;
 		this.costo = new Costo(150);
 		this.superficieNecesaria = new Tierra();
-		this.setConstruccionesNecesarias();
 
 	}
 
-	private void setConstruccionesNecesarias() {
-		this.construccionesNecesarias = new ArrayList<Constructible>();
-	}
 
 	public void fabricarZealot() {
 		this.fabricar(new Zealot());
