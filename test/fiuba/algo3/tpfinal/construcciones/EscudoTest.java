@@ -4,7 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import fiuba.algo3.tpfinal.programa.Escudo;
-import fiuba.algo3.tpfinal.programa.Jugador;
+import fiuba.algo3.tpfinal.programa.JugadorProtoss;
 import fiuba.algo3.tpfinal.programa.Mapa;
 import fiuba.algo3.tpfinal.programa.Vida;
 
@@ -66,7 +66,7 @@ public class EscudoTest {
 		escudo.inicializarEscudo(500);
 		vida.inicializarVida(500);
 		Mapa mapa = new Mapa("mapaTierra.txt");
-		Jugador jugador = new Jugador("Damian", mapa);
+		JugadorProtoss jugador = new JugadorProtoss("Damian", mapa);
 
 		escudo.bajarEscudo(600, vida);
 		escudo.pasarTurno(jugador, mapa);
@@ -82,7 +82,7 @@ public class EscudoTest {
 		escudo.inicializarEscudo(500);
 		vida.inicializarVida(500);
 		Mapa mapa = new Mapa("mapaTierra.txt");
-		Jugador jugador = new Jugador("Damian", mapa);
+		JugadorProtoss jugador = new JugadorProtoss("Damian", mapa);
 
 		escudo.bajarEscudo(600, vida);
 		escudo.pasarTurno(jugador, mapa);
@@ -98,7 +98,7 @@ public class EscudoTest {
 		escudo.inicializarEscudo(500);
 		vida.inicializarVida(500);
 		Mapa mapa = new Mapa("mapaTierra.txt");
-		Jugador jugador = new Jugador("Damian", mapa);
+		JugadorProtoss jugador = new JugadorProtoss("Damian", mapa);
 
 		escudo.bajarEscudo(600, vida);
 		escudo.pasarTurno(jugador, mapa);

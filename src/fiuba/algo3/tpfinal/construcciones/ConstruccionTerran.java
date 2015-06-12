@@ -3,7 +3,6 @@ package fiuba.algo3.tpfinal.construcciones;
 import java.util.Collection;
 
 import fiuba.algo3.tpfinal.programa.Costo;
-import fiuba.algo3.tpfinal.programa.Jugador;
 import fiuba.algo3.tpfinal.programa.Superficie;
 import fiuba.algo3.tpfinal.programa.Terran;
 
@@ -14,7 +13,6 @@ public abstract class ConstruccionTerran extends Terran implements
 	protected int tiempoDeConstruccion;
 	protected Collection<Constructible> construccionesNecesarias;
 	protected Superficie superficieNecesaria;
-	protected Jugador jugador;
 
 	@Override
 	public int getCostoMineral() {
@@ -31,9 +29,6 @@ public abstract class ConstruccionTerran extends Terran implements
 		return tiempoDeConstruccion;
 	}
 
-	public void setJugador(Jugador jugador) {
-		this.jugador = jugador;
-	}
 
 	@Override
 	public boolean equals(Object o) {

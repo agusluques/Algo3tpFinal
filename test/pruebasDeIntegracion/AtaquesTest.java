@@ -7,7 +7,8 @@ import org.junit.Test;
 
 import fiuba.algo3.tpfinal.construcciones.Atacable;
 import fiuba.algo3.tpfinal.programa.Coordenada;
-import fiuba.algo3.tpfinal.programa.Jugador;
+import fiuba.algo3.tpfinal.programa.JugadorProtoss;
+import fiuba.algo3.tpfinal.programa.JugadorTerran;
 import fiuba.algo3.tpfinal.programa.Mapa;
 import fiuba.algo3.tpfinal.unidades.AltoTemplario;
 import fiuba.algo3.tpfinal.unidades.Dragon;
@@ -387,11 +388,10 @@ public class AtaquesTest {
 	@Test
 	public void unJugadorMataAOtroSiLeMataTodasLasUnidades() throws Exception {
 		Mapa mapa = new Mapa("mapaTierra.txt");
-		Jugador jugador1 = new Jugador("Damian", mapa);
-		jugador1.setRaza("Terran");
-		Jugador jugador2 = new Jugador("Juan", mapa);
-		jugador2.setRaza("Protoss");
-
+		JugadorTerran jugador1 = new JugadorTerran("Damian", mapa);
+		
+		JugadorProtoss jugador2 = new JugadorProtoss("Juan", mapa);
+		
 		Assert.assertFalse(jugador1.estaExtinto());
 		Assert.assertFalse(jugador1.estaExtinto());
 

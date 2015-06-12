@@ -8,7 +8,8 @@ import fiuba.algo3.tpfinal.construcciones.Atacable;
 import fiuba.algo3.tpfinal.construcciones.DepositoSuministro;
 import fiuba.algo3.tpfinal.construcciones.Pilon;
 import fiuba.algo3.tpfinal.programa.Coordenada;
-import fiuba.algo3.tpfinal.programa.Jugador;
+import fiuba.algo3.tpfinal.programa.JugadorProtoss;
+import fiuba.algo3.tpfinal.programa.JugadorTerran;
 import fiuba.algo3.tpfinal.programa.Mapa;
 
 public class TormentaPsionicaTest {
@@ -17,12 +18,12 @@ public class TormentaPsionicaTest {
 	public void siPongoUnaTormentaPsionicaLaMismaHace100DeDanioPorTurno()
 			throws Exception {
 		Mapa mapa = new Mapa("mapaTierra.txt");
-		Jugador jugador = new Jugador("Damian", mapa);
-		Jugador otroJugador = new Jugador("Luciano", mapa);
+		JugadorTerran jugador = new JugadorTerran("Damian", mapa);
+		JugadorProtoss otroJugador = new JugadorProtoss("Luciano", mapa);
 		Atacable golliat = new Golliat();
 
 		jugador.getConstrucciones().add(new DepositoSuministro());
-		jugador.agregarUnidad((Fabricable) golliat, new Coordenada(3, 3));
+		jugador.agregarUnidad((UnidadTerran) golliat, new Coordenada(3, 3));
 
 		TormentaPsionica tormenta = new TormentaPsionica(otroJugador, mapa,
 				new Coordenada(4, 4));
@@ -36,12 +37,12 @@ public class TormentaPsionicaTest {
 	public void siUnaUnidadConMenosDe200DeVidaPermaneceEnLaTormentaPorMasDe2TurnosLaMismaMuere()
 			throws Exception {
 		Mapa mapa = new Mapa("mapaTierra.txt");
-		Jugador jugador = new Jugador("Damian", mapa);
-		Jugador otroJugador = new Jugador("Luciano", mapa);
+		JugadorTerran jugador = new JugadorTerran("Damian", mapa);
+		JugadorProtoss otroJugador = new JugadorProtoss("Luciano", mapa);
 		Atacable golliat = new Golliat();
 
 		jugador.getConstrucciones().add(new DepositoSuministro());
-		jugador.agregarUnidad((Fabricable) golliat, new Coordenada(3, 3));
+		jugador.agregarUnidad((UnidadTerran) golliat, new Coordenada(3, 3));
 
 		TormentaPsionica tormenta = new TormentaPsionica(otroJugador, mapa,
 				new Coordenada(4, 4));
@@ -55,12 +56,12 @@ public class TormentaPsionicaTest {
 	@Test
 	public void unaTormentaNoHaceMasDanioDespuesDe2Turnos() throws Exception {
 		Mapa mapa = new Mapa("mapaTierra.txt");
-		Jugador jugador = new Jugador("Damian", mapa);
-		Jugador otroJugador = new Jugador("Luciano", mapa);
+		JugadorProtoss jugador = new JugadorProtoss("Damian", mapa);
+		JugadorProtoss otroJugador = new JugadorProtoss("Luciano", mapa);
 		Atacable scout = new Scout();
 
 		jugador.getConstrucciones().add(new Pilon());
-		jugador.agregarUnidad((Fabricable) scout, new Coordenada(3, 3));
+		jugador.agregarUnidad((UnidadProtoss) scout, new Coordenada(3, 3));
 
 		TormentaPsionica tormenta = new TormentaPsionica(otroJugador, mapa,
 				new Coordenada(4, 4));
@@ -76,11 +77,11 @@ public class TormentaPsionicaTest {
 	public void siUnaUnidadAliadaEstaEncimaDeUnaTormentaNoRecibeDanio()
 			throws Exception {
 		Mapa mapa = new Mapa("mapaTierra.txt");
-		Jugador jugador = new Jugador("Damian", mapa);
+		JugadorTerran jugador = new JugadorTerran("Damian", mapa);
 		Atacable golliat = new Golliat();
 
 		jugador.getConstrucciones().add(new DepositoSuministro());
-		jugador.agregarUnidad((Fabricable) golliat, new Coordenada(3, 3));
+		jugador.agregarUnidad((UnidadTerran) golliat, new Coordenada(3, 3));
 
 		TormentaPsionica tormenta = new TormentaPsionica(jugador, mapa,
 				new Coordenada(4, 4));

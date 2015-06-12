@@ -3,7 +3,6 @@ package fiuba.algo3.tpfinal.construcciones;
 import java.util.Collection;
 
 import fiuba.algo3.tpfinal.programa.Costo;
-import fiuba.algo3.tpfinal.programa.Jugador;
 import fiuba.algo3.tpfinal.programa.Protoss;
 import fiuba.algo3.tpfinal.programa.Superficie;
 
@@ -12,7 +11,6 @@ public abstract class ConstruccionProtoss extends Protoss implements
 
 	protected Collection<Constructible> construccionesNecesarias;
 	protected Superficie superficieNecesaria;
-	protected Jugador jugador;
 	protected Costo costo;
 	protected int tiempoDeConstruccion;
 
@@ -33,9 +31,7 @@ public abstract class ConstruccionProtoss extends Protoss implements
 		return this.tiempoDeConstruccion;
 	}
 
-	public void setJugador(Jugador jugador) {
-		this.jugador = jugador;
-	}
+
 
 	@Override
 	public boolean equals(Object o) {

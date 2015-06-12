@@ -6,7 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import fiuba.algo3.tpfinal.programa.Coordenada;
-import fiuba.algo3.tpfinal.programa.Jugador;
+import fiuba.algo3.tpfinal.programa.JugadorTerran;
 import fiuba.algo3.tpfinal.programa.Mapa;
 import fiuba.algo3.tpfinal.unidades.Rango;
 import fiuba.algo3.tpfinal.unidades.Zealot;
@@ -45,7 +45,7 @@ public class RefineriaTest {
 	public void siPasaTurnoLeCargaGasAlJugadorYLaVidaQuedaIgual()
 			throws Exception {
 		Mapa mapa = new Mapa("mapaTierra.txt");
-		Jugador jugador = new Jugador("Damian", mapa);
+		JugadorTerran jugador = new JugadorTerran("Damian", mapa);
 		Zealot zealot = new Zealot();
 		zealot.setCoordenada(new Coordenada(1, 89));
 

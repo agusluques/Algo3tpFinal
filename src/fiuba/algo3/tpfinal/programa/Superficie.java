@@ -4,21 +4,16 @@ import fiuba.algo3.tpfinal.unidades.Trasladable;
 
 public abstract class Superficie {
 
-	protected String nombre;
-
-	public String getNombre() {
-		return this.nombre;
-	}
-
+	
+	
 	@Override
 	public boolean equals(Object o) {
-		Superficie sup = (Superficie) o;
-		return (this.nombre == sup.getNombre());
+		return (this.getClass() == o.getClass());
 	}
 
 	@Override
 	public int hashCode() {
-		return this.nombre.hashCode();
+		return this.getClass().hashCode();
 	}
 
 	public abstract boolean puedeRecibir(Trasladable unidad);

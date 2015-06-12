@@ -14,11 +14,11 @@ import fiuba.algo3.tpfinal.excepciones.TerrenoInapropiado;
 
 public class Arquitecto {
 
-	private Mapa mapa;
-	private Presupuesto presupuesto;
-	private Collection<Constructible> construcciones;
-	private Jugador jugador;
-	private Collection<Constructible> construccionesEnConstruccion;
+	protected  Mapa mapa;
+	protected Presupuesto presupuesto;
+	protected  Collection<Constructible> construcciones;
+	protected Jugador jugador;
+	protected  Collection<Constructible> construccionesEnConstruccion;
 
 	public Arquitecto(Presupuesto presupuesto,
 			Collection<Constructible> construcciones, Mapa mapa, Jugador jugador) {
@@ -29,9 +29,38 @@ public class Arquitecto {
 		this.construccionesEnConstruccion = new ArrayList<Constructible>();
 	}
 
+	
+
+	protected void verificarConstruccionesNecesarias(Constructible construccion)
+			throws ConstruccionRequeridaInexistente {
+		Collection<Constructible> unidadesNecesarias = construccion
+				.construccionesNecesarias();
+		Iterator<Constructible> iterador = unidadesNecesarias.iterator();
+		while (iterador.hasNext()) {
+			if (!this.construcciones.contains(iterador.next())) {
+				throw new ConstruccionRequeridaInexistente();
+			}
+		}
+
+	}
+
+	protected void verificarTerreno(Constructible construccion,
+			Coordenada posicion) {
+		if (this.mapa.getParcela(posicion).estaVacia()) {
+			Superficie supRequerida = construccion.superficieNecesaria();
+			Superficie supEnLaQueQuieroConstruir = this.mapa.getParcela(
+					posicion).getSuperficie();
+			if (!supRequerida.equals(supEnLaQueQuieroConstruir)) {
+				throw new TerrenoInapropiado();
+			}
+		} else {
+			throw new ParcelaOcupada();
+		}
+	}
+
 	public void construir(Constructible construccion, Coordenada posicion)
 			throws ConstruccionRequeridaInexistente {
-		construccion.setJugador(this.jugador);
+		
 		try {
 			this.verificarTerreno(construccion, posicion);
 			this.verificarConstruccionesNecesarias(construccion);
@@ -52,35 +81,7 @@ public class Arquitecto {
 		}
 
 	}
-
-	private void verificarConstruccionesNecesarias(Constructible construccion)
-			throws ConstruccionRequeridaInexistente {
-		Collection<Constructible> unidadesNecesarias = construccion
-				.construccionesNecesarias();
-		Iterator<Constructible> iterador = unidadesNecesarias.iterator();
-		while (iterador.hasNext()) {
-			if (!this.construcciones.contains(iterador.next())) {
-				throw new ConstruccionRequeridaInexistente();
-			}
-		}
-
-	}
-
-	private void verificarTerreno(Constructible construccion,
-			Coordenada posicion) {
-		if (this.mapa.getParcela(posicion).estaVacia()) {
-			Superficie supRequerida = construccion.superficieNecesaria();
-			Superficie supEnLaQueQuieroConstruir = this.mapa.getParcela(
-					posicion).getSuperficie();
-			if (!supRequerida.equals(supEnLaQueQuieroConstruir)) {
-				throw new TerrenoInapropiado();
-			}
-		} else {
-			throw new ParcelaOcupada();
-		}
-	}
-
-	private void cobrarConstruccion(Constructible construccion) {
+	protected void cobrarConstruccion(Constructible construccion) {
 		try {
 			int costoConstruccionMineral = construccion.getCostoMineral();
 			int costoConstruccionGas = construccion.getCostoGas();

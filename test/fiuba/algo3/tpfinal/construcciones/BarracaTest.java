@@ -7,14 +7,14 @@ import org.junit.Test;
 
 import fiuba.algo3.tpfinal.excepciones.LimitePoblacionalAlcanzado;
 import fiuba.algo3.tpfinal.programa.Coordenada;
-import fiuba.algo3.tpfinal.programa.Jugador;
+import fiuba.algo3.tpfinal.programa.JugadorTerran;
 import fiuba.algo3.tpfinal.programa.Mapa;
 import fiuba.algo3.tpfinal.unidades.Marine;
 import fiuba.algo3.tpfinal.unidades.Rango;
 
 public class BarracaTest {
 
-	private Barraca barraca;
+	private ConstruccionTerran barraca;
 
 	@Before
 	public void arrange() {
@@ -47,14 +47,14 @@ public class BarracaTest {
 			throws Exception {
 
 		Mapa mapa = new Mapa("mapaTierra.txt");
-		Jugador jugador = new Jugador("Damian", mapa);
+		JugadorTerran jugador = new JugadorTerran("Damian", mapa);
 
 		jugador.getPresupuesto().agregarMineral(1000);
 		jugador.construir(this.barraca, new Coordenada(2, 2));
 		jugador.construir(new DepositoSuministro(), new Coordenada(4, 4));
-		this.barraca.fabricarMarine();
+		((Barraca) this.barraca).fabricarMarine();
 
-		Assert.assertTrue(jugador.contarPoblacion() == 0);
+		Assert.assertTrue(jugador.contarPoblacion() == 1);
 	}
 
 	@Test(expected = LimitePoblacionalAlcanzado.class)
@@ -62,14 +62,14 @@ public class BarracaTest {
 			throws Throwable {
 
 		Mapa mapa = new Mapa("mapaTierra.txt");
-		Jugador jugador = new Jugador("Damian", mapa);
+		JugadorTerran jugador = new JugadorTerran("Damian", mapa);
 
 		jugador.getPresupuesto().agregarMineral(1000);
 		jugador.construir(this.barraca, new Coordenada(2, 2));
 		for (int x = 0; x < 6; x++) {
-			this.barraca.fabricarMarine();
+			((Barraca) this.barraca).fabricarMarine();
 			for (int i = 0; i < 4; i++) {
-				this.barraca.haceLoTuyo();
+				((Barraca) this.barraca).haceLoTuyo();
 			}
 		}
 	}
@@ -79,7 +79,7 @@ public class BarracaTest {
 			throws Exception {
 
 		Mapa mapa = new Mapa("mapaTierra.txt");
-		Jugador jugador = new Jugador("Damian", mapa);
+		JugadorTerran jugador = new JugadorTerran("Damian", mapa);
 
 		jugador.getPresupuesto().agregarMineral(1000);
 		jugador.construir(barraca, new Coordenada(1, 1));
@@ -90,11 +90,11 @@ public class BarracaTest {
 		for (int i = 0; i < 6; i++) {
 			jugador.pasarTurno();
 		}
-		this.barraca.fabricarMarine();
+		((Barraca) this.barraca).fabricarMarine();
 		for (int i = 0; i < 4; i++) {
-			this.barraca.haceLoTuyo();
+			((Barraca) this.barraca).haceLoTuyo();
 		}
-		Assert.assertTrue(jugador.contarPoblacion() == 1);
+		Assert.assertTrue(jugador.contarPoblacion() == 2);
 	}
 
 	@Test
@@ -102,7 +102,7 @@ public class BarracaTest {
 			throws Exception {
 
 		Mapa mapa = new Mapa("mapaTierra.txt");
-		Jugador jugador = new Jugador("Damian", mapa);
+		JugadorTerran jugador = new JugadorTerran("Damian", mapa);
 
 		jugador.getPresupuesto().agregarMineral(1000);
 		jugador.construir(barraca, new Coordenada(1, 1));
@@ -113,9 +113,9 @@ public class BarracaTest {
 		for (int i = 0; i < 6; i++) {
 			jugador.pasarTurno();
 		}
-		this.barraca.fabricarMarine();
+		((Barraca) this.barraca).fabricarMarine();
 		for (int i = 0; i < 4; i++) {
-			this.barraca.haceLoTuyo();
+			((Barraca) this.barraca).haceLoTuyo();
 		}
 		Atacable marine = mapa.getParcela(new Coordenada(2, 1)).getOcupante();
 		Assert.assertTrue(marine.getClass() == (new Marine()).getClass());

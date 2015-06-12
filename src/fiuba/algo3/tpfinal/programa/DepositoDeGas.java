@@ -8,7 +8,7 @@ public class DepositoDeGas extends Superficie {
 
 	public DepositoDeGas() {
 		gasRestante = 3000;
-		nombre = "depositoDeGas";
+	
 	}
 
 	public int extraerRecursos() {

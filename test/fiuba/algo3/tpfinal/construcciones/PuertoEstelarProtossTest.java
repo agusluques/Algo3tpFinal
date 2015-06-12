@@ -6,7 +6,7 @@ import org.junit.Test;
 
 import fiuba.algo3.tpfinal.excepciones.ConstruccionRequeridaInexistente;
 import fiuba.algo3.tpfinal.programa.Coordenada;
-import fiuba.algo3.tpfinal.programa.Jugador;
+import fiuba.algo3.tpfinal.programa.JugadorProtoss;
 import fiuba.algo3.tpfinal.programa.Mapa;
 import fiuba.algo3.tpfinal.unidades.NaveTransporteProtoss;
 import fiuba.algo3.tpfinal.unidades.Rango;
@@ -64,9 +64,10 @@ public class PuertoEstelarProtossTest {
 	@Test
 	public void siFabricoUnScoutElMismoApareceEnLaListaDeUnidadesDelJugador()
 			throws Exception {
+		int cantDeScout=0;
 		this.puertoEstelar = new PuertoEstelarProtoss();
 		Mapa mapa = new Mapa("mapaTierra.txt");
-		Jugador jugador = new Jugador("Damian", mapa);
+		JugadorProtoss jugador = new JugadorProtoss("Damian", mapa);
 
 		jugador.getPresupuesto().agregarMineral(1000);
 		jugador.getPresupuesto().agregarGas(1000);
@@ -87,17 +88,21 @@ public class PuertoEstelarProtossTest {
 			this.puertoEstelar.haceLoTuyo();
 		}
 		for (Atacable unidad : jugador.getUnidades()) {
-			Assert.assertTrue(unidad.getClass() == (new Scout()).getClass());
+			if(unidad.getClass()==(new Scout()).getClass()){
+				cantDeScout++;
+			}
 		}
 
+		Assert.assertTrue(cantDeScout==1);
 	}
 
 	@Test
 	public void siFabricoUnaNaveDeTransporteProtossLaMismaApareceEnLaListaDeUnidadesDelJugador()
 			throws Exception {
+		int cantDeNave=0;
 		this.puertoEstelar = new PuertoEstelarProtoss();
 		Mapa mapa = new Mapa("mapaTierra.txt");
-		Jugador jugador = new Jugador("Damian", mapa);
+		JugadorProtoss jugador = new JugadorProtoss("Damian", mapa);
 
 		jugador.getPresupuesto().agregarMineral(1000);
 		jugador.getPresupuesto().agregarGas(1000);
@@ -118,10 +123,12 @@ public class PuertoEstelarProtossTest {
 			this.puertoEstelar.haceLoTuyo();
 		}
 		for (Atacable unidad : jugador.getUnidades()) {
-			Assert.assertTrue(unidad.getClass() == (new NaveTransporteProtoss())
-					.getClass());
+			if(unidad.getClass()==(new NaveTransporteProtoss()).getClass()){
+				cantDeNave++;
+			}
 		}
 
+		Assert.assertTrue(cantDeNave==1);
 	}
 
 	@Test

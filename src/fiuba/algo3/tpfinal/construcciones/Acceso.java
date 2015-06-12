@@ -10,6 +10,7 @@ import fiuba.algo3.tpfinal.programa.Tierra;
 import fiuba.algo3.tpfinal.unidades.Dragon;
 import fiuba.algo3.tpfinal.unidades.Fabricable;
 import fiuba.algo3.tpfinal.unidades.Rango;
+import fiuba.algo3.tpfinal.unidades.UnidadProtoss;
 import fiuba.algo3.tpfinal.unidades.Zealot;
 
 public class Acceso extends ConstruccionProtoss {
@@ -55,7 +56,7 @@ public class Acceso extends ConstruccionProtoss {
 			unidadEnConstruccion.avanzarFabricacion();
 			if (this.unidadEnConstruccion.getTiempoRestante() == 0) {
 				try {
-					this.jugador.agregarUnidad(unidadEnConstruccion,
+					this.jugador.agregarUnidad((UnidadProtoss)unidadEnConstruccion,
 							this.posicion);
 					this.unidadEnConstruccion = null;
 				} catch (LimitePoblacionalAlcanzado e) {
@@ -68,5 +69,7 @@ public class Acceso extends ConstruccionProtoss {
 	public int rangoDeAtaqueCorrespondiente(Rango rango) {
 		return rango.getRangoTierra();
 	}
+
+	
 
 }

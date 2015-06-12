@@ -12,6 +12,7 @@ import fiuba.algo3.tpfinal.unidades.Fabricable;
 import fiuba.algo3.tpfinal.unidades.NaveCiencia;
 import fiuba.algo3.tpfinal.unidades.NaveTransporteTerran;
 import fiuba.algo3.tpfinal.unidades.Rango;
+import fiuba.algo3.tpfinal.unidades.UnidadTerran;
 
 public class PuertoEstelarTerran extends ConstruccionTerran {
 
@@ -59,7 +60,7 @@ public class PuertoEstelarTerran extends ConstruccionTerran {
 			unidadEnConstruccion.avanzarFabricacion();
 			if (this.unidadEnConstruccion.getTiempoRestante() == 0) {
 				try {
-					this.jugador.agregarUnidad(unidadEnConstruccion,
+					this.jugador.agregarUnidad((UnidadTerran)unidadEnConstruccion,
 							this.posicion);
 					this.unidadEnConstruccion = null;
 				} catch (LimitePoblacionalAlcanzado e) {

@@ -6,34 +6,29 @@ import java.util.Iterator;
 
 import fiuba.algo3.tpfinal.construcciones.Atacable;
 import fiuba.algo3.tpfinal.construcciones.Constructible;
-import fiuba.algo3.tpfinal.excepciones.ConstruccionRequeridaInexistente;
-import fiuba.algo3.tpfinal.excepciones.LimitePoblacionalAlcanzado;
 import fiuba.algo3.tpfinal.unidades.Fabricable;
 import fiuba.algo3.tpfinal.unidades.Magia;
-import fiuba.algo3.tpfinal.unidades.Marine;
-import fiuba.algo3.tpfinal.unidades.Zealot;
 
-public class Jugador {
+public abstract class Jugador {
 
-	private String nombre;
-	private Presupuesto presupuesto;
-	private Collection<Constructible> construcciones;
-	private Arquitecto arquitecto;
-	private ArrayList<Atacable> unidades;
-	private Mapa mapa;
-	private ArrayList<Magia> magias;
-	private int limitePoblacionalInicial;
+	protected String nombre;
+	protected Presupuesto presupuesto;
+	protected Collection<Constructible> construcciones;
+	protected Arquitecto arquitecto;
+	protected ArrayList<Atacable> unidades;
+	protected Mapa mapa;
+	protected ArrayList<Magia> magias;
+	protected int limitePoblacionalInicial;
 
 	public Jugador(String nombre, Mapa mapa) {
 		this.nombre = nombre;
 		this.presupuesto = new Presupuesto(200, 0);
 		this.construcciones = new ArrayList<Constructible>();
 		this.mapa = mapa;
-		this.arquitecto = new Arquitecto(presupuesto, construcciones, mapa,
-				this);
 		this.unidades = new ArrayList<Atacable>();
 		this.magias = new ArrayList<Magia>();
 		this.limitePoblacionalInicial = 5;
+		this.arquitecto = new Arquitecto(presupuesto, construcciones, mapa,	this);
 	}
 
 	public String getNombre() {
@@ -58,15 +53,15 @@ public class Jugador {
 	}
 
 	public int limitePoblacional() {
-		return limitePoblacionalInicial + this.contarCasas();
+		if(limitePoblacionalInicial + this.contarCasas()>=200){
+			return 200;
+		}else{
+			return limitePoblacionalInicial + this.contarCasas();
 
+		}
+		
 	}
 
-	public void construir(Constructible construccion, Coordenada posicion)
-			throws ConstruccionRequeridaInexistente {
-		this.arquitecto.construir(construccion, posicion);
-
-	}
 
 	public Presupuesto getPresupuesto() {
 		return this.presupuesto;
@@ -80,18 +75,7 @@ public class Jugador {
 		return this.unidades;
 	}
 
-	public void agregarUnidad(Fabricable unidad, Coordenada coord)
-			throws LimitePoblacionalAlcanzado {
-		if ((this.contarPoblacion() + unidad.getSuministro()) <= this
-				.limitePoblacional()) {
-			this.unidades.add((Atacable) unidad);
-			this.mapa.ubicarCercaDe((Atacable) unidad, coord);
-			((Atacable) unidad).setJugador(this);
-		} else {
-			throw new LimitePoblacionalAlcanzado();
-		}
-
-	}
+	
 
 	public void agregarMagia(Magia magia) {
 		this.magias.add(magia);
@@ -166,14 +150,6 @@ public class Jugador {
 		return this.construcciones.isEmpty() && this.unidades.isEmpty();
 	}
 
-	public void setRaza(String raza) {
-		Fabricable unidadBasica;
-		if (raza == "Terran") {
-			unidadBasica = new Marine();
-		} else {
-			unidadBasica = new Zealot();
-		}
-		this.agregarUnidad(unidadBasica, mapa.encontrarPrimeraBase());
-	}
+
 
 }

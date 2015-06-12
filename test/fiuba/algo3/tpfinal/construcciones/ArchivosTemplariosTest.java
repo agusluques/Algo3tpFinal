@@ -6,14 +6,14 @@ import org.junit.Test;
 
 import fiuba.algo3.tpfinal.excepciones.ConstruccionRequeridaInexistente;
 import fiuba.algo3.tpfinal.programa.Coordenada;
-import fiuba.algo3.tpfinal.programa.Jugador;
+import fiuba.algo3.tpfinal.programa.JugadorProtoss;
 import fiuba.algo3.tpfinal.programa.Mapa;
 import fiuba.algo3.tpfinal.unidades.AltoTemplario;
 import fiuba.algo3.tpfinal.unidades.Rango;
 
 public class ArchivosTemplariosTest {
 
-	private ArchivosTemplarios archivo;
+	private ConstruccionProtoss archivo;
 
 	@Test
 	public void unArchivoTemplarioDebeTener500DeVidaInicial()
@@ -62,7 +62,7 @@ public class ArchivosTemplariosTest {
 			throws Exception {
 		this.archivo = new ArchivosTemplarios();
 		Mapa mapa = new Mapa("mapaTierra.txt");
-		Jugador jugador = new Jugador("Damian", mapa);
+		JugadorProtoss jugador = new JugadorProtoss("Damian", mapa);
 
 		jugador.getPresupuesto().agregarMineral(1000);
 		jugador.getPresupuesto().agregarGas(1000);
@@ -82,15 +82,18 @@ public class ArchivosTemplariosTest {
 		for (int i = 0; i < 5; i++) {
 			jugador.pasarTurno();
 		}
-		this.archivo.fabricarAltoTemplario();
+		((ArchivosTemplarios) this.archivo).fabricarAltoTemplario();
 		for (int i = 0; i < 7; i++) {
-			this.archivo.haceLoTuyo();
+			((ArchivosTemplarios) this.archivo).haceLoTuyo();
 		}
 
+		int cantUnidadCorrespondiente=0;
 		for (Atacable unidad : jugador.getUnidades()) {
-			Assert.assertTrue(unidad.getClass() == (new AltoTemplario())
-					.getClass());
+			if (unidad.getClass()==(new AltoTemplario()).getClass()){
+				cantUnidadCorrespondiente++;
+			}
 		}
+		Assert.assertTrue(cantUnidadCorrespondiente == 1);
 
 	}
 

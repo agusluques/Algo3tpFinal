@@ -6,7 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import fiuba.algo3.tpfinal.programa.Coordenada;
-import fiuba.algo3.tpfinal.programa.Jugador;
+import fiuba.algo3.tpfinal.programa.JugadorProtoss;
 import fiuba.algo3.tpfinal.programa.Mapa;
 import fiuba.algo3.tpfinal.unidades.Dragon;
 import fiuba.algo3.tpfinal.unidades.Rango;
@@ -14,7 +14,7 @@ import fiuba.algo3.tpfinal.unidades.Zealot;
 
 public class AccesoTest {
 
-	private Acceso acceso;
+	private ConstruccionProtoss acceso;
 
 	@Before
 	public void arrenge() {
@@ -56,7 +56,7 @@ public class AccesoTest {
 	public void siFabricoUnZealotElMismoApareceEnLaListaDeUnidadesDelJugador()
 			throws Exception {
 		Mapa mapa = new Mapa("mapaTierra.txt");
-		Jugador jugador = new Jugador("Damian", mapa);
+		JugadorProtoss jugador = new JugadorProtoss("Damian", mapa);
 
 		jugador.getPresupuesto().agregarMineral(1000);
 		jugador.getPresupuesto().agregarGas(1000);
@@ -68,9 +68,9 @@ public class AccesoTest {
 		for (int i = 0; i < 5; i++) {
 			jugador.pasarTurno();
 		}
-		this.acceso.fabricarZealot();
+		((Acceso)this.acceso).fabricarZealot();
 		for (int i = 0; i < 4; i++) {
-			this.acceso.haceLoTuyo();
+			((Acceso)this.acceso).haceLoTuyo();
 		}
 		for (Atacable unidad : jugador.getUnidades()) {
 			Assert.assertTrue(unidad.getClass() == (new Zealot()).getClass());
@@ -82,7 +82,7 @@ public class AccesoTest {
 	public void siFabricoUnDragonElMismoApareceEnLaListaDeUnidadesDelJugador()
 			throws Exception {
 		Mapa mapa = new Mapa("mapaTierra.txt");
-		Jugador jugador = new Jugador("Damian", mapa);
+		JugadorProtoss jugador = new JugadorProtoss("Damian", mapa);
 
 		jugador.getPresupuesto().agregarMineral(1000);
 		jugador.getPresupuesto().agregarGas(1000);
@@ -94,14 +94,17 @@ public class AccesoTest {
 		for (int i = 0; i < 5; i++) {
 			jugador.pasarTurno();
 		}
-		this.acceso.fabricarDragon();
+		((Acceso) this.acceso).fabricarDragon();
 		for (int i = 0; i < 6; i++) {
-			this.acceso.haceLoTuyo();
+			((Acceso) this.acceso).haceLoTuyo();
 		}
+		int cantUnidadCorrespondiente=0;
 		for (Atacable unidad : jugador.getUnidades()) {
-			Assert.assertTrue(unidad.getClass() == (new Dragon()).getClass());
+			if (unidad.getClass()==(new Dragon()).getClass()){
+				cantUnidadCorrespondiente++;
+			}
 		}
-
+		Assert.assertTrue(cantUnidadCorrespondiente == 1);
 	}
 
 	@Test

@@ -8,7 +8,7 @@ public class DepositoDeMinerales extends Superficie {
 
 	public DepositoDeMinerales() {
 		mineralesRestantes = 1000;
-		nombre = "depositoDeMinerales";
+	
 	}
 
 	public int extraerRecursos() {

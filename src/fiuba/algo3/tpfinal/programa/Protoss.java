@@ -8,7 +8,7 @@ public abstract class Protoss implements Atacable, AfectablePorEMP {
 	protected Escudo escudo = new Escudo();
 	protected Vida vida = new Vida();
 	protected Coordenada posicion;
-	protected Jugador jugador;
+	protected JugadorProtoss jugador;
 
 	public int getVida() {
 		return this.vida.getVida();
@@ -30,7 +30,7 @@ public abstract class Protoss implements Atacable, AfectablePorEMP {
 		this.posicion = posicion;
 	}
 
-	public void setJugador(Jugador jugador) {
+	public void setJugador(JugadorProtoss jugador) {
 		this.jugador = jugador;
 	}
 

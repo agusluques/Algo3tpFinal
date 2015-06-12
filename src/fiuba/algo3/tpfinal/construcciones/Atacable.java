@@ -16,8 +16,6 @@ public interface Atacable {
 
 	void setCoordenada(Coordenada posicion);
 
-	void setJugador(Jugador jugador);
-
 	Jugador getJugador();
 
 	int rangoDeAtaqueCorrespondiente(Rango rango);

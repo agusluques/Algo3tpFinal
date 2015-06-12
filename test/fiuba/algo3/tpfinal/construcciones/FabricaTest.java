@@ -7,7 +7,7 @@ import org.junit.Test;
 import fiuba.algo3.tpfinal.excepciones.ConstruccionRequeridaInexistente;
 import fiuba.algo3.tpfinal.excepciones.LimitePoblacionalAlcanzado;
 import fiuba.algo3.tpfinal.programa.Coordenada;
-import fiuba.algo3.tpfinal.programa.Jugador;
+import fiuba.algo3.tpfinal.programa.JugadorTerran;
 import fiuba.algo3.tpfinal.programa.Mapa;
 import fiuba.algo3.tpfinal.unidades.Rango;
 
@@ -49,7 +49,7 @@ public class FabricaTest {
 			throws Exception {
 		this.fabrica = new Fabrica();
 		Mapa mapa = new Mapa("mapaTierra.txt");
-		Jugador jugador = new Jugador("Damian", mapa);
+		JugadorTerran jugador = new JugadorTerran("Damian", mapa);
 
 		jugador.getPresupuesto().agregarMineral(1000);
 		jugador.getPresupuesto().agregarGas(1000);
@@ -67,7 +67,7 @@ public class FabricaTest {
 		}
 		this.fabrica.fabricarGolliat();
 
-		Assert.assertTrue(jugador.contarPoblacion() == 0);
+		Assert.assertTrue(jugador.contarPoblacion() == 1);
 	}
 
 	@Test(expected = LimitePoblacionalAlcanzado.class)
@@ -75,7 +75,7 @@ public class FabricaTest {
 			throws Throwable {
 		this.fabrica = new Fabrica();
 		Mapa mapa = new Mapa("mapaTierra.txt");
-		Jugador jugador = new Jugador("Damian", mapa);
+		JugadorTerran jugador = new JugadorTerran("Damian", mapa);
 
 		jugador.getPresupuesto().agregarMineral(1000);
 		jugador.getPresupuesto().agregarGas(1000);
@@ -105,7 +105,7 @@ public class FabricaTest {
 			throws Exception {
 		this.fabrica = new Fabrica();
 		Mapa mapa = new Mapa("mapaTierra.txt");
-		Jugador jugador = new Jugador("Damian", mapa);
+		JugadorTerran jugador = new JugadorTerran("Damian", mapa);
 
 		jugador.getPresupuesto().agregarMineral(1000);
 		jugador.getPresupuesto().agregarGas(1000);
@@ -125,7 +125,7 @@ public class FabricaTest {
 		for (int i = 0; i < 7; i++) {
 			this.fabrica.haceLoTuyo();
 		}
-		Assert.assertTrue(jugador.contarPoblacion() == 2);
+		Assert.assertTrue(jugador.contarPoblacion() == 3);
 
 	}
 

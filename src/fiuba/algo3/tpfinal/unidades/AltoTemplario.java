@@ -35,7 +35,7 @@ public class AltoTemplario extends UnidadProtoss {
 		if (unidad.getJugador().equals(this.jugador)) {
 			try {
 				this.miEnergia.gastarEnergia(100);
-				this.jugador.agregarUnidad(new Alucinacion(unidad),
+				this.jugador.agregarUnidad((UnidadProtoss)new Alucinacion(unidad),
 						unidad.getCoordenada());
 				this.jugador.agregarUnidad(new Alucinacion(unidad),
 						unidad.getCoordenada());

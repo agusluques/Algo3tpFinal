@@ -7,7 +7,7 @@ import org.junit.Test;
 
 import fiuba.algo3.tpfinal.programa.Coordenada;
 import fiuba.algo3.tpfinal.programa.Danio;
-import fiuba.algo3.tpfinal.programa.Jugador;
+import fiuba.algo3.tpfinal.programa.JugadorProtoss;
 import fiuba.algo3.tpfinal.programa.Mapa;
 import fiuba.algo3.tpfinal.unidades.Rango;
 import fiuba.algo3.tpfinal.unidades.Zealot;
@@ -88,7 +88,7 @@ public class NexoMineralTest {
 	public void siPasaTurnoLeCargaMineralAlJugadorYLaVidaQuedaIgual()
 			throws Exception {
 		Mapa mapa = new Mapa("mapaTierra.txt");
-		Jugador jugador = new Jugador("Damian", mapa);
+		JugadorProtoss jugador = new JugadorProtoss("Damian", mapa);
 		Zealot zealot = new Zealot();
 		zealot.setCoordenada(new Coordenada(2, 91));
 

@@ -13,7 +13,7 @@ import fiuba.algo3.tpfinal.programa.Coordenada;
 import fiuba.algo3.tpfinal.programa.Danio;
 import fiuba.algo3.tpfinal.programa.DepositoDeGas;
 import fiuba.algo3.tpfinal.programa.DepositoDeMinerales;
-import fiuba.algo3.tpfinal.programa.Jugador;
+import fiuba.algo3.tpfinal.programa.JugadorProtoss;
 import fiuba.algo3.tpfinal.programa.Mapa;
 import fiuba.algo3.tpfinal.programa.Superficie;
 import fiuba.algo3.tpfinal.programa.Tierra;
@@ -62,7 +62,7 @@ public class AltoTemplarioTest {
 		AltoTemplario altoTemplario = new AltoTemplario();
 		Zealot zealot = new Zealot();
 		Mapa mapa = new Mapa("mapaTierra.txt");
-		Jugador jugador = new Jugador("Damian", mapa);
+		JugadorProtoss jugador = new JugadorProtoss("Damian", mapa);
 		jugador.getConstrucciones().add(new Pilon());
 		jugador.agregarUnidad(altoTemplario, new Coordenada(3, 3));
 		jugador.agregarUnidad(zealot, new Coordenada(4, 4));
@@ -77,7 +77,7 @@ public class AltoTemplarioTest {
 		AltoTemplario altoTemplario = new AltoTemplario();
 		Zealot zealot = new Zealot();
 		Mapa mapa = new Mapa("mapaTierra.txt");
-		Jugador jugador = new Jugador("Damian", mapa);
+		JugadorProtoss jugador = new JugadorProtoss("Damian", mapa);
 		int cantidadDeAlucinaciones = 0;
 
 		jugador.getConstrucciones().add(new Pilon());

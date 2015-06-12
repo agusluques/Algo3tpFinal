@@ -7,7 +7,7 @@ public abstract class Terran implements Atacable, AfectablePorEMP {
 
 	protected Vida vida = new Vida();
 	protected Coordenada posicion;
-	protected Jugador jugador;
+	protected JugadorTerran jugador;
 
 	public int getVida() {
 		return this.vida.getVida();
@@ -25,7 +25,7 @@ public abstract class Terran implements Atacable, AfectablePorEMP {
 		this.posicion = posicion;
 	}
 
-	public void setJugador(Jugador jugador) {
+	public void setJugador(JugadorTerran jugador) {
 		this.jugador = jugador;
 	}
 

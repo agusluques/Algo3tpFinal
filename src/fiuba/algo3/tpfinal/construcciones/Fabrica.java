@@ -10,6 +10,7 @@ import fiuba.algo3.tpfinal.programa.Tierra;
 import fiuba.algo3.tpfinal.unidades.Fabricable;
 import fiuba.algo3.tpfinal.unidades.Golliat;
 import fiuba.algo3.tpfinal.unidades.Rango;
+import fiuba.algo3.tpfinal.unidades.UnidadTerran;
 
 public class Fabrica extends ConstruccionTerran {
 
@@ -45,7 +46,7 @@ public class Fabrica extends ConstruccionTerran {
 			unidadEnConstruccion.avanzarFabricacion();
 			if (this.unidadEnConstruccion.getTiempoRestante() == 0) {
 				try {
-					this.jugador.agregarUnidad(unidadEnConstruccion,
+					this.jugador.agregarUnidad((UnidadTerran)unidadEnConstruccion,
 							this.posicion);
 					this.unidadEnConstruccion = null;
 				} catch (LimitePoblacionalAlcanzado e) {
