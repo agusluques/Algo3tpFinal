@@ -84,7 +84,7 @@ public class ArchivosTemplariosTest {
 		}
 		((ArchivosTemplarios) this.archivo).fabricarAltoTemplario();
 		for (int i = 0; i < 7; i++) {
-			((ArchivosTemplarios) this.archivo).haceLoTuyo();
+			((ArchivosTemplarios) this.archivo).pasarTurno(null, null);
 		}
 
 		int cantUnidadCorrespondiente=0;

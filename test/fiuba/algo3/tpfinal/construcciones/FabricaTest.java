@@ -87,7 +87,7 @@ public class FabricaTest {
 		for (int x = 0; x < 5; x++) {
 			barraca.fabricarMarine();
 			for (int i = 0; i < 10; i++) {
-				barraca.haceLoTuyo();
+				barraca.pasarTurno(null, null);
 			}
 		}
 		jugador.construir(this.fabrica, new Coordenada(2, 2));
@@ -96,7 +96,7 @@ public class FabricaTest {
 		}
 		this.fabrica.fabricarGolliat();
 		for (int i = 0; i < 6; i++) {
-			this.fabrica.haceLoTuyo();
+			this.fabrica.pasarTurno(null, null);
 		}
 	}
 
@@ -123,7 +123,7 @@ public class FabricaTest {
 		}
 		this.fabrica.fabricarGolliat();
 		for (int i = 0; i < 7; i++) {
-			this.fabrica.haceLoTuyo();
+			this.fabrica.pasarTurno(null, null);
 		}
 		Assert.assertTrue(jugador.contarPoblacion() == 3);
 

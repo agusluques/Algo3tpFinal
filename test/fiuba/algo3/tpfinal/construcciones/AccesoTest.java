@@ -70,7 +70,7 @@ public class AccesoTest {
 		}
 		((Acceso)this.acceso).fabricarZealot();
 		for (int i = 0; i < 4; i++) {
-			((Acceso)this.acceso).haceLoTuyo();
+			((Acceso)this.acceso).pasarTurno(null, null);
 		}
 		for (Atacable unidad : jugador.getUnidades()) {
 			Assert.assertTrue(unidad.getClass() == (new Zealot()).getClass());
@@ -96,7 +96,7 @@ public class AccesoTest {
 		}
 		((Acceso) this.acceso).fabricarDragon();
 		for (int i = 0; i < 6; i++) {
-			((Acceso) this.acceso).haceLoTuyo();
+			((Acceso) this.acceso).pasarTurno(null, null);
 		}
 		int cantUnidadCorrespondiente=0;
 		for (Atacable unidad : jugador.getUnidades()) {

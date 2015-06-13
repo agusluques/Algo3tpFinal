@@ -85,7 +85,7 @@ public class PuertoEstelarProtossTest {
 		}
 		this.puertoEstelar.fabricarScout();
 		for (int i = 0; i < 9; i++) {
-			this.puertoEstelar.haceLoTuyo();
+			this.puertoEstelar.pasarTurno(null, null);
 		}
 		for (Atacable unidad : jugador.getUnidades()) {
 			if(unidad.getClass()==(new Scout()).getClass()){
@@ -120,7 +120,7 @@ public class PuertoEstelarProtossTest {
 		}
 		this.puertoEstelar.fabricarNaveDeTransporte();
 		for (int i = 0; i < 8; i++) {
-			this.puertoEstelar.haceLoTuyo();
+			this.puertoEstelar.pasarTurno(null, null);
 		}
 		for (Atacable unidad : jugador.getUnidades()) {
 			if(unidad.getClass()==(new NaveTransporteProtoss()).getClass()){

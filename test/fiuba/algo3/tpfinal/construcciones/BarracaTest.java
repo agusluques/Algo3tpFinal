@@ -69,7 +69,7 @@ public class BarracaTest {
 		for (int x = 0; x < 6; x++) {
 			((Barraca) this.barraca).fabricarMarine();
 			for (int i = 0; i < 4; i++) {
-				((Barraca) this.barraca).haceLoTuyo();
+				((Barraca) this.barraca).pasarTurno(null, null);
 			}
 		}
 	}
@@ -92,7 +92,7 @@ public class BarracaTest {
 		}
 		((Barraca) this.barraca).fabricarMarine();
 		for (int i = 0; i < 4; i++) {
-			((Barraca) this.barraca).haceLoTuyo();
+			((Barraca) this.barraca).pasarTurno(null, null);
 		}
 		Assert.assertTrue(jugador.contarPoblacion() == 2);
 	}
@@ -115,7 +115,7 @@ public class BarracaTest {
 		}
 		((Barraca) this.barraca).fabricarMarine();
 		for (int i = 0; i < 4; i++) {
-			((Barraca) this.barraca).haceLoTuyo();
+			((Barraca) this.barraca).pasarTurno(null, null);
 		}
 		Atacable marine = mapa.getParcela(new Coordenada(2, 1)).getOcupante();
 		Assert.assertTrue(marine.getClass() == (new Marine()).getClass());

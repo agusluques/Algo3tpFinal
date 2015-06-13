@@ -3,6 +3,8 @@ package fiuba.algo3.tpfinal.construcciones;
 import fiuba.algo3.tpfinal.excepciones.LimitePoblacionalAlcanzado;
 import fiuba.algo3.tpfinal.excepciones.MineralInsuficiente;
 import fiuba.algo3.tpfinal.programa.Costo;
+import fiuba.algo3.tpfinal.programa.Jugador;
+import fiuba.algo3.tpfinal.programa.Mapa;
 import fiuba.algo3.tpfinal.programa.Tierra;
 import fiuba.algo3.tpfinal.unidades.Fabricable;
 import fiuba.algo3.tpfinal.unidades.Marine;
@@ -30,7 +32,8 @@ public class Barraca extends ConstruccionTerran {
 		}
 	}
 
-	public void haceLoTuyo() {
+	
+	public void pasarTurno(Jugador jugador, Mapa mapa) {
 		if (unidadEnConstruccion != null) {
 			unidadEnConstruccion.avanzarFabricacion();
 			if (this.unidadEnConstruccion.getTiempoRestante() == 0) {

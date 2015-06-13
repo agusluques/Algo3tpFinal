@@ -88,7 +88,7 @@ public class PuertoEstelarTerranTest {
 		for (int x = 0; x < 5; x++) {
 			barraca.fabricarMarine();
 			for (int i = 0; i < 10; i++) {
-				barraca.haceLoTuyo();
+				barraca.pasarTurno(null, null);
 			}
 		}
 		jugador.construir(new Fabrica(), new Coordenada(2, 2));
@@ -101,7 +101,7 @@ public class PuertoEstelarTerranTest {
 		}
 		this.puertoEstelar.fabricarEspectro();
 		for (int i = 0; i < 8; i++) {
-			this.puertoEstelar.haceLoTuyo();
+			this.puertoEstelar.pasarTurno(null, null);
 		}
 	}
 
@@ -133,7 +133,7 @@ public class PuertoEstelarTerranTest {
 		}
 		this.puertoEstelar.fabricarEspectro();
 		for (int i = 0; i < 8; i++) {
-			this.puertoEstelar.haceLoTuyo();
+			this.puertoEstelar.pasarTurno(null, null);
 		}
 		Assert.assertTrue(jugador.contarPoblacion() == 3);
 	}
@@ -182,7 +182,7 @@ public class PuertoEstelarTerranTest {
 		for (int x = 0; x < 5; x++) {
 			barraca.fabricarMarine();
 			for (int i = 0; i < 10; i++) {
-				barraca.haceLoTuyo();
+				barraca.pasarTurno(null, null);
 			}
 		}
 		jugador.construir(new Fabrica(), new Coordenada(2, 2));
@@ -195,7 +195,7 @@ public class PuertoEstelarTerranTest {
 		}
 		this.puertoEstelar.fabricarNaveDeCiencia();
 		for (int i = 0; i < 10; i++) {
-			this.puertoEstelar.haceLoTuyo();
+			this.puertoEstelar.pasarTurno(null, null);
 		}
 	}
 
@@ -227,7 +227,7 @@ public class PuertoEstelarTerranTest {
 		}
 		this.puertoEstelar.fabricarNaveDeCiencia();
 		for (int i = 0; i < 10; i++) {
-			this.puertoEstelar.haceLoTuyo();
+			this.puertoEstelar.pasarTurno(null, null);
 		}
 		Assert.assertTrue(jugador.contarPoblacion() == 3);
 	}
@@ -276,7 +276,7 @@ public class PuertoEstelarTerranTest {
 		for (int x = 0; x < 5; x++) {
 			barraca.fabricarMarine();
 			for (int i = 0; i < 10; i++) {
-				barraca.haceLoTuyo();
+				barraca.pasarTurno(null, null);
 			}
 		}
 		jugador.construir(new Fabrica(), new Coordenada(2, 2));
@@ -289,7 +289,7 @@ public class PuertoEstelarTerranTest {
 		}
 		this.puertoEstelar.fabricarNaveDeTransporte();
 		for (int i = 0; i < 10; i++) {
-			this.puertoEstelar.haceLoTuyo();
+			this.puertoEstelar.pasarTurno(null, null);
 		}
 	}
 
@@ -321,7 +321,7 @@ public class PuertoEstelarTerranTest {
 		}
 		this.puertoEstelar.fabricarNaveDeTransporte();
 		for (int i = 0; i < 7; i++) {
-			this.puertoEstelar.haceLoTuyo();
+			this.puertoEstelar.pasarTurno(null, null);
 		}
 		Assert.assertTrue(jugador.contarPoblacion() == 3);
 
