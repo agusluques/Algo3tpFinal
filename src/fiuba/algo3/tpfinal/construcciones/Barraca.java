@@ -21,8 +21,6 @@ public class Barraca extends ConstruccionTerran {
 	
 	}
 
-
-
 	public void fabricarMarine() {
 		try {
 			jugador.getPresupuesto().removerMineral(50);

@@ -10,10 +10,20 @@ public class Juego {
 	}
 	
 	public void pasarTurno(Jugador jugador){
+		Jugador otroJugador = jugadorUno;
+		if (jugador == jugadorUno) {
+			otroJugador = jugadorDos;
+		}
 		jugador.pasarTurno();
-		if (jugador.estaExtinto()){
+		if (otroJugador.estaExtinto() || jugador.estaExtinto()){
+			Jugador ganador = jugador;
+			if(jugador.estaExtinto()) {
+				ganador = otroJugador;
+			}
 			System.out.print("GANOOOOO: ");
-			System.out.println(jugadorDos.nombre);
+			System.out.println(ganador.nombre);
+		} else{
+			otroJugador.empezarTurno();
 		}
 	}
 	
