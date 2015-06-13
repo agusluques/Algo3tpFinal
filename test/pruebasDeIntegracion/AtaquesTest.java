@@ -88,7 +88,7 @@ public class AtaquesTest {
 		// El enemigo pasa el turno, se recupera su escudo
 		// El jugador lo mando como null, total no lo necesito en este caso
 		enemigo.pasarTurno(null, mapa);
-		Assert.assertEquals(60, enemigo.getEscudo());
+		Assert.assertEquals(48, enemigo.getEscudo());
 		Assert.assertEquals(100, enemigo.getVida());
 	}
 
@@ -115,7 +115,7 @@ public class AtaquesTest {
 		// El enemigo pasa el turno, se recupera su escudo
 		// El jugador lo mando como null, total no lo necesito en este caso
 		enemigo.pasarTurno(null, mapa);
-		Assert.assertEquals(100, enemigo.getEscudo());
+		Assert.assertEquals(88, enemigo.getEscudo());
 		Assert.assertEquals(150, enemigo.getVida());
 	}
 
@@ -170,7 +170,7 @@ public class AtaquesTest {
 		// El enemigo pasa el turno, se recupera su escudo
 		// El jugador lo mando como null, total no lo necesito en este caso
 		enemigo.pasarTurno(null, mapa);
-		Assert.assertEquals(100, enemigo.getEscudo());
+		Assert.assertEquals(94, enemigo.getEscudo());
 		Assert.assertEquals(150, enemigo.getVida());
 	}
 
@@ -276,7 +276,7 @@ public class AtaquesTest {
 		// El enemigo pasa el turno, se recupera su escudo
 		// El jugador lo mando como null, total no lo necesito en este caso
 		enemigo.pasarTurno(null, mapa);
-		Assert.assertEquals(60, enemigo.getEscudo());
+		Assert.assertEquals(56, enemigo.getEscudo());
 		Assert.assertEquals(100, enemigo.getVida());
 	}
 
@@ -303,7 +303,7 @@ public class AtaquesTest {
 		// El enemigo pasa el turno, se recupera su escudo
 		// El jugador lo mando como null, total no lo necesito en este caso
 		enemigo.pasarTurno(null, mapa);
-		Assert.assertEquals(100, enemigo.getEscudo());
+		Assert.assertEquals(98, enemigo.getEscudo());
 		Assert.assertEquals(150, enemigo.getVida());
 	}
 
@@ -358,7 +358,7 @@ public class AtaquesTest {
 		// El enemigo pasa el turno, se recupera su escudo
 		// El jugador lo mando como null, total no lo necesito en este caso
 		enemigo.pasarTurno(null, mapa);
-		Assert.assertEquals(100, enemigo.getEscudo());
+		Assert.assertEquals(88, enemigo.getEscudo());
 		Assert.assertEquals(150, enemigo.getVida());
 	}
 

@@ -59,7 +59,7 @@ public class EscudoTest {
 	}
 
 	@Test
-	public void sielEscudoNoEstaCompletoYSePasaElTurnoSeRegeneraCompletamente()
+	public void sielEscudoNoEstaCompletoYSePasaElTurnoSeRegeneraEn8()
 			throws Exception {
 		Escudo escudo = new Escudo();
 		Vida vida = new Vida();
@@ -71,11 +71,11 @@ public class EscudoTest {
 		escudo.bajarEscudo(600, vida);
 		escudo.pasarTurno(jugador, mapa);
 
-		Assert.assertEquals(500, escudo.getEscudo());
+		Assert.assertEquals(8, escudo.getEscudo());
 	}
 
 	@Test
-	public void sielEscudoNoEstaCompletoYSePasaElTurnoSeRegeneraCompletamentePeroLaVidaNoSeCambia()
+	public void sielEscudoNoEstaCompletoYSePasaElTurnoSeRegeneraEn8PeroLaVidaNoSeCambia()
 			throws Exception {
 		Escudo escudo = new Escudo();
 		Vida vida = new Vida();
@@ -100,7 +100,7 @@ public class EscudoTest {
 		Mapa mapa = new Mapa("mapaTierra.txt");
 		JugadorProtoss jugador = new JugadorProtoss("Damian", mapa);
 
-		escudo.bajarEscudo(600, vida);
+		escudo.bajarEscudo(20, vida);
 		escudo.pasarTurno(jugador, mapa);
 		escudo.pasarTurno(jugador, mapa);
 		escudo.pasarTurno(jugador, mapa);

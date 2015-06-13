@@ -23,11 +23,11 @@ public class Escudo {
 	}
 
 	public void pasarTurno(Jugador jugador, Mapa mapa) {
-		/*
-		 * this.escudo += 10; if (this.escudo > escudoLimite) { this.escudo =
-		 * escudoLimite; }
-		 */
-		this.escudo = escudoLimite;
+		
+		this.escudo += 8;
+		if (this.escudo > escudoLimite) {
+			this.escudo = escudoLimite;
+		}
 	}
 
 	public void destruirEscudo() {
