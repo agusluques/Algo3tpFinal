@@ -37,7 +37,7 @@ public abstract class ConstruccionTerran extends Terran implements
 
 	@Override
 	public int hashCode() {
-		return this.hashCode();
+		return this.getClass().hashCode();
 
 	}
 

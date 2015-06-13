@@ -42,8 +42,7 @@ public abstract class ConstruccionProtoss extends Protoss implements
 
 	@Override
 	public int hashCode() {
-		return this.hashCode();
-
+		return this.getClass().hashCode();
 	}
 
 
