@@ -134,7 +134,8 @@ public class JugadorTest {
 
 	@Test
 	public void elJugadorRecolectaGasDeOtroRecolectorYSuma10() {
-		Recolector recolector = new Asimilador(new Coordenada(1, 90));
+		Recolector recolector = new Asimilador();
+		((Asimilador)recolector).setCoordenada(new Coordenada(6, 26));
 		recolector.recolectarPara(jugadorProtoss, mapa);
 		Assert.assertEquals(10, jugadorProtoss.getPresupuesto().cantidadDeGas());
 	}
@@ -194,7 +195,7 @@ public class JugadorTest {
 	@Test
 	public void elJugadorProtossConstruyeUnAsimilador()
 			throws ConstruccionRequeridaInexistente {
-		ConstruccionProtoss construccion = new Asimilador(new Coordenada(1, 90));
+		ConstruccionProtoss construccion = new Asimilador();
 		jugadorProtoss.construir(construccion, new Coordenada(1, 90));
 		for (int i = 0; i < 6; i++) {
 			jugadorProtoss.pasarTurno();
@@ -205,7 +206,7 @@ public class JugadorTest {
 	@Test
 	public void elJugadorProtossConstruyeUnAsimiladorLeQuedan100DeMinerales()
 			throws ConstruccionRequeridaInexistente {
-		ConstruccionProtoss construccion = new Asimilador(new Coordenada(1, 90));
+		ConstruccionProtoss construccion = new Asimilador();
 		jugadorProtoss.construir(construccion, new Coordenada(1, 90));
 		for (int i = 0; i < 6; i++) {
 			jugadorProtoss.pasarTurno();

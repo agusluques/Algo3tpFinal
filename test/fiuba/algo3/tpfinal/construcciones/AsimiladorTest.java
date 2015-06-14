@@ -17,7 +17,8 @@ public class AsimiladorTest {
 
 	@Before
 	public void arrange() {
-		this.asimilador = new Asimilador(new Coordenada(1, 90));
+		this.asimilador = new Asimilador();
+		asimilador.setCoordenada(new Coordenada(1, 90));
 	}
 
 	@Test
@@ -47,7 +48,8 @@ public class AsimiladorTest {
 
 	@Test
 	public void dosAsimiladoresDeberianSerIguales() {
-		Constructible otroAsimilador = new Asimilador(new Coordenada(6, 26));
+		Asimilador otroAsimilador = new Asimilador();
+		otroAsimilador.setCoordenada(new Coordenada(6, 26));
 		Assert.assertTrue(this.asimilador.equals(otroAsimilador));
 	}
 

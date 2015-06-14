@@ -1,6 +1,5 @@
 package fiuba.algo3.tpfinal.construcciones;
 
-import fiuba.algo3.tpfinal.programa.Coordenada;
 import fiuba.algo3.tpfinal.programa.Costo;
 import fiuba.algo3.tpfinal.programa.DepositoDeGas;
 import fiuba.algo3.tpfinal.programa.Jugador;
@@ -11,13 +10,12 @@ import fiuba.algo3.tpfinal.unidades.Rango;
 
 public class Asimilador extends ConstruccionProtoss implements RecolectorDeGas {
 
-	public Asimilador(Coordenada coord) {
+	public Asimilador() {
 		this.vida.inicializarVida(450);
 		this.escudo.inicializarEscudo(450);
 		this.tiempoDeConstruccion = 6;
 		this.costo = new Costo(100);
 		this.superficieNecesaria = new DepositoDeGas();
-		this.posicion = coord;
 	}
 
 	@Override
