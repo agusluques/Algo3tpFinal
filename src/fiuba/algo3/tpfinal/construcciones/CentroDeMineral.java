@@ -1,6 +1,5 @@
 package fiuba.algo3.tpfinal.construcciones;
 
-import fiuba.algo3.tpfinal.programa.Coordenada;
 import fiuba.algo3.tpfinal.programa.Costo;
 import fiuba.algo3.tpfinal.programa.DepositoDeMinerales;
 import fiuba.algo3.tpfinal.programa.Jugador;
@@ -12,12 +11,11 @@ import fiuba.algo3.tpfinal.unidades.Rango;
 public class CentroDeMineral extends ConstruccionTerran implements
 		RecolectorDeMinerales {
 
-	public CentroDeMineral(Coordenada coordenada) {
+	public CentroDeMineral() {
 		this.vida.inicializarVida(500);
 		this.costo = new Costo(50);
 		this.tiempoDeConstruccion = 4;
 		this.superficieNecesaria = new DepositoDeMinerales();
-		this.posicion = coordenada;
 	}
 
 	@Override

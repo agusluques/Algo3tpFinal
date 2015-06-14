@@ -18,7 +18,8 @@ public class NexoMineralTest {
 
 	@Before
 	public void arrange() {
-		this.nexo = new NexoMineral(new Coordenada(1, 100));
+		this.nexo = new NexoMineral();
+		nexo.setCoordenada(new Coordenada(1, 100));
 	}
 
 	@Test
@@ -80,7 +81,8 @@ public class NexoMineralTest {
 
 	@Test
 	public void dosNexosDeberianSerIguales() {
-		Constructible otroNexo = new NexoMineral(new Coordenada(1, 99));
+		Constructible otroNexo = new NexoMineral();
+		((NexoMineral) otroNexo).setCoordenada(new Coordenada(1, 99));
 		Assert.assertTrue(this.nexo.equals(otroNexo));
 	}
 

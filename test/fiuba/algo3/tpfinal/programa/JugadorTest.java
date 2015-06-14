@@ -113,21 +113,24 @@ public class JugadorTest {
 
 	@Test
 	public void elJugadorRecolectaMineralesDeUnRecolectorYSuma10() {
-		Recolector recolector = new NexoMineral(new Coordenada(1, 100));
+		Recolector recolector = new NexoMineral();
+		((NexoMineral) recolector).setCoordenada(new Coordenada(1, 100));
 		recolector.recolectarPara(jugadorProtoss, mapa);
 		Assert.assertEquals(210, jugadorProtoss.getPresupuesto().cantidadDeMineral());
 	}
 
 	@Test
 	public void elJugadorRecolectaMineralesDeOtroRecolectorYSuma10() {
-		Recolector recolector = new CentroDeMineral(new Coordenada(1, 91));
+		Recolector recolector = new CentroDeMineral();
+		((CentroDeMineral) recolector).setCoordenada(new Coordenada(1, 91));
 		recolector.recolectarPara(jugadorProtoss, mapa);
 		Assert.assertEquals(210, jugadorProtoss.getPresupuesto().cantidadDeMineral());
 	}
 
 	@Test
 	public void elJugadorRecolectaGasDeUnRecolectorYSuma10() {
-		Recolector recolector = new Refineria(new Coordenada(1, 90));
+		Recolector recolector = new Refineria();
+		((Refineria) recolector).setCoordenada(new Coordenada(1, 90));
 		recolector.recolectarPara(jugadorProtoss, mapa);
 		Assert.assertEquals(10, jugadorProtoss.getPresupuesto().cantidadDeGas());
 	}
@@ -143,7 +146,7 @@ public class JugadorTest {
 	@Test
 	public void elJugadorProtossConstruyeUnNexoMineral()
 			throws ConstruccionRequeridaInexistente {
-		ConstruccionProtoss construccion = new NexoMineral(new Coordenada(1, 100));
+		ConstruccionProtoss construccion = new NexoMineral();
 		jugadorProtoss.construir(construccion, new Coordenada(1, 100));
 		for (int i = 0; i < 4; i++) {
 			jugadorProtoss.pasarTurno();
@@ -154,7 +157,7 @@ public class JugadorTest {
 	@Test
 	public void elJugadorProtossConstruyeUnNexoMineralPeroNoPasanTurnosEntoncesNoLoTiene()
 			throws ConstruccionRequeridaInexistente {
-		ConstruccionProtoss construccion = new NexoMineral(new Coordenada(1, 100));
+		ConstruccionProtoss construccion = new NexoMineral();
 		jugadorProtoss.construir(construccion, new Coordenada(1, 100));
 		Assert.assertFalse(jugadorProtoss.getConstrucciones().contains(construccion));
 	}
@@ -162,7 +165,7 @@ public class JugadorTest {
 	@Test
 	public void elJugadorProtossConstruyeUnNexoMineralLeQuedan150DeMinerales()
 			throws ConstruccionRequeridaInexistente {
-		ConstruccionProtoss construccion = new NexoMineral(new Coordenada(1, 100));
+		ConstruccionProtoss construccion = new NexoMineral();
 		jugadorProtoss.construir(construccion, new Coordenada(1, 100));
 		for (int i = 0; i < 4; i++) {
 			jugadorProtoss.pasarTurno();
@@ -344,7 +347,7 @@ public class JugadorTest {
 	@Test
 	public void elJugadorTerranConstruyeUnCentroDeMineral()
 			throws ConstruccionRequeridaInexistente {
-		ConstruccionTerran construccion = new CentroDeMineral(new Coordenada(1, 91));
+		ConstruccionTerran construccion = new CentroDeMineral();
 		jugadorTerran.construir(construccion, new Coordenada(1, 91));
 		for (int i = 0; i < 4; i++) {
 			jugadorTerran.pasarTurno();
@@ -377,7 +380,7 @@ public class JugadorTest {
 	@Test
 	public void elJugadorTerranConstruyeUnaRefineria()
 			throws ConstruccionRequeridaInexistente {
-		ConstruccionTerran construccion = new Refineria(new Coordenada(1, 90));
+		ConstruccionTerran construccion = new Refineria();
 		jugadorTerran.construir(construccion, new Coordenada(1, 90));
 		for (int i = 0; i < 6; i++) {
 			jugadorTerran.pasarTurno();

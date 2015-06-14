@@ -1,6 +1,5 @@
 package fiuba.algo3.tpfinal.construcciones;
 
-import fiuba.algo3.tpfinal.programa.Coordenada;
 import fiuba.algo3.tpfinal.programa.Costo;
 import fiuba.algo3.tpfinal.programa.DepositoDeGas;
 import fiuba.algo3.tpfinal.programa.Jugador;
@@ -11,12 +10,11 @@ import fiuba.algo3.tpfinal.unidades.Rango;
 
 public class Refineria extends ConstruccionTerran implements RecolectorDeGas {
 
-	public Refineria(Coordenada coord) {
+	public Refineria() {
 		this.vida.inicializarVida(750);
 		this.tiempoDeConstruccion = 6;
 		this.costo = new Costo(100);
 		this.superficieNecesaria = new DepositoDeGas();
-		this.posicion = coord;
 	}
 
 	@Override

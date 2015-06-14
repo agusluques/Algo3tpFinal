@@ -25,8 +25,7 @@ public class JuegoTest {
 		
 		
 		
-		//LA COORDENADA DE CENTRODEMINERAL ESTA MAL, NO LA DEBERIA PEDIR
-		ConstruccionTerran centroMineral = new CentroDeMineral(new Coordenada(1,91));
+		ConstruccionTerran centroMineral = new CentroDeMineral();
 		ConstruccionTerran barraca = new Barraca();
 		jugadorUno.construir(centroMineral, new Coordenada(1,91) );
 		jugadorUno.construir(barraca, new Coordenada(20,92) );
@@ -34,8 +33,7 @@ public class JuegoTest {
 		juego.pasarTurno(jugadorUno);
 		
 		
-		//LA COORDENADA DE CENTRODEMINERAL ESTA MAL, NO LA DEBERIA PEDIR
-		ConstruccionTerran centroMineralDos = new CentroDeMineral(new Coordenada(1,91));
+		ConstruccionTerran centroMineralDos = new CentroDeMineral();
 		ConstruccionTerran barracaDos = new Barraca();
 		jugadorDos.construir(centroMineralDos, new Coordenada(75,23) );
 		jugadorDos.construir(barracaDos, new Coordenada(67,27) );

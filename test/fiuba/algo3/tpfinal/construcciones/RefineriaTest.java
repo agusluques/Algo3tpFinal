@@ -17,7 +17,8 @@ public class RefineriaTest {
 
 	@Before
 	public void arrange() {
-		this.refineria = new Refineria(new Coordenada(1, 90));
+		this.refineria = new Refineria();
+		refineria.setCoordenada(new Coordenada(1, 90));
 	}
 
 	@Test
@@ -37,7 +38,7 @@ public class RefineriaTest {
 
 	@Test
 	public void dosRefineriasDeberianSerIguales() {
-		Constructible otraRefineria = new Refineria(new Coordenada(1, 90));
+		Constructible otraRefineria = new Refineria();
 		Assert.assertTrue(this.refineria.equals(otraRefineria));
 	}
 

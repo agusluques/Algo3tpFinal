@@ -1,6 +1,5 @@
 package fiuba.algo3.tpfinal.construcciones;
 
-import fiuba.algo3.tpfinal.programa.Coordenada;
 import fiuba.algo3.tpfinal.programa.Costo;
 import fiuba.algo3.tpfinal.programa.DepositoDeMinerales;
 import fiuba.algo3.tpfinal.programa.Jugador;
@@ -12,13 +11,12 @@ import fiuba.algo3.tpfinal.unidades.Rango;
 public class NexoMineral extends ConstruccionProtoss implements
 		RecolectorDeMinerales {
 
-	public NexoMineral(Coordenada coord) {
+	public NexoMineral() {
 		this.vida.inicializarVida(250);
 		this.escudo.inicializarEscudo(250);
 		this.tiempoDeConstruccion = 4;
 		this.costo = new Costo(50);
 		this.superficieNecesaria = new DepositoDeMinerales();
-		this.posicion = coord;
 	}
 
 	@Override

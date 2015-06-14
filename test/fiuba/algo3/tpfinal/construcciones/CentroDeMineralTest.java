@@ -22,7 +22,8 @@ public class CentroDeMineralTest {
 	@Before
 	public void arrange() throws Exception {
 		this.ambiente = new Mapa("mapaTierra.txt");
-		this.centroMineral = new CentroDeMineral(new Coordenada(1, 91));
+		this.centroMineral = new CentroDeMineral();
+		centroMineral.setCoordenada(new Coordenada(1, 91));
 	}
 
 	@Test
@@ -66,7 +67,8 @@ public class CentroDeMineralTest {
 
 	@Test
 	public void dosCentroDeMineralDeberianSerIguales() {
-		Constructible otroCentro = new CentroDeMineral(new Coordenada(6, 26));
+		Constructible otroCentro = new CentroDeMineral();
+		((CentroDeMineral) otroCentro).setCoordenada(new Coordenada(6, 26));
 		Assert.assertTrue(this.centroMineral.equals(otroCentro));
 	}
 
