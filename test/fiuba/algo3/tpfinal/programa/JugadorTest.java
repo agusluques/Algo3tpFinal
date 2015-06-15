@@ -75,14 +75,14 @@ public class JugadorTest {
 	@Test
 	public void siElJugadorSuma20DeMineralYGasta10Tiene210() {
 		jugadorProtoss.getPresupuesto().agregarMineral(20);
-		jugadorProtoss.getPresupuesto().removerMineral(10);
+		jugadorProtoss.getPresupuesto().gastar(new Costo(10));
 		Assert.assertEquals(210, jugadorProtoss.getPresupuesto().cantidadDeMineral());
 	}
 
 	@Test
 	public void siElJugadorSuma20DeGasYGasta10Tiene10() {
 		jugadorProtoss.getPresupuesto().agregarGas(20);
-		jugadorProtoss.getPresupuesto().removerGas(10);
+		jugadorProtoss.getPresupuesto().gastar(new Costo(0,10));
 		Assert.assertEquals(10, jugadorProtoss.getPresupuesto().cantidadDeGas());
 	}
 
@@ -90,7 +90,7 @@ public class JugadorTest {
 	public void siElJugadorGastaMasGasDelQueTieneSeLanzaExcepcion() {
 		jugadorProtoss.getPresupuesto().agregarGas(20);
 		try {
-			jugadorProtoss.getPresupuesto().removerGas(30);
+			jugadorProtoss.getPresupuesto().gastar(new Costo(0,30));
 			Assert.assertTrue(false);
 		} catch (GasInsuficiente e) {
 			Assert.assertTrue(true);
@@ -102,7 +102,7 @@ public class JugadorTest {
 	public void siElJugadorGastaMasMineralDelQueTieneSeLanzaExcepcion() {
 		jugadorProtoss.getPresupuesto().agregarMineral(20);
 		try {
-			jugadorProtoss.getPresupuesto().removerMineral(300);
+			jugadorProtoss.getPresupuesto().gastar(new Costo(300));
 			Assert.assertTrue(false);
 		} catch (MineralInsuficiente e) {
 			Assert.assertTrue(true);

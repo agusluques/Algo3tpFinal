@@ -28,7 +28,7 @@ public class BarracaTest {
 
 	@Test
 	public void unaBarracaDebeCostar150Minerales() {
-		Assert.assertTrue(this.barraca.getCostoMineral() == 150);
+		Assert.assertTrue(this.barraca.getCosto().getMinerales() == 150);
 	}
 
 	@Test

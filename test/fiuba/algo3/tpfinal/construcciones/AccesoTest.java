@@ -33,12 +33,12 @@ public class AccesoTest {
 
 	@Test
 	public void unAccesoDebeCostar150Minerales() {
-		Assert.assertTrue(this.acceso.getCostoMineral() == 150);
+		Assert.assertTrue(this.acceso.getCosto().getMinerales() == 150);
 	}
 
 	@Test
 	public void unAccesoDebeCostar0Gases() {
-		Assert.assertTrue(this.acceso.getCostoGas() == 0);
+		Assert.assertTrue(this.acceso.getCosto().getGas() == 0);
 	}
 
 	@Test

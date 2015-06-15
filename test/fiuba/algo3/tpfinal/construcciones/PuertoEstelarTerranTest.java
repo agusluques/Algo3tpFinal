@@ -33,8 +33,8 @@ public class PuertoEstelarTerranTest {
 	public void debeCostar150MineralesY100DeGas()
 			throws ConstruccionRequeridaInexistente {
 		this.puertoEstelar = new PuertoEstelarTerran();
-		Assert.assertTrue(this.puertoEstelar.getCostoMineral() == 150);
-		Assert.assertTrue(this.puertoEstelar.getCostoGas() == 100);
+		Assert.assertTrue(this.puertoEstelar.getCosto().getMinerales() == 150);
+		Assert.assertTrue(this.puertoEstelar.getCosto().getGas() == 100);
 	}
 
 	@Test

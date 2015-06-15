@@ -61,15 +61,8 @@ public abstract class UnidadTerran extends Terran implements Fabricable,
 	}
 
 	@Override
-	public int getCostoMineral() {
-		int mineralNecesario = this.costo.getMinerales();
-		return mineralNecesario;
-	}
-
-	@Override
-	public int getCostoGas() {
-		int gasNecesario = this.costo.getGas();
-		return gasNecesario;
+	public Costo getCosto(){
+		return this.costo;
 	}
 
 	@Override

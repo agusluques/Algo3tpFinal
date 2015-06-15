@@ -50,8 +50,7 @@ public class PuertoEstelarTerran extends ConstruccionTerran {
 
 	private void fabricar(Fabricable unidad) {
 		try {
-			jugador.getPresupuesto().removerMineral(unidad.getCostoMineral());
-			jugador.getPresupuesto().removerGas(unidad.getCostoGas());
+			jugador.getPresupuesto().gastar(unidad.getCosto());
 			unidadEnConstruccion = unidad;
 		} catch (MineralInsuficiente e) {
 			throw e;

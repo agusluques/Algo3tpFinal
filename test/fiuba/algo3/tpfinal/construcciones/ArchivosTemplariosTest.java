@@ -33,14 +33,14 @@ public class ArchivosTemplariosTest {
 	public void unArchivoTemplarioDebeCostar150Minerales()
 			throws ConstruccionRequeridaInexistente {
 		this.archivo = new ArchivosTemplarios();
-		Assert.assertTrue(this.archivo.getCostoMineral() == 150);
+		Assert.assertTrue(this.archivo.getCosto().getMinerales() == 150);
 	}
 
 	@Test
 	public void unArchivoTemplarioDebeCostar200Gases()
 			throws ConstruccionRequeridaInexistente {
 		this.archivo = new ArchivosTemplarios();
-		Assert.assertTrue(this.archivo.getCostoGas() == 200);
+		Assert.assertTrue(this.archivo.getCosto().getGas() == 200);
 	}
 
 	@Test

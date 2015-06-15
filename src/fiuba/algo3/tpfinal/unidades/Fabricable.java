@@ -1,5 +1,7 @@
 package fiuba.algo3.tpfinal.unidades;
 
+import fiuba.algo3.tpfinal.programa.Costo;
+
 public interface Fabricable {
 
 	void avanzarFabricacion();
@@ -8,7 +10,5 @@ public interface Fabricable {
 
 	int getSuministro();
 
-	int getCostoMineral();
-
-	int getCostoGas();
+	Costo getCosto();
 }

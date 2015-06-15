@@ -35,8 +35,7 @@ public class Fabrica extends ConstruccionTerran {
 
 	public void fabricarGolliat() {
 		try {
-			jugador.getPresupuesto().removerMineral(100);
-			jugador.getPresupuesto().removerGas(50);
+			jugador.getPresupuesto().gastar(new Golliat().getCosto());
 			unidadEnConstruccion = new Golliat();
 		} catch (MineralInsuficiente e) {
 			throw e;

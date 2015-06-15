@@ -35,7 +35,7 @@ public class PuertoEstelarProtossTest {
 			throws ConstruccionRequeridaInexistente {
 
 		this.puertoEstelar = new PuertoEstelarProtoss();
-		Assert.assertTrue(this.puertoEstelar.getCostoMineral() == 150);
+		Assert.assertTrue(this.puertoEstelar.getCosto().getMinerales() == 150);
 	}
 
 	@Test
@@ -43,7 +43,7 @@ public class PuertoEstelarProtossTest {
 			throws ConstruccionRequeridaInexistente {
 
 		this.puertoEstelar = new PuertoEstelarProtoss();
-		Assert.assertTrue(this.puertoEstelar.getCostoGas() == 150);
+		Assert.assertTrue(this.puertoEstelar.getCosto().getGas() == 150);
 	}
 
 	@Test

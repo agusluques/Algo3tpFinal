@@ -15,13 +15,8 @@ public abstract class ConstruccionTerran extends Terran implements
 	protected Superficie superficieNecesaria;
 
 	@Override
-	public int getCostoMineral() {
-		return costo.getMinerales();
-	}
-
-	@Override
-	public int getCostoGas() {
-		return costo.getGas();
+	public Costo getCosto(){
+		return this.costo;
 	}
 
 	@Override

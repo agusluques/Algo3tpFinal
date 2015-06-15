@@ -33,7 +33,7 @@ public class CentroDeMineralTest {
 
 	@Test
 	public void siSeCreaUnCentroDeMineralesSeDeberiaTener50MineralesMinimo() {
-		Assert.assertTrue(this.centroMineral.getCostoMineral() == 50);
+		Assert.assertTrue(this.centroMineral.getCosto().getMinerales() == 50);
 	}
 
 	@Test

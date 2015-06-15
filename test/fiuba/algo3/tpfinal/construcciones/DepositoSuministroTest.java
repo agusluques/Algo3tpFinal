@@ -28,7 +28,7 @@ public class DepositoSuministroTest {
 
 	@Test
 	public void debeCostar100Minerales() {
-		Assert.assertTrue(this.depositoSuministro.getCostoMineral() == 100);
+		Assert.assertTrue(this.depositoSuministro.getCosto().getMinerales() == 100);
 	}
 
 	@Test

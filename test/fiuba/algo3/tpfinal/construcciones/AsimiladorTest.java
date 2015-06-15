@@ -33,12 +33,12 @@ public class AsimiladorTest {
 
 	@Test
 	public void unAsimiladorDebeCostar100Minerales() {
-		Assert.assertTrue(this.asimilador.getCostoMineral() == 100);
+		Assert.assertTrue(this.asimilador.getCosto().getMinerales() == 100);
 	}
 
 	@Test
 	public void unAsimiladorDebeCostar0Gases() {
-		Assert.assertTrue(this.asimilador.getCostoGas() == 0);
+		Assert.assertTrue(this.asimilador.getCosto().getGas() == 0);
 	}
 
 	@Test

@@ -33,7 +33,7 @@ public class RefineriaTest {
 
 	@Test
 	public void debeCostar100Minerales() {
-		Assert.assertTrue(this.refineria.getCostoMineral() == 100);
+		Assert.assertTrue(this.refineria.getCosto().getMinerales() == 100);
 	}
 
 	@Test

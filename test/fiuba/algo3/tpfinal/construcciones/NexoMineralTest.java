@@ -34,12 +34,12 @@ public class NexoMineralTest {
 
 	@Test
 	public void unNexoDebeCostar50Minerales() {
-		Assert.assertTrue(this.nexo.getCostoMineral() == 50);
+		Assert.assertTrue(this.nexo.getCosto().getMinerales() == 50);
 	}
 
 	@Test
 	public void unNexoDebeCostar0Gases() {
-		Assert.assertTrue(this.nexo.getCostoGas() == 0);
+		Assert.assertTrue(this.nexo.getCosto().getGas() == 0);
 	}
 
 	@Test

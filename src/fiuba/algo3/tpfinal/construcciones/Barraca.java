@@ -25,7 +25,7 @@ public class Barraca extends ConstruccionTerran {
 
 	public void fabricarMarine() {
 		try {
-			jugador.getPresupuesto().removerMineral(50);
+			jugador.getPresupuesto().gastar(new Marine().getCosto());
 			unidadEnConstruccion = new Marine();
 		} catch (MineralInsuficiente e) {
 			throw e;

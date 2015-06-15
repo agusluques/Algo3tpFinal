@@ -33,8 +33,8 @@ public class FabricaTest {
 	public void debeCostar200MineralesY100DeGas()
 			throws ConstruccionRequeridaInexistente {
 		this.fabrica = new Fabrica();
-		Assert.assertTrue(this.fabrica.getCostoMineral() == 200);
-		Assert.assertTrue(this.fabrica.getCostoGas() == 100);
+		Assert.assertTrue(this.fabrica.getCosto().getMinerales() == 200);
+		Assert.assertTrue(this.fabrica.getCosto().getGas() == 100);
 	}
 
 	@Test

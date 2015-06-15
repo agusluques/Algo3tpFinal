@@ -37,8 +37,7 @@ public class ArchivosTemplarios extends ConstruccionProtoss {
 
 	public void fabricarAltoTemplario() {
 		try {
-			jugador.getPresupuesto().removerMineral(50);
-			jugador.getPresupuesto().removerGas(150);
+			jugador.getPresupuesto().gastar(new AltoTemplario().getCosto());
 			unidadEnConstruccion = new AltoTemplario();
 		} catch (MineralInsuficiente e) {
 			throw e;

@@ -55,10 +55,7 @@ public class Arquitecto {
 	}
 	protected void cobrarConstruccion(Constructible construccion) {
 		try {
-			int costoConstruccionMineral = construccion.getCostoMineral();
-			int costoConstruccionGas = construccion.getCostoGas();
-			this.presupuesto.removerMineral(costoConstruccionMineral);
-			this.presupuesto.removerGas(costoConstruccionGas);
+			this.presupuesto.gastar(construccion.getCosto());
 		} catch (MineralInsuficiente e) {
 			throw e;
 		} catch (GasInsuficiente e) {
