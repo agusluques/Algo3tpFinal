@@ -5,6 +5,7 @@ public class Escudo {
 	private int escudo = 0;
 	private int escudoLimite;
 
+	//TODO: ¿Porqué hay un getEscudo ?
 	public int getEscudo() {
 		return this.escudo;
 	}
