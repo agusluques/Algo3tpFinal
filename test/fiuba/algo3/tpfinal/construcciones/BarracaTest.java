@@ -125,7 +125,6 @@ public class BarracaTest {
 	@Test
 	public void devuelveElRangoDeAtaqueCorrespondiente() {
 		Rango rango = new Rango(1, 2);
-
 		Assert.assertEquals(1, this.barraca.rangoDeAtaqueCorrespondiente(rango));
 	}
 }

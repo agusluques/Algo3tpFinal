@@ -29,34 +29,7 @@ public class Arquitecto {
 		this.construccionesEnConstruccion = new ArrayList<Constructible>();
 	}
 
-	
 
-//	protected void verificarConstruccionesNecesarias(Constructible construccion)
-//			throws ConstruccionRequeridaInexistente {
-//		Collection<Constructible> unidadesNecesarias = construccion
-//				.construccionesNecesarias();
-//		Iterator<Constructible> iterador = unidadesNecesarias.iterator();
-//		while (iterador.hasNext()) {
-//			if (!this.construcciones.contains(iterador.next())) {
-//				throw new ConstruccionRequeridaInexistente();
-//			}
-//		}
-
-//	}
-
-//	protected void verificarTerreno(Constructible construccion,
-//			Coordenada posicion) {
-//		if (this.mapa.getParcela(posicion).estaVacia()) {
-//			Superficie supRequerida = construccion.superficieNecesaria();
-//			Superficie supEnLaQueQuieroConstruir = this.mapa.getParcela(
-//					posicion).getSuperficie();
-//			if (!supRequerida.equals(supEnLaQueQuieroConstruir)) {
-//				throw new TerrenoInapropiado();
-//			}
-//		} else {
-//			throw new ParcelaOcupada();
-//		}
-//	}
 
 	public void construir(Constructible construccion, Coordenada posicion)
 			throws ConstruccionRequeridaInexistente {
@@ -68,12 +41,7 @@ public class Arquitecto {
 				this.mapa.getParcela(posicion).ocupar((Atacable) construccion);
 				((Atacable) construccion).setCoordenada(posicion);
 			}
-			//	this.verificarTerreno(construccion, posicion);
-			//	this.verificarConstruccionesNecesarias(construccion);
-			//	this.cobrarConstruccion(construccion);
-			//	this.construccionesEnConstruccion.add(construccion);
-			//	this.mapa.getParcela(posicion).ocupar((Atacable) construccion);
-			//	((Atacable) construccion).setCoordenada(posicion);
+			
 		} catch (MineralInsuficiente e) {
 			throw e;
 		} catch (GasInsuficiente e) {

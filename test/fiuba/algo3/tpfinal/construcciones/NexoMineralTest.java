@@ -93,7 +93,7 @@ public class NexoMineralTest {
 		JugadorProtoss jugador = new JugadorProtoss("Damian", mapa);
 		Zealot zealot = new Zealot();
 		zealot.setCoordenada(new Coordenada(2, 91));
-
+		nexo.setJugador(jugador);
 		zealot.atacar(nexo);
 		nexo.pasarTurno(jugador, mapa);
 

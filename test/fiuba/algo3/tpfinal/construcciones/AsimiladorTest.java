@@ -59,10 +59,9 @@ public class AsimiladorTest {
 		Mapa mapa = new Mapa("mapaTierra.txt");
 		JugadorProtoss jugador = new JugadorProtoss("Damian", mapa);
 		Zealot zealot = new Zealot();
-
+		asimilador.setJugador(jugador);
 		zealot.atacar(asimilador);
 		asimilador.pasarTurno(jugador, mapa);
-
 		Assert.assertEquals(450, asimilador.getEscudo());
 		Assert.assertEquals(10, jugador.getPresupuesto().cantidadDeGas());
 	}

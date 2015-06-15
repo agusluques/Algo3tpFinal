@@ -49,7 +49,7 @@ public class RefineriaTest {
 		JugadorTerran jugador = new JugadorTerran("Damian", mapa);
 		Zealot zealot = new Zealot();
 		zealot.setCoordenada(new Coordenada(1, 89));
-
+		refineria.setJugador(jugador);
 		zealot.atacar(refineria);
 		refineria.pasarTurno(jugador, mapa);
 

@@ -19,23 +19,23 @@ public class Asimilador extends ConstruccionProtoss implements RecolectorDeGas {
 	}
 
 	@Override
-	public void recolectarPara(Jugador jugador, Mapa mapa) {
+	public void recolectar(Mapa mapa) {
 		int gasRecolectado = recolectarGas(mapa);
-		Presupuesto presupuestoJugador = jugador.getPresupuesto();
+		Presupuesto presupuestoJugador = this.jugador.getPresupuesto();
 		presupuestoJugador.agregarGas(gasRecolectado);
 
 	}
 
 	@Override
 	public int recolectarGas(Mapa mapa) {
-		Parcela parcela = mapa.getParcela(posicion);
+		Parcela parcela = mapa.getParcela(this.posicion);
 		DepositoDeGas superficie = (DepositoDeGas) parcela.getSuperficie();
 		return superficie.extraerRecursos();
 	}
 
 
 	public void pasarTurno(Jugador jugador, Mapa mapa) {
-		this.recolectarPara(jugador, mapa);
+		this.recolectar(mapa);
 		super.pasarTurno(jugador, mapa);
 	}
 

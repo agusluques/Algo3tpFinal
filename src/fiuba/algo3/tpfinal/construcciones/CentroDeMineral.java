@@ -19,15 +19,15 @@ public class CentroDeMineral extends ConstruccionTerran implements
 	}
 
 	@Override
-	public void recolectarPara(Jugador jugador, Mapa mapa) {
+	public void recolectar(Mapa mapa) {
 		int mineralesRecolectados = recolectarMinerales(mapa);
-		Presupuesto presupuestoJugador = jugador.getPresupuesto();
+		Presupuesto presupuestoJugador = this.jugador.getPresupuesto();
 		presupuestoJugador.agregarMineral(mineralesRecolectados);
 	}
 
 	@Override
 	public int recolectarMinerales(Mapa mapa) {
-		Parcela parcela = mapa.getParcela(posicion);
+		Parcela parcela = mapa.getParcela(this.posicion);
 		DepositoDeMinerales superficie = (DepositoDeMinerales) parcela
 				.getSuperficie();
 		return superficie.extraerRecursos();
@@ -36,7 +36,7 @@ public class CentroDeMineral extends ConstruccionTerran implements
 
 
 	public void pasarTurno(Jugador jugador, Mapa mapa) {
-		this.recolectarPara(jugador, mapa);
+		this.recolectar(mapa);
 		super.pasarTurno(jugador, mapa);
 	}
 

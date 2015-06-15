@@ -18,7 +18,6 @@ import fiuba.algo3.tpfinal.construcciones.NexoMineral;
 import fiuba.algo3.tpfinal.construcciones.Pilon;
 import fiuba.algo3.tpfinal.construcciones.PuertoEstelarProtoss;
 import fiuba.algo3.tpfinal.construcciones.PuertoEstelarTerran;
-import fiuba.algo3.tpfinal.construcciones.Recolector;
 import fiuba.algo3.tpfinal.construcciones.Refineria;
 import fiuba.algo3.tpfinal.excepciones.ConstruccionRequeridaInexistente;
 import fiuba.algo3.tpfinal.excepciones.GasInsuficiente;
@@ -113,33 +112,37 @@ public class JugadorTest {
 
 	@Test
 	public void elJugadorRecolectaMineralesDeUnRecolectorYSuma10() {
-		Recolector recolector = new NexoMineral();
-		((NexoMineral) recolector).setCoordenada(new Coordenada(1, 100));
-		recolector.recolectarPara(jugadorProtoss, mapa);
+		NexoMineral recolector = new NexoMineral();
+		recolector.setCoordenada(new Coordenada(1,100));
+		recolector.setJugador(jugadorProtoss);
+		recolector.recolectar(mapa);
 		Assert.assertEquals(210, jugadorProtoss.getPresupuesto().cantidadDeMineral());
 	}
 
 	@Test
 	public void elJugadorRecolectaMineralesDeOtroRecolectorYSuma10() {
-		Recolector recolector = new CentroDeMineral();
-		((CentroDeMineral) recolector).setCoordenada(new Coordenada(1, 91));
-		recolector.recolectarPara(jugadorProtoss, mapa);
-		Assert.assertEquals(210, jugadorProtoss.getPresupuesto().cantidadDeMineral());
+		CentroDeMineral recolector = new CentroDeMineral();
+		recolector.setCoordenada(new Coordenada(1, 91));
+		recolector.setJugador(jugadorTerran);
+		recolector.recolectar(mapa);
+		Assert.assertEquals(210, jugadorTerran.getPresupuesto().cantidadDeMineral());
 	}
 
 	@Test
 	public void elJugadorRecolectaGasDeUnRecolectorYSuma10() {
-		Recolector recolector = new Refineria();
-		((Refineria) recolector).setCoordenada(new Coordenada(1, 90));
-		recolector.recolectarPara(jugadorProtoss, mapa);
-		Assert.assertEquals(10, jugadorProtoss.getPresupuesto().cantidadDeGas());
+		Refineria recolector = new Refineria();
+		recolector.setCoordenada(new Coordenada(1, 90));
+		recolector.setJugador(jugadorTerran);
+		recolector.recolectar(mapa);
+		Assert.assertEquals(10, jugadorTerran.getPresupuesto().cantidadDeGas());
 	}
 
 	@Test
 	public void elJugadorRecolectaGasDeOtroRecolectorYSuma10() {
-		Recolector recolector = new Asimilador();
-		((Asimilador)recolector).setCoordenada(new Coordenada(6, 26));
-		recolector.recolectarPara(jugadorProtoss, mapa);
+		Asimilador recolector = new Asimilador();
+		recolector.setCoordenada(new Coordenada(6, 26));
+		recolector.setJugador(jugadorProtoss);
+		recolector.recolectar(mapa);
 		Assert.assertEquals(10, jugadorProtoss.getPresupuesto().cantidadDeGas());
 	}
 

@@ -100,7 +100,7 @@ public class CentroDeMineralTest {
 		JugadorTerran jugador = new JugadorTerran("Damian", mapa);
 		Zealot zealot = new Zealot();
 		zealot.setCoordenada(new Coordenada(2, 91));
-
+		centroMineral.setJugador(jugador);
 		zealot.atacar(centroMineral);
 		centroMineral.pasarTurno(jugador, mapa);
 
