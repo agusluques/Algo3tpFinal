@@ -1,7 +1,6 @@
 package fiuba.algo3.tpfinal.unidades;
 
 import fiuba.algo3.tpfinal.programa.Aire;
-import fiuba.algo3.tpfinal.programa.Coordenada;
 import fiuba.algo3.tpfinal.programa.Costo;
 import fiuba.algo3.tpfinal.programa.Danio;
 
@@ -16,9 +15,6 @@ public class Scout extends UnidadProtoss {
 		this.costo = new Costo(300, 100);
 		this.transporte = 0;
 		this.rangoDeAtaque = new RangoDeAtaque(4, 4);
-
-		// se inicializa en (0,0) solo para los tests
-		this.posicion = new Coordenada(0, 0);
 
 	}
 

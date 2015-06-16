@@ -42,7 +42,9 @@ public class EspectroTest {
 	public void siUnGolliatAtacaAUnEspectroAlSegundoLeBajaLaVidaA110() {
 
 		Golliat unGolliat = new Golliat();
+		unGolliat.setCoordenada(new Coordenada(0,0));
 		Espectro unEspectro = new Espectro();
+		unEspectro.setCoordenada(new Coordenada(0,1));
 		unGolliat.atacar(unEspectro);
 		Assert.assertTrue(unEspectro.getVida() == 110);
 	}

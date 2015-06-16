@@ -7,7 +7,6 @@ import java.util.Iterator;
 import fiuba.algo3.tpfinal.excepciones.CapacidadInsuficiente;
 import fiuba.algo3.tpfinal.excepciones.NoHayPasajerosEnLaNave;
 import fiuba.algo3.tpfinal.programa.Aire;
-import fiuba.algo3.tpfinal.programa.Coordenada;
 import fiuba.algo3.tpfinal.programa.Costo;
 import fiuba.algo3.tpfinal.programa.Danio;
 import fiuba.algo3.tpfinal.programa.Mapa;
@@ -29,8 +28,6 @@ public class NaveTransporteTerran extends UnidadTerran {
 		this.pasajeros = new ArrayList<UnidadTerran>();
 		this.transporte = 9;
 
-		// se inicializa en (0,0) solo para los tests
-		this.posicion = new Coordenada(0, 0);
 	}
 
 	public void atacado(Danio danio) {

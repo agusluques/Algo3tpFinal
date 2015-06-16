@@ -41,7 +41,9 @@ public class ZealotTest {
 	public void siUnZealotAtacaAOtroAlSegundoLeBajaElEscudo() {
 
 		Zealot unZealot = new Zealot();
+		unZealot.setCoordenada(new Coordenada(0,0));
 		Zealot otroZealot = new Zealot();
+		otroZealot.setCoordenada(new Coordenada(0,1));
 		unZealot.atacar(otroZealot);
 		Assert.assertTrue(otroZealot.getEscudo() == 52);
 	}
@@ -49,7 +51,9 @@ public class ZealotTest {
 	@Test
 	public void siUnZealotAtacaAOtroFueraDelRangoNoLeSacaEscudo() {
 		Zealot unZealot = new Zealot();
+		unZealot.setCoordenada(new Coordenada(0,0));
 		Zealot otroZealot = new Zealot();
+		otroZealot.setCoordenada(new Coordenada(0,1));
 		unZealot.mover(2, 2);
 		otroZealot.mover(3, 3);
 

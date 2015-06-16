@@ -22,7 +22,7 @@ public abstract class Terran implements Atacable, AfectablePorEMP {
 	}
 
 	public void setCoordenada(Coordenada posicion) {
-		this.posicion = posicion;
+		this.posicion = new Coordenada(posicion.getFila(), posicion.getColumna());
 	}
 
 	public void setJugador(JugadorTerran jugador) {

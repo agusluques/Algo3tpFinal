@@ -102,6 +102,7 @@ public class PoblacionTest {
 		jugadorTerran.pasarTurno();
 
 		Marine enemigo = new Marine();
+		enemigo.setCoordenada(new Coordenada(0,0));
 		while (!marine.estaMuerto()) {
 			enemigo.atacar(marine);
 		}
@@ -123,6 +124,7 @@ public class PoblacionTest {
 		jugadorTerran.pasarTurno();
 
 		Marine enemigo = new Marine();
+		enemigo.setCoordenada(new Coordenada(0,0));
 		while (!deposito.estaMuerto()) {
 			enemigo.atacar(deposito);
 		}

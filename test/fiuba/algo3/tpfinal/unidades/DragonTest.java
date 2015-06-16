@@ -44,7 +44,9 @@ public class DragonTest {
 	public void siUnDragonAtacaAOtroAlSegundoLeBajaElEscudoA80YNoBajaVida() {
 
 		Dragon unDragon = new Dragon();
+		unDragon.setCoordenada(new Coordenada(0,0));
 		Dragon otroDragon = new Dragon();
+		otroDragon.setCoordenada(new Coordenada(0,1));
 		unDragon.atacar(otroDragon);
 		Assert.assertTrue(otroDragon.getVida() == 100);
 		Assert.assertTrue(otroDragon.getEscudo() == 60);

@@ -50,7 +50,9 @@ public class NaveCienciaTest {
 	public void siUnEspectroAtacaAUnaNaveCienciaAlSegundoLeBajaLaVidaA180() {
 
 		Espectro unEspectro = new Espectro();
+		unEspectro.setCoordenada(new Coordenada(0,0));
 		NaveCiencia unaNaveCiencia = new NaveCiencia();
+		unaNaveCiencia.setCoordenada(new Coordenada(0,1));
 		unEspectro.atacar(unaNaveCiencia);
 		Assert.assertTrue(unaNaveCiencia.getVida() == 180);
 	}
@@ -180,7 +182,7 @@ public class NaveCienciaTest {
 			throws Exception {
 
 		NaveCiencia nave = new NaveCiencia();
-
+		nave.setCoordenada(new Coordenada(0,0));
 		nave.lanzarEMP(new Coordenada(3, 3));
 
 	}

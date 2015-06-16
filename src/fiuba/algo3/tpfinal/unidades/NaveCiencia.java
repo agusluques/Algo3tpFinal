@@ -21,8 +21,6 @@ public class NaveCiencia extends UnidadTerran {
 		this.costo = new Costo(100, 225);
 		this.transporte = 0;
 
-		// se inicializa en (0,0) solo para los tests
-		this.posicion = new Coordenada(0, 0);
 	}
 
 	@Override

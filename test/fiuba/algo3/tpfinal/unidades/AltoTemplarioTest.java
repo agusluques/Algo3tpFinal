@@ -48,7 +48,9 @@ public class AltoTemplarioTest {
 	public void siUnDragonAtacaAUnAltoTemplarioAlSegundoLeBajaElEscudoA20YNoBajaVida() {
 
 		Dragon unDragon = new Dragon();
+		unDragon.setCoordenada(new Coordenada(0,0));
 		AltoTemplario altoTemplario = new AltoTemplario();
+		altoTemplario.setCoordenada(new Coordenada(0,1));
 		unDragon.atacar(altoTemplario);
 		Assert.assertTrue(altoTemplario.getVida() == 40);
 		Assert.assertTrue(altoTemplario.getEscudo() == 20);
@@ -182,6 +184,7 @@ public class AltoTemplarioTest {
 			throws Exception {
 
 		AltoTemplario templar = new AltoTemplario();
+		templar.setCoordenada(new Coordenada(0,0));
 		templar.lanzarTormentaPsionica(new Coordenada(3, 3));
 
 	}

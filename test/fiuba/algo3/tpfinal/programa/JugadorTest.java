@@ -514,6 +514,7 @@ public class JugadorTest {
 		jugadorTerran.pasarTurno();
 
 		Marine enemigo = new Marine();
+		enemigo.setCoordenada(new Coordenada(0,0));
 		while (!marine.estaMuerto()) {
 			enemigo.atacar(marine);
 		}
@@ -535,6 +536,7 @@ public class JugadorTest {
 		jugadorTerran.pasarTurno();
 
 		Marine enemigo = new Marine();
+		enemigo.setCoordenada(new Coordenada(0,0));
 		while (!deposito.estaMuerto()) {
 			enemigo.atacar(deposito);
 		}
@@ -559,6 +561,7 @@ public class JugadorTest {
 		Assert.assertEquals(15, jugadorTerran.limitePoblacional());
 
 		Marine enemigo = new Marine();
+		enemigo.setCoordenada(new Coordenada(0,0));
 		while (!deposito.estaMuerto()) {
 			enemigo.atacar(deposito);
 		}

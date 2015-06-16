@@ -1,6 +1,5 @@
 package fiuba.algo3.tpfinal.unidades;
 
-import fiuba.algo3.tpfinal.programa.Coordenada;
 import fiuba.algo3.tpfinal.programa.Costo;
 import fiuba.algo3.tpfinal.programa.Danio;
 
@@ -15,9 +14,6 @@ public class Zealot extends UnidadProtoss {
 		this.costo = new Costo(100);
 		this.transporte = 2;
 		this.rangoDeAtaque = new RangoDeAtaque(1, 0);
-
-		// se inicializa en (0,0) solo para los tests
-		this.posicion = new Coordenada(0, 0);
 
 	}
 

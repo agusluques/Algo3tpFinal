@@ -20,8 +20,7 @@ public class AltoTemplario extends UnidadProtoss {
 		this.costo = new Costo(50, 150);
 		this.transporte = 2;
 		this.rangoDeAtaque = new RangoDeAtaque(7, 7);
-		// se inicializa en (0,0) solo para los tests
-		this.posicion = new Coordenada(0, 0);
+
 
 	}
 
