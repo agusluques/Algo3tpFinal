@@ -9,6 +9,7 @@ import fiuba.algo3.tpfinal.excepciones.LimitePoblacionalAlcanzado;
 import fiuba.algo3.tpfinal.programa.Coordenada;
 import fiuba.algo3.tpfinal.programa.JugadorTerran;
 import fiuba.algo3.tpfinal.programa.Mapa;
+import fiuba.algo3.tpfinal.unidades.Golliat;
 import fiuba.algo3.tpfinal.unidades.RangoDeAtaque;
 
 public class FabricaTest {
@@ -137,4 +138,50 @@ public class FabricaTest {
 		Assert.assertEquals(1, this.fabrica.rangoDeAtaqueCorrespondiente(rango));
 	}
 
+	@Test
+	public void siPongoAFabricar3GolliatsAlMismoTiempoCada6TurnosApareceUno()
+			throws Throwable {
+		this.fabrica = new Fabrica();
+		Mapa mapa = new Mapa("mapaTierra.txt");
+		JugadorTerran jugador = new JugadorTerran("Damian", mapa);
+
+		jugador.getPresupuesto().agregarMineral(1000);
+		jugador.getPresupuesto().agregarGas(1000);
+		Barraca barraca = new Barraca();
+		//Construyo una barraca y un deposito de suministros
+		jugador.construir(new DepositoSuministro(), new Coordenada(6,6));
+		jugador.construir(barraca, new Coordenada(4, 4));
+		for (int i = 0; i < 12; i++) {
+			jugador.pasarTurno();
+		}
+		//Construyo una fabrica
+		jugador.construir(this.fabrica, new Coordenada(2, 2));
+		for (int i = 0; i < 13; i++) {
+			jugador.pasarTurno();
+		}
+		//Pone a fabricar 3 golliats
+		for (int x = 0; x < 3; x++) {
+			this.fabrica.fabricarGolliat();
+		}
+				
+		for (int y=1;y<=3;y++){
+			int cantidadDeGolliats = 0;
+					
+			//Pasa 6 turnos asi se termina el primer golliat
+			for (int x = 0; x < 6; x++) {
+				this.fabrica.pasarTurno(null, null);
+			}
+					
+			//Busco cuantos golliats tiene el jugador
+			for (Atacable unidad : jugador.getUnidades()){
+				if(unidad.getClass()==(new Golliat().getClass())){
+					cantidadDeGolliats++;
+				}
+			}
+			//Es siempre un marine mas que la cantidad que construyo porque el jugador terran empieza
+			//con un marine como unidad basica
+			Assert.assertTrue(cantidadDeGolliats == y);
+		}
+				
+	}
 }

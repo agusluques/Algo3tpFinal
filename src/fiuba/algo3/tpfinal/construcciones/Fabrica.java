@@ -2,6 +2,7 @@ package fiuba.algo3.tpfinal.construcciones;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Iterator;
 
 import fiuba.algo3.tpfinal.excepciones.GasInsuficiente;
 import fiuba.algo3.tpfinal.excepciones.LimitePoblacionalAlcanzado;
@@ -18,7 +19,7 @@ import fiuba.algo3.tpfinal.unidades.UnidadTerran;
 
 public class Fabrica extends ConstruccionTerran {
 
-	private Fabricable unidadEnConstruccion;
+	private ArrayList<Fabricable> unidadesEnConstruccion;
 	private ArrayList<Constructible> construccionesNecesarias;
 	public Fabrica() {
 		this.vida.inicializarVida(1250);
@@ -26,6 +27,7 @@ public class Fabrica extends ConstruccionTerran {
 		this.costo = new Costo(200, 100);
 		this.superficieNecesaria = new Tierra();
 		this.setConstruccionesNecesarias();
+		this.unidadesEnConstruccion = new ArrayList<Fabricable>();
 	}
 
 	private void setConstruccionesNecesarias() {
@@ -34,30 +36,37 @@ public class Fabrica extends ConstruccionTerran {
 	}
 
 	public void fabricarGolliat() {
-		try {
-			jugador.getPresupuesto().gastar(new Golliat().getCosto());
-			unidadEnConstruccion = new Golliat();
-		} catch (MineralInsuficiente e) {
-			throw e;
-		} catch (GasInsuficiente e) {
-			throw e;
+		if (unidadesEnConstruccion.size()<6){
+			try {
+				jugador.getPresupuesto().gastar(new Golliat().getCosto());
+				unidadesEnConstruccion.add(new Golliat());
+			} catch (MineralInsuficiente e) {
+				throw e;
+			} catch (GasInsuficiente e) {
+				throw e;
+			}
 		}
 	}
 
 	public void pasarTurno(Jugador jugador, Mapa mapa) {
-		if (unidadEnConstruccion != null) {
+		if (unidadesEnConstruccion.size()>0) {
+			Iterator<Fabricable> iterador = unidadesEnConstruccion.iterator();
+			Fabricable unidadEnConstruccion = iterador.next();
 			unidadEnConstruccion.avanzarFabricacion();
-			if (this.unidadEnConstruccion.getTiempoRestante() == 0) {
+			if (unidadEnConstruccion.getTiempoRestante() == 0) {
 				try {
 					this.jugador.agregarUnidad((UnidadTerran)unidadEnConstruccion,
 							this.posicion);
-					this.unidadEnConstruccion = null;
+					iterador.remove();
 				} catch (LimitePoblacionalAlcanzado e) {
 					throw e;
 				}
 			}
 		}
 	}
+	
+	
+	
 
 	public int rangoDeAtaqueCorrespondiente(RangoDeAtaque rango) {
 		return rango.getRangoTierra();

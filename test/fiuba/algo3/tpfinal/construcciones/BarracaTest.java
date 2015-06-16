@@ -168,4 +168,43 @@ public class BarracaTest {
 		
 		
 	}
+	
+	@Test
+	public void siPongoAFabricarMasDe6MarinesAlMismoTiempoSoloFabrica6()
+			throws Throwable {
+		
+		Mapa mapa = new Mapa("mapaTierra.txt");
+		JugadorTerran jugador = new JugadorTerran("Damian", mapa);
+
+		jugador.getPresupuesto().agregarMineral(1000);
+		jugador.getPresupuesto().agregarGas(1000);
+		jugador.construir(new DepositoSuministro(), new Coordenada(2,2));
+		jugador.construir(this.barraca, new Coordenada(4, 4));
+		//Termina la construccion de la barraca
+		for (int i = 0; i < 12; i++) {
+			jugador.pasarTurno();
+		}
+		//Pone a fabricar 10 marines
+		for (int x = 0; x < 10; x++) {
+			this.barraca.fabricarMarine();
+		}
+		
+		//Avanzo la fabricacion en la barraca 30 turnos (3 turnos por cada marine que puse a fabricar
+		for (int y=1 ; y<=30 ; y++){
+			this.barraca.pasarTurno(null, null);
+		}
+		int cantidadDeMarines = 0;
+		//Busco cuantos Marines tiene el jugador
+		for (Atacable unidad : jugador.getUnidades()){
+			if(unidad.getClass()==(new Marine().getClass())){
+				cantidadDeMarines++;
+			}
+		}
+		//Es siempre un marine mas que la cantidad que construyo porque el jugador terran empieza
+		//con un marine como unidad basica
+		Assert.assertTrue(cantidadDeMarines == 7);
+		
+		
+		
+	}
 }
