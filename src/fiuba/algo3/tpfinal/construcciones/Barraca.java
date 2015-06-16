@@ -26,6 +26,7 @@ public class Barraca extends ConstruccionTerran {
 	public void fabricarMarine() {
 		try {
 			jugador.getPresupuesto().gastar(new Marine().getCosto());
+			//TODO : ¿Cómo van a hacer para encolar la construcción de 3 Marines ?
 			unidadEnConstruccion = new Marine();
 		} catch (MineralInsuficiente e) {
 			throw e;
