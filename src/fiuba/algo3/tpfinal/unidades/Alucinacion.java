@@ -4,6 +4,7 @@ import fiuba.algo3.tpfinal.programa.Danio;
 
 public class Alucinacion extends UnidadProtoss {
 
+	//TODO ¿Para qué tienen una unidadCopiada, sino la usan y obtienen todo de unidad pasada por parámetro en el constructor?
 	@SuppressWarnings("unused")
 	private UnidadProtoss unidadCopiada;
 
@@ -22,6 +23,8 @@ public class Alucinacion extends UnidadProtoss {
 
 	@Override
 	public boolean estaMuerto() {
+		//NO HAY ENCAPSULAMIENTO !!!
+		//TODO es escudo el que él sabe si él está muerto, no ? Pasar responsabilidad a escudo.
 		return this.escudo.getEscudo() == 0;
 	}
 
