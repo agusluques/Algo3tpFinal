@@ -8,7 +8,7 @@ import org.junit.Test;
 import fiuba.algo3.tpfinal.programa.Coordenada;
 import fiuba.algo3.tpfinal.programa.JugadorTerran;
 import fiuba.algo3.tpfinal.programa.Mapa;
-import fiuba.algo3.tpfinal.unidades.Rango;
+import fiuba.algo3.tpfinal.unidades.RangoDeAtaque;
 import fiuba.algo3.tpfinal.unidades.Zealot;
 
 public class RefineriaTest {
@@ -59,7 +59,7 @@ public class RefineriaTest {
 
 	@Test
 	public void devuelveElRangoDeAtaqueCorrespondiente() {
-		Rango rango = new Rango(1, 2);
+		RangoDeAtaque rango = new RangoDeAtaque(1, 2);
 
 		Assert.assertEquals(1,
 				this.refineria.rangoDeAtaqueCorrespondiente(rango));

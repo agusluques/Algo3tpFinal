@@ -8,7 +8,7 @@ import org.junit.Test;
 import fiuba.algo3.tpfinal.programa.Coordenada;
 import fiuba.algo3.tpfinal.programa.JugadorProtoss;
 import fiuba.algo3.tpfinal.programa.Mapa;
-import fiuba.algo3.tpfinal.unidades.Rango;
+import fiuba.algo3.tpfinal.unidades.RangoDeAtaque;
 import fiuba.algo3.tpfinal.unidades.Zealot;
 
 public class AsimiladorTest {
@@ -68,7 +68,7 @@ public class AsimiladorTest {
 
 	@Test
 	public void devuelveElRangoDeAtaqueCorrespondiente() {
-		Rango rango = new Rango(1, 2);
+		RangoDeAtaque rango = new RangoDeAtaque(1, 2);
 
 		Assert.assertEquals(1,
 				this.asimilador.rangoDeAtaqueCorrespondiente(rango));

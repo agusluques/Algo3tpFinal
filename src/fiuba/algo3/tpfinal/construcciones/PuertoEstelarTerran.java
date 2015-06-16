@@ -15,7 +15,7 @@ import fiuba.algo3.tpfinal.unidades.Espectro;
 import fiuba.algo3.tpfinal.unidades.Fabricable;
 import fiuba.algo3.tpfinal.unidades.NaveCiencia;
 import fiuba.algo3.tpfinal.unidades.NaveTransporteTerran;
-import fiuba.algo3.tpfinal.unidades.Rango;
+import fiuba.algo3.tpfinal.unidades.RangoDeAtaque;
 import fiuba.algo3.tpfinal.unidades.UnidadTerran;
 
 public class PuertoEstelarTerran extends ConstruccionTerran {
@@ -74,7 +74,7 @@ public class PuertoEstelarTerran extends ConstruccionTerran {
 		}
 	}
 
-	public int rangoDeAtaqueCorrespondiente(Rango rango) {
+	public int rangoDeAtaqueCorrespondiente(RangoDeAtaque rango) {
 		return rango.getRangoTierra();
 	}
 

@@ -134,7 +134,7 @@ public class ScoutTest {
 	@Test
 	public void devuelveElRangoDeAtaqueCorrespondiente() {
 		Scout unidad = new Scout();
-		Rango rango = new Rango(1, 2);
+		RangoDeAtaque rango = new RangoDeAtaque(1, 2);
 
 		Assert.assertEquals(2, unidad.rangoDeAtaqueCorrespondiente(rango));
 	}

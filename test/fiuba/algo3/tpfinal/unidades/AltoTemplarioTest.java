@@ -172,7 +172,7 @@ public class AltoTemplarioTest {
 	@Test
 	public void devuelveElRangoDeAtaqueCorrespondiente() {
 		AltoTemplario unidad = new AltoTemplario();
-		Rango rango = new Rango(1, 2);
+		RangoDeAtaque rango = new RangoDeAtaque(1, 2);
 
 		Assert.assertEquals(1, unidad.rangoDeAtaqueCorrespondiente(rango));
 	}

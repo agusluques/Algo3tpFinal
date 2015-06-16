@@ -191,7 +191,7 @@ public class NaveTransporteTerranTest {
 	@Test
 	public void devuelveElRangoDeAtaqueCorrespondiente() {
 		NaveTransporteTerran unidad = new NaveTransporteTerran();
-		Rango rango = new Rango(1, 2);
+		RangoDeAtaque rango = new RangoDeAtaque(1, 2);
 
 		Assert.assertEquals(2, unidad.rangoDeAtaqueCorrespondiente(rango));
 	}

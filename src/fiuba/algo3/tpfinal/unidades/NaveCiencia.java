@@ -15,7 +15,7 @@ public class NaveCiencia extends UnidadTerran {
 	public NaveCiencia() {
 		this.vida.inicializarVida(200);
 		this.miDanio = new Danio(0, 0);
-		this.rango = new Rango(10, 10);
+		this.rangoDeAtaque = new RangoDeAtaque(10, 10);
 		this.tiempoDeConstruccion = 10;
 		this.suministro = 2;
 		this.costo = new Costo(100, 225);
@@ -35,7 +35,7 @@ public class NaveCiencia extends UnidadTerran {
 		return true;
 	}
 
-	public int rangoDeAtaqueCorrespondiente(Rango rango) {
+	public int rangoDeAtaqueCorrespondiente(RangoDeAtaque rango) {
 		return rango.getRangoAire();
 	}
 

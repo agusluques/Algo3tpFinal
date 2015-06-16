@@ -10,7 +10,7 @@ import fiuba.algo3.tpfinal.programa.Coordenada;
 import fiuba.algo3.tpfinal.programa.JugadorTerran;
 import fiuba.algo3.tpfinal.programa.Mapa;
 import fiuba.algo3.tpfinal.unidades.Marine;
-import fiuba.algo3.tpfinal.unidades.Rango;
+import fiuba.algo3.tpfinal.unidades.RangoDeAtaque;
 
 public class BarracaTest {
 
@@ -124,7 +124,7 @@ public class BarracaTest {
 
 	@Test
 	public void devuelveElRangoDeAtaqueCorrespondiente() {
-		Rango rango = new Rango(1, 2);
+		RangoDeAtaque rango = new RangoDeAtaque(1, 2);
 		Assert.assertEquals(1, this.barraca.rangoDeAtaqueCorrespondiente(rango));
 	}
 }

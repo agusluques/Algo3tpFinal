@@ -21,7 +21,7 @@ public class NaveTransporteTerran extends UnidadTerran {
 	public NaveTransporteTerran() {
 		this.vida.inicializarVida(150);
 		this.miDanio = new Danio(0, 0);
-		this.rango = new Rango(0, 0);
+		this.rangoDeAtaque = new RangoDeAtaque(0, 0);
 		this.tiempoDeConstruccion = 7;
 		this.suministro = 2;
 		this.costo = new Costo(100, 100);
@@ -77,7 +77,7 @@ public class NaveTransporteTerran extends UnidadTerran {
 		return pasajeros.size();
 	}
 
-	public int rangoDeAtaqueCorrespondiente(Rango rango) {
+	public int rangoDeAtaqueCorrespondiente(RangoDeAtaque rango) {
 		return rango.getRangoAire();
 	}
 }

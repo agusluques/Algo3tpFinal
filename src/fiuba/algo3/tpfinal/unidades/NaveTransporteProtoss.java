@@ -29,7 +29,7 @@ public class NaveTransporteProtoss extends UnidadProtoss {
 		this.transporte = 9; // Decidi que sea 9 para que una nave no pueda
 								// estar en otra
 		this.capacidad = 8;
-		this.rango = new Rango(0, 0);
+		this.rangoDeAtaque = new RangoDeAtaque(0, 0);
 
 		// se inicializa en (0,0) solo para los tests
 		this.posicion = new Coordenada(0, 0);
@@ -78,7 +78,7 @@ public class NaveTransporteProtoss extends UnidadProtoss {
 		return true;
 	}
 
-	public int rangoDeAtaqueCorrespondiente(Rango rango) {
+	public int rangoDeAtaqueCorrespondiente(RangoDeAtaque rango) {
 		return rango.getRangoAire();
 	}
 

@@ -19,7 +19,7 @@ public class EscudoTest {
 
 		escudo.bajarEscudo(100, vida);
 
-		Assert.assertEquals(400, escudo.getEscudo());
+		Assert.assertFalse(escudo.noHayEscudo());
 	}
 
 	@Test
@@ -43,7 +43,7 @@ public class EscudoTest {
 
 		escudo.bajarEscudo(600, vida);
 
-		Assert.assertEquals(0, escudo.getEscudo());
+		Assert.assertTrue(escudo.noHayEscudo());
 	}
 
 	@Test
@@ -71,7 +71,7 @@ public class EscudoTest {
 		escudo.bajarEscudo(600, vida);
 		escudo.pasarTurno(jugador, mapa);
 
-		Assert.assertEquals(8, escudo.getEscudo());
+		Assert.assertFalse(escudo.noHayEscudo());
 	}
 
 	@Test
@@ -106,7 +106,7 @@ public class EscudoTest {
 		escudo.pasarTurno(jugador, mapa);
 		escudo.pasarTurno(jugador, mapa);
 
-		Assert.assertEquals(500, escudo.getEscudo());
+		Assert.assertFalse(escudo.noHayEscudo());
 	}
 
 }

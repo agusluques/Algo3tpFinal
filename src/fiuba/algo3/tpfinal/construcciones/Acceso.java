@@ -9,7 +9,7 @@ import fiuba.algo3.tpfinal.programa.Mapa;
 import fiuba.algo3.tpfinal.programa.Tierra;
 import fiuba.algo3.tpfinal.unidades.Dragon;
 import fiuba.algo3.tpfinal.unidades.Fabricable;
-import fiuba.algo3.tpfinal.unidades.Rango;
+import fiuba.algo3.tpfinal.unidades.RangoDeAtaque;
 import fiuba.algo3.tpfinal.unidades.UnidadProtoss;
 import fiuba.algo3.tpfinal.unidades.Zealot;
 
@@ -61,7 +61,7 @@ public class Acceso extends ConstruccionProtoss {
 		}
 	}
 
-	public int rangoDeAtaqueCorrespondiente(Rango rango) {
+	public int rangoDeAtaqueCorrespondiente(RangoDeAtaque rango) {
 		return rango.getRangoTierra();
 	}
 

@@ -14,14 +14,14 @@ public class Zealot extends UnidadProtoss {
 		this.suministro = 2;
 		this.costo = new Costo(100);
 		this.transporte = 2;
-		this.rango = new Rango(1, 0);
+		this.rangoDeAtaque = new RangoDeAtaque(1, 0);
 
 		// se inicializa en (0,0) solo para los tests
 		this.posicion = new Coordenada(0, 0);
 
 	}
 
-	public int rangoDeAtaqueCorrespondiente(Rango rango) {
+	public int rangoDeAtaqueCorrespondiente(RangoDeAtaque rango) {
 		return rango.getRangoTierra();
 	}
 

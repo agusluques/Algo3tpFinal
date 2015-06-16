@@ -34,4 +34,8 @@ public class Escudo {
 	public void destruirEscudo() {
 		this.escudo = 0;
 	}
+
+	public boolean noHayEscudo() {
+		return this.escudo == 0;
+	}
 }

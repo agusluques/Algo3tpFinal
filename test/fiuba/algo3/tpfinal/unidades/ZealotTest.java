@@ -130,7 +130,7 @@ public class ZealotTest {
 	@Test
 	public void devuelveElRangoDeAtaqueCorrespondiente() {
 		Zealot unidad = new Zealot();
-		Rango rango = new Rango(1, 2);
+		RangoDeAtaque rango = new RangoDeAtaque(1, 2);
 
 		Assert.assertEquals(1, unidad.rangoDeAtaqueCorrespondiente(rango));
 	}

@@ -22,7 +22,7 @@ public abstract class UnidadProtoss extends Protoss implements Fabricable,
 	protected Costo costo;
 	protected int tiempoDeConstruccion;
 	protected int transporte; // El espacio que ocupa en la nave
-	protected Rango rango;
+	protected RangoDeAtaque rangoDeAtaque;
 
 	public int getTiempoRestante() {
 		return this.tiempoDeConstruccion;
@@ -62,7 +62,7 @@ public abstract class UnidadProtoss extends Protoss implements Fabricable,
 	}
 
 	private int rangoDeAtaque(Atacable enemigo) {
-		return enemigo.rangoDeAtaqueCorrespondiente(this.rango);
+		return enemigo.rangoDeAtaqueCorrespondiente(this.rangoDeAtaque);
 	}
 
 	public void mover(int fila, int columna) {
@@ -106,7 +106,7 @@ public abstract class UnidadProtoss extends Protoss implements Fabricable,
 		return false;
 	}
 
-	public Rango getRangoCompleto() {
-		return this.rango;
+	public RangoDeAtaque getRangoCompleto() {
+		return this.rangoDeAtaque;
 	}
 }

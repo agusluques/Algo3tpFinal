@@ -6,7 +6,7 @@ import fiuba.algo3.tpfinal.programa.Jugador;
 import fiuba.algo3.tpfinal.programa.Mapa;
 import fiuba.algo3.tpfinal.programa.Parcela;
 import fiuba.algo3.tpfinal.programa.Presupuesto;
-import fiuba.algo3.tpfinal.unidades.Rango;
+import fiuba.algo3.tpfinal.unidades.RangoDeAtaque;
 
 public class Refineria extends ConstruccionTerran implements RecolectorDeGas {
 
@@ -38,7 +38,7 @@ public class Refineria extends ConstruccionTerran implements RecolectorDeGas {
 		super.pasarTurno(jugador, mapa);
 	}
 
-	public int rangoDeAtaqueCorrespondiente(Rango rango) {
+	public int rangoDeAtaqueCorrespondiente(RangoDeAtaque rango) {
 		return rango.getRangoTierra();
 	}
 

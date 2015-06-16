@@ -5,7 +5,7 @@ import junit.framework.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import fiuba.algo3.tpfinal.unidades.Rango;
+import fiuba.algo3.tpfinal.unidades.RangoDeAtaque;
 
 public class PilonTest {
 
@@ -49,7 +49,7 @@ public class PilonTest {
 
 	@Test
 	public void devuelveElRangoDeAtaqueCorrespondiente() {
-		Rango rango = new Rango(1, 2);
+		RangoDeAtaque rango = new RangoDeAtaque(1, 2);
 
 		Assert.assertEquals(1, this.pilon.rangoDeAtaqueCorrespondiente(rango));
 	}

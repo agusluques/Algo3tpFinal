@@ -15,7 +15,7 @@ public class Scout extends UnidadProtoss {
 		this.suministro = 3;
 		this.costo = new Costo(300, 100);
 		this.transporte = 0;
-		this.rango = new Rango(4, 4);
+		this.rangoDeAtaque = new RangoDeAtaque(4, 4);
 
 		// se inicializa en (0,0) solo para los tests
 		this.posicion = new Coordenada(0, 0);
@@ -31,7 +31,7 @@ public class Scout extends UnidadProtoss {
 		return true;
 	}
 
-	public int rangoDeAtaqueCorrespondiente(Rango rango) {
+	public int rangoDeAtaqueCorrespondiente(RangoDeAtaque rango) {
 		return rango.getRangoAire();
 	}
 }

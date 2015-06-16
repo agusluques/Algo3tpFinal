@@ -20,7 +20,7 @@ public abstract class UnidadTerran extends Terran implements Fabricable,
 	protected Danio miDanio;
 	protected int tiempoDeConstruccion;
 	protected int suministro;
-	protected Rango rango;
+	protected RangoDeAtaque rangoDeAtaque;
 	protected Costo costo;
 	protected int transporte;
 
@@ -57,7 +57,7 @@ public abstract class UnidadTerran extends Terran implements Fabricable,
 	}
 
 	private int rangoDeAtaque(Atacable enemigo) {
-		return enemigo.rangoDeAtaqueCorrespondiente(this.rango);
+		return enemigo.rangoDeAtaqueCorrespondiente(this.rangoDeAtaque);
 	}
 
 	@Override

@@ -9,7 +9,7 @@ public class Marine extends UnidadTerran {
 	public Marine() {
 		this.vida.inicializarVida(40);
 		this.miDanio = new Danio(6, 6);
-		this.rango = new Rango(4, 4);
+		this.rangoDeAtaque = new RangoDeAtaque(4, 4);
 		this.tiempoDeConstruccion = 3;
 		this.suministro = 1;
 		this.costo = new Costo(50);
@@ -20,7 +20,7 @@ public class Marine extends UnidadTerran {
 
 	}
 
-	public int rangoDeAtaqueCorrespondiente(Rango rango) {
+	public int rangoDeAtaqueCorrespondiente(RangoDeAtaque rango) {
 		return rango.getRangoTierra();
 	}
 }

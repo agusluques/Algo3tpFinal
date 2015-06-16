@@ -150,7 +150,7 @@ public class NaveCienciaTest {
 	@Test
 	public void devuelveElRangoDeAtaqueCorrespondiente() {
 		NaveCiencia unidad = new NaveCiencia();
-		Rango rango = new Rango(1, 2);
+		RangoDeAtaque rango = new RangoDeAtaque(1, 2);
 
 		Assert.assertEquals(2, unidad.rangoDeAtaqueCorrespondiente(rango));
 	}

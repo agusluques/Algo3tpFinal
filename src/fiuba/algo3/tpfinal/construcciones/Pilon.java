@@ -2,7 +2,7 @@ package fiuba.algo3.tpfinal.construcciones;
 
 import fiuba.algo3.tpfinal.programa.Costo;
 import fiuba.algo3.tpfinal.programa.Tierra;
-import fiuba.algo3.tpfinal.unidades.Rango;
+import fiuba.algo3.tpfinal.unidades.RangoDeAtaque;
 
 public class Pilon extends ConstruccionProtoss {
 
@@ -17,7 +17,7 @@ public class Pilon extends ConstruccionProtoss {
 
 
 
-	public int rangoDeAtaqueCorrespondiente(Rango rango) {
+	public int rangoDeAtaqueCorrespondiente(RangoDeAtaque rango) {
 		return rango.getRangoTierra();
 	}
 

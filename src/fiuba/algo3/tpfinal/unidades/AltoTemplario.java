@@ -19,7 +19,7 @@ public class AltoTemplario extends UnidadProtoss {
 		this.suministro = 2;
 		this.costo = new Costo(50, 150);
 		this.transporte = 2;
-		this.rango = new Rango(7, 7);
+		this.rangoDeAtaque = new RangoDeAtaque(7, 7);
 		// se inicializa en (0,0) solo para los tests
 		this.posicion = new Coordenada(0, 0);
 
@@ -53,7 +53,7 @@ public class AltoTemplario extends UnidadProtoss {
 		super.pasarTurno(jugador, mapa);
 	}
 
-	public int rangoDeAtaqueCorrespondiente(Rango rango) {
+	public int rangoDeAtaqueCorrespondiente(RangoDeAtaque rango) {
 		return rango.getRangoTierra();
 	}
 

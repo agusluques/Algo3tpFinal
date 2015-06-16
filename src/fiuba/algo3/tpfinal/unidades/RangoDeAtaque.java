@@ -1,11 +1,11 @@
 package fiuba.algo3.tpfinal.unidades;
 
-public class Rango {
+public class RangoDeAtaque {
 
 	private int rangoTierra;
 	private int rangoAire;
 
-	public Rango(int tierra, int aire) {
+	public RangoDeAtaque(int tierra, int aire) {
 		this.rangoTierra = tierra;
 		this.rangoAire = aire;
 	}

@@ -9,7 +9,7 @@ import fiuba.algo3.tpfinal.programa.Coordenada;
 import fiuba.algo3.tpfinal.programa.JugadorProtoss;
 import fiuba.algo3.tpfinal.programa.Mapa;
 import fiuba.algo3.tpfinal.unidades.AltoTemplario;
-import fiuba.algo3.tpfinal.unidades.Rango;
+import fiuba.algo3.tpfinal.unidades.RangoDeAtaque;
 
 public class ArchivosTemplariosTest {
 
@@ -100,7 +100,7 @@ public class ArchivosTemplariosTest {
 	@Test
 	public void devuelveElRangoDeAtaqueCorrespondiente() {
 		this.archivo = new ArchivosTemplarios();
-		Rango rango = new Rango(1, 2);
+		RangoDeAtaque rango = new RangoDeAtaque(1, 2);
 
 		Assert.assertEquals(1, this.archivo.rangoDeAtaqueCorrespondiente(rango));
 	}
