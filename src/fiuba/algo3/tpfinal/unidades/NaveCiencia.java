@@ -66,6 +66,9 @@ public class NaveCiencia extends UnidadTerran {
 	}
 
 	public void lanzarEMP(Coordenada posicion) throws EnergiaInsuficiente {
+		
+		//TODO ! POR DIOS ! Otra vez !? ¿Cómo instancian una nave de ciencia adentro de una nave de cienca ?
+		//Es grave esto...
 		NaveCiencia nuevaNave = new NaveCiencia();
 		nuevaNave.setCoordenada(posicion);
 		if (this.estaEnRangoDeAtaque(nuevaNave)) {
