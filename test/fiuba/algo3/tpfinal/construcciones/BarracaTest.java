@@ -207,4 +207,55 @@ public class BarracaTest {
 		
 		
 	}
+
+	@Test
+	public void siPongoAFabricarUnMarineCuandoEstoyAlLimiteDePoblacionElMismoSeTerminaDeFabricarCuandoCOnstruyoUnaCasa()
+			throws Throwable {
+		
+		Mapa mapa = new Mapa("mapaTierra.txt");
+		JugadorTerran jugador = new JugadorTerran("Damian", mapa);
+
+		jugador.getPresupuesto().agregarMineral(1000);
+		jugador.getPresupuesto().agregarGas(1000);
+		jugador.construir(this.barraca, new Coordenada(4, 4));
+		//Termina la construccion de la barraca
+		for (int i = 0; i < 12; i++) {
+			jugador.pasarTurno();
+		}
+		//Le agrego 4 marines al jugador para completar su poblacion
+		for (int x = 0; x < 4; x++) {
+			jugador.agregarUnidad(new Marine(), new Coordenada(4,4));
+		}
+		
+		//Pongo a fabricar un marine y dejo pasar turnos
+		this.barraca.fabricarMarine();
+		for (int x = 0; x < 6; x++) {
+				jugador.pasarTurno();
+			
+		}
+				
+		int cantidadDeMarines = 0;
+		//Chequeo que siga teniendo 5 marines
+		for (Atacable unidad : jugador.getUnidades()){
+			if(unidad.getClass()==(new Marine().getClass())){
+				cantidadDeMarines++;
+			}
+		}
+		Assert.assertTrue(cantidadDeMarines == 5);
+	
+		//Construyo un deposito de suministros
+		jugador.construir(new DepositoSuministro(), new Coordenada(7,7));
+		for (int i = 0; i < 7; i++) {
+				jugador.pasarTurno();
+		}
+	
+		cantidadDeMarines = 0;
+		//Compruebo que el ultimo marine se termino de fabricar
+		for (Atacable unidad : jugador.getUnidades()){
+			if(unidad.getClass()==(new Marine().getClass())){
+				cantidadDeMarines++;
+			}
+		}
+		Assert.assertTrue(cantidadDeMarines == 6);
+	}
 }

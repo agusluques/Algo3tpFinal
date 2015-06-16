@@ -19,6 +19,7 @@ public abstract class Jugador {
 	protected Mapa mapa;
 	protected ArrayList<Magia> magias;
 	protected int limitePoblacionalInicial;
+	protected int limitePoblacionalMaximo;
 
 	public Jugador(String nombre, Mapa mapa) {
 		this.nombre = nombre;
@@ -28,6 +29,7 @@ public abstract class Jugador {
 		this.unidades = new ArrayList<Atacable>();
 		this.magias = new ArrayList<Magia>();
 		this.limitePoblacionalInicial = 5;
+		this.limitePoblacionalMaximo = 200;
 		this.arquitecto = new Arquitecto(presupuesto, construcciones, mapa,	this);
 	}
 
@@ -54,7 +56,7 @@ public abstract class Jugador {
 
 	public int limitePoblacional() {
 		if(limitePoblacionalInicial + this.contarCasas()>=200){
-			return 200;
+			return limitePoblacionalMaximo;
 		}else{
 			return limitePoblacionalInicial + this.contarCasas();
 
@@ -86,7 +88,10 @@ public abstract class Jugador {
 			unidad.pasarTurno(this, mapa);
 		}
 		for (Constructible construccion : construcciones) {
-			((Atacable) construccion).pasarTurno(this, mapa);
+			try{
+				((Atacable) construccion).pasarTurno(this, mapa);
+			}catch (Exception e){}
+			
 		}
 		for (Magia magiaActual : magias) {
 			magiaActual.pasarTurno();
