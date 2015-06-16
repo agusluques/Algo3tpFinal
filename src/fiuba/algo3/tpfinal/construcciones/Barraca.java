@@ -1,5 +1,8 @@
 package fiuba.algo3.tpfinal.construcciones;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+
 import fiuba.algo3.tpfinal.excepciones.LimitePoblacionalAlcanzado;
 import fiuba.algo3.tpfinal.excepciones.MineralInsuficiente;
 import fiuba.algo3.tpfinal.programa.Costo;
@@ -13,35 +16,39 @@ import fiuba.algo3.tpfinal.unidades.UnidadTerran;
 
 public class Barraca extends ConstruccionTerran {
 
-	private Fabricable unidadEnConstruccion;
+	private ArrayList<Fabricable> unidadesEnConstruccion;
 
 	public Barraca() {
 		this.vida.inicializarVida(1000);
 		this.costo = new Costo(150);
 		this.tiempoDeConstruccion = 12;
 		this.superficieNecesaria = new Tierra();
-	
+		this.unidadesEnConstruccion = new ArrayList<Fabricable>();
 	}
 
 	public void fabricarMarine() {
-		try {
-			jugador.getPresupuesto().gastar(new Marine().getCosto());
-			//TODO : ¿Cómo van a hacer para encolar la construcción de 3 Marines ?
-			unidadEnConstruccion = new Marine();
-		} catch (MineralInsuficiente e) {
-			throw e;
+		if (unidadesEnConstruccion.size()<6){
+			try {
+				jugador.getPresupuesto().gastar(new Marine().getCosto());
+				//TODO : ¿Cómo van a hacer para encolar la construcción de 3 Marines ?
+				unidadesEnConstruccion.add(new Marine());
+			} catch (MineralInsuficiente e) {
+				throw e;
+			}
 		}
 	}
 
 	
 	public void pasarTurno(Jugador jugador, Mapa mapa) {
-		if (unidadEnConstruccion != null) {
+		if (unidadesEnConstruccion.size()>0) {
+			Iterator<Fabricable> iterador = unidadesEnConstruccion.iterator();
+			Fabricable unidadEnConstruccion = iterador.next();
 			unidadEnConstruccion.avanzarFabricacion();
-			if (this.unidadEnConstruccion.getTiempoRestante() == 0) {
+			if (unidadEnConstruccion.getTiempoRestante() == 0) {
 				try {
 					this.jugador.agregarUnidad((UnidadTerran)unidadEnConstruccion,
 							this.posicion);
-					this.unidadEnConstruccion = null;
+					iterador.remove();
 				} catch (LimitePoblacionalAlcanzado e) {
 					throw e;
 				}

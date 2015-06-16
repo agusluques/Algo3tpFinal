@@ -14,7 +14,7 @@ import fiuba.algo3.tpfinal.unidades.RangoDeAtaque;
 
 public class BarracaTest {
 
-	private ConstruccionTerran barraca;
+	private Barraca barraca;
 
 	@Before
 	public void arrange() {
@@ -126,5 +126,46 @@ public class BarracaTest {
 	public void devuelveElRangoDeAtaqueCorrespondiente() {
 		RangoDeAtaque rango = new RangoDeAtaque(1, 2);
 		Assert.assertEquals(1, this.barraca.rangoDeAtaqueCorrespondiente(rango));
+	}
+
+	@Test
+	public void siPongoAFabricar3MarinesAlMismoTiempoCada3TurnosSeTerminaUno()
+			throws Throwable {
+		
+		Mapa mapa = new Mapa("mapaTierra.txt");
+		JugadorTerran jugador = new JugadorTerran("Damian", mapa);
+
+		jugador.getPresupuesto().agregarMineral(1000);
+		jugador.getPresupuesto().agregarGas(1000);
+		jugador.construir(this.barraca, new Coordenada(4, 4));
+		//Termina la construccion de la barraca
+		for (int i = 0; i < 12; i++) {
+			jugador.pasarTurno();
+		}
+		//Pone a fabricar 3 marines
+		for (int x = 0; x < 3; x++) {
+			this.barraca.fabricarMarine();
+		}
+		
+		for (int y=1;y<=3;y++){
+			int cantidadDeMarines = 0;
+			
+			//Pasa 3 turnos asi se termina el primer Marine
+			for (int x = 0; x < 3; x++) {
+				this.barraca.pasarTurno(null, null);
+			}
+			
+			//Busco cuantos Marines tiene el jugador
+			for (Atacable unidad : jugador.getUnidades()){
+				if(unidad.getClass()==(new Marine().getClass())){
+					cantidadDeMarines++;
+				}
+			}
+			//Es siempre un marine mas que la cantidad que construyo porque el jugador terran empieza
+			//con un marine como unidad basica
+			Assert.assertTrue(cantidadDeMarines == y+1);
+		}
+		
+		
 	}
 }
