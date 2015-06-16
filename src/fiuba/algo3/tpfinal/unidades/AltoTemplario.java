@@ -35,11 +35,14 @@ public class AltoTemplario extends UnidadProtoss {
 		if (unidad.getJugador().equals(this.jugador)) {
 			try {
 				this.miEnergia.gastarEnergia(100);
+				//TODO sacar casteo...
 				this.jugador.agregarUnidad((UnidadProtoss)new Alucinacion(unidad),
 						unidad.getCoordenada());
+				//TODO porqué está 2 veces !??
 				this.jugador.agregarUnidad(new Alucinacion(unidad),
 						unidad.getCoordenada());
 			} catch (EnergiaInsuficiente e) {
+				//TODO mejorar nombres !!! "e" ?
 				throw e;
 			}
 		}
@@ -58,6 +61,7 @@ public class AltoTemplario extends UnidadProtoss {
 			throws EnergiaInsuficiente {
 		// esto que estoy haciendo aca es un asco, pero queria usar el metodo
 		// que ya teniamos
+		//TODO SACAR ESTO ! ¿Para qué instancias OTRO !? 
 		AltoTemplario nuevoTemplario = new AltoTemplario();
 		nuevoTemplario.setCoordenada(posicion);
 		if (this.estaEnRangoDeAtaque(nuevoTemplario)) {
