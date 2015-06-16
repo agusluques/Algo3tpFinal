@@ -44,6 +44,7 @@ public class PuertoEstelarProtoss extends ConstruccionProtoss {
 		this.fabricar(new NaveTransporteProtoss());
 	}
 
+	//TODO: ¿Respeta esta clase el principio de única responsabilidad?
 	private void fabricar(Fabricable unidad) {
 		try {
 			jugador.getPresupuesto().gastar(unidad.getCosto());
@@ -83,7 +84,7 @@ public class PuertoEstelarProtoss extends ConstruccionProtoss {
 		return aux;
 	}
 
-	
+	//TODO eeeh amigooo podés construirte vo eh !?. Mejorar nombres.
 	@Override
 	public boolean podesConstruirte(Parcela ubicacion, Collection<Constructible> construcciones ){
 		return (this.esValidaLaUbicacion(ubicacion) && this.construccionesRequeridasEncontradas(construcciones));
