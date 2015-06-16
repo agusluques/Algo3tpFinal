@@ -1,7 +1,6 @@
 package fiuba.algo3.tpfinal.construcciones;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Iterator;
 
 import fiuba.algo3.tpfinal.excepciones.GasInsuficiente;
@@ -72,20 +71,12 @@ public class ArchivosTemplarios extends ConstruccionProtoss {
 	}
 	
 	
-	protected boolean construccionesRequeridasEncontradas(Collection<Constructible> construcciones){
-		boolean aux = true;
-		for (Constructible construccionRequerida : this.construccionesNecesarias){
-			if(!construcciones.contains(construccionRequerida)){
-				aux = false;
-			}
-		}
-		return aux;
-	}
+
 
 	
 	@Override
-	public boolean podesConstruirte(Parcela ubicacion, Collection<Constructible> construcciones ){
-		return (this.esValidaLaUbicacion(ubicacion) && this.construccionesRequeridasEncontradas(construcciones));
+	public boolean puedeConstruirseEn(Parcela ubicacion){
+		return (this.esValidaLaUbicacion(ubicacion) && this.construccionesRequeridasEncontradas(this.construccionesNecesarias));
 	}
 
 }

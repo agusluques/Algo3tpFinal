@@ -1,7 +1,7 @@
 package fiuba.algo3.tpfinal.construcciones;
 
 import java.util.ArrayList;
-import java.util.Collection;
+import java.util.Iterator;
 
 import fiuba.algo3.tpfinal.excepciones.GasInsuficiente;
 import fiuba.algo3.tpfinal.excepciones.LimitePoblacionalAlcanzado;
@@ -19,7 +19,7 @@ import fiuba.algo3.tpfinal.unidades.UnidadProtoss;
 
 public class PuertoEstelarProtoss extends ConstruccionProtoss {
 
-	private Fabricable unidadEnConstruccion;
+	private ArrayList<Fabricable> unidadesEnConstruccion;
 	private ArrayList<Constructible> construccionesNecesarias;
 	public PuertoEstelarProtoss() {
 
@@ -29,6 +29,7 @@ public class PuertoEstelarProtoss extends ConstruccionProtoss {
 		this.costo = new Costo(150, 150);
 		this.superficieNecesaria = new Tierra();
 		this.setConstruccionesNecesarias();
+		this.unidadesEnConstruccion = new ArrayList<Fabricable>();
 	}
 
 	private void setConstruccionesNecesarias() {
@@ -45,25 +46,29 @@ public class PuertoEstelarProtoss extends ConstruccionProtoss {
 	}
 
 	//TODO: ¿Respeta esta clase el principio de única responsabilidad?
-	private void fabricar(Fabricable unidad) {
-		try {
-			jugador.getPresupuesto().gastar(unidad.getCosto());
-			unidadEnConstruccion = unidad;
-		} catch (MineralInsuficiente e) {
-			throw e;
-		} catch (GasInsuficiente e) {
-			throw e;
+	public void fabricar(Fabricable unidad) {
+		if (unidadesEnConstruccion.size()<6){
+			try {
+				jugador.getPresupuesto().gastar(unidad.getCosto());
+				unidadesEnConstruccion.add(unidad);
+			}catch (MineralInsuficiente e) {
+				throw e;
+			}catch (GasInsuficiente e) {
+				throw e;
+			}
 		}
 	}
-
+	
 	public void pasarTurno(Jugador jugador, Mapa mapa) {
-		if (unidadEnConstruccion != null) {
+		if (unidadesEnConstruccion.size()>0) {
+			Iterator<Fabricable> iterador = unidadesEnConstruccion.iterator();
+			Fabricable unidadEnConstruccion = iterador.next();
 			unidadEnConstruccion.avanzarFabricacion();
-			if (this.unidadEnConstruccion.getTiempoRestante() == 0) {
+			if (unidadEnConstruccion.getTiempoRestante() == 0) {
 				try {
 					this.jugador.agregarUnidad((UnidadProtoss)unidadEnConstruccion,
 							this.posicion);
-					this.unidadEnConstruccion = null;
+					iterador.remove();
 				} catch (LimitePoblacionalAlcanzado e) {
 					throw e;
 				}
@@ -71,22 +76,13 @@ public class PuertoEstelarProtoss extends ConstruccionProtoss {
 		}
 	}
 
+
 	public int rangoDeAtaqueCorrespondiente(RangoDeAtaque rango) {
 		return rango.getRangoTierra();
 	}
-	protected boolean construccionesRequeridasEncontradas(Collection<Constructible> construcciones){
-		boolean aux = true;
-		for (Constructible construccionRequerida : this.construccionesNecesarias){
-			if(!construcciones.contains(construccionRequerida)){
-				aux = false;
-			}
-		}
-		return aux;
-	}
 
-	//TODO eeeh amigooo podés construirte vo eh !?. Mejorar nombres.
 	@Override
-	public boolean podesConstruirte(Parcela ubicacion, Collection<Constructible> construcciones ){
-		return (this.esValidaLaUbicacion(ubicacion) && this.construccionesRequeridasEncontradas(construcciones));
+	public boolean puedeConstruirseEn(Parcela ubicacion ){
+		return (this.esValidaLaUbicacion(ubicacion) && this.construccionesRequeridasEncontradas(this.construccionesNecesarias));
 	}
 }

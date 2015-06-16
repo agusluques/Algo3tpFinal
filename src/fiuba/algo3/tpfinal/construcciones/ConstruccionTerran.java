@@ -52,8 +52,18 @@ public abstract class ConstruccionTerran extends Terran implements
 		return (ubicacion.estaVacia()&& ubicacion.getSuperficie().equals(superficieNecesaria));
 	}
 	
+	protected boolean construccionesRequeridasEncontradas(Collection<Constructible> construccionesNecesarias){
+		boolean aux = true;
+		for (Constructible construccionRequerida : construccionesNecesarias){
+			if(!this.jugador.getConstrucciones().contains(construccionRequerida)){
+				aux = false;
+			}
+		}
+		return aux;
+	}
+	
 	@Override
-	public boolean podesConstruirte(Parcela ubicacion, Collection<Constructible> construcciones ){
+	public boolean puedeConstruirseEn(Parcela ubicacion){
 		return this.esValidaLaUbicacion(ubicacion);
 	}
 

@@ -35,7 +35,7 @@ public class Arquitecto {
 			throws ConstruccionRequeridaInexistente {
 		
 		try {
-			if (construccion.podesConstruirte(mapa.getParcela(posicion),construcciones)){
+			if (construccion.puedeConstruirseEn(mapa.getParcela(posicion))){
 				this.cobrarConstruccion(construccion);
 				this.construccionesEnConstruccion.add(construccion);
 				this.mapa.getParcela(posicion).ocupar((Atacable) construccion);
