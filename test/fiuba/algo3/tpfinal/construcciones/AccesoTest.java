@@ -14,7 +14,7 @@ import fiuba.algo3.tpfinal.unidades.Zealot;
 
 public class AccesoTest {
 
-	private ConstruccionProtoss acceso;
+	private Acceso acceso;
 
 	@Before
 	public void arrenge() {
@@ -114,4 +114,61 @@ public class AccesoTest {
 		Assert.assertEquals(1, acceso.rangoDeAtaqueCorrespondiente(rango));
 	}
 
+
+	@Test
+	public void siPongoAFabricarPrimeroUnDragonYDespuesUnZealotElDragonSeTerminaPrimero()
+			throws Exception {
+		Mapa mapa = new Mapa("mapaTierra.txt");
+		JugadorProtoss jugador = new JugadorProtoss("Damian", mapa);
+
+		jugador.getPresupuesto().agregarMineral(1000);
+		jugador.getPresupuesto().agregarGas(1000);
+		//Construyo un acceso y un pilon
+		jugador.construir(new Pilon(), new Coordenada(1, 2));
+		jugador.construir(acceso, new Coordenada(1, 1));
+		for (int i = 0; i < 8; i++) {
+			jugador.pasarTurno();
+		}
+		//Pongo a fabricar un Dragon, un zealot y paso los turnos
+		this.acceso.fabricarDragon();
+		this.acceso.fabricarZealot();
+		for (int i = 0; i < 6; i++) {
+			 this.acceso.pasarTurno(null, null);
+		}
+		int cantDeDragones=0;
+		int cantDeZealots=0;
+		//Cuento la cantidad de dragones y zealots
+		for (Atacable unidad : jugador.getUnidades()) {
+			if (unidad.getClass()==(new Dragon()).getClass()){
+				cantDeDragones++;
+			}
+			if (unidad.getClass()==(new Zealot()).getClass()){
+				cantDeZealots++;
+			}
+		}
+		Assert.assertTrue(cantDeDragones == 1);
+		//Es 1 la cantidad de zealots porque esta la unidad basica
+		Assert.assertTrue(cantDeZealots == 1);
+		
+		//Avanzo 4 turnos mas asi se termina de crear el zealot
+		for (int i = 0; i < 4; i++) {
+			 this.acceso.pasarTurno(null, null);
+		}
+		cantDeDragones=0;
+		cantDeZealots=0;
+		//Cuento la cantidad de dragones y zealots
+		for (Atacable unidad : jugador.getUnidades()) {
+			if (unidad.getClass()==(new Dragon()).getClass()){
+				cantDeDragones++;
+			}
+			if (unidad.getClass()==(new Zealot()).getClass()){
+				cantDeZealots++;
+			}
+		}
+		Assert.assertTrue(cantDeDragones == 1);
+		//Es 2 la cantidad de zealots porque esta la unidad basica
+		Assert.assertTrue(cantDeZealots == 2);
+		
+	
+	}
 }
