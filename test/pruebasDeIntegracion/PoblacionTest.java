@@ -87,6 +87,7 @@ public class PoblacionTest {
 	@Test
 	public void siElJugadorTiene2MarinesSuPoblacionEsDos()
 			throws ConstruccionRequeridaInexistente {
+		jugadorTerran.inicializarEnPrimeraBase();
 
 		jugadorTerran.agregarUnidad(new Marine(), new Coordenada(1, 1));
 		jugadorTerran.agregarUnidad(new Marine(), new Coordenada(1, 2));
@@ -96,6 +97,7 @@ public class PoblacionTest {
 	@Test
 	public void siElJugadorTieneUnMarineYSeLoMatanSuPoblacionVuelveACero()
 			throws ConstruccionRequeridaInexistente {
+		jugadorTerran.inicializarEnPrimeraBase();
 		Marine marine = new Marine();
 		jugadorTerran.agregarUnidad(marine, new Coordenada(1, 1));
 		jugadorTerran.pasarTurno();

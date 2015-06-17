@@ -20,6 +20,7 @@ public abstract class Jugador {
 	protected ArrayList<Magia> magias;
 	protected int limitePoblacionalInicial;
 	protected int limitePoblacionalMaximo;
+	protected Coordenada baseInicial;
 
 	public Jugador(String nombre, Mapa mapa) {
 		this.nombre = nombre;
@@ -153,5 +154,17 @@ public abstract class Jugador {
 	public boolean estaExtinto() {
 		return this.construcciones.isEmpty() && this.unidades.isEmpty();
 	}
+	
+	public void inicializarEnPrimeraBase() {
+		this.baseInicial = mapa.encontrarPrimeraBase();
+		this.agregarUnidadBasica();
+	}
+
+	public void inicializarEnUltimaBase() {
+		this.baseInicial = mapa.encontrarUltimaBase();
+		this.agregarUnidadBasica();
+	}
+	
+	protected abstract void agregarUnidadBasica();
 
 }

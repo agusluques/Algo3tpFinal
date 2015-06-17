@@ -527,6 +527,7 @@ public class JugadorTest {
 	@Test
 	public void siElJugadorTieneUnMarineYSeLoMatanSuPoblacionVuelveACero()
 			throws ConstruccionRequeridaInexistente {
+		jugadorTerran.inicializarEnPrimeraBase();
 		jugadorTerran.construir(new DepositoSuministro(), coordTierra);
 		for (int i = 0; i < 6; i++) {
 			jugadorTerran.pasarTurno();

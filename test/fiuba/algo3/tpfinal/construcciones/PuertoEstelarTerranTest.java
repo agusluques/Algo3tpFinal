@@ -50,6 +50,7 @@ public class PuertoEstelarTerranTest {
 		this.puertoEstelar = new PuertoEstelarTerran();
 		Mapa mapa = new Mapa("mapaTierra.txt");
 		JugadorTerran jugador = new JugadorTerran("Damian", mapa);
+		jugador.inicializarEnPrimeraBase();
 
 		jugador.getPresupuesto().agregarMineral(1000);
 		jugador.getPresupuesto().agregarGas(1000);
@@ -112,6 +113,7 @@ public class PuertoEstelarTerranTest {
 		this.puertoEstelar = new PuertoEstelarTerran();
 		Mapa mapa = new Mapa("mapaTierra.txt");
 		JugadorTerran jugador = new JugadorTerran("Damian", mapa);
+		jugador.inicializarEnPrimeraBase();
 
 		jugador.getPresupuesto().agregarMineral(1000);
 		jugador.getPresupuesto().agregarGas(1000);
@@ -144,6 +146,7 @@ public class PuertoEstelarTerranTest {
 		this.puertoEstelar = new PuertoEstelarTerran();
 		Mapa mapa = new Mapa("mapaTierra.txt");
 		JugadorTerran jugador = new JugadorTerran("Damian", mapa);
+		jugador.inicializarEnPrimeraBase();
 
 		jugador.getPresupuesto().agregarMineral(1000);
 		jugador.getPresupuesto().agregarGas(1000);
@@ -206,6 +209,7 @@ public class PuertoEstelarTerranTest {
 		this.puertoEstelar = new PuertoEstelarTerran();
 		Mapa mapa = new Mapa("mapaTierra.txt");
 		JugadorTerran jugador = new JugadorTerran("Damian", mapa);
+		jugador.inicializarEnPrimeraBase();
 
 		jugador.getPresupuesto().agregarMineral(1000);
 		jugador.getPresupuesto().agregarGas(1000);
@@ -238,6 +242,7 @@ public class PuertoEstelarTerranTest {
 		this.puertoEstelar = new PuertoEstelarTerran();
 		Mapa mapa = new Mapa("mapaTierra.txt");
 		JugadorTerran jugador = new JugadorTerran("Damian", mapa);
+		jugador.inicializarEnPrimeraBase();
 
 		jugador.getPresupuesto().agregarMineral(1000);
 		jugador.getPresupuesto().agregarGas(1000);
@@ -300,6 +305,7 @@ public class PuertoEstelarTerranTest {
 		this.puertoEstelar = new PuertoEstelarTerran();
 		Mapa mapa = new Mapa("mapaTierra.txt");
 		JugadorTerran jugador = new JugadorTerran("Damian", mapa);
+		jugador.inicializarEnPrimeraBase();
 
 		jugador.getPresupuesto().agregarMineral(1000);
 		jugador.getPresupuesto().agregarGas(1000);

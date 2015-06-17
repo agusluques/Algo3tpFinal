@@ -6,7 +6,9 @@ public class Juego {
 
 	public Juego(Jugador jugadorUno, Jugador jugadorDos) {
 		this.jugadorUno = jugadorUno;
+		jugadorUno.inicializarEnPrimeraBase();
 		this.jugadorDos = jugadorDos;
+		jugadorDos.inicializarEnUltimaBase();
 	}
 
 	public void pasarTurno(Jugador jugador) {
@@ -25,5 +27,7 @@ public class Juego {
 			System.out.println(ganador.nombre);
 		}
 	}
+	
+	
 
 }

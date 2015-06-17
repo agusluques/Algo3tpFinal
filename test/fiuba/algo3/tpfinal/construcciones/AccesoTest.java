@@ -119,6 +119,7 @@ public class AccesoTest {
 			throws Exception {
 		Mapa mapa = new Mapa("mapaTierra.txt");
 		JugadorProtoss jugador = new JugadorProtoss("Damian", mapa);
+		jugador.inicializarEnPrimeraBase();
 
 		jugador.getPresupuesto().agregarMineral(1000);
 		jugador.getPresupuesto().agregarGas(1000);

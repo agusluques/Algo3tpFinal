@@ -11,11 +11,7 @@ public class JugadorProtoss extends Jugador {
 
 	public JugadorProtoss(String nombre, Mapa mapa) {
 		super(nombre, mapa);
-		Atacable unidadBasica = new Zealot();
-
-		// TODO: hay que inicializarla donde arranque el jugador
-		unidadBasica.setCoordenada(new Coordenada(0, 0));
-		this.unidades.add(unidadBasica);
+		
 
 	}
 
@@ -37,5 +33,14 @@ public class JugadorProtoss extends Jugador {
 			throw new LimitePoblacionalAlcanzado();
 		}
 
+	}
+	
+	@Override
+	protected void agregarUnidadBasica() {
+		Atacable unidadBasica = new Zealot();
+
+		this.unidades.add(unidadBasica);
+		this.mapa.ubicarCercaDe(unidadBasica, this.baseInicial);
+		((Protoss) unidadBasica).setJugador(this);
 	}
 }

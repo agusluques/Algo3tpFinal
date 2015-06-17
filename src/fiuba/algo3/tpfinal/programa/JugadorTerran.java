@@ -11,12 +11,7 @@ public class JugadorTerran extends Jugador {
 
 	public JugadorTerran(String nombre, Mapa mapa) {
 		super(nombre, mapa);
-		Atacable unidadBasica = new Marine();
-
-		// TODO: hay que inicializar esta coordenada en donde arranque el
-		// jugador
-		unidadBasica.setCoordenada(new Coordenada(0, 0));
-		this.unidades.add(unidadBasica);
+		
 
 	}
 
@@ -38,5 +33,14 @@ public class JugadorTerran extends Jugador {
 			throw new LimitePoblacionalAlcanzado();
 		}
 
+	}
+
+	@Override
+	protected void agregarUnidadBasica() {
+		Atacable unidadBasica = new Marine();
+
+		this.unidades.add(unidadBasica);
+		this.mapa.ubicarCercaDe(unidadBasica, this.baseInicial);
+		((Terran) unidadBasica).setJugador(this);
 	}
 }

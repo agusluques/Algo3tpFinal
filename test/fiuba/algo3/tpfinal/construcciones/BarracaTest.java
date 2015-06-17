@@ -48,6 +48,7 @@ public class BarracaTest {
 
 		Mapa mapa = new Mapa("mapaTierra.txt");
 		JugadorTerran jugador = new JugadorTerran("Damian", mapa);
+		jugador.inicializarEnPrimeraBase();
 
 		jugador.getPresupuesto().agregarMineral(1000);
 		jugador.construir(this.barraca, new Coordenada(2, 2));
@@ -80,6 +81,7 @@ public class BarracaTest {
 
 		Mapa mapa = new Mapa("mapaTierra.txt");
 		JugadorTerran jugador = new JugadorTerran("Damian", mapa);
+		jugador.inicializarEnPrimeraBase();
 
 		jugador.getPresupuesto().agregarMineral(1000);
 		jugador.construir(barraca, new Coordenada(1, 1));
@@ -134,6 +136,7 @@ public class BarracaTest {
 
 		Mapa mapa = new Mapa("mapaTierra.txt");
 		JugadorTerran jugador = new JugadorTerran("Damian", mapa);
+		jugador.inicializarEnPrimeraBase();
 
 		jugador.getPresupuesto().agregarMineral(1000);
 		jugador.getPresupuesto().agregarGas(1000);
@@ -175,6 +178,7 @@ public class BarracaTest {
 
 		Mapa mapa = new Mapa("mapaTierra.txt");
 		JugadorTerran jugador = new JugadorTerran("Damian", mapa);
+		jugador.inicializarEnPrimeraBase();
 
 		jugador.getPresupuesto().agregarMineral(1000);
 		jugador.getPresupuesto().agregarGas(1000);
@@ -214,6 +218,7 @@ public class BarracaTest {
 
 		Mapa mapa = new Mapa("mapaTierra.txt");
 		JugadorTerran jugador = new JugadorTerran("Damian", mapa);
+		jugador.inicializarEnPrimeraBase();
 
 		jugador.getPresupuesto().agregarMineral(1000);
 		jugador.getPresupuesto().agregarGas(1000);
