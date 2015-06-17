@@ -31,7 +31,7 @@ public abstract class Jugador {
 		this.magias = new ArrayList<Magia>();
 		this.limitePoblacionalInicial = 5;
 		this.limitePoblacionalMaximo = 200;
-		this.arquitecto = new Arquitecto(presupuesto, construcciones, mapa,
+		this.arquitecto = new Arquitecto(mapa,
 				this);
 	}
 
@@ -57,7 +57,7 @@ public abstract class Jugador {
 	}
 
 	public int limitePoblacional() {
-		if (limitePoblacionalInicial + this.contarCasas() >= 200) {
+		if (limitePoblacionalInicial + this.contarCasas() >= limitePoblacionalMaximo) {
 			return limitePoblacionalMaximo;
 		} else {
 			return limitePoblacionalInicial + this.contarCasas();

@@ -12,7 +12,7 @@ import fiuba.algo3.tpfinal.excepciones.MapaInvalido;
 
 public class CreadorMapa {
 
-	HashMap<Coordenada, Parcela> mapa = new HashMap<Coordenada, Parcela>();
+	private HashMap<Coordenada, Parcela> mapa = new HashMap<Coordenada, Parcela>();
 
 	// lee cada caracter del archivo y lo manda junto con su posicion a
 	// agregarAlMapa()

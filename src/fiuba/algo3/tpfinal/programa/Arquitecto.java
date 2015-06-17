@@ -15,16 +15,11 @@ import fiuba.algo3.tpfinal.excepciones.TerrenoInapropiado;
 public class Arquitecto {
 
 	protected Mapa mapa;
-	protected Presupuesto presupuesto;
-	protected Collection<Constructible> construcciones;
 	protected Jugador jugador;
 	protected Collection<Constructible> construccionesEnConstruccion;
 
-	public Arquitecto(Presupuesto presupuesto,
-			Collection<Constructible> construcciones, Mapa mapa, Jugador jugador) {
+	public Arquitecto(Mapa mapa, Jugador jugador) {
 		this.mapa = mapa;
-		this.presupuesto = presupuesto;
-		this.construcciones = construcciones;
 		this.jugador = jugador;
 		this.construccionesEnConstruccion = new ArrayList<Constructible>();
 	}
@@ -52,9 +47,9 @@ public class Arquitecto {
 
 	}
 
-	protected void cobrarConstruccion(Constructible construccion) {
+	private void cobrarConstruccion(Constructible construccion) {
 		try {
-			this.presupuesto.gastar(construccion.getCosto());
+			this.jugador.getPresupuesto().gastar(construccion.getCosto());
 		} catch (MineralInsuficiente e) {
 			throw e;
 		} catch (GasInsuficiente e) {
@@ -69,7 +64,7 @@ public class Arquitecto {
 			Constructible construccionEnConstruccion = iterador.next();
 			construccionEnConstruccion.avanzarConstruccion();
 			if (construccionEnConstruccion.getTiempoRestante() == 0) {
-				construcciones.add(construccionEnConstruccion);
+				this.jugador.getConstrucciones().add(construccionEnConstruccion);
 				iterador.remove();
 			}
 		}
