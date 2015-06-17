@@ -53,9 +53,9 @@ public class ScoutTest {
 	public void siUnScoutAtacaAOtroAlSegundoLeBajaElEscudoA86YNoBajaVida() {
 
 		Scout unScout = new Scout();
-		unScout.setCoordenada(new Coordenada(0,0));
+		unScout.setCoordenada(new Coordenada(0, 0));
 		Scout otroScout = new Scout();
-		otroScout.setCoordenada(new Coordenada(0,1));
+		otroScout.setCoordenada(new Coordenada(0, 1));
 		unScout.atacar(otroScout);
 		Assert.assertTrue(otroScout.getVida() == 150);
 		Assert.assertTrue(otroScout.getEscudo() == 86);

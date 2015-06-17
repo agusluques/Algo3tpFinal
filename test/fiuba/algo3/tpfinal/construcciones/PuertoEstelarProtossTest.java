@@ -64,7 +64,7 @@ public class PuertoEstelarProtossTest {
 	@Test
 	public void siFabricoUnScoutElMismoApareceEnLaListaDeUnidadesDelJugador()
 			throws Exception {
-		int cantDeScout=0;
+		int cantDeScout = 0;
 		this.puertoEstelar = new PuertoEstelarProtoss();
 		Mapa mapa = new Mapa("mapaTierra.txt");
 		JugadorProtoss jugador = new JugadorProtoss("Damian", mapa);
@@ -88,18 +88,18 @@ public class PuertoEstelarProtossTest {
 			this.puertoEstelar.pasarTurno(null, null);
 		}
 		for (Atacable unidad : jugador.getUnidades()) {
-			if(unidad.getClass()==(new Scout()).getClass()){
+			if (unidad.getClass() == (new Scout()).getClass()) {
 				cantDeScout++;
 			}
 		}
 
-		Assert.assertTrue(cantDeScout==1);
+		Assert.assertTrue(cantDeScout == 1);
 	}
 
 	@Test
 	public void siFabricoUnaNaveDeTransporteProtossLaMismaApareceEnLaListaDeUnidadesDelJugador()
 			throws Exception {
-		int cantDeNave=0;
+		int cantDeNave = 0;
 		this.puertoEstelar = new PuertoEstelarProtoss();
 		Mapa mapa = new Mapa("mapaTierra.txt");
 		JugadorProtoss jugador = new JugadorProtoss("Damian", mapa);
@@ -123,12 +123,12 @@ public class PuertoEstelarProtossTest {
 			this.puertoEstelar.pasarTurno(null, null);
 		}
 		for (Atacable unidad : jugador.getUnidades()) {
-			if(unidad.getClass()==(new NaveTransporteProtoss()).getClass()){
+			if (unidad.getClass() == (new NaveTransporteProtoss()).getClass()) {
 				cantDeNave++;
 			}
 		}
 
-		Assert.assertTrue(cantDeNave==1);
+		Assert.assertTrue(cantDeNave == 1);
 	}
 
 	@Test

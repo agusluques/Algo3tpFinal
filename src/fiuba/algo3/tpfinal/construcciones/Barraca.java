@@ -27,10 +27,11 @@ public class Barraca extends ConstruccionTerran {
 	}
 
 	public void fabricarMarine() {
-		if (unidadesEnConstruccion.size()<6){
+		if (unidadesEnConstruccion.size() < 6) {
 			try {
 				jugador.getPresupuesto().gastar(new Marine().getCosto());
-				//TODO : ¿Cómo van a hacer para encolar la construcción de 3 Marines ?
+				// TODO : ¿Cómo van a hacer para encolar la construcción de 3
+				// Marines ?
 				unidadesEnConstruccion.add(new Marine());
 			} catch (MineralInsuficiente e) {
 				throw e;
@@ -38,16 +39,15 @@ public class Barraca extends ConstruccionTerran {
 		}
 	}
 
-	
 	public void pasarTurno(Jugador jugador, Mapa mapa) {
-		if (unidadesEnConstruccion.size()>0) {
+		if (unidadesEnConstruccion.size() > 0) {
 			Iterator<Fabricable> iterador = unidadesEnConstruccion.iterator();
 			Fabricable unidadEnConstruccion = iterador.next();
 			unidadEnConstruccion.avanzarFabricacion();
 			if (unidadEnConstruccion.getTiempoRestante() == 0) {
 				try {
-					this.jugador.agregarUnidad((UnidadTerran)unidadEnConstruccion,
-							this.posicion);
+					this.jugador.agregarUnidad(
+							(UnidadTerran) unidadEnConstruccion, this.posicion);
 					iterador.remove();
 				} catch (LimitePoblacionalAlcanzado e) {
 					throw e;
@@ -59,6 +59,5 @@ public class Barraca extends ConstruccionTerran {
 	public int rangoDeAtaqueCorrespondiente(RangoDeAtaque rango) {
 		return rango.getRangoTierra();
 	}
-
 
 }

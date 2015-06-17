@@ -20,6 +20,7 @@ public class ArchivosTemplarios extends ConstruccionProtoss {
 
 	private ArrayList<Fabricable> unidadesEnConstruccion;
 	private ArrayList<Constructible> construccionesNecesarias;
+
 	public ArchivosTemplarios() {
 		this.vida.inicializarVida(500);
 		this.escudo.inicializarEscudo(500);
@@ -37,7 +38,7 @@ public class ArchivosTemplarios extends ConstruccionProtoss {
 	}
 
 	public void fabricarAltoTemplario() {
-		if (this.unidadesEnConstruccion.size()<6){
+		if (this.unidadesEnConstruccion.size() < 6) {
 			try {
 				jugador.getPresupuesto().gastar(new AltoTemplario().getCosto());
 				unidadesEnConstruccion.add(new AltoTemplario());
@@ -50,14 +51,16 @@ public class ArchivosTemplarios extends ConstruccionProtoss {
 	}
 
 	public void pasarTurno(Jugador jugador, Mapa mapa) {
-		if (unidadesEnConstruccion.size()>0) {
+		if (unidadesEnConstruccion.size() > 0) {
 			Iterator<Fabricable> iterador = unidadesEnConstruccion.iterator();
 			Fabricable unidadEnConstruccion = iterador.next();
 			unidadEnConstruccion.avanzarFabricacion();
 			if (unidadEnConstruccion.getTiempoRestante() == 0) {
 				try {
-					this.jugador.agregarUnidad((UnidadProtoss)unidadEnConstruccion,
-							this.posicion);
+					this.jugador
+							.agregarUnidad(
+									(UnidadProtoss) unidadEnConstruccion,
+									this.posicion);
 					iterador.remove();
 				} catch (LimitePoblacionalAlcanzado e) {
 					throw e;
@@ -69,14 +72,11 @@ public class ArchivosTemplarios extends ConstruccionProtoss {
 	public int rangoDeAtaqueCorrespondiente(RangoDeAtaque rango) {
 		return rango.getRangoTierra();
 	}
-	
-	
 
-
-	
 	@Override
-	public boolean puedeConstruirseEn(Parcela ubicacion){
-		return (this.esValidaLaUbicacion(ubicacion) && this.construccionesRequeridasEncontradas(this.construccionesNecesarias));
+	public boolean puedeConstruirseEn(Parcela ubicacion) {
+		return (this.esValidaLaUbicacion(ubicacion) && this
+				.construccionesRequeridasEncontradas(this.construccionesNecesarias));
 	}
 
 }

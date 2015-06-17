@@ -5,7 +5,7 @@ public class Escudo {
 	private int escudo = 0;
 	private int escudoLimite;
 
-	//TODO: ¿Porqué hay un getEscudo ?
+	// TODO: ¿Porqué hay un getEscudo ?
 	public int getEscudo() {
 		return this.escudo;
 	}
@@ -24,7 +24,7 @@ public class Escudo {
 	}
 
 	public void pasarTurno(Jugador jugador, Mapa mapa) {
-		
+
 		this.escudo += 8;
 		if (this.escudo > escudoLimite) {
 			this.escudo = escudoLimite;

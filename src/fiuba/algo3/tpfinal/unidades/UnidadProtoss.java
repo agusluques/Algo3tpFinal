@@ -40,7 +40,7 @@ public abstract class UnidadProtoss extends Protoss implements Fabricable,
 	}
 
 	@Override
-	public Costo getCosto(){
+	public Costo getCosto() {
 		return this.costo;
 	}
 

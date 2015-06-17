@@ -4,8 +4,6 @@ import fiuba.algo3.tpfinal.unidades.Trasladable;
 
 public abstract class Superficie {
 
-	
-	
 	@Override
 	public boolean equals(Object o) {
 		return (this.getClass() == o.getClass());

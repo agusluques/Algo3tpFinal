@@ -26,8 +26,6 @@ public class NexoMineral extends ConstruccionProtoss implements
 		presupuestoJugador.agregarMineral(mineralesRecolectados);
 	}
 
-
-
 	@Override
 	public int recolectarMinerales(Mapa mapa) {
 		Parcela parcela = mapa.getParcela(this.posicion);

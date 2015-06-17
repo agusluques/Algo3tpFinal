@@ -13,16 +13,15 @@ import fiuba.algo3.tpfinal.excepciones.MapaInvalido;
 public class CreadorMapa {
 
 	HashMap<Coordenada, Parcela> mapa = new HashMap<Coordenada, Parcela>();
-	
+
 	// lee cada caracter del archivo y lo manda junto con su posicion a
 	// agregarAlMapa()
-	public HashMap<Coordenada, Parcela> construirMapa(String dirDelMapa) throws Exception {
-		
-		
-		
+	public HashMap<Coordenada, Parcela> construirMapa(String dirDelMapa)
+			throws Exception {
+
 		BufferedReader buffer = null;
 		int fila = 1;
-		
+
 		try {
 			String lineaActual;
 			buffer = new BufferedReader(new FileReader(dirDelMapa));
@@ -30,7 +29,8 @@ public class CreadorMapa {
 			while ((lineaActual = buffer.readLine()) != null) {
 				for (int columna = 1; columna <= lineaActual.length(); columna++) {
 					Coordenada coord = new Coordenada(fila, columna);
-					this.agregarAlMapa(coord, lineaActual.charAt(columna - 1), mapa);
+					this.agregarAlMapa(coord, lineaActual.charAt(columna - 1),
+							mapa);
 				}
 				fila++;
 			}
@@ -47,19 +47,18 @@ public class CreadorMapa {
 				ex.printStackTrace();
 			}
 		}
-		
+
 		if (!this.mapaEsCorrecto()) {
 			throw new MapaInvalido();
 		}
-		
+
 		return mapa;
 	}
-	
-	
-	
+
 	// agrega al HashMap las clases Aire, Tierra, DepositoDeMinerales y
 	// DepositoDeGas
-	private void agregarAlMapa(Coordenada coord, char caracter, HashMap<Coordenada, Parcela> mapa) {
+	private void agregarAlMapa(Coordenada coord, char caracter,
+			HashMap<Coordenada, Parcela> mapa) {
 		if (caracter == '0') {
 			Parcela parcela = new Parcela(new Aire());
 			mapa.put(coord, parcela);
@@ -77,9 +76,8 @@ public class CreadorMapa {
 			mapa.put(coord, parcela);
 		}
 
-		
 	}
-	
+
 	private boolean mapaEsCorrecto() {
 
 		int ancho = this.getAncho();
@@ -113,7 +111,7 @@ public class CreadorMapa {
 				&& cantidadDeBases1 == cantidadDeBases3 && cantidadDeBases1 == cantidadDeBases4);
 
 	}
-	
+
 	private int contarBases(Coordenada coordenadaInicial,
 			Coordenada coordenadaFinal) {
 		int cantidadDeMinerales = 0;
@@ -171,5 +169,5 @@ public class CreadorMapa {
 		}
 		return altoMax;
 	}
-	
+
 }

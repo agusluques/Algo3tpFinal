@@ -87,9 +87,9 @@ public class ArchivosTemplariosTest {
 			((ArchivosTemplarios) this.archivo).pasarTurno(null, null);
 		}
 
-		int cantUnidadCorrespondiente=0;
+		int cantUnidadCorrespondiente = 0;
 		for (Atacable unidad : jugador.getUnidades()) {
-			if (unidad.getClass()==(new AltoTemplario()).getClass()){
+			if (unidad.getClass() == (new AltoTemplario()).getClass()) {
 				cantUnidadCorrespondiente++;
 			}
 		}

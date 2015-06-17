@@ -107,6 +107,30 @@ public class MagiasTest {
 		Assert.assertTrue(((AltoTemplario) templar).getEnergia() == 50);
 
 	}
+	
+	@Test
+	public void siTiroUnEMPFueraDelRangoNoMeBajaLaEnergiaYNoLesHaceNadaALosDelRango() throws Exception {
+		Mapa mapa = new Mapa("mapaTierra.txt");
+		JugadorTerran jugador = new JugadorTerran("Damian", mapa);
+		JugadorProtoss jugador2 = new JugadorProtoss("Luciano", mapa);
+		Atacable templar = new AltoTemplario();
+		NaveCiencia otraNave = new NaveCiencia();
+		
+		for (int i = 1; i < 7; i++) {
+			otraNave.pasarTurno();
+		}
+		jugador.getConstrucciones().add(new DepositoSuministro());
+		jugador2.getConstrucciones().add(new Pilon());
+
+		jugador.agregarUnidad((UnidadTerran) otraNave, new Coordenada(2, 3));
+
+		jugador2.agregarUnidad((UnidadProtoss) templar, new Coordenada(3, 2));
+		
+		otraNave.lanzarEMP(new Coordenada(100, 3));
+		
+		Assert.assertTrue(otraNave.getEnergia() == 110);
+		Assert.assertTrue(((AltoTemplario) templar).getEnergia() == 50);
+	}
 
 	@Test
 	public void laTormentaPsionicaLeHaceDanioATodasLasUnidadesHostilesEnElArea()

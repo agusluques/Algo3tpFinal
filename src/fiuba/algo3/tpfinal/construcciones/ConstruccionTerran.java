@@ -15,7 +15,7 @@ public abstract class ConstruccionTerran extends Terran implements
 	protected Superficie superficieNecesaria;
 
 	@Override
-	public Costo getCosto(){
+	public Costo getCosto() {
 		return this.costo;
 	}
 
@@ -23,7 +23,6 @@ public abstract class ConstruccionTerran extends Terran implements
 	public int getTiempoRestante() {
 		return tiempoDeConstruccion;
 	}
-
 
 	@Override
 	public boolean equals(Object o) {
@@ -42,28 +41,31 @@ public abstract class ConstruccionTerran extends Terran implements
 			this.tiempoDeConstruccion -= 1;
 		}
 	}
-	
+
 	@Override
-	public int aumentoDePoblacion(){
+	public int aumentoDePoblacion() {
 		return 0;
 	}
-	
-	protected boolean esValidaLaUbicacion(Parcela ubicacion){
-		return (ubicacion.estaVacia()&& ubicacion.getSuperficie().equals(superficieNecesaria));
+
+	protected boolean esValidaLaUbicacion(Parcela ubicacion) {
+		return (ubicacion.estaVacia() && ubicacion.getSuperficie().equals(
+				superficieNecesaria));
 	}
-	
-	protected boolean construccionesRequeridasEncontradas(Collection<Constructible> construccionesNecesarias){
+
+	protected boolean construccionesRequeridasEncontradas(
+			Collection<Constructible> construccionesNecesarias) {
 		boolean aux = true;
-		for (Constructible construccionRequerida : construccionesNecesarias){
-			if(!this.jugador.getConstrucciones().contains(construccionRequerida)){
+		for (Constructible construccionRequerida : construccionesNecesarias) {
+			if (!this.jugador.getConstrucciones().contains(
+					construccionRequerida)) {
 				aux = false;
 			}
 		}
 		return aux;
 	}
-	
+
 	@Override
-	public boolean puedeConstruirseEn(Parcela ubicacion){
+	public boolean puedeConstruirseEn(Parcela ubicacion) {
 		return this.esValidaLaUbicacion(ubicacion);
 	}
 

@@ -160,11 +160,13 @@ public class MapaTest {
 		Assert.assertEquals(new Coordenada(1, 90), mapa.encontrarPrimeraBase());
 	}
 
-	/*
-	 * @Test public void laUltimaBaseDelMapaTierraEstaEnFil94Col20() throws
-	 * Exception { Mapa mapa = new Mapa("mapaTierra.txt");
-	 * 
-	 * Assert.assertEquals(new Coordenada(94,20), mapa.encontrarUltimaBase()); }
-	 */
+	
+	@Test
+	public void laUltimaBaseDelMapaTierraEstaEnFil94Col20() throws Exception {
+		Mapa mapa = new Mapa("mapaTierra.txt");
+		
+		Assert.assertEquals(new Coordenada(94, 20), mapa.encontrarUltimaBase());
+	}
+	 
 
 }

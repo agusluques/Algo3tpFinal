@@ -26,7 +26,7 @@ public class NaveTransporteProtoss extends UnidadProtoss {
 		this.miDanio = new Danio(0, 0);
 		this.pasajeros = new ArrayList<UnidadProtoss>();
 		this.transporte = 9; // Decidi que sea 9 para que una nave no pueda
-							// estar en otra
+								// estar en otra
 		this.capacidad = 8;
 		this.rangoDeAtaque = new RangoDeAtaque(0, 0);
 

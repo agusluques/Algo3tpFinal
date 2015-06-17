@@ -44,9 +44,9 @@ public class NaveTransporteTerranTest {
 	public void siUnEspectroAtacaAUnaNaveTransporteTerranAlSegundoLeBajaLaVidaA130() {
 
 		Espectro unEspectro = new Espectro();
-		unEspectro.setCoordenada(new Coordenada(0,0));
+		unEspectro.setCoordenada(new Coordenada(0, 0));
 		NaveTransporteTerran nave = new NaveTransporteTerran();
-		nave.setCoordenada(new Coordenada(0,1));
+		nave.setCoordenada(new Coordenada(0, 1));
 		unEspectro.atacar(nave);
 		Assert.assertTrue(nave.getVida() == 130);
 	}
@@ -55,9 +55,9 @@ public class NaveTransporteTerranTest {
 	public void siUnaNaveCienciaAtacaAUnaNaveTransporteTerranAlSegundoNoLeBajaVida() {
 
 		NaveCiencia naveUno = new NaveCiencia();
-		naveUno.setCoordenada(new Coordenada(0,0));
+		naveUno.setCoordenada(new Coordenada(0, 0));
 		NaveTransporteTerran naveDos = new NaveTransporteTerran();
-		naveDos.setCoordenada(new Coordenada(0,1));
+		naveDos.setCoordenada(new Coordenada(0, 1));
 		naveUno.atacar(naveDos);
 		Assert.assertTrue(naveDos.getVida() == 150);
 	}

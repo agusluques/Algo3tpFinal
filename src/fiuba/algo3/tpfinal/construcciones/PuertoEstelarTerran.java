@@ -23,6 +23,7 @@ public class PuertoEstelarTerran extends ConstruccionTerran {
 
 	private ArrayList<Fabricable> unidadesEnConstruccion;
 	private ArrayList<Constructible> construccionesNecesarias;
+
 	public PuertoEstelarTerran() {
 		this.vida.inicializarVida(1300);
 		this.tiempoDeConstruccion = 10;
@@ -51,27 +52,27 @@ public class PuertoEstelarTerran extends ConstruccionTerran {
 	}
 
 	public void fabricar(Fabricable unidad) {
-		if (unidadesEnConstruccion.size()<6){
+		if (unidadesEnConstruccion.size() < 6) {
 			try {
 				jugador.getPresupuesto().gastar(unidad.getCosto());
 				unidadesEnConstruccion.add(unidad);
-			}catch (MineralInsuficiente e) {
+			} catch (MineralInsuficiente e) {
 				throw e;
-			}catch (GasInsuficiente e) {
+			} catch (GasInsuficiente e) {
 				throw e;
 			}
 		}
 	}
-	
+
 	public void pasarTurno(Jugador jugador, Mapa mapa) {
-		if (unidadesEnConstruccion.size()>0) {
+		if (unidadesEnConstruccion.size() > 0) {
 			Iterator<Fabricable> iterador = unidadesEnConstruccion.iterator();
 			Fabricable unidadEnConstruccion = iterador.next();
 			unidadEnConstruccion.avanzarFabricacion();
 			if (unidadEnConstruccion.getTiempoRestante() == 0) {
 				try {
-					this.jugador.agregarUnidad((UnidadTerran)unidadEnConstruccion,
-							this.posicion);
+					this.jugador.agregarUnidad(
+							(UnidadTerran) unidadEnConstruccion, this.posicion);
 					iterador.remove();
 				} catch (LimitePoblacionalAlcanzado e) {
 					throw e;
@@ -80,25 +81,25 @@ public class PuertoEstelarTerran extends ConstruccionTerran {
 		}
 	}
 
-
 	public int rangoDeAtaqueCorrespondiente(RangoDeAtaque rango) {
 		return rango.getRangoTierra();
 	}
 
-	protected boolean construccionesRequeridasEncontradas(Collection<Constructible> construcciones){
+	protected boolean construccionesRequeridasEncontradas(
+			Collection<Constructible> construcciones) {
 		boolean aux = true;
-		for (Constructible construccionRequerida : this.construccionesNecesarias){
-			if(!construcciones.contains(construccionRequerida)){
+		for (Constructible construccionRequerida : this.construccionesNecesarias) {
+			if (!construcciones.contains(construccionRequerida)) {
 				aux = false;
 			}
 		}
 		return aux;
-		
+
 	}
 
-	
 	@Override
-	public boolean puedeConstruirseEn(Parcela ubicacion){
-		return (this.esValidaLaUbicacion(ubicacion) && this.construccionesRequeridasEncontradas(this.construccionesNecesarias));
+	public boolean puedeConstruirseEn(Parcela ubicacion) {
+		return (this.esValidaLaUbicacion(ubicacion) && this
+				.construccionesRequeridasEncontradas(this.construccionesNecesarias));
 	}
 }

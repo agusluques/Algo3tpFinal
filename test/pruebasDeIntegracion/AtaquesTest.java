@@ -390,9 +390,9 @@ public class AtaquesTest {
 	public void unJugadorMataAOtroSiLeMataTodasLasUnidades() throws Exception {
 		Mapa mapa = new Mapa("mapaTierra.txt");
 		Jugador jugador1 = new JugadorTerran("Damian", mapa);
-		
+
 		Jugador jugador2 = new JugadorProtoss("Juan", mapa);
-		
+
 		Assert.assertFalse(jugador1.estaExtinto());
 		Assert.assertFalse(jugador1.estaExtinto());
 

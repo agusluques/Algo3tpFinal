@@ -42,9 +42,9 @@ public class MarineTest {
 	public void siUnMarineAtacaAOtroAlSegundoLeBajaLaVidaA36() {
 
 		Marine unMarine = new Marine();
-		unMarine.setCoordenada(new Coordenada(0,0));
+		unMarine.setCoordenada(new Coordenada(0, 0));
 		Marine otroMarine = new Marine();
-		otroMarine.setCoordenada(new Coordenada(0,1));
+		otroMarine.setCoordenada(new Coordenada(0, 1));
 		unMarine.atacar(otroMarine);
 		Assert.assertTrue(otroMarine.getVida() == 34);
 	}

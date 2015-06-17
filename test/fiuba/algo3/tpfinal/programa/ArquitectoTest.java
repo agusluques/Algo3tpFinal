@@ -24,42 +24,45 @@ public class ArquitectoTest {
 
 	}
 
-//	@Test(expected = ParcelaOcupada.class)
-//	public void intentarConstruirEnUnaParcelaOcupadaDeberiaRetornarUnaExcepcion()
-//			throws ConstruccionRequeridaInexistente {
-//		ConstruccionProtoss construccion1 = new Pilon();
-//		ConstruccionProtoss construccion2 = new Pilon();
-//		Coordenada posicion = new Coordenada(3, 3);
-//		jugador.construir(construccion1, posicion);
-//		jugador.construir(construccion2, posicion);
-//	}
+	// @Test(expected = ParcelaOcupada.class)
+	// public void
+	// intentarConstruirEnUnaParcelaOcupadaDeberiaRetornarUnaExcepcion()
+	// throws ConstruccionRequeridaInexistente {
+	// ConstruccionProtoss construccion1 = new Pilon();
+	// ConstruccionProtoss construccion2 = new Pilon();
+	// Coordenada posicion = new Coordenada(3, 3);
+	// jugador.construir(construccion1, posicion);
+	// jugador.construir(construccion2, posicion);
+	// }
 
-//	@Test(expected = TerrenoInapropiado.class)
-//	public void siIntentoConstruirUnEdificioEnElAireRetornaUnaExcepcion()
-//			throws ConstruccionRequeridaInexistente {
-//		ConstruccionProtoss construccion = new Pilon();
-//		Coordenada posicion = new Coordenada(1, 50);
-//		jugador.construir(construccion, posicion);
-//
-//	}
+	// @Test(expected = TerrenoInapropiado.class)
+	// public void siIntentoConstruirUnEdificioEnElAireRetornaUnaExcepcion()
+	// throws ConstruccionRequeridaInexistente {
+	// ConstruccionProtoss construccion = new Pilon();
+	// Coordenada posicion = new Coordenada(1, 50);
+	// jugador.construir(construccion, posicion);
+	//
+	// }
 
-//	@Test(expected = TerrenoInapropiado.class)
-//	public void siIntentoConstruirUnRecolectorDeGasEnTierraRetornaUnaExcepcion()
-//			throws ConstruccionRequeridaInexistente {
-//		Coordenada posicion = new Coordenada(3, 3);
-//		ConstruccionProtoss construccion = new Asimilador(posicion);
-//		jugador.construir(construccion, posicion);
-//
-//	}
+	// @Test(expected = TerrenoInapropiado.class)
+	// public void
+	// siIntentoConstruirUnRecolectorDeGasEnTierraRetornaUnaExcepcion()
+	// throws ConstruccionRequeridaInexistente {
+	// Coordenada posicion = new Coordenada(3, 3);
+	// ConstruccionProtoss construccion = new Asimilador(posicion);
+	// jugador.construir(construccion, posicion);
+	//
+	// }
 
-//	@Test(expected = TerrenoInapropiado.class)
-//	public void siIntentoConstruirUnRecolectorDeMineralesEnTierraRetornaUnaExcepcion()
-//			throws ConstruccionRequeridaInexistente {
-//		Coordenada posicion = new Coordenada(3, 3);
-//		ConstruccionProtoss construccion = new NexoMineral(posicion);
-//		jugador.construir(construccion, posicion);
-//
-//	}
+	// @Test(expected = TerrenoInapropiado.class)
+	// public void
+	// siIntentoConstruirUnRecolectorDeMineralesEnTierraRetornaUnaExcepcion()
+	// throws ConstruccionRequeridaInexistente {
+	// Coordenada posicion = new Coordenada(3, 3);
+	// ConstruccionProtoss construccion = new NexoMineral(posicion);
+	// jugador.construir(construccion, posicion);
+	//
+	// }
 
 	@Test
 	public void siElArquitectoConstruyeUnEdificioElMismoApareceEnElMapa()

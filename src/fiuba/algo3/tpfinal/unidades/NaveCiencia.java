@@ -64,25 +64,20 @@ public class NaveCiencia extends UnidadTerran {
 	}
 
 	public void lanzarEMP(Coordenada posicion) throws EnergiaInsuficiente {
-		
-		//TODO ! POR DIOS ! Otra vez !? ¿Cómo instancian una nave de ciencia adentro de una nave de cienca ?
-		//Es grave esto...
-		NaveCiencia nuevaNave = new NaveCiencia();
-		nuevaNave.setCoordenada(posicion);
-		if (this.estaEnRangoDeAtaque(nuevaNave)) {
-			try {
-				this.miEnergia.gastarEnergia(100);
-				for (Atacable unidadActual : this.getJugador().getMapa()
-						.unidadesEnUnRadio(posicion, 1)) {
-					if (!this.jugador.equals(unidadActual.getJugador())) {
-						((AfectablePorEMP) unidadActual).recibirImpactoEMP();
-					}
+		if (this.posicion.distancia(posicion) <= this.rangoDeAtaque.getRangoAire()){
+		try {
+			this.miEnergia.gastarEnergia(100);
+			for (Atacable unidadActual : this.getJugador().getMapa()
+					.unidadesEnUnRadio(posicion, 1)) {
+				if (!this.jugador.equals(unidadActual.getJugador())) {
+					((AfectablePorEMP) unidadActual).recibirImpactoEMP();
 				}
-			} catch (EnergiaInsuficiente e) {
-				throw e;
 			}
-
+		} catch (EnergiaInsuficiente e) {
+			throw e;
 		}
+		}
+
 	}
 
 	@Override

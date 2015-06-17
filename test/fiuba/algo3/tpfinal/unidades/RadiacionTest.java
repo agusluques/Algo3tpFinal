@@ -62,8 +62,8 @@ public class RadiacionTest {
 		otroJugador.getConstrucciones().add(new DepositoSuministro());
 
 		unJugador.agregarUnidad((UnidadTerran) unMarine, new Coordenada(3, 3));
-		otroJugador
-				.agregarUnidad((UnidadTerran) otroMarine, new Coordenada(2, 3));
+		otroJugador.agregarUnidad((UnidadTerran) otroMarine, new Coordenada(2,
+				3));
 
 		Radiacion unaRadiacion = new Radiacion(unMarine);
 		unaRadiacion.pasarTurno();

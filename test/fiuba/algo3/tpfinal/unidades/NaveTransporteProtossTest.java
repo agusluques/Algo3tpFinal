@@ -45,9 +45,9 @@ public class NaveTransporteProtossTest {
 	public void siUnDragonAtacaAUnaNaveTransporteProtossAlSegundoLeBajaElEscudoA40YNoBajaVida() {
 
 		Dragon unDragon = new Dragon();
-		unDragon.setCoordenada(new Coordenada(0,0));
+		unDragon.setCoordenada(new Coordenada(0, 0));
 		NaveTransporteProtoss nave = new NaveTransporteProtoss();
-		nave.setCoordenada(new Coordenada(0,1));
+		nave.setCoordenada(new Coordenada(0, 1));
 		unDragon.atacar(nave);
 		Assert.assertTrue(nave.getVida() == 80);
 		Assert.assertTrue(nave.getEscudo() == 40);

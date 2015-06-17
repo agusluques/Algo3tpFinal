@@ -21,6 +21,7 @@ public class PuertoEstelarProtoss extends ConstruccionProtoss {
 
 	private ArrayList<Fabricable> unidadesEnConstruccion;
 	private ArrayList<Constructible> construccionesNecesarias;
+
 	public PuertoEstelarProtoss() {
 
 		this.vida.inicializarVida(600);
@@ -45,29 +46,31 @@ public class PuertoEstelarProtoss extends ConstruccionProtoss {
 		this.fabricar(new NaveTransporteProtoss());
 	}
 
-	//TODO: ¿Respeta esta clase el principio de única responsabilidad?
-	public void fabricar(Fabricable unidad) {
-		if (unidadesEnConstruccion.size()<6){
+	// TODO: ¿Respeta esta clase el principio de única responsabilidad?
+	private void fabricar(Fabricable unidad) {
+		if (unidadesEnConstruccion.size() < 6) {
 			try {
 				jugador.getPresupuesto().gastar(unidad.getCosto());
 				unidadesEnConstruccion.add(unidad);
-			}catch (MineralInsuficiente e) {
+			} catch (MineralInsuficiente e) {
 				throw e;
-			}catch (GasInsuficiente e) {
+			} catch (GasInsuficiente e) {
 				throw e;
 			}
 		}
 	}
-	
+
 	public void pasarTurno(Jugador jugador, Mapa mapa) {
-		if (unidadesEnConstruccion.size()>0) {
+		if (unidadesEnConstruccion.size() > 0) {
 			Iterator<Fabricable> iterador = unidadesEnConstruccion.iterator();
 			Fabricable unidadEnConstruccion = iterador.next();
 			unidadEnConstruccion.avanzarFabricacion();
 			if (unidadEnConstruccion.getTiempoRestante() == 0) {
 				try {
-					this.jugador.agregarUnidad((UnidadProtoss)unidadEnConstruccion,
-							this.posicion);
+					this.jugador
+							.agregarUnidad(
+									(UnidadProtoss) unidadEnConstruccion,
+									this.posicion);
 					iterador.remove();
 				} catch (LimitePoblacionalAlcanzado e) {
 					throw e;
@@ -76,13 +79,13 @@ public class PuertoEstelarProtoss extends ConstruccionProtoss {
 		}
 	}
 
-
 	public int rangoDeAtaqueCorrespondiente(RangoDeAtaque rango) {
 		return rango.getRangoTierra();
 	}
 
 	@Override
-	public boolean puedeConstruirseEn(Parcela ubicacion ){
-		return (this.esValidaLaUbicacion(ubicacion) && this.construccionesRequeridasEncontradas(this.construccionesNecesarias));
+	public boolean puedeConstruirseEn(Parcela ubicacion) {
+		return (this.esValidaLaUbicacion(ubicacion) && this
+				.construccionesRequeridasEncontradas(this.construccionesNecesarias));
 	}
 }

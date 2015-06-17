@@ -12,17 +12,15 @@ public class Pilon extends ConstruccionProtoss {
 		this.tiempoDeConstruccion = 5;
 		this.costo = new Costo(100);
 		this.superficieNecesaria = new Tierra();
-	
+
 	}
-
-
 
 	public int rangoDeAtaqueCorrespondiente(RangoDeAtaque rango) {
 		return rango.getRangoTierra();
 	}
 
 	@Override
-	public int aumentoDePoblacion(){
+	public int aumentoDePoblacion() {
 		return 5;
 	}
 }

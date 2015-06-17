@@ -11,17 +11,15 @@ public class DepositoSuministro extends ConstruccionTerran {
 		this.costo = new Costo(100);
 		this.tiempoDeConstruccion = 6;
 		this.superficieNecesaria = new Tierra();
-	
+
 	}
-
-
 
 	public int rangoDeAtaqueCorrespondiente(RangoDeAtaque rango) {
 		return rango.getRangoTierra();
 	}
-	
+
 	@Override
-	public int aumentoDePoblacion(){
+	public int aumentoDePoblacion() {
 		return 5;
 	}
 

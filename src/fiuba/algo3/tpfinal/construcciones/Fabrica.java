@@ -20,6 +20,7 @@ public class Fabrica extends ConstruccionTerran {
 
 	private ArrayList<Fabricable> unidadesEnConstruccion;
 	private ArrayList<Constructible> construccionesNecesarias;
+
 	public Fabrica() {
 		this.vida.inicializarVida(1250);
 		this.tiempoDeConstruccion = 12;
@@ -35,7 +36,7 @@ public class Fabrica extends ConstruccionTerran {
 	}
 
 	public void fabricarGolliat() {
-		if (unidadesEnConstruccion.size()<6){
+		if (unidadesEnConstruccion.size() < 6) {
 			try {
 				jugador.getPresupuesto().gastar(new Golliat().getCosto());
 				unidadesEnConstruccion.add(new Golliat());
@@ -48,14 +49,14 @@ public class Fabrica extends ConstruccionTerran {
 	}
 
 	public void pasarTurno(Jugador jugador, Mapa mapa) {
-		if (unidadesEnConstruccion.size()>0) {
+		if (unidadesEnConstruccion.size() > 0) {
 			Iterator<Fabricable> iterador = unidadesEnConstruccion.iterator();
 			Fabricable unidadEnConstruccion = iterador.next();
 			unidadEnConstruccion.avanzarFabricacion();
 			if (unidadEnConstruccion.getTiempoRestante() == 0) {
 				try {
-					this.jugador.agregarUnidad((UnidadTerran)unidadEnConstruccion,
-							this.posicion);
+					this.jugador.agregarUnidad(
+							(UnidadTerran) unidadEnConstruccion, this.posicion);
 					iterador.remove();
 				} catch (LimitePoblacionalAlcanzado e) {
 					throw e;
@@ -63,17 +64,14 @@ public class Fabrica extends ConstruccionTerran {
 			}
 		}
 	}
-	
-	
-	
 
 	public int rangoDeAtaqueCorrespondiente(RangoDeAtaque rango) {
 		return rango.getRangoTierra();
 	}
 
-	
 	@Override
-	public boolean puedeConstruirseEn(Parcela ubicacion){
-		return (this.esValidaLaUbicacion(ubicacion) && this.construccionesRequeridasEncontradas(this.construccionesNecesarias));
+	public boolean puedeConstruirseEn(Parcela ubicacion) {
+		return (this.esValidaLaUbicacion(ubicacion) && this
+				.construccionesRequeridasEncontradas(this.construccionesNecesarias));
 	}
 }

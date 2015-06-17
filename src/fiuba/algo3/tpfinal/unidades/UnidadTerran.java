@@ -61,7 +61,7 @@ public abstract class UnidadTerran extends Terran implements Fabricable,
 	}
 
 	@Override
-	public Costo getCosto(){
+	public Costo getCosto() {
 		return this.costo;
 	}
 

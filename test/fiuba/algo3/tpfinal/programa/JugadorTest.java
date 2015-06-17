@@ -27,7 +27,7 @@ import fiuba.algo3.tpfinal.unidades.Marine;
 public class JugadorTest {
 
 	private JugadorProtoss jugadorProtoss;
-	private JugadorTerran  jugadorTerran;
+	private JugadorTerran jugadorTerran;
 	private Mapa mapa;
 	private Coordenada coordTierra, coordTierra2, coordTierra3;
 
@@ -57,13 +57,15 @@ public class JugadorTest {
 
 	@Test
 	public void elJugadorComienzaCon200Mineral() {
-		Assert.assertEquals(200, jugadorProtoss.getPresupuesto().cantidadDeMineral());
+		Assert.assertEquals(200, jugadorProtoss.getPresupuesto()
+				.cantidadDeMineral());
 	}
 
 	@Test
 	public void siElJugadorSuma20DeMineralTiene220() {
 		jugadorProtoss.getPresupuesto().agregarMineral(20);
-		Assert.assertEquals(220, jugadorProtoss.getPresupuesto().cantidadDeMineral());
+		Assert.assertEquals(220, jugadorProtoss.getPresupuesto()
+				.cantidadDeMineral());
 	}
 
 	@Test
@@ -76,13 +78,14 @@ public class JugadorTest {
 	public void siElJugadorSuma20DeMineralYGasta10Tiene210() {
 		jugadorProtoss.getPresupuesto().agregarMineral(20);
 		jugadorProtoss.getPresupuesto().gastar(new Costo(10));
-		Assert.assertEquals(210, jugadorProtoss.getPresupuesto().cantidadDeMineral());
+		Assert.assertEquals(210, jugadorProtoss.getPresupuesto()
+				.cantidadDeMineral());
 	}
 
 	@Test
 	public void siElJugadorSuma20DeGasYGasta10Tiene10() {
 		jugadorProtoss.getPresupuesto().agregarGas(20);
-		jugadorProtoss.getPresupuesto().gastar(new Costo(0,10));
+		jugadorProtoss.getPresupuesto().gastar(new Costo(0, 10));
 		Assert.assertEquals(10, jugadorProtoss.getPresupuesto().cantidadDeGas());
 	}
 
@@ -90,7 +93,7 @@ public class JugadorTest {
 	public void siElJugadorGastaMasGasDelQueTieneSeLanzaExcepcion() {
 		jugadorProtoss.getPresupuesto().agregarGas(20);
 		try {
-			jugadorProtoss.getPresupuesto().gastar(new Costo(0,30));
+			jugadorProtoss.getPresupuesto().gastar(new Costo(0, 30));
 			Assert.assertTrue(false);
 		} catch (GasInsuficiente e) {
 			Assert.assertTrue(true);
@@ -113,10 +116,11 @@ public class JugadorTest {
 	@Test
 	public void elJugadorRecolectaMineralesDeUnRecolectorYSuma10() {
 		NexoMineral recolector = new NexoMineral();
-		recolector.setCoordenada(new Coordenada(1,100));
+		recolector.setCoordenada(new Coordenada(1, 100));
 		recolector.setJugador(jugadorProtoss);
 		recolector.recolectar(mapa);
-		Assert.assertEquals(210, jugadorProtoss.getPresupuesto().cantidadDeMineral());
+		Assert.assertEquals(210, jugadorProtoss.getPresupuesto()
+				.cantidadDeMineral());
 	}
 
 	@Test
@@ -125,7 +129,8 @@ public class JugadorTest {
 		recolector.setCoordenada(new Coordenada(1, 91));
 		recolector.setJugador(jugadorTerran);
 		recolector.recolectar(mapa);
-		Assert.assertEquals(210, jugadorTerran.getPresupuesto().cantidadDeMineral());
+		Assert.assertEquals(210, jugadorTerran.getPresupuesto()
+				.cantidadDeMineral());
 	}
 
 	@Test
@@ -154,7 +159,8 @@ public class JugadorTest {
 		for (int i = 0; i < 4; i++) {
 			jugadorProtoss.pasarTurno();
 		}
-		Assert.assertTrue(jugadorProtoss.getConstrucciones().contains(construccion));
+		Assert.assertTrue(jugadorProtoss.getConstrucciones().contains(
+				construccion));
 	}
 
 	@Test
@@ -162,7 +168,8 @@ public class JugadorTest {
 			throws ConstruccionRequeridaInexistente {
 		ConstruccionProtoss construccion = new NexoMineral();
 		jugadorProtoss.construir(construccion, new Coordenada(1, 100));
-		Assert.assertFalse(jugadorProtoss.getConstrucciones().contains(construccion));
+		Assert.assertFalse(jugadorProtoss.getConstrucciones().contains(
+				construccion));
 	}
 
 	@Test
@@ -173,7 +180,8 @@ public class JugadorTest {
 		for (int i = 0; i < 4; i++) {
 			jugadorProtoss.pasarTurno();
 		}
-		Assert.assertEquals(150, jugadorProtoss.getPresupuesto().cantidadDeMineral());
+		Assert.assertEquals(150, jugadorProtoss.getPresupuesto()
+				.cantidadDeMineral());
 	}
 
 	@Test
@@ -184,7 +192,8 @@ public class JugadorTest {
 		for (int i = 0; i < 5; i++) {
 			jugadorProtoss.pasarTurno();
 		}
-		Assert.assertTrue(jugadorProtoss.getConstrucciones().contains(construccion));
+		Assert.assertTrue(jugadorProtoss.getConstrucciones().contains(
+				construccion));
 	}
 
 	@Test
@@ -195,7 +204,8 @@ public class JugadorTest {
 		for (int i = 0; i < 5; i++) {
 			jugadorProtoss.pasarTurno();
 		}
-		Assert.assertEquals(100, jugadorProtoss.getPresupuesto().cantidadDeMineral());
+		Assert.assertEquals(100, jugadorProtoss.getPresupuesto()
+				.cantidadDeMineral());
 	}
 
 	@Test
@@ -206,7 +216,8 @@ public class JugadorTest {
 		for (int i = 0; i < 6; i++) {
 			jugadorProtoss.pasarTurno();
 		}
-		Assert.assertTrue(jugadorProtoss.getConstrucciones().contains(construccion));
+		Assert.assertTrue(jugadorProtoss.getConstrucciones().contains(
+				construccion));
 	}
 
 	@Test
@@ -217,7 +228,8 @@ public class JugadorTest {
 		for (int i = 0; i < 6; i++) {
 			jugadorProtoss.pasarTurno();
 		}
-		Assert.assertEquals(100, jugadorProtoss.getPresupuesto().cantidadDeMineral());
+		Assert.assertEquals(100, jugadorProtoss.getPresupuesto()
+				.cantidadDeMineral());
 	}
 
 	@Test
@@ -228,7 +240,8 @@ public class JugadorTest {
 		for (int i = 0; i < 8; i++) {
 			jugadorProtoss.pasarTurno();
 		}
-		Assert.assertTrue(jugadorProtoss.getConstrucciones().contains(construccion));
+		Assert.assertTrue(jugadorProtoss.getConstrucciones().contains(
+				construccion));
 	}
 
 	@Test
@@ -239,18 +252,20 @@ public class JugadorTest {
 		for (int i = 0; i < 8; i++) {
 			jugadorProtoss.pasarTurno();
 		}
-		Assert.assertEquals(50, jugadorProtoss.getPresupuesto().cantidadDeMineral());
+		Assert.assertEquals(50, jugadorProtoss.getPresupuesto()
+				.cantidadDeMineral());
 	}
 
-//	@Test(expected = ConstruccionRequeridaInexistente.class)
-//	public void siElJugadorProtossQuiereConstruirUnPuertoEstelarSinUnAccesoLanzaExcepcion()
-//			throws ConstruccionRequeridaInexistente {
-//		ConstruccionProtoss puerto = new PuertoEstelarProtoss();
-//		for (int i = 0; i < 10; i++) {
-//			jugadorProtoss.pasarTurno();
-//		}
-//		jugadorProtoss.construir(puerto, coordTierra);
-//	}
+	// @Test(expected = ConstruccionRequeridaInexistente.class)
+	// public void
+	// siElJugadorProtossQuiereConstruirUnPuertoEstelarSinUnAccesoLanzaExcepcion()
+	// throws ConstruccionRequeridaInexistente {
+	// ConstruccionProtoss puerto = new PuertoEstelarProtoss();
+	// for (int i = 0; i < 10; i++) {
+	// jugadorProtoss.pasarTurno();
+	// }
+	// jugadorProtoss.construir(puerto, coordTierra);
+	// }
 
 	@Test(expected = MineralInsuficiente.class)
 	public void siElJugadorProtossQuiereConstruirUnPuertoEstelarYNoLeAlcanzaLanzaExcepcion()
@@ -298,28 +313,30 @@ public class JugadorTest {
 		Assert.assertTrue(jugadorProtoss.getConstrucciones().contains(puerto));
 	}
 
-//	@Test(expected = ConstruccionRequeridaInexistente.class)
-//	public void siElJugadorProtossQuiereConstruirUnArchivoTemplarioSinUnPuertEstelarLanzaExcepcion()
-//			throws ConstruccionRequeridaInexistente {
-//		ConstruccionProtoss archivo = new ArchivosTemplarios();
-//		jugadorProtoss.construir(archivo, coordTierra);
-//	}
+	// @Test(expected = ConstruccionRequeridaInexistente.class)
+	// public void
+	// siElJugadorProtossQuiereConstruirUnArchivoTemplarioSinUnPuertEstelarLanzaExcepcion()
+	// throws ConstruccionRequeridaInexistente {
+	// ConstruccionProtoss archivo = new ArchivosTemplarios();
+	// jugadorProtoss.construir(archivo, coordTierra);
+	// }
 
-//	@Test(expected = ConstruccionRequeridaInexistente.class)
-//	public void elJugadorProtossQuiereConstruirUnArchivoTemplarioConUnAccesoLanzaExcepcion()
-//			throws ConstruccionRequeridaInexistente {
-//
-//		ConstruccionProtoss acceso = new Acceso();
-//		ConstruccionProtoss archivo = new ArchivosTemplarios();
-//		jugadorProtoss.getPresupuesto().agregarGas(1000);
-//		jugadorProtoss.getPresupuesto().agregarMineral(1000);
-//
-//		jugadorProtoss.construir(acceso, coordTierra);
-//		for (int i = 0; i < 8; i++) {
-//			jugadorProtoss.pasarTurno();
-//		}
-//		jugadorProtoss.construir(archivo, coordTierra2);
-//	}
+	// @Test(expected = ConstruccionRequeridaInexistente.class)
+	// public void
+	// elJugadorProtossQuiereConstruirUnArchivoTemplarioConUnAccesoLanzaExcepcion()
+	// throws ConstruccionRequeridaInexistente {
+	//
+	// ConstruccionProtoss acceso = new Acceso();
+	// ConstruccionProtoss archivo = new ArchivosTemplarios();
+	// jugadorProtoss.getPresupuesto().agregarGas(1000);
+	// jugadorProtoss.getPresupuesto().agregarMineral(1000);
+	//
+	// jugadorProtoss.construir(acceso, coordTierra);
+	// for (int i = 0; i < 8; i++) {
+	// jugadorProtoss.pasarTurno();
+	// }
+	// jugadorProtoss.construir(archivo, coordTierra2);
+	// }
 
 	@Test
 	public void elJugadorProtossPuedeConstruirUnArchivoTemplarioConUnPuertoEstelar()
@@ -355,7 +372,8 @@ public class JugadorTest {
 		for (int i = 0; i < 4; i++) {
 			jugadorTerran.pasarTurno();
 		}
-		Assert.assertTrue(jugadorTerran.getConstrucciones().contains(construccion));
+		Assert.assertTrue(jugadorTerran.getConstrucciones().contains(
+				construccion));
 	}
 
 	@Test
@@ -366,7 +384,8 @@ public class JugadorTest {
 		for (int i = 0; i < 12; i++) {
 			jugadorTerran.pasarTurno();
 		}
-		Assert.assertTrue(jugadorTerran.getConstrucciones().contains(construccion));
+		Assert.assertTrue(jugadorTerran.getConstrucciones().contains(
+				construccion));
 	}
 
 	@Test
@@ -377,7 +396,8 @@ public class JugadorTest {
 		for (int i = 0; i < 6; i++) {
 			jugadorTerran.pasarTurno();
 		}
-		Assert.assertTrue(jugadorTerran.getConstrucciones().contains(construccion));
+		Assert.assertTrue(jugadorTerran.getConstrucciones().contains(
+				construccion));
 	}
 
 	@Test
@@ -388,20 +408,21 @@ public class JugadorTest {
 		for (int i = 0; i < 6; i++) {
 			jugadorTerran.pasarTurno();
 		}
-		Assert.assertTrue(jugadorTerran.getConstrucciones().contains(construccion));
+		Assert.assertTrue(jugadorTerran.getConstrucciones().contains(
+				construccion));
 	}
 
-//	@Test(expected = ConstruccionRequeridaInexistente.class)
-//	public void elJugadorTerranNoPuedeConstruirUnaFabricaSinUnaBarraca()
-//			throws ConstruccionRequeridaInexistente {
-//
-//		ConstruccionTerran fabrica = new Fabrica();
-//
-//		jugadorTerran.getPresupuesto().agregarMineral(1000);
-//
-//		jugadorTerran.construir(fabrica, coordTierra);
-//
-//	}
+	// @Test(expected = ConstruccionRequeridaInexistente.class)
+	// public void elJugadorTerranNoPuedeConstruirUnaFabricaSinUnaBarraca()
+	// throws ConstruccionRequeridaInexistente {
+	//
+	// ConstruccionTerran fabrica = new Fabrica();
+	//
+	// jugadorTerran.getPresupuesto().agregarMineral(1000);
+	//
+	// jugadorTerran.construir(fabrica, coordTierra);
+	//
+	// }
 
 	@Test
 	public void elJugadorTerranPuedeConstruirUnaFabricaConUnaBarraca()
@@ -426,37 +447,38 @@ public class JugadorTest {
 
 	}
 
-//	@Test(expected = ConstruccionRequeridaInexistente.class)
-//	public void elJugadorTerranNoPuedeConstruirUnPuertoEstelarSinUnaFabrica()
-//			throws ConstruccionRequeridaInexistente {
-//
-//		ConstruccionTerran puerto = new PuertoEstelarTerran();
-//
-//		jugadorTerran.getPresupuesto().agregarMineral(1000);
-//		jugadorTerran.getPresupuesto().agregarGas(1000);
-//
-//		jugadorTerran.construir(puerto, coordTierra);
-//
-//	}
+	// @Test(expected = ConstruccionRequeridaInexistente.class)
+	// public void elJugadorTerranNoPuedeConstruirUnPuertoEstelarSinUnaFabrica()
+	// throws ConstruccionRequeridaInexistente {
+	//
+	// ConstruccionTerran puerto = new PuertoEstelarTerran();
+	//
+	// jugadorTerran.getPresupuesto().agregarMineral(1000);
+	// jugadorTerran.getPresupuesto().agregarGas(1000);
+	//
+	// jugadorTerran.construir(puerto, coordTierra);
+	//
+	// }
 
-//	@Test(expected = ConstruccionRequeridaInexistente.class)
-//	public void elJugadorTerranNoPuedeConstruirUnPuertoEstelarConSoloUnaBarraca()
-//			throws ConstruccionRequeridaInexistente {
-//
-//		ConstruccionTerran barraca = new Barraca();
-//		ConstruccionTerran puerto = new PuertoEstelarTerran();
-//
-//		jugadorTerran.getPresupuesto().agregarMineral(1000);
-//		jugadorTerran.getPresupuesto().agregarGas(1000);
-//
-//		jugadorTerran.construir(barraca, coordTierra);
-//		for (int i = 0; i < 12; i++) {
-//			jugadorTerran.pasarTurno();
-//		}
-//	
-//		jugadorTerran.construir(puerto, coordTierra2);
-//
-//	}
+	// @Test(expected = ConstruccionRequeridaInexistente.class)
+	// public void
+	// elJugadorTerranNoPuedeConstruirUnPuertoEstelarConSoloUnaBarraca()
+	// throws ConstruccionRequeridaInexistente {
+	//
+	// ConstruccionTerran barraca = new Barraca();
+	// ConstruccionTerran puerto = new PuertoEstelarTerran();
+	//
+	// jugadorTerran.getPresupuesto().agregarMineral(1000);
+	// jugadorTerran.getPresupuesto().agregarGas(1000);
+	//
+	// jugadorTerran.construir(barraca, coordTierra);
+	// for (int i = 0; i < 12; i++) {
+	// jugadorTerran.pasarTurno();
+	// }
+	//
+	// jugadorTerran.construir(puerto, coordTierra2);
+	//
+	// }
 
 	@Test
 	public void elJugadorTerranPuedeConstruirUnPuertoEstelarConUnaFabrica()
@@ -514,7 +536,7 @@ public class JugadorTest {
 		jugadorTerran.pasarTurno();
 
 		Marine enemigo = new Marine();
-		enemigo.setCoordenada(new Coordenada(0,0));
+		enemigo.setCoordenada(new Coordenada(0, 0));
 		while (!marine.estaMuerto()) {
 			enemigo.atacar(marine);
 		}
@@ -536,7 +558,7 @@ public class JugadorTest {
 		jugadorTerran.pasarTurno();
 
 		Marine enemigo = new Marine();
-		enemigo.setCoordenada(new Coordenada(0,0));
+		enemigo.setCoordenada(new Coordenada(0, 0));
 		while (!deposito.estaMuerto()) {
 			enemigo.atacar(deposito);
 		}
@@ -561,7 +583,7 @@ public class JugadorTest {
 		Assert.assertEquals(15, jugadorTerran.limitePoblacional());
 
 		Marine enemigo = new Marine();
-		enemigo.setCoordenada(new Coordenada(0,0));
+		enemigo.setCoordenada(new Coordenada(0, 0));
 		while (!deposito.estaMuerto()) {
 			enemigo.atacar(deposito);
 		}
@@ -569,7 +591,5 @@ public class JugadorTest {
 
 		Assert.assertEquals(10, jugadorTerran.limitePoblacional());
 	}
-
-
 
 }

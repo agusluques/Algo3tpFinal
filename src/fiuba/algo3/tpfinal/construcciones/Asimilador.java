@@ -33,7 +33,6 @@ public class Asimilador extends ConstruccionProtoss implements RecolectorDeGas {
 		return superficie.extraerRecursos();
 	}
 
-
 	public void pasarTurno(Jugador jugador, Mapa mapa) {
 		this.recolectar(mapa);
 		super.pasarTurno(jugador, mapa);

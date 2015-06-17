@@ -59,7 +59,7 @@ public class AsimiladorTest {
 		Mapa mapa = new Mapa("mapaTierra.txt");
 		JugadorProtoss jugador = new JugadorProtoss("Damian", mapa);
 		Zealot zealot = new Zealot();
-		zealot.setCoordenada(new Coordenada(0,0));
+		zealot.setCoordenada(new Coordenada(0, 0));
 		asimilador.setJugador(jugador);
 		zealot.atacar(asimilador);
 		asimilador.pasarTurno(jugador, mapa);

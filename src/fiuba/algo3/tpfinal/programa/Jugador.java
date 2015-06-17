@@ -30,7 +30,8 @@ public abstract class Jugador {
 		this.magias = new ArrayList<Magia>();
 		this.limitePoblacionalInicial = 5;
 		this.limitePoblacionalMaximo = 200;
-		this.arquitecto = new Arquitecto(presupuesto, construcciones, mapa,	this);
+		this.arquitecto = new Arquitecto(presupuesto, construcciones, mapa,
+				this);
 	}
 
 	public String getNombre() {
@@ -55,15 +56,14 @@ public abstract class Jugador {
 	}
 
 	public int limitePoblacional() {
-		if(limitePoblacionalInicial + this.contarCasas()>=200){
+		if (limitePoblacionalInicial + this.contarCasas() >= 200) {
 			return limitePoblacionalMaximo;
-		}else{
+		} else {
 			return limitePoblacionalInicial + this.contarCasas();
 
 		}
-		
-	}
 
+	}
 
 	public Presupuesto getPresupuesto() {
 		return this.presupuesto;
@@ -77,8 +77,6 @@ public abstract class Jugador {
 		return this.unidades;
 	}
 
-	
-
 	public void agregarMagia(Magia magia) {
 		this.magias.add(magia);
 	}
@@ -88,10 +86,11 @@ public abstract class Jugador {
 			unidad.pasarTurno(this, mapa);
 		}
 		for (Constructible construccion : construcciones) {
-			try{
+			try {
 				((Atacable) construccion).pasarTurno(this, mapa);
-			}catch (Exception e){}
-			
+			} catch (Exception e) {
+			}
+
 		}
 		for (Magia magiaActual : magias) {
 			magiaActual.pasarTurno();
@@ -154,7 +153,5 @@ public abstract class Jugador {
 	public boolean estaExtinto() {
 		return this.construcciones.isEmpty() && this.unidades.isEmpty();
 	}
-
-
 
 }

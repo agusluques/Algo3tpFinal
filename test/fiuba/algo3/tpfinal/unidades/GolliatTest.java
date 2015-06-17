@@ -42,9 +42,9 @@ public class GolliatTest {
 	public void siUnGolliatAtacaAOtroAlSegundoLeBajaLaVidaA113() {
 
 		Golliat unGolliat = new Golliat();
-		unGolliat.setCoordenada(new Coordenada(0,0));
+		unGolliat.setCoordenada(new Coordenada(0, 0));
 		Golliat otroGolliat = new Golliat();
-		otroGolliat.setCoordenada(new Coordenada(0,1));
+		otroGolliat.setCoordenada(new Coordenada(0, 1));
 		unGolliat.atacar(otroGolliat);
 		Assert.assertTrue(otroGolliat.getVida() == 113);
 	}

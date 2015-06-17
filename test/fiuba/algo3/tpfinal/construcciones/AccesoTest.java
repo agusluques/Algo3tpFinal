@@ -68,9 +68,9 @@ public class AccesoTest {
 		for (int i = 0; i < 5; i++) {
 			jugador.pasarTurno();
 		}
-		((Acceso)this.acceso).fabricarZealot();
+		((Acceso) this.acceso).fabricarZealot();
 		for (int i = 0; i < 4; i++) {
-			((Acceso)this.acceso).pasarTurno(null, null);
+			((Acceso) this.acceso).pasarTurno(null, null);
 		}
 		for (Atacable unidad : jugador.getUnidades()) {
 			Assert.assertTrue(unidad.getClass() == (new Zealot()).getClass());
@@ -98,9 +98,9 @@ public class AccesoTest {
 		for (int i = 0; i < 6; i++) {
 			((Acceso) this.acceso).pasarTurno(null, null);
 		}
-		int cantUnidadCorrespondiente=0;
+		int cantUnidadCorrespondiente = 0;
 		for (Atacable unidad : jugador.getUnidades()) {
-			if (unidad.getClass()==(new Dragon()).getClass()){
+			if (unidad.getClass() == (new Dragon()).getClass()) {
 				cantUnidadCorrespondiente++;
 			}
 		}
@@ -114,7 +114,6 @@ public class AccesoTest {
 		Assert.assertEquals(1, acceso.rangoDeAtaqueCorrespondiente(rango));
 	}
 
-
 	@Test
 	public void siPongoAFabricarPrimeroUnDragonYDespuesUnZealotElDragonSeTerminaPrimero()
 			throws Exception {
@@ -123,52 +122,51 @@ public class AccesoTest {
 
 		jugador.getPresupuesto().agregarMineral(1000);
 		jugador.getPresupuesto().agregarGas(1000);
-		//Construyo un acceso y un pilon
+		// Construyo un acceso y un pilon
 		jugador.construir(new Pilon(), new Coordenada(1, 2));
 		jugador.construir(acceso, new Coordenada(1, 1));
 		for (int i = 0; i < 8; i++) {
 			jugador.pasarTurno();
 		}
-		//Pongo a fabricar un Dragon, un zealot y paso los turnos
+		// Pongo a fabricar un Dragon, un zealot y paso los turnos
 		this.acceso.fabricarDragon();
 		this.acceso.fabricarZealot();
 		for (int i = 0; i < 6; i++) {
-			 this.acceso.pasarTurno(null, null);
+			this.acceso.pasarTurno(null, null);
 		}
-		int cantDeDragones=0;
-		int cantDeZealots=0;
-		//Cuento la cantidad de dragones y zealots
+		int cantDeDragones = 0;
+		int cantDeZealots = 0;
+		// Cuento la cantidad de dragones y zealots
 		for (Atacable unidad : jugador.getUnidades()) {
-			if (unidad.getClass()==(new Dragon()).getClass()){
+			if (unidad.getClass() == (new Dragon()).getClass()) {
 				cantDeDragones++;
 			}
-			if (unidad.getClass()==(new Zealot()).getClass()){
+			if (unidad.getClass() == (new Zealot()).getClass()) {
 				cantDeZealots++;
 			}
 		}
 		Assert.assertTrue(cantDeDragones == 1);
-		//Es 1 la cantidad de zealots porque esta la unidad basica
+		// Es 1 la cantidad de zealots porque esta la unidad basica
 		Assert.assertTrue(cantDeZealots == 1);
-		
-		//Avanzo 4 turnos mas asi se termina de crear el zealot
+
+		// Avanzo 4 turnos mas asi se termina de crear el zealot
 		for (int i = 0; i < 4; i++) {
-			 this.acceso.pasarTurno(null, null);
+			this.acceso.pasarTurno(null, null);
 		}
-		cantDeDragones=0;
-		cantDeZealots=0;
-		//Cuento la cantidad de dragones y zealots
+		cantDeDragones = 0;
+		cantDeZealots = 0;
+		// Cuento la cantidad de dragones y zealots
 		for (Atacable unidad : jugador.getUnidades()) {
-			if (unidad.getClass()==(new Dragon()).getClass()){
+			if (unidad.getClass() == (new Dragon()).getClass()) {
 				cantDeDragones++;
 			}
-			if (unidad.getClass()==(new Zealot()).getClass()){
+			if (unidad.getClass() == (new Zealot()).getClass()) {
 				cantDeZealots++;
 			}
 		}
 		Assert.assertTrue(cantDeDragones == 1);
-		//Es 2 la cantidad de zealots porque esta la unidad basica
+		// Es 2 la cantidad de zealots porque esta la unidad basica
 		Assert.assertTrue(cantDeZealots == 2);
-		
-	
+
 	}
 }

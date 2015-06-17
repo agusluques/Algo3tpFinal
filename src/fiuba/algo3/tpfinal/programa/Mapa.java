@@ -17,8 +17,6 @@ public class Mapa {
 		mapa = creador.construirMapa(dirDelMapa);
 	}
 
-	
-
 	public Boolean mapaEstaVacio() {
 
 		for (Parcela parcela : mapa.values()) {
@@ -68,9 +66,6 @@ public class Mapa {
 		}
 		return altoMax;
 	}
-
-
-
 
 	public void moverUnidad(Coordenada coord1, Coordenada coord2) {
 		Parcela parcela1 = this.getParcela(coord1);

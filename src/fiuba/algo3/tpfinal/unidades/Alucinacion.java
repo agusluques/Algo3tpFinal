@@ -4,7 +4,6 @@ import fiuba.algo3.tpfinal.programa.Danio;
 
 public class Alucinacion extends UnidadProtoss {
 
-	
 	@SuppressWarnings("unused")
 	private UnidadProtoss unidadCopiada;
 

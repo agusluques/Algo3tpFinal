@@ -18,7 +18,7 @@ import fiuba.algo3.tpfinal.unidades.Marine;
 public class PoblacionTest {
 
 	private JugadorProtoss jugador;
-	private JugadorTerran	jugadorTerran;
+	private JugadorTerran jugadorTerran;
 	private Mapa mapa;
 	private Coordenada coordTierra, coordTierra2;
 
@@ -57,31 +57,30 @@ public class PoblacionTest {
 		Assert.assertTrue(jugador.limitePoblacional() == 15);
 
 	}
-	
+
 	@Test
 	public void aunqueElJugadorConstruyaMuchosPilonesSuLimitePoblacionalNoPasaDe200()
 			throws ConstruccionRequeridaInexistente {
 		jugador.getPresupuesto().agregarMineral(100000);
 		for (int x = 1; x <= 10; x++) {
-			for (int y=1;y<=5;y++){
-				jugador.construir(new Pilon(), new Coordenada(y,x));
+			for (int y = 1; y <= 5; y++) {
+				jugador.construir(new Pilon(), new Coordenada(y, x));
 				for (int i = 0; i < 5; i++) {
 					jugador.pasarTurno();
 				}
-				
+
 			}
-			
+
 		}
 
 		Assert.assertEquals(200, jugador.limitePoblacional());
-		for (int x = 1; x <=5; x++) {
-			jugador.construir(new Pilon(), new Coordenada(13,x));
+		for (int x = 1; x <= 5; x++) {
+			jugador.construir(new Pilon(), new Coordenada(13, x));
 			for (int i = 0; i < 5; i++) {
 				jugador.pasarTurno();
 			}
 		}
-	
-	
+
 		Assert.assertEquals(200, jugador.limitePoblacional());
 	}
 
@@ -102,7 +101,7 @@ public class PoblacionTest {
 		jugadorTerran.pasarTurno();
 
 		Marine enemigo = new Marine();
-		enemigo.setCoordenada(new Coordenada(0,0));
+		enemigo.setCoordenada(new Coordenada(0, 0));
 		while (!marine.estaMuerto()) {
 			enemigo.atacar(marine);
 		}
@@ -124,7 +123,7 @@ public class PoblacionTest {
 		jugadorTerran.pasarTurno();
 
 		Marine enemigo = new Marine();
-		enemigo.setCoordenada(new Coordenada(0,0));
+		enemigo.setCoordenada(new Coordenada(0, 0));
 		while (!deposito.estaMuerto()) {
 			enemigo.atacar(deposito);
 		}

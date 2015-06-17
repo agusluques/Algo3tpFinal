@@ -12,13 +12,13 @@ public class JugadorProtoss extends Jugador {
 	public JugadorProtoss(String nombre, Mapa mapa) {
 		super(nombre, mapa);
 		Atacable unidadBasica = new Zealot();
-		
-		//TODO: hay que inicializarla donde arranque el jugador
-		unidadBasica.setCoordenada(new Coordenada(0,0));
+
+		// TODO: hay que inicializarla donde arranque el jugador
+		unidadBasica.setCoordenada(new Coordenada(0, 0));
 		this.unidades.add(unidadBasica);
-	
+
 	}
-	
+
 	public void construir(ConstruccionProtoss construccion, Coordenada posicion)
 			throws ConstruccionRequeridaInexistente {
 		construccion.setJugador(this);
