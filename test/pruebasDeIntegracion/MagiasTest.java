@@ -248,7 +248,7 @@ public class MagiasTest {
 			}
 		}
 
-		Assert.assertTrue(cantidadAlucinaciones == 2);
+		Assert.assertTrue(cantidadAlucinaciones == 1);
 
 		// lanzo el EMP
 		otraNave.lanzarEMP(new Coordenada(2, 2));

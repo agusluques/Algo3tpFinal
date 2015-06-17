@@ -33,12 +33,7 @@ public class AltoTemplario extends UnidadProtoss {
 		if (unidad.getJugador().equals(this.jugador)) {
 			try {
 				this.miEnergia.gastarEnergia(100);
-				// TODO sacar casteo...
-				this.jugador.agregarUnidad((UnidadProtoss) new Alucinacion(
-						unidad), unidad.getCoordenada());
-				// TODO porqué está 2 veces !??
-				this.jugador.agregarUnidad(new Alucinacion(unidad),
-						unidad.getCoordenada());
+				this.jugador.agregarUnidad(new Alucinacion(unidad),	unidad.getCoordenada());
 			} catch (EnergiaInsuficiente e) {
 				// TODO mejorar nombres !!! "e" ?
 				throw e;

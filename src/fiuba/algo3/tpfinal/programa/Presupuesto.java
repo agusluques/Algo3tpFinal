@@ -29,9 +29,9 @@ public class Presupuesto {
 		this.cantidadDeGas += cantidad;
 	}
 
-	public void gastar(Costo costo) throws MineralInsuficiente, GasInsuficiente {
-		if (this.cantidadDeMineral >= costo.getMinerales()) {
-			if (this.cantidadDeGas >= costo.getGas()) {
+	public void gastar(Costo costo) throws MineralInsuficiente, GasInsuficiente{
+		if(this.cantidadDeMineral >= costo.getMinerales()){
+			if (this.cantidadDeGas >= costo.getGas()){
 				this.cantidadDeMineral -= costo.getMinerales();
 				this.cantidadDeGas -= costo.getGas();
 			} else {
@@ -42,13 +42,4 @@ public class Presupuesto {
 		}
 	}
 
-	/*
-	 * public void removerMineral(int cantidad) throws MineralInsuficiente { if
-	 * (this.cantidadDeMineral < cantidad) { throw new MineralInsuficiente(); }
-	 * this.cantidadDeMineral -= cantidad; }
-	 * 
-	 * public void removerGas(int cantidad) throws GasInsuficiente { if
-	 * (this.cantidadDeGas < cantidad) { throw new GasInsuficiente(); }
-	 * this.cantidadDeGas -= cantidad; }
-	 */
 }

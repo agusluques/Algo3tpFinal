@@ -95,7 +95,7 @@ public class AltoTemplarioTest {
 			}
 		}
 
-		Assert.assertTrue(cantidadDeAlucinaciones == 2);
+		Assert.assertTrue(cantidadDeAlucinaciones == 1);
 
 	}
 

@@ -1,7 +1,6 @@
 package fiuba.algo3.tpfinal.construcciones;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Iterator;
 
 import fiuba.algo3.tpfinal.excepciones.GasInsuficiente;
@@ -23,7 +22,6 @@ public class PuertoEstelarTerran extends ConstruccionTerran {
 
 	private ArrayList<Fabricable> unidadesEnConstruccion;
 	private ArrayList<Constructible> construccionesNecesarias;
-
 	public PuertoEstelarTerran() {
 		this.vida.inicializarVida(1300);
 		this.tiempoDeConstruccion = 10;
@@ -51,8 +49,8 @@ public class PuertoEstelarTerran extends ConstruccionTerran {
 		this.fabricar(new NaveCiencia());
 	}
 
-	public void fabricar(Fabricable unidad) {
-		if (unidadesEnConstruccion.size() < 6) {
+	private void fabricar(Fabricable unidad) {
+		if (unidadesEnConstruccion.size() < 6){
 			try {
 				jugador.getPresupuesto().gastar(unidad.getCosto());
 				unidadesEnConstruccion.add(unidad);
@@ -63,7 +61,7 @@ public class PuertoEstelarTerran extends ConstruccionTerran {
 			}
 		}
 	}
-
+	
 	public void pasarTurno(Jugador jugador, Mapa mapa) {
 		if (unidadesEnConstruccion.size() > 0) {
 			Iterator<Fabricable> iterador = unidadesEnConstruccion.iterator();
@@ -71,8 +69,8 @@ public class PuertoEstelarTerran extends ConstruccionTerran {
 			unidadEnConstruccion.avanzarFabricacion();
 			if (unidadEnConstruccion.getTiempoRestante() == 0) {
 				try {
-					this.jugador.agregarUnidad(
-							(UnidadTerran) unidadEnConstruccion, this.posicion);
+					this.jugador.agregarUnidad((UnidadTerran)unidadEnConstruccion,
+							this.posicion);
 					iterador.remove();
 				} catch (LimitePoblacionalAlcanzado e) {
 					throw e;
@@ -81,25 +79,14 @@ public class PuertoEstelarTerran extends ConstruccionTerran {
 		}
 	}
 
+
 	public int rangoDeAtaqueCorrespondiente(RangoDeAtaque rango) {
 		return rango.getRangoTierra();
 	}
 
-	protected boolean construccionesRequeridasEncontradas(
-			Collection<Constructible> construcciones) {
-		boolean aux = true;
-		for (Constructible construccionRequerida : this.construccionesNecesarias) {
-			if (!construcciones.contains(construccionRequerida)) {
-				aux = false;
-			}
-		}
-		return aux;
-
-	}
-
+		
 	@Override
-	public boolean puedeConstruirseEn(Parcela ubicacion) {
-		return (this.esValidaLaUbicacion(ubicacion) && this
-				.construccionesRequeridasEncontradas(this.construccionesNecesarias));
+	public boolean puedeConstruirseEn(Parcela ubicacion){
+		return (this.esValidaLaUbicacion(ubicacion) && this.construccionesRequeridasEncontradas(this.construccionesNecesarias));
 	}
 }
