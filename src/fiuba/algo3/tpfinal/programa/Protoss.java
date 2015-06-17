@@ -19,6 +19,7 @@ public abstract class Protoss implements Atacable, AfectablePorEMP {
 	}
 
 	public void atacado(Danio danio) {
+		//this.vida.recbirDanio(danio);
 		this.escudo.bajarEscudo(danio.getDanioTierra(), this.vida);
 	}
 

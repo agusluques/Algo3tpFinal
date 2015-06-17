@@ -58,7 +58,7 @@ public class NaveCiencia extends UnidadTerran {
 			}
 		}
 	}
-
+ //ojo
 	public int getEnergia() {
 		return this.miEnergia.getEnergia();
 	}

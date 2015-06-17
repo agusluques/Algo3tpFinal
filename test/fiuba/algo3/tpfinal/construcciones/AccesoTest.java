@@ -1,5 +1,6 @@
 package fiuba.algo3.tpfinal.construcciones;
 
+import static org.junit.Assert.*;
 import junit.framework.Assert;
 
 import org.junit.Before;
@@ -23,7 +24,8 @@ public class AccesoTest {
 
 	@Test
 	public void unAccesoDebeTener500DeVidaInicial() {
-		Assert.assertTrue(this.acceso.getVida() == 500);
+		//asserTrue(this.accesso.tieneVida(500));
+		assertTrue(this.acceso.getVida() == 500);
 	}
 
 	@Test
