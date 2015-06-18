@@ -24,10 +24,11 @@ public class PantallaPrincipal {
 		JLabel capa = new JLabel(new ImageIcon("imagenes/algocraft.jpg"));
 		ventanaPrincipal.getContentPane().add(capa);
 		//ventanaPrincipal.pack();
-		ventanaPrincipal.setVisible(true);
+		
 		
 		//creo la barra de menus
 		JMenuBar barraMenu = new JMenuBar();
+		
 		
 		//Creo el primer menu y lo agrego a la barra
 		JMenu menuJuego = new JMenu("Juego");
@@ -46,6 +47,9 @@ public class PantallaPrincipal {
 		
 		//Agrego la barra de menu a la ventana principal
 		ventanaPrincipal.setJMenuBar(barraMenu);
+		
+		ventanaPrincipal.setVisible(true);
+		
 	
 	}
 }
