@@ -1,6 +1,6 @@
 package fiuba.algo3.tpfinal.vista;
 
-import java.awt.event.ActionListener;
+import java.awt.Toolkit;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -8,7 +8,6 @@ import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
-import java.awt.Toolkit;
 
 public class PantallaPrincipal {
 
@@ -36,8 +35,7 @@ public class PantallaPrincipal {
 		
 		//Creo el primer item del menu, lo agrego al mismo y le seteo su accion
 		JMenuItem menuItem = new JMenuItem("Nuevo juego");
-		ActionListener accionNuevoJuego = new AccionNuevoJuego(capa);
-		menuItem.addActionListener(accionNuevoJuego);
+		menuItem.addActionListener(new AccionNuevoJuego(capa));
 		menuJuego.add(menuItem);
 		
 		//Creo el item de salir, le vinculo su accion y lo agrego al menu
