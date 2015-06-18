@@ -16,7 +16,7 @@ public class AccionNuevoJuego implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		//Creo la ventanita chiquita, le seteo el tamaño, la posicion y la visibilidad
+		//Creo la ventanita chiquita, le seteo el tamanio, la posicion y la visibilidad
 		JInternalFrame frame = new JInternalFrame("Nombres y razas de los jugadores");
 		frame.setSize(300,300);
 		frame.setLocation(10,10);
