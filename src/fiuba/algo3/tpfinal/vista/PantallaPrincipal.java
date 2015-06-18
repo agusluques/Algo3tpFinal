@@ -17,7 +17,7 @@ public class PantallaPrincipal {
 		//Creo la ventana principal
 		ventanaPrincipal = new JFrame("AlgoCraft");
 		//creo una capa en la ventana, le seteo una imagen y dejo la ventana como visible
-		JLabel capa = new JLabel(new ImageIcon("imagenes/algocraft_1.jpg"));
+		JLabel capa = new JLabel(new ImageIcon("imagenes/algocraft.jpg"));
 		ventanaPrincipal.add(capa);
 		ventanaPrincipal.pack();
 		ventanaPrincipal.setVisible(true);
