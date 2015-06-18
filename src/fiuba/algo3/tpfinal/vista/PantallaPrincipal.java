@@ -8,6 +8,7 @@ import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import java.awt.Toolkit;
 
 public class PantallaPrincipal {
 
@@ -16,10 +17,13 @@ public class PantallaPrincipal {
 	public PantallaPrincipal(){
 		//Creo la ventana principal
 		ventanaPrincipal = new JFrame("AlgoCraft");
+		ventanaPrincipal.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		ventanaPrincipal.setIconImage(Toolkit.getDefaultToolkit().getImage("imagenes/logo.png"));
+		ventanaPrincipal.setBounds(100, 100, 750, 500);
 		//creo una capa en la ventana, le seteo una imagen y dejo la ventana como visible
 		JLabel capa = new JLabel(new ImageIcon("imagenes/algocraft.jpg"));
-		ventanaPrincipal.add(capa);
-		ventanaPrincipal.pack();
+		ventanaPrincipal.getContentPane().add(capa);
+		//ventanaPrincipal.pack();
 		ventanaPrincipal.setVisible(true);
 		
 		//creo la barra de menus
