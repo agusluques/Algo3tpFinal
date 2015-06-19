@@ -11,6 +11,7 @@ import fiuba.algo3.tpfinal.programa.Costo;
 import fiuba.algo3.tpfinal.programa.Danio;
 import fiuba.algo3.tpfinal.programa.Mapa;
 import fiuba.algo3.tpfinal.programa.Parcela;
+import fiuba.algo3.tpfinal.programa.VidaSimple;
 
 public class NaveTransporteTerran extends UnidadTerran {
 
@@ -18,7 +19,7 @@ public class NaveTransporteTerran extends UnidadTerran {
 	private Collection<UnidadTerran> pasajeros;
 
 	public NaveTransporteTerran() {
-		this.vida.inicializarVida(150);
+		this.vida = new VidaSimple(150);
 		this.miDanio = new Danio(0, 0);
 		this.rangoDeAtaque = new RangoDeAtaque(0, 0);
 		this.tiempoDeConstruccion = 7;
@@ -31,7 +32,7 @@ public class NaveTransporteTerran extends UnidadTerran {
 	}
 
 	public void atacado(Danio danio) {
-		this.vida.bajarVida(danio.getDanioAire());
+		this.vida.recibirDanio(danio.getDanioAire());
 	}
 
 	public void subirPasajero(UnidadTerran pasajero) {

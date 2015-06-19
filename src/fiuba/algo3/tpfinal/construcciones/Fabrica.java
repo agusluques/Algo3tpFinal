@@ -11,6 +11,7 @@ import fiuba.algo3.tpfinal.programa.Jugador;
 import fiuba.algo3.tpfinal.programa.Mapa;
 import fiuba.algo3.tpfinal.programa.Parcela;
 import fiuba.algo3.tpfinal.programa.Tierra;
+import fiuba.algo3.tpfinal.programa.VidaSimple;
 import fiuba.algo3.tpfinal.unidades.Fabricable;
 import fiuba.algo3.tpfinal.unidades.Golliat;
 import fiuba.algo3.tpfinal.unidades.RangoDeAtaque;
@@ -22,7 +23,7 @@ public class Fabrica extends ConstruccionTerran {
 	private ArrayList<Constructible> construccionesNecesarias;
 
 	public Fabrica() {
-		this.vida.inicializarVida(1250);
+		this.vida = new VidaSimple(1250);
 		this.tiempoDeConstruccion = 12;
 		this.costo = new Costo(200, 100);
 		this.superficieNecesaria = new Tierra();

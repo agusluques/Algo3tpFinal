@@ -11,6 +11,7 @@ import fiuba.algo3.tpfinal.programa.Jugador;
 import fiuba.algo3.tpfinal.programa.Mapa;
 import fiuba.algo3.tpfinal.programa.Parcela;
 import fiuba.algo3.tpfinal.programa.Tierra;
+import fiuba.algo3.tpfinal.programa.VidaSimple;
 import fiuba.algo3.tpfinal.unidades.Espectro;
 import fiuba.algo3.tpfinal.unidades.Fabricable;
 import fiuba.algo3.tpfinal.unidades.NaveCiencia;
@@ -22,8 +23,9 @@ public class PuertoEstelarTerran extends ConstruccionTerran {
 
 	private ArrayList<Fabricable> unidadesEnConstruccion;
 	private ArrayList<Constructible> construccionesNecesarias;
+	
 	public PuertoEstelarTerran() {
-		this.vida.inicializarVida(1300);
+		this.vida = new VidaSimple(1300);
 		this.tiempoDeConstruccion = 10;
 		this.costo = new Costo(150, 100);
 		this.superficieNecesaria = new Tierra();

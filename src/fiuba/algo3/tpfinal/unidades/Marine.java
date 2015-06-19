@@ -2,11 +2,12 @@ package fiuba.algo3.tpfinal.unidades;
 
 import fiuba.algo3.tpfinal.programa.Costo;
 import fiuba.algo3.tpfinal.programa.Danio;
+import fiuba.algo3.tpfinal.programa.VidaSimple;
 
 public class Marine extends UnidadTerran {
 
 	public Marine() {
-		this.vida.inicializarVida(40);
+		this.vida = new VidaSimple(40);
 		this.miDanio = new Danio(6, 6);
 		this.rangoDeAtaque = new RangoDeAtaque(4, 4);
 		this.tiempoDeConstruccion = 3;

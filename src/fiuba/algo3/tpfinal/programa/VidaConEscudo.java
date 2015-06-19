@@ -1,6 +1,6 @@
 package fiuba.algo3.tpfinal.programa;
 
-public class VidaConEscudo implements Vidaa {
+public class VidaConEscudo implements Vida {
 	
 	private int vida;
 	private int escudo;

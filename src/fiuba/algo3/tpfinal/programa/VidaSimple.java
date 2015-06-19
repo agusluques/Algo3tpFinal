@@ -1,6 +1,6 @@
 package fiuba.algo3.tpfinal.programa;
 
-public class VidaSimple implements Vidaa {
+public class VidaSimple implements Vida {
 	
 	private int vida;
 

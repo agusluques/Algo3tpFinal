@@ -9,6 +9,7 @@ import fiuba.algo3.tpfinal.programa.Costo;
 import fiuba.algo3.tpfinal.programa.Jugador;
 import fiuba.algo3.tpfinal.programa.Mapa;
 import fiuba.algo3.tpfinal.programa.Tierra;
+import fiuba.algo3.tpfinal.programa.VidaSimple;
 import fiuba.algo3.tpfinal.unidades.Fabricable;
 import fiuba.algo3.tpfinal.unidades.Marine;
 import fiuba.algo3.tpfinal.unidades.RangoDeAtaque;
@@ -19,7 +20,7 @@ public class Barraca extends ConstruccionTerran {
 	private ArrayList<Fabricable> unidadesEnConstruccion;
 
 	public Barraca() {
-		this.vida.inicializarVida(1000);
+		this.vida = new VidaSimple(1000);
 		this.costo = new Costo(150);
 		this.tiempoDeConstruccion = 12;
 		this.superficieNecesaria = new Tierra();

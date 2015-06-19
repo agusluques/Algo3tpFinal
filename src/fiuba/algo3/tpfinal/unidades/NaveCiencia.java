@@ -7,13 +7,14 @@ import fiuba.algo3.tpfinal.programa.Aire;
 import fiuba.algo3.tpfinal.programa.Coordenada;
 import fiuba.algo3.tpfinal.programa.Costo;
 import fiuba.algo3.tpfinal.programa.Danio;
+import fiuba.algo3.tpfinal.programa.VidaSimple;
 
 public class NaveCiencia extends UnidadTerran {
 
 	protected Energia miEnergia = new Energia(50);
 
 	public NaveCiencia() {
-		this.vida.inicializarVida(200);
+		this.vida = new VidaSimple(200);
 		this.miDanio = new Danio(0, 0);
 		this.rangoDeAtaque = new RangoDeAtaque(10, 10);
 		this.tiempoDeConstruccion = 10;
@@ -25,7 +26,7 @@ public class NaveCiencia extends UnidadTerran {
 
 	@Override
 	public void atacado(Danio danio) {
-		this.vida.bajarVida(danio.getDanioAire());
+		this.vida.recibirDanio(danio.getDanioAire());
 	}
 
 	@Override

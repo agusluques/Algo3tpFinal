@@ -6,12 +6,13 @@ import fiuba.algo3.tpfinal.programa.Jugador;
 import fiuba.algo3.tpfinal.programa.Mapa;
 import fiuba.algo3.tpfinal.programa.Parcela;
 import fiuba.algo3.tpfinal.programa.Presupuesto;
+import fiuba.algo3.tpfinal.programa.VidaSimple;
 import fiuba.algo3.tpfinal.unidades.RangoDeAtaque;
 
 public class Refineria extends ConstruccionTerran implements RecolectorDeGas {
 
 	public Refineria() {
-		this.vida.inicializarVida(750);
+		this.vida = new VidaSimple(750);
 		this.tiempoDeConstruccion = 6;
 		this.costo = new Costo(100);
 		this.superficieNecesaria = new DepositoDeGas();
