@@ -27,7 +27,7 @@ public class AccionAcercaDe implements ActionListener {
 		
 		//Agrego la informacion
 		JPanel panelUno = new JPanel();
-		JLabel informacion = new JLabel("Trabajo práctico final de 'Algoritmos y Programación III'");
+		JLabel informacion = new JLabel("Trabajo practico final de 'Algoritmos y Programacion III'");
 		panelUno.add(informacion);
 		
 		JPanel panelDos = new JPanel();
@@ -35,7 +35,7 @@ public class AccionAcercaDe implements ActionListener {
 		panelDos.add(datos);
 		
 		JPanel panelTres = new JPanel();
-		JLabel creadores = new JLabel("Agustín, Damián y Luciano");
+		JLabel creadores = new JLabel("Agustin, Damian y Luciano");
 		panelTres.add(creadores);
 		
 		frame.getContentPane().add(panelUno, BorderLayout.BEFORE_FIRST_LINE);

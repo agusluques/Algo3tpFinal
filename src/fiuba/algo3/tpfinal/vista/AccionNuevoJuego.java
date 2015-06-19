@@ -19,6 +19,9 @@ public class AccionNuevoJuego implements ActionListener {
 		miCapa = capa;
 	}
 
+	/**
+	 * @wbp.parser.entryPoint
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		//Creo la ventanita chiquita, le seteo el tamanio, la posicion y la visibilidad
