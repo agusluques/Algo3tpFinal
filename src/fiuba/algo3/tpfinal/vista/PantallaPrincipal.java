@@ -43,8 +43,22 @@ public class PantallaPrincipal {
 		menuJuego.add(itemSalir);
 		itemSalir.addActionListener(new AccionSalir());
 		
+		//Creo el menu de ayuda y lo agrego a la barra
+		JMenu menuAyuda = new JMenu("Ayuda");
+		barraMenu.add(menuAyuda);
+				
+		//Creo el item de Acerca de, lo agrego y le seteo su accion
+		JMenuItem itemAcercaDe = new JMenuItem("Acerca de");
+		itemAcercaDe.addActionListener(new AccionAcercaDe(capa));
+		menuAyuda.add(itemAcercaDe);
+		
+		
+		
 		//Agrego la barra de menu a la ventana principal
 		ventanaPrincipal.setJMenuBar(barraMenu);
+		
+		
+		
 		
 		ventanaPrincipal.setVisible(true);
 		
