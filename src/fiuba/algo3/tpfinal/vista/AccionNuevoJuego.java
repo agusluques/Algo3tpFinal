@@ -26,6 +26,7 @@ public class AccionNuevoJuego implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		//Creo la ventanita chiquita, le seteo el tamanio, la posicion y la visibilidad
 		JInternalFrame frame = new JInternalFrame("Creacion de los jugadores");
+		frame.setClosable(true);
 		frame.setSize(500,500);
 		frame.setLocation(10,10);
 		frame.setVisible(true);
