@@ -11,6 +11,7 @@ import fiuba.algo3.tpfinal.programa.Costo;
 import fiuba.algo3.tpfinal.programa.Danio;
 import fiuba.algo3.tpfinal.programa.Mapa;
 import fiuba.algo3.tpfinal.programa.Parcela;
+import fiuba.algo3.tpfinal.programa.VidaConEscudo;
 
 public class NaveTransporteProtoss extends UnidadProtoss {
 
@@ -18,8 +19,7 @@ public class NaveTransporteProtoss extends UnidadProtoss {
 	private int capacidad;
 
 	public NaveTransporteProtoss() {
-		this.vida.inicializarVida(80);
-		this.escudo.inicializarEscudo(60);
+		this.vida = new VidaConEscudo(80,60);
 		this.tiempoDeConstruccion = 8;
 		this.suministro = 2;
 		this.costo = new Costo(200);
@@ -33,7 +33,7 @@ public class NaveTransporteProtoss extends UnidadProtoss {
 	}
 
 	public void atacado(Danio danio) {
-		this.escudo.bajarEscudo(danio.getDanioAire(), this.vida);
+		this.vida.recibirDanio(danio.getDanioAire());
 	}
 
 	public void subirPasajero(UnidadProtoss pasajero) {

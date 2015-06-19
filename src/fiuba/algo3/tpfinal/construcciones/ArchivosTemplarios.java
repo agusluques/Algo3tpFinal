@@ -11,6 +11,7 @@ import fiuba.algo3.tpfinal.programa.Jugador;
 import fiuba.algo3.tpfinal.programa.Mapa;
 import fiuba.algo3.tpfinal.programa.Parcela;
 import fiuba.algo3.tpfinal.programa.Tierra;
+import fiuba.algo3.tpfinal.programa.VidaConEscudo;
 import fiuba.algo3.tpfinal.unidades.AltoTemplario;
 import fiuba.algo3.tpfinal.unidades.Fabricable;
 import fiuba.algo3.tpfinal.unidades.RangoDeAtaque;
@@ -22,8 +23,7 @@ public class ArchivosTemplarios extends ConstruccionProtoss {
 	private ArrayList<Constructible> construccionesNecesarias;
 
 	public ArchivosTemplarios() {
-		this.vida.inicializarVida(500);
-		this.escudo.inicializarEscudo(500);
+		this.vida = new VidaConEscudo(500,500);
 		this.tiempoDeConstruccion = 9;
 		this.costo = new Costo(150, 200);
 		this.superficieNecesaria = new Tierra();

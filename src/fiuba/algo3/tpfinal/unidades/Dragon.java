@@ -2,11 +2,11 @@ package fiuba.algo3.tpfinal.unidades;
 
 import fiuba.algo3.tpfinal.programa.Costo;
 import fiuba.algo3.tpfinal.programa.Danio;
+import fiuba.algo3.tpfinal.programa.VidaConEscudo;
 
 public class Dragon extends UnidadProtoss {
 	public Dragon() {
-		this.vida.inicializarVida(100);
-		this.escudo.inicializarEscudo(80);
+		this.vida = new VidaConEscudo(100,80);
 		this.miDanio = new Danio(20, 20);
 		this.tiempoDeConstruccion = 6;
 		this.suministro = 2;

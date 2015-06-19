@@ -5,8 +5,7 @@ import fiuba.algo3.tpfinal.unidades.AfectablePorEMP;
 
 public abstract class Protoss implements Atacable, AfectablePorEMP {
 
-	protected Escudo escudo = new Escudo();
-	protected Vida vida = new Vida();
+	protected VidaConEscudo vida;
 	protected Coordenada posicion;
 	protected JugadorProtoss jugador;
 
@@ -15,12 +14,11 @@ public abstract class Protoss implements Atacable, AfectablePorEMP {
 	}
 
 	public int getEscudo() {
-		return this.escudo.getEscudo();
+		return this.vida.getEscudo();
 	}
 
 	public void atacado(Danio danio) {
-		//this.vida.recbirDanio(danio);
-		this.escudo.bajarEscudo(danio.getDanioTierra(), this.vida);
+		this.vida.recibirDanio(danio.getDanioTierra());
 	}
 
 	public Coordenada getCoordenada() {
@@ -41,15 +39,15 @@ public abstract class Protoss implements Atacable, AfectablePorEMP {
 
 	@Override
 	public boolean estaMuerto() {
-		return this.vida.getVida() == 0;
+		return this.vida.estaMuerto();
 	}
 
 	public void pasarTurno(Jugador jugador, Mapa mapa) {
-		this.escudo.pasarTurno(jugador, mapa);
+		this.vida.pasarTurno();
 	}
 
 	public void recibirImpactoEMP() {
-		escudo.destruirEscudo();
+		vida.destruirEscudo();
 
 	}
 }

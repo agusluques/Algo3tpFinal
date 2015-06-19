@@ -6,14 +6,14 @@ import fiuba.algo3.tpfinal.programa.Costo;
 import fiuba.algo3.tpfinal.programa.Danio;
 import fiuba.algo3.tpfinal.programa.Jugador;
 import fiuba.algo3.tpfinal.programa.Mapa;
+import fiuba.algo3.tpfinal.programa.VidaConEscudo;
 
 public class AltoTemplario extends UnidadProtoss {
 
 	protected Energia miEnergia = new Energia(50);
 
 	public AltoTemplario() {
-		this.vida.inicializarVida(40);
-		this.escudo.inicializarEscudo(40);
+		this.vida = new VidaConEscudo(40,40);
 		this.miDanio = new Danio(0, 0);
 		this.tiempoDeConstruccion = 7;
 		this.suministro = 2;
@@ -67,7 +67,7 @@ public class AltoTemplario extends UnidadProtoss {
 
 	@Override
 	public void recibirImpactoEMP() {
-		escudo.destruirEscudo();
+		vida.destruirEscudo();
 		this.miEnergia = new Energia(0);
 	}
 

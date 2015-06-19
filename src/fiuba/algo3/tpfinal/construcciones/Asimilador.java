@@ -6,13 +6,13 @@ import fiuba.algo3.tpfinal.programa.Jugador;
 import fiuba.algo3.tpfinal.programa.Mapa;
 import fiuba.algo3.tpfinal.programa.Parcela;
 import fiuba.algo3.tpfinal.programa.Presupuesto;
+import fiuba.algo3.tpfinal.programa.VidaConEscudo;
 import fiuba.algo3.tpfinal.unidades.RangoDeAtaque;
 
 public class Asimilador extends ConstruccionProtoss implements RecolectorDeGas {
 
 	public Asimilador() {
-		this.vida.inicializarVida(450);
-		this.escudo.inicializarEscudo(450);
+		this.vida = new VidaConEscudo(450, 450);
 		this.tiempoDeConstruccion = 6;
 		this.costo = new Costo(100);
 		this.superficieNecesaria = new DepositoDeGas();

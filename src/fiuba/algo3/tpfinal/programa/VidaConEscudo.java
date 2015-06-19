@@ -18,6 +18,9 @@ public class VidaConEscudo implements Vidaa {
 		if (this.escudo < 0) {
 			this.vida -= (Math.abs(this.escudo));
 			this.escudo = 0;
+			if (this.vida < 0) {
+				this.vida = 0;
+			}
 		}
 
 	}
@@ -40,6 +43,11 @@ public class VidaConEscudo implements Vidaa {
 		if (this.escudo >= escudoLimite) {
 			this.escudo = escudoLimite;
 		}
+	}
+
+	public void destruirEscudo() {
+		this.escudo = 0;
+		
 	}
 
 }
