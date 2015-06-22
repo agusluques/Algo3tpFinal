@@ -31,8 +31,7 @@ public abstract class Jugador {
 		this.magias = new ArrayList<Magia>();
 		this.limitePoblacionalInicial = 5;
 		this.limitePoblacionalMaximo = 200;
-		this.arquitecto = new Arquitecto(mapa,
-				this);
+		this.arquitecto = new Arquitecto(mapa, this);
 	}
 
 	public String getNombre() {
@@ -154,7 +153,7 @@ public abstract class Jugador {
 	public boolean estaExtinto() {
 		return this.construcciones.isEmpty() && this.unidades.isEmpty();
 	}
-	
+
 	public void inicializarEnPrimeraBase() {
 		this.baseInicial = mapa.encontrarPrimeraBase();
 		this.agregarUnidadBasica();
@@ -164,7 +163,7 @@ public abstract class Jugador {
 		this.baseInicial = mapa.encontrarUltimaBase();
 		this.agregarUnidadBasica();
 	}
-	
+
 	protected abstract void agregarUnidadBasica();
 
 }

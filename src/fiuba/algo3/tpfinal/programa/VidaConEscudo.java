@@ -1,11 +1,11 @@
 package fiuba.algo3.tpfinal.programa;
 
 public class VidaConEscudo implements Vida {
-	
+
 	private int vida;
 	private int escudo;
 	private int escudoLimite;
-	
+
 	public VidaConEscudo(int vidaInicial, int escudoInicial) {
 		this.vida = vidaInicial;
 		this.escudo = escudoInicial;
@@ -47,7 +47,7 @@ public class VidaConEscudo implements Vida {
 
 	public void destruirEscudo() {
 		this.escudo = 0;
-		
+
 	}
 
 }

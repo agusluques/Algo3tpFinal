@@ -11,7 +11,6 @@ public class JugadorProtoss extends Jugador {
 
 	public JugadorProtoss(String nombre, Mapa mapa) {
 		super(nombre, mapa);
-		
 
 	}
 
@@ -34,7 +33,7 @@ public class JugadorProtoss extends Jugador {
 		}
 
 	}
-	
+
 	@Override
 	protected void agregarUnidadBasica() {
 		Atacable unidadBasica = new Zealot();

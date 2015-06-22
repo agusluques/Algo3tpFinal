@@ -11,7 +11,6 @@ public class JugadorTerran extends Jugador {
 
 	public JugadorTerran(String nombre, Mapa mapa) {
 		super(nombre, mapa);
-		
 
 	}
 

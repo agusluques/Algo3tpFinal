@@ -6,7 +6,7 @@ import fiuba.algo3.tpfinal.programa.VidaConEscudo;
 
 public class Dragon extends UnidadProtoss {
 	public Dragon() {
-		this.vida = new VidaConEscudo(100,80);
+		this.vida = new VidaConEscudo(100, 80);
 		this.miDanio = new Danio(20, 20);
 		this.tiempoDeConstruccion = 6;
 		this.suministro = 2;

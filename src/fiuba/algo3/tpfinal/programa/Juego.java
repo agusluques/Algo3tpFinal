@@ -27,7 +27,5 @@ public class Juego {
 			System.out.println(ganador.nombre);
 		}
 	}
-	
-	
 
 }

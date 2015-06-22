@@ -8,7 +8,7 @@ import fiuba.algo3.tpfinal.unidades.RangoDeAtaque;
 public class Pilon extends ConstruccionProtoss {
 
 	public Pilon() {
-		this.vida = new VidaConEscudo(300,300);
+		this.vida = new VidaConEscudo(300, 300);
 		this.tiempoDeConstruccion = 5;
 		this.costo = new Costo(100);
 		this.superficieNecesaria = new Tierra();

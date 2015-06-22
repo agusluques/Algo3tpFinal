@@ -23,7 +23,7 @@ public class ArchivosTemplarios extends ConstruccionProtoss {
 	private ArrayList<Constructible> construccionesNecesarias;
 
 	public ArchivosTemplarios() {
-		this.vida = new VidaConEscudo(500,500);
+		this.vida = new VidaConEscudo(500, 500);
 		this.tiempoDeConstruccion = 9;
 		this.costo = new Costo(150, 200);
 		this.superficieNecesaria = new Tierra();

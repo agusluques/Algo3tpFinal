@@ -24,7 +24,7 @@ public class PuertoEstelarProtoss extends ConstruccionProtoss {
 	private ArrayList<Constructible> construccionesNecesarias;
 
 	public PuertoEstelarProtoss() {
-		this.vida = new VidaConEscudo(600,600);
+		this.vida = new VidaConEscudo(600, 600);
 		this.tiempoDeConstruccion = 10;
 		this.costo = new Costo(150, 150);
 		this.superficieNecesaria = new Tierra();

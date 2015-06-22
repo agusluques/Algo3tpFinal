@@ -23,7 +23,7 @@ public class PuertoEstelarTerran extends ConstruccionTerran {
 
 	private ArrayList<Fabricable> unidadesEnConstruccion;
 	private ArrayList<Constructible> construccionesNecesarias;
-	
+
 	public PuertoEstelarTerran() {
 		this.vida = new VidaSimple(1300);
 		this.tiempoDeConstruccion = 10;
@@ -52,7 +52,7 @@ public class PuertoEstelarTerran extends ConstruccionTerran {
 	}
 
 	private void fabricar(Fabricable unidad) {
-		if (unidadesEnConstruccion.size() < 6){
+		if (unidadesEnConstruccion.size() < 6) {
 			try {
 				jugador.getPresupuesto().gastar(unidad.getCosto());
 				unidadesEnConstruccion.add(unidad);
@@ -63,7 +63,7 @@ public class PuertoEstelarTerran extends ConstruccionTerran {
 			}
 		}
 	}
-	
+
 	public void pasarTurno(Jugador jugador, Mapa mapa) {
 		if (unidadesEnConstruccion.size() > 0) {
 			Iterator<Fabricable> iterador = unidadesEnConstruccion.iterator();
@@ -71,8 +71,8 @@ public class PuertoEstelarTerran extends ConstruccionTerran {
 			unidadEnConstruccion.avanzarFabricacion();
 			if (unidadEnConstruccion.getTiempoRestante() == 0) {
 				try {
-					this.jugador.agregarUnidad((UnidadTerran)unidadEnConstruccion,
-							this.posicion);
+					this.jugador.agregarUnidad(
+							(UnidadTerran) unidadEnConstruccion, this.posicion);
 					iterador.remove();
 				} catch (LimitePoblacionalAlcanzado e) {
 					throw e;
@@ -81,14 +81,13 @@ public class PuertoEstelarTerran extends ConstruccionTerran {
 		}
 	}
 
-
 	public int rangoDeAtaqueCorrespondiente(RangoDeAtaque rango) {
 		return rango.getRangoTierra();
 	}
 
-		
 	@Override
-	public boolean puedeConstruirseEn(Parcela ubicacion){
-		return (this.esValidaLaUbicacion(ubicacion) && this.construccionesRequeridasEncontradas(this.construccionesNecesarias));
+	public boolean puedeConstruirseEn(Parcela ubicacion) {
+		return (this.esValidaLaUbicacion(ubicacion) && this
+				.construccionesRequeridasEncontradas(this.construccionesNecesarias));
 	}
 }

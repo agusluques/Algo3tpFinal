@@ -19,5 +19,4 @@ public class Alucinacion extends UnidadProtoss {
 		return rango.getRangoTierra();
 	}
 
-
 }

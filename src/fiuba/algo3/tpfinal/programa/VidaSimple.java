@@ -1,7 +1,7 @@
 package fiuba.algo3.tpfinal.programa;
 
 public class VidaSimple implements Vida {
-	
+
 	private int vida;
 
 	public VidaSimple(int vidaInicial) {
@@ -20,11 +20,9 @@ public class VidaSimple implements Vida {
 	public boolean estaMuerto() {
 		return this.vida == 0;
 	}
-	
+
 	public int getVida() {
 		return this.vida;
 	}
-	
-	
 
 }

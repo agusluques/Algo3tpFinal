@@ -64,7 +64,8 @@ public class Arquitecto {
 			Constructible construccionEnConstruccion = iterador.next();
 			construccionEnConstruccion.avanzarConstruccion();
 			if (construccionEnConstruccion.getTiempoRestante() == 0) {
-				this.jugador.getConstrucciones().add(construccionEnConstruccion);
+				this.jugador.getConstrucciones()
+						.add(construccionEnConstruccion);
 				iterador.remove();
 			}
 		}

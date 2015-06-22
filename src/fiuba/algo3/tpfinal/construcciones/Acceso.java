@@ -19,11 +19,10 @@ import fiuba.algo3.tpfinal.unidades.Zealot;
 
 public class Acceso extends ConstruccionProtoss {
 
-	
 	private ArrayList<Fabricable> unidadesEnConstruccion;;
 
 	public Acceso() {
-		this.vida = new VidaConEscudo(500,500);
+		this.vida = new VidaConEscudo(500, 500);
 		this.tiempoDeConstruccion = 8;
 		this.costo = new Costo(150);
 		this.superficieNecesaria = new Tierra();

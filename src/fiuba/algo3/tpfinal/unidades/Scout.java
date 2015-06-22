@@ -8,7 +8,7 @@ import fiuba.algo3.tpfinal.programa.VidaConEscudo;
 public class Scout extends UnidadProtoss {
 
 	public Scout() {
-		this.vida = new VidaConEscudo(150,100);
+		this.vida = new VidaConEscudo(150, 100);
 		this.miDanio = new Danio(14, 8);
 		this.tiempoDeConstruccion = 9;
 		this.suministro = 3;

@@ -19,7 +19,7 @@ public class NaveTransporteProtoss extends UnidadProtoss {
 	private int capacidad;
 
 	public NaveTransporteProtoss() {
-		this.vida = new VidaConEscudo(80,60);
+		this.vida = new VidaConEscudo(80, 60);
 		this.tiempoDeConstruccion = 8;
 		this.suministro = 2;
 		this.costo = new Costo(200);

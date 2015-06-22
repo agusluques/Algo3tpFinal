@@ -13,7 +13,7 @@ public class AltoTemplario extends UnidadProtoss {
 	protected Energia miEnergia = new Energia(50);
 
 	public AltoTemplario() {
-		this.vida = new VidaConEscudo(40,40);
+		this.vida = new VidaConEscudo(40, 40);
 		this.miDanio = new Danio(0, 0);
 		this.tiempoDeConstruccion = 7;
 		this.suministro = 2;
@@ -33,7 +33,8 @@ public class AltoTemplario extends UnidadProtoss {
 		if (unidad.getJugador().equals(this.jugador)) {
 			try {
 				this.miEnergia.gastarEnergia(100);
-				this.jugador.agregarUnidad(new Alucinacion(unidad),	unidad.getCoordenada());
+				this.jugador.agregarUnidad(new Alucinacion(unidad),
+						unidad.getCoordenada());
 			} catch (EnergiaInsuficiente e) {
 				// TODO mejorar nombres !!! "e" ?
 				throw e;
@@ -52,15 +53,16 @@ public class AltoTemplario extends UnidadProtoss {
 
 	public void lanzarTormentaPsionica(Coordenada posicion)
 			throws EnergiaInsuficiente {
-		if (this.posicion.distancia(posicion) <= this.rangoDeAtaque.getRangoAire()){
-		try {
-			this.miEnergia.gastarEnergia(75);
-			TormentaPsionica tormenta = new TormentaPsionica(this.jugador,
-					this.jugador.getMapa(), posicion);
-			this.jugador.agregarMagia(tormenta);
-		} catch (EnergiaInsuficiente e) {
-			throw e;
-		}
+		if (this.posicion.distancia(posicion) <= this.rangoDeAtaque
+				.getRangoAire()) {
+			try {
+				this.miEnergia.gastarEnergia(75);
+				TormentaPsionica tormenta = new TormentaPsionica(this.jugador,
+						this.jugador.getMapa(), posicion);
+				this.jugador.agregarMagia(tormenta);
+			} catch (EnergiaInsuficiente e) {
+				throw e;
+			}
 		}
 
 	}

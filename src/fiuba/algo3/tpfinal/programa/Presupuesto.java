@@ -29,9 +29,9 @@ public class Presupuesto {
 		this.cantidadDeGas += cantidad;
 	}
 
-	public void gastar(Costo costo) throws MineralInsuficiente, GasInsuficiente{
-		if(this.cantidadDeMineral >= costo.getMinerales()){
-			if (this.cantidadDeGas >= costo.getGas()){
+	public void gastar(Costo costo) throws MineralInsuficiente, GasInsuficiente {
+		if (this.cantidadDeMineral >= costo.getMinerales()) {
+			if (this.cantidadDeGas >= costo.getGas()) {
 				this.cantidadDeMineral -= costo.getMinerales();
 				this.cantidadDeGas -= costo.getGas();
 			} else {

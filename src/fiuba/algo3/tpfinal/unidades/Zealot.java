@@ -7,7 +7,7 @@ import fiuba.algo3.tpfinal.programa.VidaConEscudo;
 public class Zealot extends UnidadProtoss {
 
 	public Zealot() {
-		this.vida = new VidaConEscudo(100,60);
+		this.vida = new VidaConEscudo(100, 60);
 		miDanio = new Danio(0, 8);
 		this.tiempoDeConstruccion = 4;
 		this.suministro = 2;
