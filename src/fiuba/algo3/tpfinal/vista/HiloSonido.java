@@ -27,7 +27,7 @@ public class HiloSonido extends Thread {
 
 		sonido.start();
 
-		// Espera mientras se esté reproduciendo.
+		// Espera mientras se este reproduciendo.
 		do {
 			try {
 				Thread.sleep(500);
