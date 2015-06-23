@@ -12,6 +12,7 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
+
 public class PantallaPrincipal {
 
 	JFrame ventanaPrincipal;
@@ -71,6 +72,15 @@ public class PantallaPrincipal {
 		JMenuItem itemAcercaDe = new JMenuItem("Acerca de");
 		itemAcercaDe.addActionListener(new AccionAcercaDe(capa));
 		menuAyuda.add(itemAcercaDe);
+		
+		//// Creo el menu de ayuda y lo agrego a la barra
+		JMenu menuTests = new JMenu("Tests");
+		barraMenu.add(menuTests);
+
+		// Creo el item de Acerca de, lo agrego y le seteo su accion
+		JMenuItem itemCrearMapaTierra = new JMenuItem("CrearMapaTierra");
+		itemCrearMapaTierra.addActionListener(new AccionCrearMapaTierra(capa));
+		menuTests.add(itemCrearMapaTierra);
 
 		// Agrego la barra de menu a la ventana principal
 		ventanaPrincipal.setJMenuBar(barraMenu);
