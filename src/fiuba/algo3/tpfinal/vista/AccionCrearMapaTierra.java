@@ -24,7 +24,9 @@ public class AccionCrearMapaTierra implements ActionListener {
 		JInternalFrame frame = new JInternalFrame("Mapa");
 		frame.setSize(250, 250);
 		frame.setLocation(10, 10);
+		frame.setClosable(true);
 		frame.setVisible(true);
+		
 		
 		Mapa mapa;
 		try {
@@ -32,6 +34,7 @@ public class AccionCrearMapaTierra implements ActionListener {
 			JPanel panelMapa = new MapaVista(mapa);
 			frame.getContentPane().add(panelMapa, BorderLayout.WEST);
 			frame.pack();
+			
 			miCapa.add(frame);
 			frame.setSelected(true);
 		} catch (Exception e) {
@@ -39,7 +42,7 @@ public class AccionCrearMapaTierra implements ActionListener {
 			e.printStackTrace();
 		}
 		
-
+		
 	}
 
 }

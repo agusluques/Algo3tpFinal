@@ -22,8 +22,9 @@ public class PantallaPrincipal {
 		// Creo la ventana principal
 		ventanaPrincipal = new JFrame("AlgoCraft");
 		ventanaPrincipal.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		ventanaPrincipal.setIconImage(Toolkit.getDefaultToolkit().getImage(
-				"imagenes/logo.png"));
+
+		ventanaPrincipal.setIconImage(Toolkit.getDefaultToolkit().getImage("imagenes/logo.jpg"));
+		
 		ventanaPrincipal.setBounds(100, 100, 750, 500);
 		// creo una capa en la ventana, le seteo una imagen y dejo la ventana
 		// como visible
@@ -77,7 +78,7 @@ public class PantallaPrincipal {
 		JMenu menuTests = new JMenu("Tests");
 		barraMenu.add(menuTests);
 
-		// Creo el item de Acerca de, lo agrego y le seteo su accion
+		// Seteo accion CrearMapaTierra en MenuTests
 		JMenuItem itemCrearMapaTierra = new JMenuItem("CrearMapaTierra");
 		itemCrearMapaTierra.addActionListener(new AccionCrearMapaTierra(capa));
 		menuTests.add(itemCrearMapaTierra);
