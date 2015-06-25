@@ -12,7 +12,7 @@ public class VidaConEscudoTest {
 
 		vidaConEscudo.recibirDanio(100);
 		
-		assertEquals(400, vidaConEscudo.getEscudo());
+		assertEquals(400, vidaConEscudo.getCantidadDeEscudo());
 	}
 	
 	@Test
@@ -21,7 +21,7 @@ public class VidaConEscudoTest {
 
 		vidaConEscudo.recibirDanio(100);
 		
-		assertEquals(100, vidaConEscudo.getVida());
+		assertEquals(100, vidaConEscudo.getCantidadDeVida());
 	}
 	
 	@Test
@@ -30,7 +30,7 @@ public class VidaConEscudoTest {
 
 		vidaConEscudo.recibirDanio(550);
 		
-		assertEquals(0, vidaConEscudo.getEscudo());
+		assertEquals(0, vidaConEscudo.getCantidadDeEscudo());
 	}
 	
 	@Test
@@ -39,7 +39,7 @@ public class VidaConEscudoTest {
 
 		vidaConEscudo.recibirDanio(550);
 		
-		assertEquals(50, vidaConEscudo.getVida());
+		assertEquals(50, vidaConEscudo.getCantidadDeVida());
 	}
 	
 	@Test
@@ -49,7 +49,7 @@ public class VidaConEscudoTest {
 		
 		vidaConEscudo.pasarTurno();
 		
-		assertEquals(408, vidaConEscudo.getEscudo());
+		assertEquals(408, vidaConEscudo.getCantidadDeEscudo());
 	}
 	
 	@Test
@@ -59,7 +59,7 @@ public class VidaConEscudoTest {
 		vidaConEscudo.recibirDanio(550);
 		vidaConEscudo.pasarTurno();
 		
-		assertEquals(50, vidaConEscudo.getVida());
+		assertEquals(50, vidaConEscudo.getCantidadDeVida());
 	}
 	
 	@Test
@@ -71,7 +71,7 @@ public class VidaConEscudoTest {
 		vidaConEscudo.pasarTurno();
 		vidaConEscudo.pasarTurno();
 		
-		assertEquals(500, vidaConEscudo.getEscudo());
+		assertEquals(500, vidaConEscudo.getCantidadDeEscudo());
 	}
 
 }

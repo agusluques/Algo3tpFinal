@@ -8,32 +8,32 @@ public class VidaSimpleTest {
 	
 	@Test
 	public void laVidaSeInicializaCorrectamente() {
-		VidaSimple vida = new VidaSimple(50);
+		Vida vida = new VidaSimple(50);
 		
-		assertEquals(50, vida.getVida());
+		assertEquals(50, vida.getCantidadDeVida());
 	}
 	
 	@Test
 	public void siLaVidaSeIniciaEn50YLaDanioCon10Quedan40() {
-		VidaSimple vida = new VidaSimple(50);
+		Vida vida = new VidaSimple(50);
 		
 		vida.recibirDanio(10);
 		
-		assertEquals(40, vida.getVida());
+		assertEquals(40, vida.getCantidadDeVida());
 	}
 	
 	@Test
 	public void siLaVidaSeIniciaEn50YLaDanioCon50Quedan0() {
-		VidaSimple vida = new VidaSimple(50);
+		Vida vida = new VidaSimple(50);
 		
 		vida.recibirDanio(50);
 		
-		assertEquals(0, vida.getVida());
+		assertEquals(0, vida.getCantidadDeVida());
 	}
 	
 	@Test
 	public void siLaVidaSeIniciaEn50YLaDanioCon50EstaMuerta() {
-		VidaSimple vida = new VidaSimple(50);
+		Vida vida = new VidaSimple(50);
 		
 		vida.recibirDanio(50);
 		
@@ -42,11 +42,11 @@ public class VidaSimpleTest {
 	
 	@Test
 	public void laVidaNoBajaDe0AunqueLaAtaquenConMasDeLoQueTiene() {
-		VidaSimple vida = new VidaSimple(50);
+		Vida vida = new VidaSimple(50);
 		
 		vida.recibirDanio(150);
 		
-		assertEquals(0, vida.getVida());
+		assertEquals(0, vida.getCantidadDeVida());
 	}
 
 }

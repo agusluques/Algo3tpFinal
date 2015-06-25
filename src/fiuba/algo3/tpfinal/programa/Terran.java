@@ -5,12 +5,12 @@ import fiuba.algo3.tpfinal.unidades.AfectablePorEMP;
 
 public abstract class Terran implements Atacable, AfectablePorEMP {
 
-	protected VidaSimple vida;
+	protected Vida vida;
 	protected Coordenada posicion;
 	protected JugadorTerran jugador;
 
 	public int getVida() {
-		return this.vida.getVida();
+		return this.vida.getCantidadDeVida();
 	}
 
 	public void atacado(Danio danio) {
@@ -36,7 +36,7 @@ public abstract class Terran implements Atacable, AfectablePorEMP {
 
 	@Override
 	public boolean estaMuerto() {
-		return (this.vida.getVida() == 0);
+		return (this.vida.getCantidadDeVida() == 0);
 	}
 
 	public void pasarTurno(Jugador jugador, Mapa mapa) {

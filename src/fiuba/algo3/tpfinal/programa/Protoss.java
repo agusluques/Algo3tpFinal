@@ -10,11 +10,11 @@ public abstract class Protoss implements Atacable, AfectablePorEMP {
 	protected JugadorProtoss jugador;
 
 	public int getVida() {
-		return this.vida.getVida();
+		return this.vida.getCantidadDeVida();
 	}
 
 	public int getEscudo() {
-		return this.vida.getEscudo();
+		return this.vida.getCantidadDeEscudo();
 	}
 
 	public void atacado(Danio danio) {

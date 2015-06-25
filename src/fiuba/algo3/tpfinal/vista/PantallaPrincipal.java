@@ -19,24 +19,20 @@ public class PantallaPrincipal {
 
 	public PantallaPrincipal() throws LineUnavailableException, IOException,
 			UnsupportedAudioFileException {
-		// Creo la ventana principal
-		ventanaPrincipal = new JFrame("AlgoCraft");
-		ventanaPrincipal.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-		ventanaPrincipal.setIconImage(Toolkit.getDefaultToolkit().getImage("imagenes/logo.jpg"));
 		
-		ventanaPrincipal.setBounds(100, 100, 750, 500);
-		// creo una capa en la ventana, le seteo una imagen y dejo la ventana
-		// como visible
-		JLabel capa = new JLabel(new ImageIcon("imagenes/algocraft.jpg"));
-		ventanaPrincipal.getContentPane().add(capa);
-		// ventanaPrincipal.pack();
+		crearVentanaPrincipal();
+		
+		JLabel capa = crearFondo();
 
-		// Le agrego el sonido
-		HiloSonido sonido = new HiloSonido(
-				"sonidos/sonidoPantallaPrincipal.wav");
-		sonido.start();
+		HiloSonido sonido = crearSonido();
 
+		crearBarraDeMenu(capa, sonido);
+
+		ventanaPrincipal.setVisible(true);
+
+	}
+
+	private void crearBarraDeMenu(JLabel capa, HiloSonido sonido) {
 		// creo la barra de menus
 		JMenuBar barraMenu = new JMenuBar();
 
@@ -74,7 +70,7 @@ public class PantallaPrincipal {
 		itemAcercaDe.addActionListener(new AccionAcercaDe(capa));
 		menuAyuda.add(itemAcercaDe);
 		
-		//// Creo el menu de ayuda y lo agrego a la barra
+		//// Creo el menu de tests y lo agrego a la barra
 		JMenu menuTests = new JMenu("Tests");
 		barraMenu.add(menuTests);
 
@@ -85,8 +81,33 @@ public class PantallaPrincipal {
 
 		// Agrego la barra de menu a la ventana principal
 		ventanaPrincipal.setJMenuBar(barraMenu);
+	}
 
-		ventanaPrincipal.setVisible(true);
+	private HiloSonido crearSonido() throws LineUnavailableException,
+			IOException, UnsupportedAudioFileException {
+		// Le agrego el sonido
+		HiloSonido sonido = new HiloSonido(
+				"sonidos/sonidoPantallaPrincipal.wav");
+		sonido.start();
+		return sonido;
+	}
 
+	private JLabel crearFondo() {
+		// creo una capa en la ventana, le seteo una imagen y dejo la ventana
+		// como visible
+		JLabel capa = new JLabel(new ImageIcon("imagenes/algocraft.jpg"));
+		ventanaPrincipal.getContentPane().add(capa);
+		// ventanaPrincipal.pack();
+		return capa;
+	}
+
+	private void crearVentanaPrincipal() {
+		// Creo la ventana principal
+		ventanaPrincipal = new JFrame("AlgoCraft");
+		ventanaPrincipal.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+		ventanaPrincipal.setIconImage(Toolkit.getDefaultToolkit().getImage("imagenes/logo.jpg"));
+		
+		ventanaPrincipal.setBounds(100, 100, 750, 500);
 	}
 }

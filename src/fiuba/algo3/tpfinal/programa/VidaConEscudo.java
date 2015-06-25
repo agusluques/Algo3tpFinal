@@ -1,8 +1,7 @@
 package fiuba.algo3.tpfinal.programa;
 
-public class VidaConEscudo implements Vida {
+public class VidaConEscudo extends Vida {
 
-	private int vida;
 	private int escudo;
 	private int escudoLimite;
 
@@ -30,13 +29,12 @@ public class VidaConEscudo implements Vida {
 		return (vida == 0 && escudo == 0);
 	}
 
-	public int getEscudo() {
+	public int getCantidadDeEscudo() {
 		return this.escudo;
 	}
 
-	public int getVida() {
-		return this.vida;
-	}
+
+
 
 	public void pasarTurno() {
 		this.escudo += 8;
