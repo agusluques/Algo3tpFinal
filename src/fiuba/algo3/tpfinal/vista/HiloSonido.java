@@ -1,59 +1,38 @@
 package fiuba.algo3.tpfinal.vista;
 
-import java.io.File;
-import java.io.IOException;
+import java.applet.Applet;
+import java.applet.AudioClip;
+import java.net.MalformedURLException;
+import java.net.URL;
 
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
-import javax.sound.sampled.LineUnavailableException;
-import javax.sound.sampled.UnsupportedAudioFileException;
+public class HiloSonido  {
 
-public class HiloSonido extends Thread {
+	public AudioClip clip;
+	public boolean activo;
 
-	private Clip sonido;
-	private boolean seguir;
-
-	public HiloSonido(String rutaArchivo) throws LineUnavailableException,
-			IOException, UnsupportedAudioFileException {
-
-		seguir = true;
-		sonido = AudioSystem.getClip();
-		sonido.open(AudioSystem.getAudioInputStream(new File(rutaArchivo)));
-
-	}
-
-	@Override
-	public void run() {
-
-		sonido.start();
-
-		// Espera mientras se este reproduciendo.
-		do {
-			try {
-				Thread.sleep(500);
-			} catch (InterruptedException ex) {
-				/*
-				 * Logger.getLogger(ReproduceSonido.class.getName()).log(
-				 * Level.SEVERE, null, ex);
-				 */
-			}
-
-		} while (seguir && sonido.isActive());
-
-		if (sonido.isActive()) {
-			sonido.stop();
-		}
-
-		// Se cierra el clip.
-		sonido.close();
-
-	}
-
-	public void parar() {
-		seguir = false;
+	public HiloSonido(String rutaArchivo) throws MalformedURLException {
+		
+		URL urlClip = HiloSonido.class.getResource("sonidoPantallaPRincipal.wav");
+	    clip = Applet.newAudioClip(urlClip);
+	    clip.play();
+		activo = true;
 	}
 
 	public boolean estaActivo() {
-		return sonido.isActive();
+		return activo;
 	}
+
+	public void parar() throws InterruptedException {
+		clip.stop();
+		activo = false;
+	}
+
+	public void run() {
+		clip.play();
+		activo =true;
+		
+	}
+	
+	
 }
+	

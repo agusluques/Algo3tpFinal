@@ -87,8 +87,7 @@ public class PantallaPrincipal {
 			IOException, UnsupportedAudioFileException {
 		// Le agrego el sonido
 		HiloSonido sonido = new HiloSonido(
-				"sonidos/sonidoPantallaPrincipal.wav");
-		sonido.start();
+				"/sonidos/sonidoPantallaPrincipal.wav");
 		return sonido;
 	}
 

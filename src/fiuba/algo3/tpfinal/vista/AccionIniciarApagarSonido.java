@@ -14,7 +14,11 @@ public class AccionIniciarApagarSonido implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		if (miSonido.estaActivo()) {
-			miSonido.parar();
+			try {
+				miSonido.parar();
+			} catch (InterruptedException e) {
+					e.printStackTrace();
+			}
 		} else {
 			System.out.println("Inicia");
 			miSonido.run();
