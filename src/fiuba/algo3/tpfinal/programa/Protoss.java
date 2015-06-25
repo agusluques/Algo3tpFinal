@@ -2,8 +2,9 @@ package fiuba.algo3.tpfinal.programa;
 
 import fiuba.algo3.tpfinal.construcciones.Atacable;
 import fiuba.algo3.tpfinal.unidades.AfectablePorEMP;
+import fiuba.algo3.tpfinal.vista.Observable;
 
-public abstract class Protoss implements Atacable, AfectablePorEMP {
+public abstract class Protoss extends Observable implements Atacable, AfectablePorEMP {
 
 	protected VidaConEscudo vida;
 	protected Coordenada posicion;

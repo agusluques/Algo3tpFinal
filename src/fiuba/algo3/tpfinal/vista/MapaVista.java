@@ -2,6 +2,7 @@ package fiuba.algo3.tpfinal.vista;
 
 import java.awt.Component;
 import java.awt.GridLayout;
+import java.awt.event.MouseListener;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -18,7 +19,8 @@ public class MapaVista extends JPanel {
 	Mapa miMapa;
 	
 	public MapaVista(Mapa mapa) throws Exception {
-	
+		MouseListener clickEnMapa = new AccionClickMouse(mapa);
+		this.addMouseListener(clickEnMapa);
 		miMapa = mapa;
 		
 		setBounds(0, 0, miMapa.getAncho(), miMapa.getAlto());
@@ -40,11 +42,20 @@ public class MapaVista extends JPanel {
 			for (int j = 1; j <= ancho; j++){
 				Coordenada posicionActual = new Coordenada(i,j);
 				Parcela parcelaActual = miMapa.getParcela(posicionActual);
+				if (parcelaActual.estaVacia()){
 				Class<?> claseVista = generadorParcelas.hash.get(parcelaActual.getSuperficie().getClass());
-				SuperficieVista vista = (SuperficieVista) claseVista.newInstance();
+				Vista vista = (Vista) claseVista.newInstance();
 				this.add(vista);
+				}else{
+					Class<?> claseVista = generadorParcelas.hash.get(parcelaActual.getOcupante().getClass());
+					Vista vista = (Vista) claseVista.newInstance();
+					this.add(vista);
+				}
 			}
 		}
+	
+		
+	
 	}
 
 	
