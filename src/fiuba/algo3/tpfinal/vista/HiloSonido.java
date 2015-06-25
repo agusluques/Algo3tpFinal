@@ -14,8 +14,7 @@ public class HiloSonido  {
 		
 		URL urlClip = HiloSonido.class.getResource("sonidoPantallaPRincipal.wav");
 	    clip = Applet.newAudioClip(urlClip);
-	    clip.play();
-		activo = true;
+	    this.run();
 	}
 
 	public boolean estaActivo() {
@@ -28,7 +27,7 @@ public class HiloSonido  {
 	}
 
 	public void run() {
-		clip.play();
+		clip.loop();
 		activo =true;
 		
 	}
