@@ -3,7 +3,9 @@ package fiuba.algo3.tpfinal.vista;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Random;
 
 import javax.swing.JComboBox;
 import javax.swing.JInternalFrame;
@@ -56,7 +58,6 @@ public class CrearJuego implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		if (!datosSonCorrectos()) {
-			System.out.println("Error");
 			JInternalFrame frame = crearVentanaDeError();
 			verificarLargoDeNombres(frame);
 			verificarIgualdadDeNombres(frame);
@@ -64,15 +65,15 @@ public class CrearJuego implements ActionListener{
 			return;
 		}
 		
-		System.out.println("OK");
 		HashMap<String, Class<?>> hashDeRazas = new HashMap<String, Class<?>>();
 		hashDeRazas.put("Terran", JugadorTerran.class);
 		hashDeRazas.put("Protoss", JugadorProtoss.class);
 		Mapa mapa;
 		try {
-			mapa = new Mapa("mapaTierra.txt");
-			Jugador jugadorUno = (Jugador) hashDeRazas.get(razaJUno.getSelectedItem()).getDeclaredConstructor(Jugador.class, Mapa.class).newInstance(nombreJUno.getText(), mapa);
-			Jugador jugadorDos = (Jugador) hashDeRazas.get(razaJDos.getSelectedItem()).getDeclaredConstructor(Jugador.class, Mapa.class).newInstance(nombreJDos.getText(), mapa);
+			String direccionDelMapa = this.elegirMapa();
+			mapa = new Mapa(direccionDelMapa);
+			Jugador jugadorUno = (Jugador) hashDeRazas.get(razaJUno.getSelectedItem()).getDeclaredConstructor(String.class, Mapa.class).newInstance(nombreJUno.getText(), mapa);
+			Jugador jugadorDos = (Jugador) hashDeRazas.get(razaJDos.getSelectedItem()).getDeclaredConstructor(String.class, Mapa.class).newInstance(nombreJDos.getText(), mapa);
 			
 			Juego nuevoJuego = new Juego(jugadorUno, jugadorDos, mapa);
 		} catch (Exception e) {
@@ -80,6 +81,14 @@ public class CrearJuego implements ActionListener{
 			e.printStackTrace();
 		}
 		
+	}
+
+	private String elegirMapa() {
+		ArrayList<String> mapas = new ArrayList<String>();
+		mapas.add("mapaTierra.txt");
+		Random generadorDePosicionAleatoria = new Random();
+		int posicionAleatoria = generadorDePosicionAleatoria.nextInt(mapas.size());
+		return mapas.get(posicionAleatoria);
 	}
 
 	private boolean datosSonCorrectos() {
