@@ -1,11 +1,13 @@
 package fiuba.algo3.tpfinal.vista;
 
 import java.awt.Component;
+import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.MouseListener;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 
 import fiuba.algo3.tpfinal.programa.Coordenada;
 import fiuba.algo3.tpfinal.programa.Mapa;
@@ -23,14 +25,11 @@ public class MapaVista extends JPanel {
 		this.addMouseListener(clickEnMapa);
 		miMapa = mapa;
 		
-		setBounds(0, 0, miMapa.getAncho(), miMapa.getAlto());
+		setBounds(0, 0, 100, 100);
 		setAlignmentY(Component.TOP_ALIGNMENT);
 		setAlignmentX(Component.LEFT_ALIGNMENT);
 		setLayout(new GridLayout(miMapa.getAncho(), miMapa.getAlto()));
-		this.setAutoscrolls(true);
-		
-		
-		
+
 		this.imprimirMapa();
 	}
 
