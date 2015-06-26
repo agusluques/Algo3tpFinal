@@ -12,7 +12,7 @@ public class HiloSonido  {
 
 	public HiloSonido(String rutaArchivo) throws MalformedURLException {
 		
-		URL urlClip = HiloSonido.class.getResource("sonidoPantallaPRincipal.wav");
+		URL urlClip = HiloSonido.class.getResource("sonidoPantallaPrincipal.wav");
 	    clip = Applet.newAudioClip(urlClip);
 	    this.run();
 	}

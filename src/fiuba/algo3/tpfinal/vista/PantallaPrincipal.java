@@ -107,6 +107,6 @@ public class PantallaPrincipal {
 
 		ventanaPrincipal.setIconImage(Toolkit.getDefaultToolkit().getImage("imagenes/logo.jpg"));
 		
-		ventanaPrincipal.setBounds(100, 100, 750, 500);
+		ventanaPrincipal.setBounds(0, 0, ventanaPrincipal.getMaximumSize().width, ventanaPrincipal.getMaximumSize().height);
 	}
 }

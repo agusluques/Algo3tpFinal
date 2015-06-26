@@ -23,6 +23,7 @@ public class AccionNuevoJuego implements ActionListener {
 	/**
 	 * @wbp.parser.entryPoint
 	 */
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// Creo la ventanita chiquita, le seteo el tamanio, la posicion y la
@@ -79,7 +80,7 @@ public class AccionNuevoJuego implements ActionListener {
 		
 		//Creo el boton "Aceptar"
 		JButton aceptar = new JButton();
-		aceptar.addActionListener(new CrearJuego(nombreUno, razaUno, colorUno, nombreDos, razaDos, colorDos));
+		aceptar.addActionListener(new CrearJuego(miCapa, nombreUno, razaUno, colorUno, nombreDos, razaDos, colorDos));
 		aceptar.setText("Aceptar");
 		frame.getContentPane().add(aceptar, BorderLayout.AFTER_LAST_LINE);
 

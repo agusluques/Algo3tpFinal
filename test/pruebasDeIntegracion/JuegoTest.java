@@ -21,7 +21,7 @@ public class JuegoTest {
 		Mapa mapa = new Mapa("mapaTierra.txt");
 		JugadorTerran jugadorUno = new JugadorTerran("Pablo", mapa);
 		JugadorTerran jugadorDos = new JugadorTerran("Nico", mapa);
-		Juego juego = new Juego(jugadorUno, jugadorDos);
+		Juego juego = new Juego(jugadorUno, jugadorDos, mapa);
 
 		ConstruccionTerran centroMineral = new CentroDeMineral();
 		ConstruccionTerran barraca = new Barraca();

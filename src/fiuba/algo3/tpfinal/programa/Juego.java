@@ -3,8 +3,11 @@ package fiuba.algo3.tpfinal.programa;
 public class Juego {
 	public Jugador jugadorUno;
 	public Jugador jugadorDos;
+	@SuppressWarnings("unused")
+	private Mapa mapa;
 
-	public Juego(Jugador jugadorUno, Jugador jugadorDos) {
+	public Juego(Jugador jugadorUno, Jugador jugadorDos, Mapa mapa) {
+		this.mapa = mapa;
 		this.jugadorUno = jugadorUno;
 		jugadorUno.inicializarEnPrimeraBase();
 		this.jugadorDos = jugadorDos;
