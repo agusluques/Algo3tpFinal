@@ -405,7 +405,7 @@ public class AtaquesTest {
 		Zealot zealot = (Zealot) unidades2.get(0);
 		
 		
-		zealot.trasladarA(new Coordenada(1,89), mapa);
+		zealot.trasladarA(new Coordenada(1,88), mapa);
 		while (!marine.estaMuerto()) {
 			marine.atacar(zealot);
 			jugador1.pasarTurno();

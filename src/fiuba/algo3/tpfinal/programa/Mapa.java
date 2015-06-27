@@ -7,6 +7,7 @@ import java.util.Set;
 
 import fiuba.algo3.tpfinal.construcciones.Atacable;
 import fiuba.algo3.tpfinal.excepciones.ParcelaOcupada;
+import fiuba.algo3.tpfinal.unidades.Trasladable;
 
 public class Mapa {
 
@@ -85,7 +86,7 @@ public class Mapa {
 				for (int x = columna - mod; x <= columna + mod; x++) {
 					parcela = this.mapa.get(new Coordenada(y, x));
 					if (parcela != null) {
-						if (parcela.estaVacia() && !ubicada) {
+						if (parcela.estaVacia() && !ubicada && parcela.getSuperficie().puedeRecibir((Trasladable) unidad)) {
 							parcela.ocupar(unidad);
 							unidad.setCoordenada(new Coordenada(y, x));
 							ubicada = true;

@@ -74,7 +74,7 @@ public class JuegoTest {
 		// posiciono el marine del jugadorUno al lado de marine a atacar
 		Coordenada coordPrimerMarineAtacado = new Coordenada(
 				primerMarineAtacado.getCoordenada().getFila() + 1,
-				primerMarineAtacado.getCoordenada().getColumna() + 1);
+				primerMarineAtacado.getCoordenada().getColumna() + 2);
 
 		marineJugadorUno.trasladarA(coordPrimerMarineAtacado, mapa);
 
