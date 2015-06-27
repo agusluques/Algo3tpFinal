@@ -23,10 +23,10 @@ public class AccionClickMouse implements MouseListener {
 		int fila = arg0.getY();
 		int columna = arg0.getX();
 		System.out.println("Coordenada en el Dibujo: " + fila + " " + columna);
-		System.out.println("Coordenada en el hash: " + (fila/10+1) + "  " + (columna/10+1));
-		Parcela parcela = miMapa.getParcela(new Coordenada(fila/10+1,columna/10+1));
+		System.out.println("Coordenada en el hash: " + (fila/40+1) + "  " + (columna/40+1));
+		Parcela parcela = miMapa.getParcela(new Coordenada(fila/40+1,columna/40+1));
 		if (!parcela.estaVacia()){
-			Atacable unidad = miMapa.getParcela(new Coordenada(fila/10+1,columna/10+1)).getOcupante();
+			Atacable unidad = miMapa.getParcela(new Coordenada(fila/40+1,columna/40+1)).getOcupante();
 			
 			if (unidadSeleccionada == null){
 				((Observable)unidad).notificarObservadorSobreSeleccion();

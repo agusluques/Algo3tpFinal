@@ -1,12 +1,15 @@
 package fiuba.algo3.tpfinal.vista.unidades;
 
+
 import java.awt.Color;
+import java.awt.Dimension;
 
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import fiuba.algo3.tpfinal.unidades.Marine;
+import fiuba.algo3.tpfinal.unidades.Zealot;
 import fiuba.algo3.tpfinal.vista.Observable;
 import fiuba.algo3.tpfinal.vista.Observador;
 import fiuba.algo3.tpfinal.vista.Vista;
@@ -16,11 +19,16 @@ public class MarineVista extends Vista implements Observador {
 	
 	private Marine miMarine;
 	private JInternalFrame miVentanaDeAccion;
-	private JLabel miCapa;
+	private JPanel miPanel;
 	
 	public MarineVista() {
+		setPreferredSize(new Dimension(40,40));
 		setBackground(Color.WHITE);
 	}
+	
+	/*public MarineVista() {
+		super("/imagenes/unidades/Marine.png");
+	}*/
 
 	@Override
 	public void actualizar() {
@@ -30,22 +38,27 @@ public class MarineVista extends Vista implements Observador {
 
 	@Override
 	public void imprimirMenuObservador() {
-		miCapa.setVisible(true);
+		miPanel.setVisible(true);
 		System.out.println("Hiciste click en un marine fiera!");
 	}
 	
 	@Override
 	public void ocultarMenuObservador() {
-		miCapa.setVisible(false);
+		miPanel.setVisible(false);
 		System.out.println("Clickeaste en otra cosa que no es un marine loco!");
 		
 	}
+	
 	@Override
 	public void setObservable(Observable marine) {
-		miMarine = (Marine)marine;
-		miCapa = new JLabel("Aca va toda la info y los botones");
-		miCapa.setVisible(false);
-		miVentanaDeAccion.add(miCapa);
+		miMarine = (Marine) marine;
+		miPanel = new JPanel();
+		JLabel capaNombre = new JLabel("Zealot");
+		miPanel.add(capaNombre);
+		JLabel capaVida = new JLabel("Vida: "+miMarine.getVida());
+		miPanel.add(capaVida);
+		miPanel.setVisible(false);
+		miVentanaDeAccion.add(miPanel);
 	}
 
 	@Override

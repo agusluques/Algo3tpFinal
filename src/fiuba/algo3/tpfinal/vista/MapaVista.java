@@ -1,13 +1,11 @@
 package fiuba.algo3.tpfinal.vista;
 
 import java.awt.Component;
-import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.MouseListener;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
 
 import fiuba.algo3.tpfinal.programa.Coordenada;
 import fiuba.algo3.tpfinal.programa.Mapa;
@@ -45,6 +43,7 @@ public class MapaVista extends JPanel {
 				Class<?> claseVista = generadorParcelas.hash.get(parcelaActual.getSuperficie().getClass());
 				Vista vista = (Vista) claseVista.newInstance();
 				this.add(vista);
+				
 				}else{
 					Class<?> claseVista = generadorParcelas.hash.get(parcelaActual.getOcupante().getClass());
 					Vista vista = (Vista) claseVista.newInstance();

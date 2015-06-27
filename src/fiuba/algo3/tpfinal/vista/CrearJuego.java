@@ -19,6 +19,7 @@ import fiuba.algo3.tpfinal.programa.Jugador;
 import fiuba.algo3.tpfinal.programa.JugadorProtoss;
 import fiuba.algo3.tpfinal.programa.JugadorTerran;
 import fiuba.algo3.tpfinal.programa.Mapa;
+import fiuba.algo3.tpfinal.vista.programa.JuegoVista;
 
 import javax.swing.JPanel;
 
@@ -76,6 +77,7 @@ public class CrearJuego implements ActionListener{
 			Jugador jugadorDos = (Jugador) hashDeRazas.get(razaJDos.getSelectedItem()).getDeclaredConstructor(String.class, Mapa.class).newInstance(nombreJDos.getText(), mapa);
 			
 			Juego nuevoJuego = new Juego(jugadorUno, jugadorDos, mapa);
+			new JuegoVista(miCapa, nuevoJuego);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

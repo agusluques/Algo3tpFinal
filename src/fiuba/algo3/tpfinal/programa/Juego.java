@@ -31,4 +31,8 @@ public class Juego {
 		}
 	}
 
+	public Mapa getMapa() {
+		return mapa;
+	}
+
 }

@@ -79,6 +79,7 @@ public class PantallaPrincipal {
 		itemCrearMapaTierra.addActionListener(new AccionCrearMapaTierra(capa));
 		menuTests.add(itemCrearMapaTierra);
 
+
 		// Agrego la barra de menu a la ventana principal
 		ventanaPrincipal.setJMenuBar(barraMenu);
 	}
