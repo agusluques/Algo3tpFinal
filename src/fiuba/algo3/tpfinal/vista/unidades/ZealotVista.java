@@ -2,11 +2,15 @@ package fiuba.algo3.tpfinal.vista.unidades;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Image;
 
+import javax.swing.ImageIcon;
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import fiuba.algo3.tpfinal.programa.Coordenada;
 import fiuba.algo3.tpfinal.unidades.Zealot;
 import fiuba.algo3.tpfinal.vista.Observable;
 import fiuba.algo3.tpfinal.vista.Observador;
@@ -18,6 +22,8 @@ public class ZealotVista extends Vista implements Observador {
 	private Zealot miZealot;
 	private JInternalFrame miVentanaDeAccion;
 	private JPanel miPanel;
+	private Image img;
+	private Image fondo;
 
 	public ZealotVista() {
 		setPreferredSize(new Dimension(40, 40));
@@ -54,6 +60,8 @@ public class ZealotVista extends Vista implements Observador {
 
 	@Override
 	public void setObservable(Observable zealot) {
+		img = (new ImageIcon("imagenes/zealot.png")).getImage();
+		fondo = (new ImageIcon("imagenes/tierra.png")).getImage();
 		miZealot = (Zealot) zealot;
 		miPanel = new JPanel();
 		JLabel capaNombre = new JLabel("Zealot");
@@ -71,5 +79,11 @@ public class ZealotVista extends Vista implements Observador {
 		miVentanaDeAccion = ventana;
 
 	}
+	   public void paint(Graphics g) {
+			   
+			
+		   g.drawImage(fondo,0,0,40,40,null);
+		   g.drawImage(img,0,0,40,40, null);
 
+	   }
 }

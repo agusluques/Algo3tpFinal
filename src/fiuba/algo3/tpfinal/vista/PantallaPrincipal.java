@@ -79,10 +79,7 @@ public class PantallaPrincipal {
 		itemCrearMapaTierra.addActionListener(new AccionCrearMapaTierra(capa));
 		menuTests.add(itemCrearMapaTierra);
 
-		// Seteo accion CrearMapaTierraConImagenes en MenuTests
-		JMenuItem itemCrearMapaTierraConImagenes = new JMenuItem("CrearMapaTierraConImagenes");
-		itemCrearMapaTierraConImagenes.addActionListener(new AccionCrearMapaTierraConImagenes(capa));
-		menuTests.add(itemCrearMapaTierraConImagenes);
+		
 
 		// Agrego la barra de menu a la ventana principal
 		ventanaPrincipal.setJMenuBar(barraMenu);
