@@ -36,13 +36,18 @@ public class ZealotVista extends Vista implements Observador {
 
 	@Override
 	public void imprimirMenuObservador() {
+	
+		miVentanaDeAccion.add(miPanel);
 		miPanel.setVisible(true);
 		System.out.println("Hiciste click en un Zealot fiera!");
 	}
 
 	@Override
 	public void ocultarMenuObservador() {
+	
 		miPanel.setVisible(false);
+		miVentanaDeAccion.remove(miPanel);
+		
 		System.out.println("Clickeaste en otra cosa que no es un Zealot loco!");
 
 	}
@@ -58,7 +63,7 @@ public class ZealotVista extends Vista implements Observador {
 		JLabel capaEscudo = new JLabel("Escudo: " + miZealot.getEscudo());
 		miPanel.add(capaEscudo);
 		miPanel.setVisible(false);
-		miVentanaDeAccion.add(miPanel);
+		
 	}
 
 	@Override

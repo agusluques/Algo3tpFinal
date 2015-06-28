@@ -36,13 +36,17 @@ public class MarineVista extends Vista implements Observador {
 
 	@Override
 	public void imprimirMenuObservador() {
+
+		miVentanaDeAccion.add(miPanel);
 		miPanel.setVisible(true);
 		System.out.println("Hiciste click en un marine fiera!");
 	}
 
 	@Override
 	public void ocultarMenuObservador() {
+	
 		miPanel.setVisible(false);
+		miVentanaDeAccion.remove(miPanel);
 		System.out.println("Clickeaste en otra cosa que no es un marine loco!");
 
 	}
@@ -51,12 +55,12 @@ public class MarineVista extends Vista implements Observador {
 	public void setObservable(Observable marine) {
 		miMarine = (Marine) marine;
 		miPanel = new JPanel();
-		JLabel capaNombre = new JLabel("Zealot");
+		JLabel capaNombre = new JLabel("Marine");
 		miPanel.add(capaNombre);
 		JLabel capaVida = new JLabel("Vida: " + miMarine.getVida());
 		miPanel.add(capaVida);
 		miPanel.setVisible(false);
-		miVentanaDeAccion.add(miPanel);
+	
 	}
 
 	@Override
