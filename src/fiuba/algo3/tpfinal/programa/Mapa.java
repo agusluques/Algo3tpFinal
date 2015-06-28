@@ -86,7 +86,10 @@ public class Mapa {
 				for (int x = columna - mod; x <= columna + mod; x++) {
 					parcela = this.mapa.get(new Coordenada(y, x));
 					if (parcela != null) {
-						if (parcela.estaVacia() && !ubicada && parcela.getSuperficie().puedeRecibir((Trasladable) unidad)) {
+						if (parcela.estaVacia()
+								&& !ubicada
+								&& parcela.getSuperficie().puedeRecibir(
+										(Trasladable) unidad)) {
 							parcela.ocupar(unidad);
 							unidad.setCoordenada(new Coordenada(y, x));
 							ubicada = true;

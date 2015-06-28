@@ -6,8 +6,6 @@ import java.util.Iterator;
 import fiuba.algo3.tpfinal.excepciones.LimitePoblacionalAlcanzado;
 import fiuba.algo3.tpfinal.excepciones.MineralInsuficiente;
 import fiuba.algo3.tpfinal.programa.Costo;
-import fiuba.algo3.tpfinal.programa.Jugador;
-import fiuba.algo3.tpfinal.programa.Mapa;
 import fiuba.algo3.tpfinal.programa.Tierra;
 import fiuba.algo3.tpfinal.programa.VidaSimple;
 import fiuba.algo3.tpfinal.unidades.Fabricable;
@@ -38,7 +36,7 @@ public class Barraca extends ConstruccionTerran {
 		}
 	}
 
-	public void pasarTurno(Jugador jugador, Mapa mapa) {
+	public void pasarTurno() {
 		if (unidadesEnConstruccion.size() > 0) {
 			Iterator<Fabricable> iterador = unidadesEnConstruccion.iterator();
 			Fabricable unidadEnConstruccion = iterador.next();

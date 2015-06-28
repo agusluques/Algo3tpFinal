@@ -4,16 +4,16 @@ public abstract class Vida {
 
 	protected int vida;
 
-	public int getCantidadDeVida(){
+	public int getCantidadDeVida() {
 		return this.vida;
 	}
 
-	public boolean estaMuerto(){
+	public boolean estaMuerto() {
 		return this.vida == 0;
-	
+
 	}
 
-	public void recibirDanio(int danio){
+	public void recibirDanio(int danio) {
 		this.vida -= danio;
 		if (this.vida < 0) {
 			this.vida = 0;

@@ -89,7 +89,7 @@ public class FabricaTest {
 		for (int x = 0; x < 5; x++) {
 			barraca.fabricarMarine();
 			for (int i = 0; i < 10; i++) {
-				barraca.pasarTurno(null, null);
+				barraca.pasarTurno();
 			}
 		}
 		jugador.construir(this.fabrica, new Coordenada(2, 2));
@@ -98,7 +98,7 @@ public class FabricaTest {
 		}
 		this.fabrica.fabricarGolliat();
 		for (int i = 0; i < 6; i++) {
-			this.fabrica.pasarTurno(null, null);
+			this.fabrica.pasarTurno();
 		}
 	}
 
@@ -126,7 +126,7 @@ public class FabricaTest {
 		}
 		this.fabrica.fabricarGolliat();
 		for (int i = 0; i < 7; i++) {
-			this.fabrica.pasarTurno(null, null);
+			this.fabrica.pasarTurno();
 		}
 		Assert.assertTrue(jugador.contarPoblacion() == 3);
 
@@ -171,7 +171,7 @@ public class FabricaTest {
 
 			// Pasa 6 turnos asi se termina el primer golliat
 			for (int x = 0; x < 6; x++) {
-				this.fabrica.pasarTurno(null, null);
+				this.fabrica.pasarTurno();
 			}
 
 			// Busco cuantos golliats tiene el jugador

@@ -6,6 +6,4 @@ public class VidaSimple extends Vida {
 		this.vida = vidaInicial;
 	}
 
-
-
 }

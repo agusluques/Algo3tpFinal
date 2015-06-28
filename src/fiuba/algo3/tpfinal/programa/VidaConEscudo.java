@@ -33,9 +33,6 @@ public class VidaConEscudo extends Vida {
 		return this.escudo;
 	}
 
-
-
-
 	public void pasarTurno() {
 		this.escudo += 8;
 		if (this.escudo >= escudoLimite) {

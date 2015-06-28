@@ -102,7 +102,7 @@ public class CentroDeMineralTest {
 		zealot.setCoordenada(new Coordenada(2, 91));
 		centroMineral.setJugador(jugador);
 		zealot.atacar(centroMineral);
-		centroMineral.pasarTurno(jugador, mapa);
+		centroMineral.pasarTurno();
 
 		Assert.assertEquals(492, centroMineral.getVida());
 		Assert.assertEquals(210, jugador.getPresupuesto().cantidadDeMineral());

@@ -62,7 +62,7 @@ public class AsimiladorTest {
 		zealot.setCoordenada(new Coordenada(0, 0));
 		asimilador.setJugador(jugador);
 		zealot.atacar(asimilador);
-		asimilador.pasarTurno(jugador, mapa);
+		asimilador.pasarTurno();
 		Assert.assertEquals(450, asimilador.getEscudo());
 		Assert.assertEquals(10, jugador.getPresupuesto().cantidadDeGas());
 	}

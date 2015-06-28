@@ -42,7 +42,8 @@ public class AccionNuevoJuego implements ActionListener {
 
 		// Creo las opciones de as razas y colores
 		String[] razas = { "Terran", "Protoss" };
-		String[] colores = {"Rojo", "Azul", "Amarillo","Verde","Naranja","Violeta"};
+		String[] colores = { "Rojo", "Azul", "Amarillo", "Verde", "Naranja",
+				"Violeta" };
 
 		// Creo el ingreso de nombre Jugador Uno
 		JPanel panelUno = new JPanel();
@@ -77,10 +78,11 @@ public class AccionNuevoJuego implements ActionListener {
 		panelDos.add(colorJugadorDos);
 		panelDos.add(colorDos);
 		splitPane.setRightComponent(panelDos);
-		
-		//Creo el boton "Aceptar"
+
+		// Creo el boton "Aceptar"
 		JButton aceptar = new JButton();
-		aceptar.addActionListener(new CrearJuego(miCapa, nombreUno, razaUno, colorUno, nombreDos, razaDos, colorDos));
+		aceptar.addActionListener(new CrearJuego(miCapa, nombreUno, razaUno,
+				colorUno, nombreDos, razaDos, colorDos));
 		aceptar.setText("Aceptar");
 		frame.getContentPane().add(aceptar, BorderLayout.AFTER_LAST_LINE);
 

@@ -4,7 +4,8 @@ import fiuba.algo3.tpfinal.construcciones.Atacable;
 import fiuba.algo3.tpfinal.unidades.AfectablePorEMP;
 import fiuba.algo3.tpfinal.vista.Observable;
 
-public abstract class Terran extends Observable implements Atacable, AfectablePorEMP {
+public abstract class Terran extends Observable implements Atacable,
+		AfectablePorEMP {
 
 	protected Vida vida;
 	protected Coordenada posicion;
@@ -40,7 +41,7 @@ public abstract class Terran extends Observable implements Atacable, AfectablePo
 		return (this.vida.getCantidadDeVida() == 0);
 	}
 
-	public void pasarTurno(Jugador jugador, Mapa mapa) {
+	public void pasarTurno() {
 	}
 
 	public void recibirImpactoEMP() {

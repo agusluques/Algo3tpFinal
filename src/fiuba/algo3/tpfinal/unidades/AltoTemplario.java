@@ -4,8 +4,6 @@ import fiuba.algo3.tpfinal.excepciones.EnergiaInsuficiente;
 import fiuba.algo3.tpfinal.programa.Coordenada;
 import fiuba.algo3.tpfinal.programa.Costo;
 import fiuba.algo3.tpfinal.programa.Danio;
-import fiuba.algo3.tpfinal.programa.Jugador;
-import fiuba.algo3.tpfinal.programa.Mapa;
 import fiuba.algo3.tpfinal.programa.VidaConEscudo;
 
 public class AltoTemplario extends UnidadProtoss {
@@ -42,9 +40,9 @@ public class AltoTemplario extends UnidadProtoss {
 		}
 	}
 
-	public void pasarTurno(Jugador jugador, Mapa mapa) {
+	public void pasarTurno() {
 		this.miEnergia.aumentarEnergia(15);
-		super.pasarTurno(jugador, mapa);
+		super.pasarTurno();
 	}
 
 	public int rangoDeAtaqueCorrespondiente(RangoDeAtaque rango) {

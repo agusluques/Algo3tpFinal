@@ -58,7 +58,7 @@ public class AccionAcercaDe implements ActionListener {
 		frame.getContentPane().add(panelUno, BorderLayout.BEFORE_FIRST_LINE);
 		frame.getContentPane().add(panelDos, BorderLayout.CENTER);
 		frame.getContentPane().add(panelTres, BorderLayout.LINE_END);
-		
+
 		// Agrego la ventanita chiquita a la capa
 		frame.pack();
 		miCapa.add(frame);

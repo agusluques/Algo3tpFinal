@@ -1,19 +1,18 @@
 package fiuba.algo3.tpfinal.vista;
 
+import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
 
 import javax.swing.JComboBox;
 import javax.swing.JInternalFrame;
-import javax.swing.JOptionPane;
+import javax.swing.JLabel;
 import javax.swing.JTextField;
 
-import fiuba.algo3.tpfinal.excepciones.LargoDeNombreInvalido;
-import fiuba.algo3.tpfinal.excepciones.NombresIguales;
 import fiuba.algo3.tpfinal.programa.Juego;
 import fiuba.algo3.tpfinal.programa.Jugador;
 import fiuba.algo3.tpfinal.programa.JugadorProtoss;
@@ -21,20 +20,8 @@ import fiuba.algo3.tpfinal.programa.JugadorTerran;
 import fiuba.algo3.tpfinal.programa.Mapa;
 import fiuba.algo3.tpfinal.vista.programa.JuegoVista;
 
-import javax.swing.JPanel;
+public class CrearJuego implements ActionListener {
 
-import java.awt.BorderLayout;
-import java.awt.Toolkit;
-
-import javax.swing.JLabel;
-
-import java.awt.Color;
-
-import javax.swing.JButton;
-
-@SuppressWarnings("unused")
-public class CrearJuego implements ActionListener{
-	
 	private JTextField nombreJUno;
 	private JComboBox<String> razaJUno;
 	private JComboBox<String> colorJUno;
@@ -43,7 +30,10 @@ public class CrearJuego implements ActionListener{
 	private JComboBox<String> colorJDos;
 	private JLabel miCapa;
 
-	public CrearJuego(JLabel capa, JTextField nombreUno, JComboBox<String> razaUno, JComboBox<String> colorUno, JTextField nombreDos, JComboBox<String> razaDos, JComboBox<String> colorDos) {
+	public CrearJuego(JLabel capa, JTextField nombreUno,
+			JComboBox<String> razaUno, JComboBox<String> colorUno,
+			JTextField nombreDos, JComboBox<String> razaDos,
+			JComboBox<String> colorDos) {
 		miCapa = capa;
 		nombreJUno = nombreUno;
 		razaJUno = razaUno;
@@ -65,7 +55,7 @@ public class CrearJuego implements ActionListener{
 			verificarIgualdadDeColores(frame);
 			return;
 		}
-		
+
 		HashMap<String, Class<?>> hashDeRazas = new HashMap<String, Class<?>>();
 		hashDeRazas.put("Terran", JugadorTerran.class);
 		hashDeRazas.put("Protoss", JugadorProtoss.class);
@@ -73,23 +63,30 @@ public class CrearJuego implements ActionListener{
 		try {
 			String direccionDelMapa = this.elegirMapa();
 			mapa = new Mapa(direccionDelMapa);
-			Jugador jugadorUno = (Jugador) hashDeRazas.get(razaJUno.getSelectedItem()).getDeclaredConstructor(String.class, Mapa.class).newInstance(nombreJUno.getText(), mapa);
-			Jugador jugadorDos = (Jugador) hashDeRazas.get(razaJDos.getSelectedItem()).getDeclaredConstructor(String.class, Mapa.class).newInstance(nombreJDos.getText(), mapa);
-			
+			Jugador jugadorUno = (Jugador) hashDeRazas
+					.get(razaJUno.getSelectedItem())
+					.getDeclaredConstructor(String.class, Mapa.class)
+					.newInstance(nombreJUno.getText(), mapa);
+			Jugador jugadorDos = (Jugador) hashDeRazas
+					.get(razaJDos.getSelectedItem())
+					.getDeclaredConstructor(String.class, Mapa.class)
+					.newInstance(nombreJDos.getText(), mapa);
+
 			Juego nuevoJuego = new Juego(jugadorUno, jugadorDos, mapa);
 			new JuegoVista(miCapa, nuevoJuego);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 	}
 
 	private String elegirMapa() {
 		ArrayList<String> mapas = new ArrayList<String>();
 		mapas.add("mapaTierra.txt");
 		Random generadorDePosicionAleatoria = new Random();
-		int posicionAleatoria = generadorDePosicionAleatoria.nextInt(mapas.size());
+		int posicionAleatoria = generadorDePosicionAleatoria.nextInt(mapas
+				.size());
 		return mapas.get(posicionAleatoria);
 	}
 
@@ -102,8 +99,10 @@ public class CrearJuego implements ActionListener{
 	}
 
 	private void verificarIgualdadDeColores(JInternalFrame frame) {
-		if (((String) colorJUno.getSelectedItem()).matches((String)colorJDos.getSelectedItem())) {
-			JLabel label = new JLabel("El color de los jugadores deben ser distintos");
+		if (((String) colorJUno.getSelectedItem()).matches((String) colorJDos
+				.getSelectedItem())) {
+			JLabel label = new JLabel(
+					"El color de los jugadores deben ser distintos");
 			frame.getContentPane().add(label, BorderLayout.CENTER);
 			frame.pack();
 			miCapa.add(frame);
@@ -112,7 +111,8 @@ public class CrearJuego implements ActionListener{
 
 	private void verificarIgualdadDeNombres(JInternalFrame frame) {
 		if (nombreJUno.getText().matches(nombreJDos.getText())) {
-			JLabel label = new JLabel("El nombre de los jugadores deben ser distintos");
+			JLabel label = new JLabel(
+					"El nombre de los jugadores deben ser distintos");
 			frame.getContentPane().add(label, BorderLayout.CENTER);
 			frame.pack();
 			miCapa.add(frame);
@@ -120,8 +120,10 @@ public class CrearJuego implements ActionListener{
 	}
 
 	private void verificarLargoDeNombres(JInternalFrame frame) {
-		if ((nombreJUno.getText().length() < 4) || (nombreJDos.getText().length() < 4)) {
-			JLabel label = new JLabel("El nombre de los jugadores debe ser de al menos cuatro caracteres");
+		if ((nombreJUno.getText().length() < 4)
+				|| (nombreJDos.getText().length() < 4)) {
+			JLabel label = new JLabel(
+					"El nombre de los jugadores debe ser de al menos cuatro caracteres");
 			frame.getContentPane().add(label, BorderLayout.CENTER);
 			frame.pack();
 			miCapa.add(frame);
@@ -133,7 +135,7 @@ public class CrearJuego implements ActionListener{
 		frame.setBackground(Color.RED);
 		frame.getContentPane().setBackground(Color.RED);
 		frame.setSize(1000, 1000);
-		frame.setLocation(miCapa.getWidth()/2, miCapa.getHeight()/2);
+		frame.setLocation(miCapa.getWidth() / 2, miCapa.getHeight() / 2);
 		frame.setClosable(true);
 		frame.setVisible(true);
 		return frame;

@@ -95,7 +95,7 @@ public class NexoMineralTest {
 		zealot.setCoordenada(new Coordenada(2, 91));
 		nexo.setJugador(jugador);
 		zealot.atacar(nexo);
-		nexo.pasarTurno(jugador, mapa);
+		nexo.pasarTurno();
 
 		Assert.assertEquals(250, nexo.getEscudo());
 		Assert.assertEquals(210, jugador.getPresupuesto().cantidadDeMineral());

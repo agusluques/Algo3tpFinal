@@ -83,11 +83,11 @@ public abstract class Jugador {
 
 	public void pasarTurno() {
 		for (Atacable unidad : unidades) {
-			unidad.pasarTurno(this, mapa);
+			unidad.pasarTurno();
 		}
 		for (Constructible construccion : construcciones) {
 			try {
-				((Atacable) construccion).pasarTurno(this, mapa);
+				((Atacable) construccion).pasarTurno();
 			} catch (Exception e) {
 			}
 

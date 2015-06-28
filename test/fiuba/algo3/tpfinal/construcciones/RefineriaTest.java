@@ -51,7 +51,7 @@ public class RefineriaTest {
 		zealot.setCoordenada(new Coordenada(1, 89));
 		refineria.setJugador(jugador);
 		zealot.atacar(refineria);
-		refineria.pasarTurno(jugador, mapa);
+		refineria.pasarTurno();
 
 		Assert.assertEquals(742, refineria.getVida());
 		Assert.assertEquals(10, jugador.getPresupuesto().cantidadDeGas());

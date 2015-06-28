@@ -12,16 +12,15 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
-
 public class PantallaPrincipal {
 
 	JFrame ventanaPrincipal;
 
 	public PantallaPrincipal() throws LineUnavailableException, IOException,
 			UnsupportedAudioFileException {
-		
+
 		crearVentanaPrincipal();
-		
+
 		JLabel capa = crearFondo();
 
 		HiloSonido sonido = crearSonido();
@@ -69,8 +68,8 @@ public class PantallaPrincipal {
 		JMenuItem itemAcercaDe = new JMenuItem("Acerca de");
 		itemAcercaDe.addActionListener(new AccionAcercaDe(capa));
 		menuAyuda.add(itemAcercaDe);
-		
-		//// Creo el menu de tests y lo agrego a la barra
+
+		// // Creo el menu de tests y lo agrego a la barra
 		JMenu menuTests = new JMenu("Tests");
 		barraMenu.add(menuTests);
 
@@ -78,7 +77,6 @@ public class PantallaPrincipal {
 		JMenuItem itemCrearMapaTierra = new JMenuItem("CrearMapaTierra");
 		itemCrearMapaTierra.addActionListener(new AccionCrearMapaTierra(capa));
 		menuTests.add(itemCrearMapaTierra);
-
 
 		// Agrego la barra de menu a la ventana principal
 		ventanaPrincipal.setJMenuBar(barraMenu);
@@ -106,8 +104,11 @@ public class PantallaPrincipal {
 		ventanaPrincipal = new JFrame("AlgoCraft");
 		ventanaPrincipal.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		ventanaPrincipal.setIconImage(Toolkit.getDefaultToolkit().getImage("imagenes/logo.jpg"));
-		
-		ventanaPrincipal.setBounds(0, 0, ventanaPrincipal.getMaximumSize().width, ventanaPrincipal.getMaximumSize().height);
+		ventanaPrincipal.setIconImage(Toolkit.getDefaultToolkit().getImage(
+				"imagenes/logo.jpg"));
+
+		ventanaPrincipal.setBounds(0, 0,
+				ventanaPrincipal.getMaximumSize().width,
+				ventanaPrincipal.getMaximumSize().height);
 	}
 }

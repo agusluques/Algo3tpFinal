@@ -3,7 +3,6 @@ package fiuba.algo3.tpfinal.construcciones;
 import fiuba.algo3.tpfinal.programa.Coordenada;
 import fiuba.algo3.tpfinal.programa.Danio;
 import fiuba.algo3.tpfinal.programa.Jugador;
-import fiuba.algo3.tpfinal.programa.Mapa;
 import fiuba.algo3.tpfinal.unidades.RangoDeAtaque;
 
 public interface Atacable {
@@ -20,5 +19,5 @@ public interface Atacable {
 
 	int rangoDeAtaqueCorrespondiente(RangoDeAtaque rango);
 
-	void pasarTurno(Jugador jugador, Mapa mapa);
+	void pasarTurno();
 }

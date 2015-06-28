@@ -70,7 +70,7 @@ public class BarracaTest {
 		for (int x = 0; x < 6; x++) {
 			((Barraca) this.barraca).fabricarMarine();
 			for (int i = 0; i < 4; i++) {
-				((Barraca) this.barraca).pasarTurno(null, null);
+				((Barraca) this.barraca).pasarTurno();
 			}
 		}
 	}
@@ -94,7 +94,7 @@ public class BarracaTest {
 		}
 		((Barraca) this.barraca).fabricarMarine();
 		for (int i = 0; i < 4; i++) {
-			((Barraca) this.barraca).pasarTurno(null, null);
+			((Barraca) this.barraca).pasarTurno();
 		}
 		Assert.assertTrue(jugador.contarPoblacion() == 2);
 	}
@@ -117,7 +117,7 @@ public class BarracaTest {
 		}
 		((Barraca) this.barraca).fabricarMarine();
 		for (int i = 0; i < 4; i++) {
-			((Barraca) this.barraca).pasarTurno(null, null);
+			((Barraca) this.barraca).pasarTurno();
 		}
 		Atacable marine = mapa.getParcela(new Coordenada(2, 1)).getOcupante();
 		Assert.assertTrue(marine.getClass() == (new Marine()).getClass());
@@ -155,7 +155,7 @@ public class BarracaTest {
 
 			// Pasa 3 turnos asi se termina el primer Marine
 			for (int x = 0; x < 3; x++) {
-				this.barraca.pasarTurno(null, null);
+				this.barraca.pasarTurno();
 			}
 
 			// Busco cuantos Marines tiene el jugador
@@ -196,7 +196,7 @@ public class BarracaTest {
 		// Avanzo la fabricacion en la barraca 30 turnos (3 turnos por cada
 		// marine que puse a fabricar
 		for (int y = 1; y <= 30; y++) {
-			this.barraca.pasarTurno(null, null);
+			this.barraca.pasarTurno();
 		}
 		int cantidadDeMarines = 0;
 		// Busco cuantos Marines tiene el jugador

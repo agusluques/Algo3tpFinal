@@ -107,15 +107,16 @@ public class MagiasTest {
 		Assert.assertTrue(((AltoTemplario) templar).getEnergia() == 50);
 
 	}
-	
+
 	@Test
-	public void siTiroUnEMPFueraDelRangoNoMeBajaLaEnergiaYNoLesHaceNadaALosDelRango() throws Exception {
+	public void siTiroUnEMPFueraDelRangoNoMeBajaLaEnergiaYNoLesHaceNadaALosDelRango()
+			throws Exception {
 		Mapa mapa = new Mapa("mapaTierra.txt");
 		JugadorTerran jugador = new JugadorTerran("Damian", mapa);
 		JugadorProtoss jugador2 = new JugadorProtoss("Luciano", mapa);
 		Atacable templar = new AltoTemplario();
 		NaveCiencia otraNave = new NaveCiencia();
-		
+
 		for (int i = 1; i < 7; i++) {
 			otraNave.pasarTurno();
 		}
@@ -125,9 +126,9 @@ public class MagiasTest {
 		jugador.agregarUnidad((UnidadTerran) otraNave, new Coordenada(2, 3));
 
 		jugador2.agregarUnidad((UnidadProtoss) templar, new Coordenada(3, 2));
-		
+
 		otraNave.lanzarEMP(new Coordenada(100, 3));
-		
+
 		Assert.assertTrue(otraNave.getEnergia() == 110);
 		Assert.assertTrue(((AltoTemplario) templar).getEnergia() == 50);
 	}
@@ -170,7 +171,7 @@ public class MagiasTest {
 		jugador.agregarUnidad(altoTemplario, new Coordenada(3, 3));
 		jugador.agregarUnidad(zealot, new Coordenada(4, 4));
 		for (int i = 0; i < 4; i++) {
-			altoTemplario.pasarTurno(jugador, mapa);
+			altoTemplario.pasarTurno();
 		}
 
 		altoTemplario.crearAlucinaciones(zealot);
@@ -203,7 +204,7 @@ public class MagiasTest {
 		otroJugador.agregarUnidad(zealot, new Coordenada(2, 2));
 
 		for (int i = 0; i < 4; i++) {
-			altoTemplario.pasarTurno(jugador, mapa);
+			altoTemplario.pasarTurno();
 		}
 
 		altoTemplario.crearAlucinaciones(dragon);
@@ -229,7 +230,7 @@ public class MagiasTest {
 		NaveCiencia otraNave = new NaveCiencia();
 
 		for (int i = 1; i < 7; i++) {
-			templar.pasarTurno(jugador, mapa);
+			templar.pasarTurno();
 			otraNave.pasarTurno();
 		}
 

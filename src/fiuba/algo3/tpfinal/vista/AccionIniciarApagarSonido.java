@@ -17,7 +17,7 @@ public class AccionIniciarApagarSonido implements ActionListener {
 			try {
 				miSonido.parar();
 			} catch (InterruptedException e) {
-					e.printStackTrace();
+				e.printStackTrace();
 			}
 		} else {
 			System.out.println("Inicia");

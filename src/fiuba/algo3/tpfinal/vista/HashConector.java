@@ -58,41 +58,40 @@ import fiuba.algo3.tpfinal.vista.unidades.ZealotVista;
 public class HashConector {
 	@SuppressWarnings("rawtypes")
 	public HashMap<Class, Class> hash = new HashMap<Class, Class>();
-	
-	public HashConector(){
-		
-		//Ingreso unidades Terran
+
+	public HashConector() {
+
+		// Ingreso unidades Terran
 		hash.put(Marine.class, MarineVista.class);
 		hash.put(Golliat.class, GolliatVista.class);
 		hash.put(Espectro.class, EspectroVista.class);
 		hash.put(NaveCiencia.class, NaveCienciaVista.class);
 		hash.put(NaveTransporteTerran.class, NaveTranporteTerranVista.class);
-		
-		//Ingreso unidades Protoss
+
+		// Ingreso unidades Protoss
 		hash.put(Zealot.class, ZealotVista.class);
 		hash.put(Dragon.class, DragonVista.class);
 		hash.put(Scout.class, ScoutVista.class);
 		hash.put(AltoTemplario.class, AltoTemplarioVista.class);
 		hash.put(NaveTransporteProtoss.class, NaveTranporteProtossVista.class);
-		
-		//Ingreso construcciones Terran
+
+		// Ingreso construcciones Terran
 		hash.put(CentroDeMineral.class, CentroDeMineralVista.class);
 		hash.put(Barraca.class, BarracaVista.class);
 		hash.put(DepositoSuministro.class, DepositoSuministroVista.class);
 		hash.put(Refineria.class, RefineriaVista.class);
 		hash.put(Fabrica.class, FabricaVista.class);
 		hash.put(PuertoEstelarTerran.class, PuertoEstelarTerranVista.class);
-		
-		//Ingreso construcciones Protoss
+
+		// Ingreso construcciones Protoss
 		hash.put(NexoMineral.class, NexoMineralVista.class);
 		hash.put(Pilon.class, PilonVista.class);
 		hash.put(Asimilador.class, AsimiladorVista.class);
 		hash.put(Acceso.class, AccesoVista.class);
 		hash.put(ArchivosTemplarios.class, ArchivosTemplariosVista.class);
 		hash.put(PuertoEstelarProtoss.class, PuertoEstelarProtossVista.class);
-		
-		
-		//Ingreso superficies
+
+		// Ingreso superficies
 		hash.put(Aire.class, AireVista.class);
 		hash.put(Tierra.class, TierraVista.class);
 		hash.put(DepositoDeGas.class, DepositoDeGasVista.class);

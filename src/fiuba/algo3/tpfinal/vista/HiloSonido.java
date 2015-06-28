@@ -5,16 +5,17 @@ import java.applet.AudioClip;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class HiloSonido  {
+public class HiloSonido {
 
 	public AudioClip clip;
 	public boolean activo;
 
 	public HiloSonido(String rutaArchivo) throws MalformedURLException {
-		
-		URL urlClip = HiloSonido.class.getResource("sonidoPantallaPrincipal.wav");
-	    clip = Applet.newAudioClip(urlClip);
-	    this.run();
+
+		URL urlClip = HiloSonido.class
+				.getResource("sonidoPantallaPrincipal.wav");
+		clip = Applet.newAudioClip(urlClip);
+		this.run();
 	}
 
 	public boolean estaActivo() {
@@ -28,10 +29,8 @@ public class HiloSonido  {
 
 	public void run() {
 		clip.loop();
-		activo =true;
-		
+		activo = true;
+
 	}
-	
-	
+
 }
-	

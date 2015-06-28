@@ -1,6 +1,6 @@
 package fiuba.algo3.tpfinal.construcciones;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
 import junit.framework.Assert;
 
 import org.junit.Before;
@@ -24,7 +24,7 @@ public class AccesoTest {
 
 	@Test
 	public void unAccesoDebeTener500DeVidaInicial() {
-		//asserTrue(this.accesso.tieneVida(500));
+		// asserTrue(this.accesso.tieneVida(500));
 		assertTrue(this.acceso.getVida() == 500);
 	}
 
@@ -72,7 +72,7 @@ public class AccesoTest {
 		}
 		((Acceso) this.acceso).fabricarZealot();
 		for (int i = 0; i < 4; i++) {
-			((Acceso) this.acceso).pasarTurno(null, null);
+			((Acceso) this.acceso).pasarTurno();
 		}
 		for (Atacable unidad : jugador.getUnidades()) {
 			Assert.assertTrue(unidad.getClass() == (new Zealot()).getClass());
@@ -98,7 +98,7 @@ public class AccesoTest {
 		}
 		((Acceso) this.acceso).fabricarDragon();
 		for (int i = 0; i < 6; i++) {
-			((Acceso) this.acceso).pasarTurno(null, null);
+			((Acceso) this.acceso).pasarTurno();
 		}
 		int cantUnidadCorrespondiente = 0;
 		for (Atacable unidad : jugador.getUnidades()) {
@@ -135,7 +135,7 @@ public class AccesoTest {
 		this.acceso.fabricarDragon();
 		this.acceso.fabricarZealot();
 		for (int i = 0; i < 6; i++) {
-			this.acceso.pasarTurno(null, null);
+			this.acceso.pasarTurno();
 		}
 		int cantDeDragones = 0;
 		int cantDeZealots = 0;
@@ -154,7 +154,7 @@ public class AccesoTest {
 
 		// Avanzo 4 turnos mas asi se termina de crear el zealot
 		for (int i = 0; i < 4; i++) {
-			this.acceso.pasarTurno(null, null);
+			this.acceso.pasarTurno();
 		}
 		cantDeDragones = 0;
 		cantDeZealots = 0;
