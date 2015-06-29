@@ -65,6 +65,14 @@ public class MarineVista extends Vista {
 	public void setVentanaMapa(JLayeredPane mapa){
 		this.ventanaMapa = mapa;
 	}
+	
+	public void actualizar() {
+		if (miMarine.estaMuerto()){
+			System.out.println("Me mori");
+			ventanaMapa.repaint();
+		}
+
+	}
 
 
    public void paint(Graphics g) {

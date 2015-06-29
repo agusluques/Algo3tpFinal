@@ -37,7 +37,7 @@ public class AccionTrasladar implements MouseListener {
 		
 		try { 
 			miUnidad.trasladarA(new Coordenada(fila, columna), ((Terran) miUnidad).getJugador().getMapa());
-			System.out.println("Se movio");
+			ventanaMapa.repaint();
 		} catch (MovimientoInvalido error) {
 			lanzarVentanaDeError();
 		}
@@ -59,7 +59,7 @@ public class AccionTrasladar implements MouseListener {
 		frame.getContentPane().add(aceptar, BorderLayout.AFTER_LAST_LINE);
 
 		JLabel label = new JLabel(
-				"El color de los jugadores deben ser distintos");
+				"Movimiento invalido");
 		frame.getContentPane().add(label, BorderLayout.CENTER);
 		frame.pack();
 		ventanaMapa.add(frame);

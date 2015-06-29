@@ -26,7 +26,7 @@ public class ControladorMarine implements ActionListener {
 		//agrega al layeredPane que teniamos, este panel invisible es el que va a
 		//escuchar los clicks para saber donde atacar
 		JPanel capaQueEscuchaClicks = new JPanel();
-		capaQueEscuchaClicks.setBounds(0, 0, 1000, 1000);
+		capaQueEscuchaClicks.setBounds(0, 0, 4000, 4000);
 		capaQueEscuchaClicks.setBackground(new Color(0,0,0,0));
 		
 		//Crea un AccionAtacar, que es un mouse listener, lo instanceo pasandole la capa
