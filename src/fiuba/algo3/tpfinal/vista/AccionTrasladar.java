@@ -36,7 +36,7 @@ public class AccionTrasladar implements MouseListener {
 		int columna = (arg0.getX()/40)+1;
 		
 		try { 
-			miUnidad.trasladarA(new Coordenada(fila, columna), ((Terran) miUnidad).getJugador().getMapa());
+			miUnidad.trasladarA(new Coordenada(fila, columna), ((Trasladable) miUnidad).getJugador().getMapa());
 			ventanaMapa.repaint();
 		} catch (MovimientoInvalido error) {
 			lanzarVentanaDeError();

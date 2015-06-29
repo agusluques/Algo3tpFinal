@@ -4,6 +4,7 @@ import fiuba.algo3.tpfinal.programa.Aire;
 import fiuba.algo3.tpfinal.programa.Coordenada;
 import fiuba.algo3.tpfinal.programa.DepositoDeGas;
 import fiuba.algo3.tpfinal.programa.DepositoDeMinerales;
+import fiuba.algo3.tpfinal.programa.Jugador;
 import fiuba.algo3.tpfinal.programa.Mapa;
 import fiuba.algo3.tpfinal.programa.Superficie;
 import fiuba.algo3.tpfinal.programa.Tierra;
@@ -21,5 +22,7 @@ public interface Trasladable {
 	boolean sePuedeMoverA(DepositoDeMinerales superficie);
 
 	boolean sePuedeMoverA(DepositoDeGas superficie);
+
+	Jugador getJugador();
 
 }
