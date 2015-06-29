@@ -38,6 +38,9 @@ public class OtraAccionAtacar implements MouseListener {
 		//un sonido que indique que no pudo atacar
 		try{
 			Atacable unidad = miMarine.getJugador().getMapa().getParcela(new Coordenada(fila,columna)).getOcupante();
+			
+		//Pongan la siguiente linea adentro de un for para atacar varias veces seguidas
+		//asi ven como desaparece de la pantalla cuando muere
 			miMarine.atacar(unidad);
 		//Aca iria algun que otro sonido que diga que no puede atacar cuando atrapa la excepcion
 		}catch (Exception e){
