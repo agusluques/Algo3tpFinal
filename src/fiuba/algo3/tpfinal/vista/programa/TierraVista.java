@@ -15,10 +15,11 @@ import fiuba.algo3.tpfinal.vista.Vista;
 public class TierraVista extends Vista {
 
 	private Image img;
+	@SuppressWarnings("unused")
 	private Tierra miTierra;
 
 	public TierraVista() {
-		img = (new ImageIcon("imagenes/tierra.png")).getImage();
+		img = (new ImageIcon("imagenes/superficies/tierra.png")).getImage();
 	}
 	
 	@Override

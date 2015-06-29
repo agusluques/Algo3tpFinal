@@ -5,13 +5,9 @@ import java.awt.Dimension;
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
-import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
-import fiuba.algo3.tpfinal.programa.Coordenada;
 import fiuba.algo3.tpfinal.programa.Juego;
-import fiuba.algo3.tpfinal.unidades.Marine;
-import fiuba.algo3.tpfinal.unidades.Zealot;
 import fiuba.algo3.tpfinal.vista.MapaVista;
 
 public class JuegoVista {

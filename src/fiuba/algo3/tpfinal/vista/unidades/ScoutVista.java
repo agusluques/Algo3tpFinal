@@ -32,7 +32,7 @@ public class ScoutVista extends Vista implements Observador {
 
 	@Override
 	public void setObservable(Observable scout) {
-		img = (new ImageIcon("imagenes/scout.png")).getImage();
+		img = (new ImageIcon("imagenes/unidades/scout.png")).getImage();
 		miScout = (Scout) scout;
 		miPanel = new JPanel();
 		JLabel capaNombre = new JLabel("Scout");

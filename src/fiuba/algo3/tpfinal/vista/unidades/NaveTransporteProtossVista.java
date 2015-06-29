@@ -12,13 +12,11 @@ import javax.swing.JPanel;
 
 import fiuba.algo3.tpfinal.programa.Coordenada;
 import fiuba.algo3.tpfinal.unidades.NaveTransporteProtoss;
-import fiuba.algo3.tpfinal.unidades.NaveTransporteTerran;
 import fiuba.algo3.tpfinal.unidades.Trasladable;
 import fiuba.algo3.tpfinal.vista.ControladorAtaque;
 import fiuba.algo3.tpfinal.vista.ControladorTraslado;
 import fiuba.algo3.tpfinal.vista.HashImagenes;
 import fiuba.algo3.tpfinal.vista.Observable;
-import fiuba.algo3.tpfinal.vista.Observador;
 import fiuba.algo3.tpfinal.vista.Vista;
 
 @SuppressWarnings("serial")
@@ -44,7 +42,7 @@ public class NaveTransporteProtossVista extends Vista {
 		img = (new ImageIcon("imagenes/warp-prism.png")).getImage();
 		miNave = (NaveTransporteProtoss) nave;
 		miPanel = new JPanel();
-		JLabel capaNombre = new JLabel("NaveDeTransporteProtoss");
+		JLabel capaNombre = new JLabel("Nave De Transporte Protoss");
 		miPanel.add(capaNombre);
 		JLabel capaVida = new JLabel("Vida: " + miNave.getVida());
 		miPanel.add(capaVida);

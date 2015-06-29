@@ -17,13 +17,13 @@ public class HashImagenes extends HashMap<Class, Image> {
 
 	public HashImagenes() {
 
-		hash.put(Aire.class, (new ImageIcon("imagenes/aire.png")).getImage());
+		hash.put(Aire.class, (new ImageIcon("imagenes/superficies/aire.png")).getImage());
 		hash.put(Tierra.class,
-				(new ImageIcon("imagenes/tierra.png")).getImage());
+				(new ImageIcon("imagenes/superficies/tierra.png")).getImage());
 		hash.put(DepositoDeGas.class,
-				(new ImageIcon("imagenes/vespene.png")).getImage());
+				(new ImageIcon("imagenes/superficies/vespene.png")).getImage());
 		hash.put(DepositoDeMinerales.class, (new ImageIcon(
-				"imagenes/mineral.png")).getImage());
+				"imagenes/superficies/mineral.png")).getImage());
 	}
 
 	public Image get(Class clase) {

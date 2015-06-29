@@ -13,7 +13,7 @@ public class DepositoDeGasVista extends Vista {
 	private Image img;
 
 	public DepositoDeGasVista() {
-		img = (new ImageIcon("imagenes/vespene.png")).getImage();
+		img = (new ImageIcon("imagenes/superficies/vespene.png")).getImage();
 
 	}
 

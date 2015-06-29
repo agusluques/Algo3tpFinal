@@ -5,11 +5,14 @@ import java.awt.Graphics;
 import java.awt.Image;
 
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import fiuba.algo3.tpfinal.programa.Coordenada;
 import fiuba.algo3.tpfinal.unidades.NaveTransporteTerran;
+import fiuba.algo3.tpfinal.unidades.Trasladable;
+import fiuba.algo3.tpfinal.vista.ControladorTraslado;
 import fiuba.algo3.tpfinal.vista.HashImagenes;
 import fiuba.algo3.tpfinal.vista.Observable;
 import fiuba.algo3.tpfinal.vista.Observador;
@@ -36,6 +39,12 @@ public class NaveTransporteTerranVista extends Vista implements Observador {
 		miPanel.add(capaNombre);
 		JLabel capaVida = new JLabel("Vida: " + miNave.getVida());
 		miPanel.add(capaVida);
+
+		ControladorTraslado controladorTraslado = new ControladorTraslado((Trasladable) miNave);
+		controladorTraslado.setVentanaMapa(ventanaMapa);
+		JButton botonMover = new JButton("Trasladar");
+		botonMover.addActionListener(controladorTraslado);
+		miPanel.add(botonMover);
 		miPanel.setVisible(false);
 
 	}

@@ -13,7 +13,7 @@ public class DepositoDeMineralesVista extends Vista {
 	private Image img;
 
 	public DepositoDeMineralesVista() {
-		img = (new ImageIcon("imagenes/mineral.png")).getImage();
+		img = (new ImageIcon("imagenes/superficies/mineral.png")).getImage();
 	}
 
 	public void paint(Graphics g) {

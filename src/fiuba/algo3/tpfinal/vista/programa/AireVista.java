@@ -13,7 +13,7 @@ public class AireVista extends Vista {
 	private Image img;
 
 	public AireVista() {
-		img = (new ImageIcon("imagenes/aire.png")).getImage();
+		img = (new ImageIcon("imagenes/superficies/aire.png")).getImage();
 
 	}
 

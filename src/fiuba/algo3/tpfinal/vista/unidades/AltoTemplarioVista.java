@@ -30,11 +30,11 @@ public class AltoTemplarioVista extends Vista {
 	@Override
 	public void setObservable(Observable altoTemplario) {
 		img = (new ImageIcon("imagenes/unidades/altoTemplario.png")).getImage();
-		fondo = (new ImageIcon("imagenes/tierra.png")).getImage();
+		fondo = (new ImageIcon("imagenes/superficies/tierra.png")).getImage();
 		miAltoTemplario = (AltoTemplario) altoTemplario;
 		miPanel = new JPanel();
 		
-		JLabel capaNombre = new JLabel("Marine");
+		JLabel capaNombre = new JLabel("Alto templario");
 		miPanel.add(capaNombre);
 		
 		JLabel capaVida = new JLabel("Vida: " + miAltoTemplario.getVida());

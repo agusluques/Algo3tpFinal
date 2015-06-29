@@ -13,7 +13,7 @@ import fiuba.algo3.tpfinal.programa.Coordenada;
 import fiuba.algo3.tpfinal.programa.JugadorProtoss;
 import fiuba.algo3.tpfinal.programa.JugadorTerran;
 import fiuba.algo3.tpfinal.programa.Mapa;
-import fiuba.algo3.tpfinal.unidades.Dragon;
+import fiuba.algo3.tpfinal.unidades.Golliat;
 import fiuba.algo3.tpfinal.unidades.Marine;
 import fiuba.algo3.tpfinal.unidades.Zealot;
 
@@ -47,8 +47,8 @@ public class PruebaDeAtaque implements ActionListener {
 			Marine marine = new Marine();
 			jugador.agregarUnidad(marine, new Coordenada(1,1));
 			
-			Dragon dragon = new Dragon();
-			jugador2.agregarUnidad(dragon, new Coordenada(4,4));
+			Golliat golliat = new Golliat();
+			jugador.agregarUnidad(golliat, new Coordenada(4,4));
 			
 			JInternalFrame infoUnidades = new JInternalFrame("Informacion de unidades");
 			infoUnidades.setSize(300, 300);

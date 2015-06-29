@@ -30,7 +30,7 @@ public class MarineVista extends Vista {
 	@Override
 	public void setObservable(Observable marine) {
 		img = (new ImageIcon("imagenes/marine.png")).getImage();
-		fondo = (new ImageIcon("imagenes/tierra.png")).getImage();
+		fondo = (new ImageIcon("imagenes/superficies/tierra.png")).getImage();
 		miMarine = (Marine) marine;
 		miPanel = new JPanel();
 		
