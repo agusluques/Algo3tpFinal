@@ -12,7 +12,9 @@ import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 
 import fiuba.algo3.tpfinal.unidades.Marine;
+import fiuba.algo3.tpfinal.unidades.Trasladable;
 import fiuba.algo3.tpfinal.vista.ControladorMarine;
+import fiuba.algo3.tpfinal.vista.ControladorTraslado;
 import fiuba.algo3.tpfinal.vista.Observable;
 import fiuba.algo3.tpfinal.vista.Observador;
 import fiuba.algo3.tpfinal.vista.Vista;
@@ -74,8 +76,15 @@ public class MarineVista extends Vista implements Observador {
 		//Creo el boton de atacar y lo agrego
 		JButton botonAtacar = new JButton("Atacar");
 		botonAtacar.addActionListener(controladorMarine);
-		
 		miPanel.add(botonAtacar);
+		
+		ControladorTraslado controladorTraslado = new ControladorTraslado((Trasladable) marine);
+		controladorTraslado.setVentanaMapa(ventanaMapa);
+		JButton botonMover = new JButton("Trasladar");
+		botonMover.addActionListener(controladorTraslado);
+		miPanel.add(botonMover);
+		
+		
 		
 		JLabel capaVida = new JLabel("Vida: " + miMarine.getVida());
 		miPanel.add(capaVida);

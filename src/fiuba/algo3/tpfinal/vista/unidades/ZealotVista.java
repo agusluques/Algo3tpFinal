@@ -1,6 +1,5 @@
 package fiuba.algo3.tpfinal.vista.unidades;
 
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
