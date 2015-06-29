@@ -50,7 +50,7 @@ import fiuba.algo3.tpfinal.vista.unidades.EspectroVista;
 import fiuba.algo3.tpfinal.vista.unidades.GolliatVista;
 import fiuba.algo3.tpfinal.vista.unidades.MarineVista;
 import fiuba.algo3.tpfinal.vista.unidades.NaveCienciaVista;
-import fiuba.algo3.tpfinal.vista.unidades.NaveTranporteProtossVista;
+import fiuba.algo3.tpfinal.vista.unidades.NaveTransporteProtossVista;
 import fiuba.algo3.tpfinal.vista.unidades.NaveTransporteTerranVista;
 import fiuba.algo3.tpfinal.vista.unidades.ScoutVista;
 import fiuba.algo3.tpfinal.vista.unidades.ZealotVista;
@@ -73,7 +73,7 @@ public class HashConector {
 		hash.put(Dragon.class, DragonVista.class);
 		hash.put(Scout.class, ScoutVista.class);
 		hash.put(AltoTemplario.class, AltoTemplarioVista.class);
-		hash.put(NaveTransporteProtoss.class, NaveTranporteProtossVista.class);
+		hash.put(NaveTransporteProtoss.class, NaveTransporteProtossVista.class);
 
 		// Ingreso construcciones Terran
 		hash.put(CentroDeMineral.class, CentroDeMineralVista.class);

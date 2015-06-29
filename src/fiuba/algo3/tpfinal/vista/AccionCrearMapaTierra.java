@@ -13,10 +13,12 @@ import fiuba.algo3.tpfinal.programa.JugadorProtoss;
 import fiuba.algo3.tpfinal.programa.JugadorTerran;
 import fiuba.algo3.tpfinal.programa.Mapa;
 import fiuba.algo3.tpfinal.unidades.Marine;
+import fiuba.algo3.tpfinal.unidades.NaveTransporteProtoss;
 import fiuba.algo3.tpfinal.unidades.NaveTransporteTerran;
 import fiuba.algo3.tpfinal.unidades.Scout;
 import fiuba.algo3.tpfinal.unidades.Zealot;
 import fiuba.algo3.tpfinal.vista.unidades.MarineVista;
+import fiuba.algo3.tpfinal.vista.unidades.NaveTransporteProtossVista;
 import fiuba.algo3.tpfinal.vista.unidades.NaveTransporteTerranVista;
 import fiuba.algo3.tpfinal.vista.unidades.ScoutVista;
 import fiuba.algo3.tpfinal.vista.unidades.ZealotVista;
@@ -45,6 +47,7 @@ public class AccionCrearMapaTierra implements ActionListener {
 			JugadorProtoss jugador = new JugadorProtoss("Luciano",mapa);
 			JugadorProtoss jugador2 = new JugadorProtoss("Luciano2",mapa);
 			JugadorTerran jugador3 = new JugadorTerran("Luciano3",mapa);
+			JugadorProtoss jugador4 = new JugadorProtoss("Luciano4",mapa);
 			
 			JInternalFrame infoUnidades = new JInternalFrame("Informacion de unidades");
 			infoUnidades.setSize(300, 300);
@@ -87,6 +90,14 @@ public class AccionCrearMapaTierra implements ActionListener {
 			vistaNave.setVentanaDeAccion(infoUnidades);
 			vistaNave.setObservable(nave);
 			((Observable)nave).agregarObservador(vistaNave);
+			
+			NaveTransporteProtoss nave2 = new NaveTransporteProtoss();
+			jugador4.agregarUnidad(nave2, new Coordenada(3,13));
+			NaveTransporteProtossVista vistaNave2 = new NaveTransporteProtossVista();
+			vistaNave2.setVentanaDeAccion(infoUnidades);
+			vistaNave2.setObservable(nave2);
+			((Observable)nave2).agregarObservador(vistaNave2);
+			
 			
 			JPanel panelMapa = new MapaVista(mapa);
 			JScrollPane panelMapaConScroll = new JScrollPane(panelMapa);
