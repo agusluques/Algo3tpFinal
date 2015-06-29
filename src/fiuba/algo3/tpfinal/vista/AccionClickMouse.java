@@ -7,6 +7,7 @@ import fiuba.algo3.tpfinal.construcciones.Atacable;
 import fiuba.algo3.tpfinal.programa.Coordenada;
 import fiuba.algo3.tpfinal.programa.Mapa;
 import fiuba.algo3.tpfinal.programa.Parcela;
+import fiuba.algo3.tpfinal.programa.Superficie;
 
 public class AccionClickMouse implements MouseListener {
 
@@ -26,30 +27,29 @@ public class AccionClickMouse implements MouseListener {
 				+ (columna / 40 + 1));
 		Parcela parcela = miMapa.getParcela(new Coordenada(fila / 40 + 1,
 				columna / 40 + 1));
+		Observable observado;
 		if (!parcela.estaVacia()) {
 			Atacable unidad = miMapa.getParcela(
 					new Coordenada(fila / 40 + 1, columna / 40 + 1))
 					.getOcupante();
 
-			if (unidadSeleccionada == null) {
-				((Observable) unidad).notificarObservadorSobreSeleccion();
-
-			}
-			if (unidadSeleccionada != null
-					&& !unidad.equals(unidadSeleccionada)) {
-				unidadSeleccionada.notificarObservadorSobreSeleccion();
-				((Observable) unidad).notificarObservadorSobreSeleccion();
-
-			}
-			;
-			unidadSeleccionada = (Observable) unidad;
+			observado = (Observable) unidad;
 		} else {
-			if (unidadSeleccionada != null) {
-				unidadSeleccionada.notificarObservadorSobreSeleccion();
-				unidadSeleccionada = null;
-			}
+			Superficie superficie = miMapa.getParcela(new Coordenada(fila / 40 + 1, columna / 40 + 1)).getSuperficie();
+			
+			observado = (Observable) superficie;
 
 		}
+		if (unidadSeleccionada == null) {
+			((Observable) observado).notificarObservadorSobreSeleccion();
+
+		}
+		if (unidadSeleccionada != null) {
+			unidadSeleccionada.notificarObservadorSobreSeleccion();
+			((Observable) observado).notificarObservadorSobreSeleccion();
+
+		}
+		unidadSeleccionada = (Observable) observado;
 
 	}
 

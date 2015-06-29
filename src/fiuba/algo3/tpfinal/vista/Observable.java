@@ -2,8 +2,8 @@ package fiuba.algo3.tpfinal.vista;
 
 public class Observable {
 
-	private Observador miObservador;
-	private boolean seleccionado = false;
+	protected Observador miObservador;
+	protected boolean seleccionado = false;
 
 	public void agregarObservador(Observador observador) {
 		this.miObservador = observador;

@@ -47,6 +47,10 @@ public class MapaVista extends Vista {
 					Class<?> claseVista = generadorParcelas.hash
 							.get(parcelaActual.getSuperficie().getClass());
 					Vista vista = (Vista) claseVista.newInstance();
+					vista.setVentanaDeAccion(ventanaDeAccionDeUnidades);
+					vista.setVentanaMapa(panelConCapasParaUnidades);
+					vista.setObservable((Observable) parcelaActual.getSuperficie());
+					((Observable) parcelaActual.getSuperficie()).agregarObservador(vista);
 					this.add(vista);
 
 				} else {
