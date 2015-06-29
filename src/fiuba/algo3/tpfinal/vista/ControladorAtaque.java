@@ -8,7 +8,6 @@ import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 
 import fiuba.algo3.tpfinal.unidades.Atacante;
-import fiuba.algo3.tpfinal.unidades.Marine;
 
 public class ControladorAtaque implements ActionListener {
 

@@ -5,6 +5,7 @@ import java.awt.Graphics;
 import java.awt.Image;
 
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -12,47 +13,29 @@ import javax.swing.JPanel;
 import fiuba.algo3.tpfinal.programa.Coordenada;
 import fiuba.algo3.tpfinal.unidades.NaveTransporteProtoss;
 import fiuba.algo3.tpfinal.unidades.NaveTransporteTerran;
+import fiuba.algo3.tpfinal.unidades.Trasladable;
+import fiuba.algo3.tpfinal.vista.ControladorAtaque;
+import fiuba.algo3.tpfinal.vista.ControladorTraslado;
 import fiuba.algo3.tpfinal.vista.HashImagenes;
 import fiuba.algo3.tpfinal.vista.Observable;
 import fiuba.algo3.tpfinal.vista.Observador;
 import fiuba.algo3.tpfinal.vista.Vista;
 
 @SuppressWarnings("serial")
-public class NaveTransporteProtossVista extends Vista implements Observador {
+public class NaveTransporteProtossVista extends Vista {
 
 	private NaveTransporteProtoss miNave;
-	private JInternalFrame miVentanaDeAccion;
-	private JPanel miPanel;
 	private Image img;
 	private HashImagenes imagenes = new HashImagenes();
 
 	public NaveTransporteProtossVista() {
 		setPreferredSize(new Dimension(40, 40));
-
 	}
 
 
 	@Override
 	public void actualizar() {
 		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void imprimirMenuObservador() {
-	
-		miVentanaDeAccion.add(miPanel);
-		miPanel.setVisible(true);
-		System.out.println("Hiciste click en una nave de transporte Protoss fiera!");
-	}
-
-	@Override
-	public void ocultarMenuObservador() {
-	
-		miPanel.setVisible(false);
-		miVentanaDeAccion.remove(miPanel);
-		
-		System.out.println("Clickeaste en otra cosa que no es una nave de transporte protoss loco!");
 
 	}
 
@@ -67,6 +50,18 @@ public class NaveTransporteProtossVista extends Vista implements Observador {
 		miPanel.add(capaVida);
 		JLabel capaEscudo = new JLabel("Escudo: " + miNave.getEscudo());
 		miPanel.add(capaEscudo);
+		
+		ControladorAtaque controladorAtaque = new ControladorAtaque(miNave);
+		controladorAtaque.setVentanaMapa(ventanaMapa);
+		JButton botonAtacar = new JButton("Atacar");
+		botonAtacar.addActionListener(controladorAtaque);
+		miPanel.add(botonAtacar);
+		
+		ControladorTraslado controladorTraslado = new ControladorTraslado((Trasladable) miNave);
+		controladorTraslado.setVentanaMapa(ventanaMapa);
+		JButton botonMover = new JButton("Trasladar");
+		botonMover.addActionListener(controladorTraslado);
+		miPanel.add(botonMover);
 		miPanel.setVisible(false);
 		
 	}

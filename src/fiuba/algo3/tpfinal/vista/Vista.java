@@ -41,7 +41,6 @@ public abstract class Vista extends JPanel implements Observador {
 
 	public void setVentanaMapa(JLayeredPane mapa) {
 		this.ventanaMapa = mapa;
-		
 	};
 
 }

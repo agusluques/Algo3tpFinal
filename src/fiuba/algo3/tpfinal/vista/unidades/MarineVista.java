@@ -7,7 +7,6 @@ import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
-import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 
 import fiuba.algo3.tpfinal.unidades.Marine;
@@ -23,7 +22,6 @@ public class MarineVista extends Vista {
 	private Marine miMarine;
 	private Image img;
 	private Image fondo;
-	private JLayeredPane ventanaMapa;
 	
 	public MarineVista() {
 		setPreferredSize(new Dimension(40, 40));
@@ -35,17 +33,17 @@ public class MarineVista extends Vista {
 		fondo = (new ImageIcon("imagenes/tierra.png")).getImage();
 		miMarine = (Marine) marine;
 		miPanel = new JPanel();
+		
 		JLabel capaNombre = new JLabel("Marine");
 		miPanel.add(capaNombre);
 		
-		//Creo un controlador de Marine pasando como parametro el marine
-		//y despues le seteo la ventana mapa, que es el layeredPane donde se
-		//imprime el mapa
-		ControladorAtaque controladorMarine = new ControladorAtaque(marine);
-		controladorMarine.setVentanaMapa(ventanaMapa); 
-		//Creo el boton de atacar y lo agrego
+		JLabel capaVida = new JLabel("Vida: " + miMarine.getVida());
+		miPanel.add(capaVida);
+		
+		ControladorAtaque controladorAtaque = new ControladorAtaque(marine);
+		controladorAtaque.setVentanaMapa(ventanaMapa);
 		JButton botonAtacar = new JButton("Atacar");
-		botonAtacar.addActionListener(controladorMarine);
+		botonAtacar.addActionListener(controladorAtaque);
 		miPanel.add(botonAtacar);
 		
 		ControladorTraslado controladorTraslado = new ControladorTraslado((Trasladable) marine);
@@ -54,33 +52,22 @@ public class MarineVista extends Vista {
 		botonMover.addActionListener(controladorTraslado);
 		miPanel.add(botonMover);
 		
-		
-		
-		JLabel capaVida = new JLabel("Vida: " + miMarine.getVida());
-		miPanel.add(capaVida);
 		miPanel.setVisible(false);
 	
 	}
-
-	public void setVentanaMapa(JLayeredPane mapa){
-		this.ventanaMapa = mapa;
-	}
 	
 	public void actualizar() {
-		if (miMarine.estaMuerto()){
+		if (miMarine.estaMuerto()) {
 			System.out.println("Me mori");
 			ventanaMapa.repaint();
 		}
 
 	}
 
+	public void paint(Graphics g) {
 
-   public void paint(Graphics g) {
-	   
-	   
-	
-	   g.drawImage(fondo,0,0,40,40,null);
-	   g.drawImage(img,0,0,40,40, null);
+		g.drawImage(fondo, 0, 0, 40, 40, null);
+		g.drawImage(img, 0, 0, 40, 40, null);
 
-   }
+	}
 }
