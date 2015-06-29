@@ -1,6 +1,5 @@
 package fiuba.algo3.tpfinal.vista.unidades;
 
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -10,7 +9,6 @@ import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import fiuba.algo3.tpfinal.programa.Coordenada;
 import fiuba.algo3.tpfinal.unidades.Zealot;
 import fiuba.algo3.tpfinal.vista.Observable;
 import fiuba.algo3.tpfinal.vista.Observador;
@@ -27,7 +25,7 @@ public class ZealotVista extends Vista implements Observador {
 
 	public ZealotVista() {
 		setPreferredSize(new Dimension(40, 40));
-		setBackground(Color.GRAY);
+
 	}
 
 	/*

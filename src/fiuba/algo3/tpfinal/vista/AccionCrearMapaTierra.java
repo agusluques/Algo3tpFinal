@@ -9,10 +9,16 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
 import fiuba.algo3.tpfinal.programa.Coordenada;
+import fiuba.algo3.tpfinal.programa.JugadorProtoss;
+import fiuba.algo3.tpfinal.programa.JugadorTerran;
 import fiuba.algo3.tpfinal.programa.Mapa;
 import fiuba.algo3.tpfinal.unidades.Marine;
+import fiuba.algo3.tpfinal.unidades.NaveTransporteTerran;
+import fiuba.algo3.tpfinal.unidades.Scout;
 import fiuba.algo3.tpfinal.unidades.Zealot;
 import fiuba.algo3.tpfinal.vista.unidades.MarineVista;
+import fiuba.algo3.tpfinal.vista.unidades.NaveTransporteTerranVista;
+import fiuba.algo3.tpfinal.vista.unidades.ScoutVista;
 import fiuba.algo3.tpfinal.vista.unidades.ZealotVista;
 
 public class AccionCrearMapaTierra implements ActionListener {
@@ -35,7 +41,11 @@ public class AccionCrearMapaTierra implements ActionListener {
 		
 		Mapa mapa;
 		try {
-			mapa = new Mapa("mapaTierra_1.txt");			
+			mapa = new Mapa("mapaTierra_1.txt");	
+			JugadorProtoss jugador = new JugadorProtoss("Luciano",mapa);
+			JugadorProtoss jugador2 = new JugadorProtoss("Luciano2",mapa);
+			JugadorTerran jugador3 = new JugadorTerran("Luciano3",mapa);
+			
 			JInternalFrame infoUnidades = new JInternalFrame("Informacion de unidades");
 			infoUnidades.setSize(300, 300);
 			infoUnidades.setLocation(0, 0);
@@ -56,8 +66,28 @@ public class AccionCrearMapaTierra implements ActionListener {
 			vistaZealot.setVentanaDeAccion(infoUnidades);
 			vistaZealot.setObservable(zealot);
 			((Observable)zealot).agregarObservador(vistaZealot);
-		
-		
+				
+			Scout scout = new Scout();
+			jugador.agregarUnidad(scout, new Coordenada(1,2));
+			ScoutVista vistaScout = new ScoutVista();
+			vistaScout.setVentanaDeAccion(infoUnidades);
+			vistaScout.setObservable(scout);
+			((Observable)scout).agregarObservador(vistaScout);
+			
+			Scout scout2 = new Scout();
+			jugador2.agregarUnidad(scout2, new Coordenada(1,13));
+			ScoutVista vistaScout2 = new ScoutVista();
+			vistaScout2.setVentanaDeAccion(infoUnidades);
+			vistaScout2.setObservable(scout2);
+			((Observable)scout2).agregarObservador(vistaScout2);
+			
+			NaveTransporteTerran nave = new NaveTransporteTerran();
+			jugador3.agregarUnidad(nave, new Coordenada(2,13));
+			NaveTransporteTerranVista vistaNave = new NaveTransporteTerranVista();
+			vistaNave.setVentanaDeAccion(infoUnidades);
+			vistaNave.setObservable(nave);
+			((Observable)nave).agregarObservador(vistaNave);
+			
 			JPanel panelMapa = new MapaVista(mapa);
 			JScrollPane panelMapaConScroll = new JScrollPane(panelMapa);
 			panelMapaConScroll.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);

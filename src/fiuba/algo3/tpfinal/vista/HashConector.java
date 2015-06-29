@@ -51,7 +51,7 @@ import fiuba.algo3.tpfinal.vista.unidades.GolliatVista;
 import fiuba.algo3.tpfinal.vista.unidades.MarineVista;
 import fiuba.algo3.tpfinal.vista.unidades.NaveCienciaVista;
 import fiuba.algo3.tpfinal.vista.unidades.NaveTranporteProtossVista;
-import fiuba.algo3.tpfinal.vista.unidades.NaveTranporteTerranVista;
+import fiuba.algo3.tpfinal.vista.unidades.NaveTransporteTerranVista;
 import fiuba.algo3.tpfinal.vista.unidades.ScoutVista;
 import fiuba.algo3.tpfinal.vista.unidades.ZealotVista;
 
@@ -66,7 +66,7 @@ public class HashConector {
 		hash.put(Golliat.class, GolliatVista.class);
 		hash.put(Espectro.class, EspectroVista.class);
 		hash.put(NaveCiencia.class, NaveCienciaVista.class);
-		hash.put(NaveTransporteTerran.class, NaveTranporteTerranVista.class);
+		hash.put(NaveTransporteTerran.class, NaveTransporteTerranVista.class);
 
 		// Ingreso unidades Protoss
 		hash.put(Zealot.class, ZealotVista.class);

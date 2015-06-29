@@ -9,27 +9,28 @@ import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import fiuba.algo3.tpfinal.unidades.Marine;
+import fiuba.algo3.tpfinal.programa.Coordenada;
+import fiuba.algo3.tpfinal.unidades.NaveTransporteTerran;
+import fiuba.algo3.tpfinal.vista.HashImagenes;
 import fiuba.algo3.tpfinal.vista.Observable;
 import fiuba.algo3.tpfinal.vista.Observador;
 import fiuba.algo3.tpfinal.vista.Vista;
 
 @SuppressWarnings("serial")
-public class MarineVista extends Vista implements Observador {
+public class NaveTransporteTerranVista extends Vista implements Observador {
 
-	private Marine miMarine;
+	private NaveTransporteTerran miNave;
 	private JInternalFrame miVentanaDeAccion;
 	private JPanel miPanel;
 	private Image img;
-	private Image fondo;
-	
-	public MarineVista() {
+	private HashImagenes imagenes = new HashImagenes();
+
+	public NaveTransporteTerranVista() {
 		setPreferredSize(new Dimension(40, 40));
+
 	}
 
 
-
-	
 	@Override
 	public void actualizar() {
 		// TODO Auto-generated method stub
@@ -38,10 +39,10 @@ public class MarineVista extends Vista implements Observador {
 
 	@Override
 	public void imprimirMenuObservador() {
-
+	
 		miVentanaDeAccion.add(miPanel);
 		miPanel.setVisible(true);
-		System.out.println("Hiciste click en un marine fiera!");
+		System.out.println("Hiciste click en una nave de transporte terran fiera!");
 	}
 
 	@Override
@@ -49,22 +50,22 @@ public class MarineVista extends Vista implements Observador {
 	
 		miPanel.setVisible(false);
 		miVentanaDeAccion.remove(miPanel);
-		System.out.println("Clickeaste en otra cosa que no es un marine loco!");
+		
+		System.out.println("Clickeaste en otra cosa que no es una nave de transporte terranloco!");
 
 	}
 
 	@Override
-	public void setObservable(Observable marine) {
-		img = (new ImageIcon("imagenes/marine.png")).getImage();
-		fondo = (new ImageIcon("imagenes/tierra.png")).getImage();
-		miMarine = (Marine) marine;
+	public void setObservable(Observable nave) {
+		img = (new ImageIcon("imagenes/medivac.png")).getImage();
+		miNave = (NaveTransporteTerran) nave;
 		miPanel = new JPanel();
-		JLabel capaNombre = new JLabel("Marine");
+		JLabel capaNombre = new JLabel("NaveDeTransporteTerran");
 		miPanel.add(capaNombre);
-		JLabel capaVida = new JLabel("Vida: " + miMarine.getVida());
+		JLabel capaVida = new JLabel("Vida: " + miNave.getVida());
 		miPanel.add(capaVida);
 		miPanel.setVisible(false);
-	
+		
 	}
 
 	@Override
@@ -72,16 +73,13 @@ public class MarineVista extends Vista implements Observador {
 		miVentanaDeAccion = ventana;
 
 	}
+	   public void paint(Graphics g) {
+		   Coordenada miCoord = miNave.getCoordenada();
+		   Class<?> sup = miNave.getJugador().getMapa().getParcela(miCoord).getSuperficie().getClass();
+			
+		   g.drawImage(imagenes.get(sup),0,0,40,40,null);
+		   g.drawImage(img,0,0,40,40, null);
 
-  
+	   }
 
-
-   public void paint(Graphics g) {
-	   
-	   
-	
-	   g.drawImage(fondo,0,0,40,40,null);
-	   g.drawImage(img,0,0,40,40, null);
-
-   }
 }
