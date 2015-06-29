@@ -12,6 +12,9 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
+import fiuba.algo3.tpfinal.vista.sonidos.AccionIniciarApagarSonido;
+import fiuba.algo3.tpfinal.vista.sonidos.SonidoPrincipal;
+
 
 public class PantallaPrincipal {
 
@@ -24,7 +27,7 @@ public class PantallaPrincipal {
 		
 		JLabel capa = crearFondo();
 
-		HiloSonido sonido = crearSonido();
+		SonidoPrincipal sonido = crearSonido();
 
 		crearBarraDeMenu(capa, sonido);
 
@@ -32,7 +35,7 @@ public class PantallaPrincipal {
 
 	}
 
-	private void crearBarraDeMenu(JLabel capa, HiloSonido sonido) {
+	private void crearBarraDeMenu(JLabel capa, SonidoPrincipal sonido) {
 		// creo la barra de menus
 		JMenuBar barraMenu = new JMenuBar();
 
@@ -88,11 +91,10 @@ public class PantallaPrincipal {
 		ventanaPrincipal.setJMenuBar(barraMenu);
 	}
 
-	private HiloSonido crearSonido() throws LineUnavailableException,
+	private SonidoPrincipal crearSonido() throws LineUnavailableException,
 			IOException, UnsupportedAudioFileException {
 		// Le agrego el sonido
-		HiloSonido sonido = new HiloSonido(
-				"/sonidos/sonidoPantallaPrincipal.wav");
+		SonidoPrincipal sonido = new SonidoPrincipal();
 		return sonido;
 	}
 

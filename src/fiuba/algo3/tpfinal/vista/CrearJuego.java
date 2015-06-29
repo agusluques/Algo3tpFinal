@@ -30,8 +30,9 @@ public class CrearJuego implements ActionListener {
 	private JComboBox<String> razaJDos;
 	private JComboBox<String> colorJDos;
 	private JLabel miCapa;
+	private JInternalFrame menu;
 
-	public CrearJuego(JLabel capa, JTextField nombreUno,
+	public CrearJuego(JInternalFrame elFrame, JLabel capa, JTextField nombreUno,
 			JComboBox<String> razaUno, JComboBox<String> colorUno,
 			JTextField nombreDos, JComboBox<String> razaDos,
 			JComboBox<String> colorDos) {
@@ -42,6 +43,7 @@ public class CrearJuego implements ActionListener {
 		nombreJDos = nombreDos;
 		razaJDos = razaDos;
 		colorJDos = colorDos;
+		menu = elFrame;
 	}
 
 	/**
@@ -56,7 +58,7 @@ public class CrearJuego implements ActionListener {
 			verificarIgualdadDeColores(frame);
 			return;
 		}
-
+		menu.setVisible(false);
 		HashMap<String, Class<?>> hashDeRazas = new HashMap<String, Class<?>>();
 		hashDeRazas.put("Terran", JugadorTerran.class);
 		hashDeRazas.put("Protoss", JugadorProtoss.class);

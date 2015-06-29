@@ -81,7 +81,7 @@ public class AccionNuevoJuego implements ActionListener {
 
 		// Creo el boton "Aceptar"
 		JButton aceptar = new JButton();
-		aceptar.addActionListener(new CrearJuego(miCapa, nombreUno, razaUno,
+		aceptar.addActionListener(new CrearJuego(frame,miCapa, nombreUno, razaUno,
 				colorUno, nombreDos, razaDos, colorDos));
 		aceptar.setText("Aceptar");
 		frame.getContentPane().add(aceptar, BorderLayout.AFTER_LAST_LINE);
