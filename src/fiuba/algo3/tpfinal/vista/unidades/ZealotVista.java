@@ -77,16 +77,7 @@ public class ZealotVista extends Vista implements Observador {
 		miPanel.setVisible(false);
 		
 	}
-
-	public void setVentanaMapa(JLayeredPane mapa){
-		this.ventanaMapa = mapa;
-	}
 	
-	@Override
-	public void setVentanaDeAccion(JInternalFrame ventana) {
-		miVentanaDeAccion = ventana;
-
-	}
 	   public void paint(Graphics g) {
 			   
 			

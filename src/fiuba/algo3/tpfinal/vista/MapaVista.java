@@ -5,18 +5,21 @@ import java.awt.GridLayout;
 import java.awt.event.MouseListener;
 
 import javax.swing.JFrame;
-import javax.swing.JPanel;
+import javax.swing.JInternalFrame;
+import javax.swing.JLayeredPane;
 
 import fiuba.algo3.tpfinal.programa.Coordenada;
 import fiuba.algo3.tpfinal.programa.Mapa;
 import fiuba.algo3.tpfinal.programa.Parcela;
 
 @SuppressWarnings("serial")
-public class MapaVista extends JPanel {
+public class MapaVista extends Vista {
 
 	JFrame ventanaPrincipal;
 	HashConector generadorParcelas = new HashConector();
 	Mapa miMapa;
+	private JInternalFrame ventanaDeAccionDeUnidades;
+	private JLayeredPane panelConCapasParaUnidades;
 
 	public MapaVista(Mapa mapa) throws Exception {
 		MouseListener clickEnMapa = new AccionClickMouse(mapa);
@@ -28,7 +31,7 @@ public class MapaVista extends JPanel {
 		setAlignmentX(Component.LEFT_ALIGNMENT);
 		setLayout(new GridLayout(miMapa.getAncho(), miMapa.getAlto()));
 
-		this.imprimirMapa();
+		//this.imprimirMapa();
 	}
 
 	public void imprimirMapa() throws InstantiationException,
@@ -50,8 +53,11 @@ public class MapaVista extends JPanel {
 					Class<?> claseVista = generadorParcelas.hash
 							.get(parcelaActual.getOcupante().getClass());
 					Vista vista = (Vista) claseVista.newInstance();
+					vista.setVentanaDeAccion(ventanaDeAccionDeUnidades);
+					vista.setVentanaMapa(panelConCapasParaUnidades);
 					vista.setObservable((Observable) parcelaActual
 							.getOcupante());
+					((Observable) parcelaActual.getOcupante()).agregarObservador(vista);
 					this.add(vista);
 				}
 			}
@@ -61,6 +67,20 @@ public class MapaVista extends JPanel {
 
 	public Mapa getMapa() {
 		return miMapa;
+	}
+	
+	@Override
+	public void actualizar() {
+		this.repaint();
+
+	}
+
+	public void setVentanaDeAccionParaLasUnidades(JInternalFrame infoUnidades) {
+		this.ventanaDeAccionDeUnidades = infoUnidades;		
+	}
+	
+	public void setPanelConCapasParaUnidades(JLayeredPane panelConCapas) {
+		this.panelConCapasParaUnidades = panelConCapas;
 	}
 
 }

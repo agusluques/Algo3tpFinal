@@ -1,8 +1,9 @@
 package fiuba.algo3.tpfinal.programa;
 
 import fiuba.algo3.tpfinal.unidades.Trasladable;
+import fiuba.algo3.tpfinal.vista.Observable;
 
-public abstract class Superficie {
+public abstract class Superficie extends Observable{
 
 	@Override
 	public boolean equals(Object o) {

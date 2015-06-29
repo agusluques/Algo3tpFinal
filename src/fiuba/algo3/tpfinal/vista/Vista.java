@@ -1,6 +1,7 @@
 package fiuba.algo3.tpfinal.vista;
 
 import javax.swing.JInternalFrame;
+import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 
 @SuppressWarnings("serial")
@@ -8,6 +9,7 @@ public abstract class Vista extends JPanel implements Observador {
 
 	protected JInternalFrame miVentanaDeAccion;
 	protected JPanel miPanel;
+	protected JLayeredPane ventanaMapa;
 
 	public void setObservable(Observable unidad) {
 	}
@@ -35,6 +37,11 @@ public abstract class Vista extends JPanel implements Observador {
 		miPanel.setVisible(false);
 		miVentanaDeAccion.remove(miPanel);
 
+	}
+
+	public void setVentanaMapa(JLayeredPane mapa) {
+		this.ventanaMapa = mapa;
+		
 	};
 
 }

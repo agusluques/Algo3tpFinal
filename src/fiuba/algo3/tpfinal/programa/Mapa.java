@@ -8,8 +8,9 @@ import java.util.Set;
 import fiuba.algo3.tpfinal.construcciones.Atacable;
 import fiuba.algo3.tpfinal.excepciones.ParcelaOcupada;
 import fiuba.algo3.tpfinal.unidades.Trasladable;
+import fiuba.algo3.tpfinal.vista.Observable;
 
-public class Mapa {
+public class Mapa extends Observable{
 
 	private HashMap<Coordenada, Parcela> mapa;
 	private CreadorMapa creador = new CreadorMapa();
