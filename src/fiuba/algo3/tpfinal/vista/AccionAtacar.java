@@ -2,6 +2,7 @@ package fiuba.algo3.tpfinal.vista;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.net.MalformedURLException;
 
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
@@ -9,6 +10,7 @@ import javax.swing.JPanel;
 import fiuba.algo3.tpfinal.construcciones.Atacable;
 import fiuba.algo3.tpfinal.programa.Coordenada;
 import fiuba.algo3.tpfinal.unidades.Atacante;
+import fiuba.algo3.tpfinal.vista.sonidos.SonidoErrorAtaque;
 
 public class AccionAtacar implements MouseListener {
 
@@ -35,7 +37,12 @@ public class AccionAtacar implements MouseListener {
 			Atacable unidad = ((Atacable) miUnidad).getJugador().getMapa().getParcela(new Coordenada(fila,columna)).getOcupante();
 			miUnidad.atacar(unidad);
 		}catch (Exception e){
-			System.out.println("No ataque");
+			try {
+				new SonidoErrorAtaque();
+			} catch (MalformedURLException e1) {
+				//si no encuentra el archivo
+				e1.printStackTrace();
+			}
 		}
 		
 		
