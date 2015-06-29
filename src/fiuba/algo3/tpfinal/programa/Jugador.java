@@ -8,8 +8,9 @@ import fiuba.algo3.tpfinal.construcciones.Atacable;
 import fiuba.algo3.tpfinal.construcciones.Constructible;
 import fiuba.algo3.tpfinal.unidades.Fabricable;
 import fiuba.algo3.tpfinal.unidades.Magia;
+import fiuba.algo3.tpfinal.vista.Observable;
 
-public abstract class Jugador {
+public abstract class Jugador extends Observable{
 
 	protected String nombre;
 	protected Presupuesto presupuesto;

@@ -31,7 +31,6 @@ public class MapaVista extends Vista {
 		setAlignmentX(Component.LEFT_ALIGNMENT);
 		setLayout(new GridLayout(miMapa.getAncho(), miMapa.getAlto()));
 
-		//this.imprimirMapa();
 	}
 
 	public void imprimirMapa() throws InstantiationException,

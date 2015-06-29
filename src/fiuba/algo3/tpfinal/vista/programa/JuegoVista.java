@@ -33,32 +33,23 @@ public class JuegoVista {
 		infoJuego.setResizable(true);
 		infoJuego.setVisible(true);
 		miCapa.add(infoJuego);
-
-		/*JLayeredPane panelConCapas = new JLayeredPane();
-		panelConCapas.setPreferredSize(new Dimension(4000,4000));
+	
+		JugadorVista jugador1Vista = new JugadorVista();
+		jugador1Vista.setJuego(miJuego);
+		jugador1Vista.setVentanaDeAccion(infoJuego);
+		jugador1Vista.setObservable(miJuego.jugadorUno);
+		(miJuego.jugadorUno).agregarObservador(jugador1Vista);	
 		
-		MapaVista panelMapa = new MapaVista(miJuego.getMapa());
-		panelConCapas.add(panelMapa);
-		
-		JScrollPane panelMapaConScroll = new JScrollPane(panelConCapas);
-		panelMapaConScroll
-				.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-		panelMapaConScroll
-				.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
-		panelMapaConScroll.setBounds(300, 0,
-				2 * miCapa.getMaximumSize().width / 5,
-				miCapa.getMaximumSize().height / 2);
-		
-		
-		panelMapa.setPanelConCapasParaUnidades(panelConCapas);
-		panelMapa.setVentanaDeAccionParaLasUnidades(infoUnidades);
-		panelMapa.imprimirMapa();*/
+		JugadorVista jugador2Vista = new JugadorVista();
+		jugador2Vista.setJuego(miJuego);
+		jugador2Vista.setVentanaDeAccion(infoJuego);
+		jugador2Vista.setObservable(miJuego.jugadorDos);
+		(miJuego.jugadorDos).agregarObservador(jugador2Vista);
 		
 		JLayeredPane panelConCapas = new JLayeredPane();
 		panelConCapas.setPreferredSize(new Dimension(4000,4000));
 	
 		MapaVista panelMapa = new MapaVista(miJuego.getMapa());
-		//((Observable) mapa).agregarObservador((Observador) panelMapa);
 		panelConCapas.add(panelMapa);
 		
 		JScrollPane panelMapaConScroll = new JScrollPane(panelConCapas);
@@ -66,12 +57,13 @@ public class JuegoVista {
 		panelMapaConScroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
 		panelMapaConScroll.setBounds(300, 0, 2*miCapa.getMaximumSize().width/5, miCapa.getMaximumSize().height/2);
 		
-		
 		panelMapa.setPanelConCapasParaUnidades(panelConCapas);
 		panelMapa.setVentanaDeAccionParaLasUnidades(infoUnidades);
 		panelMapa.imprimirMapa();
 		
 		miCapa.add(panelMapaConScroll);
+		
+		miJuego.jugadorActual.notificarObservadorSobreSeleccion();
 		
 	}
 

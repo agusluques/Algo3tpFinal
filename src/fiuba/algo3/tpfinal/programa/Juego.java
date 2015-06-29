@@ -3,6 +3,8 @@ package fiuba.algo3.tpfinal.programa;
 public class Juego {
 	public Jugador jugadorUno;
 	public Jugador jugadorDos;
+	public Jugador jugadorActual;
+	public Jugador jugadorEnEspera;
 	private Mapa mapa;
 
 	public Juego(Jugador jugadorUno, Jugador jugadorDos, Mapa mapa) {
@@ -11,6 +13,8 @@ public class Juego {
 		jugadorUno.inicializarEnPrimeraBase();
 		this.jugadorDos = jugadorDos;
 		jugadorDos.inicializarEnUltimaBase();
+		this.jugadorActual = jugadorUno;
+		this.jugadorEnEspera = jugadorDos;
 	}
 
 	public void pasarTurno(Jugador jugador) {
@@ -18,7 +22,7 @@ public class Juego {
 		if (jugador.nombre == jugadorUno.nombre) {
 			otroJugador = jugadorDos;
 		}
-		jugador.pasarTurno();
+		jugadorActual.pasarTurno();
 		otroJugador.empezarTurno();
 		if (otroJugador.estaExtinto() || jugador.estaExtinto()) {
 			Jugador ganador = jugador;
@@ -28,6 +32,8 @@ public class Juego {
 			System.out.print("GANOOOOO: ");
 			System.out.println(ganador.nombre);
 		}
+		jugadorEnEspera = jugadorActual;
+		jugadorActual = otroJugador;
 	}
 
 	public Mapa getMapa() {

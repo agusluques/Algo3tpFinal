@@ -13,7 +13,6 @@ import javax.swing.JPanel;
 
 import fiuba.algo3.tpfinal.excepciones.MovimientoInvalido;
 import fiuba.algo3.tpfinal.programa.Coordenada;
-import fiuba.algo3.tpfinal.programa.Terran;
 import fiuba.algo3.tpfinal.unidades.Trasladable;
 
 public class AccionTrasladar implements MouseListener {
@@ -36,7 +35,7 @@ public class AccionTrasladar implements MouseListener {
 		int columna = (arg0.getX()/40)+1;
 		
 		try { 
-			miUnidad.trasladarA(new Coordenada(fila, columna), ((Trasladable) miUnidad).getJugador().getMapa());
+			miUnidad.trasladarA(new Coordenada(fila, columna), miUnidad.getJugador().getMapa());
 			ventanaMapa.repaint();
 		} catch (MovimientoInvalido error) {
 			lanzarVentanaDeError();
