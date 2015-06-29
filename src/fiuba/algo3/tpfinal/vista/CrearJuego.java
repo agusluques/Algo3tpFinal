@@ -3,6 +3,7 @@ package fiuba.algo3.tpfinal.vista;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
@@ -19,6 +20,7 @@ import fiuba.algo3.tpfinal.programa.JugadorProtoss;
 import fiuba.algo3.tpfinal.programa.JugadorTerran;
 import fiuba.algo3.tpfinal.programa.Mapa;
 import fiuba.algo3.tpfinal.vista.programa.JuegoVista;
+import fiuba.algo3.tpfinal.vista.sonidos.SonidoError;
 
 public class CrearJuego implements ActionListener {
 
@@ -51,9 +53,14 @@ public class CrearJuego implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		if (!datosSonCorrectos()) {
-			verificarLargoDeNombres(miCapa);
-			verificarIgualdadDeNombres(miCapa);
-			verificarIgualdadDeColores(miCapa);
+			try {
+				verificarIgualdadDeColores(miCapa);
+				verificarLargoDeNombres(miCapa);
+				verificarIgualdadDeNombres(miCapa);
+			} catch (MalformedURLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			return;
 		}
 		menu.setVisible(false);
@@ -99,26 +106,29 @@ public class CrearJuego implements ActionListener {
 						.getText().length() < 4));
 	}
 
-	private void verificarIgualdadDeColores(Component frame) {
+	private void verificarIgualdadDeColores(Component frame) throws MalformedURLException {
 		if (((String) colorJUno.getSelectedItem()).matches((String) colorJDos
 				.getSelectedItem())) {
+			new SonidoError();
 			JOptionPane.showMessageDialog(frame, "Los colores no pueden ser iguales",
 					"Error",
 			    	JOptionPane.ERROR_MESSAGE);
 		}
 	}
 
-	private void verificarIgualdadDeNombres(Component frame) {
+	private void verificarIgualdadDeNombres(Component frame) throws MalformedURLException {
 		if (nombreJUno.getText().matches(nombreJDos.getText())) {
+			new SonidoError();
 			JOptionPane.showMessageDialog(frame, "Los nombres no pueden ser iguales",
 					"Error",
 			    	JOptionPane.ERROR_MESSAGE);
 		}
 	}
 
-	private void verificarLargoDeNombres(Component frame) {
+	private void verificarLargoDeNombres(Component frame) throws MalformedURLException {
 		if ((nombreJUno.getText().length() < 4)
 				|| (nombreJDos.getText().length() < 4)) {
+			new SonidoError();
 			JOptionPane.showMessageDialog(frame, "El nombre debe tener 4 caracteres como maximo",
 					"Error",
 			    	JOptionPane.ERROR_MESSAGE);
