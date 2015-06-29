@@ -1,17 +1,16 @@
 package fiuba.algo3.tpfinal.vista;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
+import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
 
-import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 import fiuba.algo3.tpfinal.programa.Juego;
@@ -52,10 +51,9 @@ public class CrearJuego implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		if (!datosSonCorrectos()) {
-			JInternalFrame frame = crearVentanaDeError();
-			verificarLargoDeNombres(frame);
-			verificarIgualdadDeNombres(frame);
-			verificarIgualdadDeColores(frame);
+			verificarLargoDeNombres(miCapa);
+			verificarIgualdadDeNombres(miCapa);
+			verificarIgualdadDeColores(miCapa);
 			return;
 		}
 		menu.setVisible(false);
@@ -101,52 +99,32 @@ public class CrearJuego implements ActionListener {
 						.getText().length() < 4));
 	}
 
-	private void verificarIgualdadDeColores(JInternalFrame frame) {
+	private void verificarIgualdadDeColores(Component frame) {
 		if (((String) colorJUno.getSelectedItem()).matches((String) colorJDos
 				.getSelectedItem())) {
-			JLabel label = new JLabel(
-					"El color de los jugadores deben ser distintos");
-			frame.getContentPane().add(label, BorderLayout.CENTER);
-			frame.pack();
-			miCapa.add(frame);
+			JOptionPane.showMessageDialog(frame, "Los colores no pueden ser iguales",
+					"Error",
+			    	JOptionPane.ERROR_MESSAGE);
 		}
 	}
 
-	private void verificarIgualdadDeNombres(JInternalFrame frame) {
+	private void verificarIgualdadDeNombres(Component frame) {
 		if (nombreJUno.getText().matches(nombreJDos.getText())) {
-			JLabel label = new JLabel(
-					"El nombre de los jugadores deben ser distintos");
-			frame.getContentPane().add(label, BorderLayout.CENTER);
-			frame.pack();
-			miCapa.add(frame);
+			JOptionPane.showMessageDialog(frame, "Los nombres no pueden ser iguales",
+					"Error",
+			    	JOptionPane.ERROR_MESSAGE);
 		}
 	}
 
-	private void verificarLargoDeNombres(JInternalFrame frame) {
+	private void verificarLargoDeNombres(Component frame) {
 		if ((nombreJUno.getText().length() < 4)
 				|| (nombreJDos.getText().length() < 4)) {
-			JLabel label = new JLabel(
-					"El nombre de los jugadores debe ser de al menos cuatro caracteres");
-			frame.getContentPane().add(label, BorderLayout.CENTER);
-			frame.pack();
-			miCapa.add(frame);
+			JOptionPane.showMessageDialog(frame, "El nombre debe tener 4 caracteres como maximo",
+					"Error",
+			    	JOptionPane.ERROR_MESSAGE);
 		}
 	}
 
-	private JInternalFrame crearVentanaDeError() {
-		JInternalFrame frame = new JInternalFrame("Error!");
-		frame.setBackground(Color.RED);
-		frame.getContentPane().setBackground(Color.RED);
-		frame.setSize(1000, 1000);
-		frame.setLocation(miCapa.getWidth() / 2, miCapa.getHeight() / 2);
-		frame.setClosable(true);
-		frame.setVisible(true);
 
-		JButton aceptar = new JButton("OK");
-		aceptar.addActionListener(new AccionCerrarVentanaEmergente(frame));
-		frame.getContentPane().add(aceptar, BorderLayout.AFTER_LAST_LINE);
-
-		return frame;
-	}
 
 }

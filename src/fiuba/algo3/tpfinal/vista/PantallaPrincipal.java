@@ -113,7 +113,7 @@ public class PantallaPrincipal {
 		ventanaPrincipal.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		ventanaPrincipal.setIconImage(Toolkit.getDefaultToolkit().getImage("imagenes/logo.jpg"));
-		
-		ventanaPrincipal.setBounds(0, 0, ventanaPrincipal.getMaximumSize().width, ventanaPrincipal.getMaximumSize().height);
+		ventanaPrincipal.setExtendedState(JFrame.MAXIMIZED_BOTH);
+		ventanaPrincipal.setBounds(0, 0, 1000, 800);
 	}
 }
