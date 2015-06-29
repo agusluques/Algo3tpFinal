@@ -23,7 +23,7 @@ public class MapaVista extends JPanel {
 		this.addMouseListener(clickEnMapa);
 		miMapa = mapa;
 
-		setBounds(0, 0, 100, 100);
+		setBounds(0, 0, miMapa.getAncho()*40, miMapa.getAlto()*40);
 		setAlignmentY(Component.TOP_ALIGNMENT);
 		setAlignmentX(Component.LEFT_ALIGNMENT);
 		setLayout(new GridLayout(miMapa.getAncho(), miMapa.getAlto()));
