@@ -5,7 +5,6 @@ import java.awt.Graphics;
 import java.awt.Image;
 
 import javax.swing.ImageIcon;
-import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
@@ -52,12 +51,11 @@ public class ZealotVista extends Vista implements Observador {
 		
 	}
 	
-	   public void paint(Graphics g) {
-			   
-			
-		   g.drawImage(fondo,0,0,40,40,null);
-		   if(!miZealot.estaMuerto())
-		   g.drawImage(img,0,0,40,40, null);
+	public void paint(Graphics g) {
 
-	   }
+		g.drawImage(fondo, 0, 0, 40, 40, null);
+		if (!miZealot.estaMuerto())
+			g.drawImage(img, 0, 0, 40, 40, null);
+
+	}
 }

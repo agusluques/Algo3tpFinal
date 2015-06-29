@@ -12,7 +12,7 @@ import javax.swing.JPanel;
 
 import fiuba.algo3.tpfinal.unidades.Marine;
 import fiuba.algo3.tpfinal.unidades.Trasladable;
-import fiuba.algo3.tpfinal.vista.ControladorMarine;
+import fiuba.algo3.tpfinal.vista.ControladorAtaque;
 import fiuba.algo3.tpfinal.vista.ControladorTraslado;
 import fiuba.algo3.tpfinal.vista.Observable;
 import fiuba.algo3.tpfinal.vista.Vista;
@@ -41,7 +41,7 @@ public class MarineVista extends Vista {
 		//Creo un controlador de Marine pasando como parametro el marine
 		//y despues le seteo la ventana mapa, que es el layeredPane donde se
 		//imprime el mapa
-		ControladorMarine controladorMarine = new ControladorMarine(marine);
+		ControladorAtaque controladorMarine = new ControladorAtaque(marine);
 		controladorMarine.setVentanaMapa(ventanaMapa); 
 		//Creo el boton de atacar y lo agrego
 		JButton botonAtacar = new JButton("Atacar");

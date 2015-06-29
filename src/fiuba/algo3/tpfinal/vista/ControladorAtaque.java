@@ -7,15 +7,16 @@ import java.awt.event.ActionListener;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 
+import fiuba.algo3.tpfinal.unidades.Atacante;
 import fiuba.algo3.tpfinal.unidades.Marine;
 
-public class ControladorMarine implements ActionListener {
+public class ControladorAtaque implements ActionListener {
 
-	private Marine miMarine;
+	private Atacante miUnidad;
 	private JLayeredPane ventanaMapa;
 	
-	public ControladorMarine(Observable marine) {
-		miMarine = (Marine)marine;
+	public ControladorAtaque(Observable unidad) {
+		miUnidad = (Atacante) unidad;
 	}
 
 	@Override
@@ -31,7 +32,7 @@ public class ControladorMarine implements ActionListener {
 		
 		//Crea un AccionAtacar, que es un mouse listener, lo instanceo pasandole la capa
 		//invisible que cree, el layeredPane donde esta el mapa y el marine
-		OtraAccionAtacar accion = new OtraAccionAtacar(capaQueEscuchaClicks,miMarine,ventanaMapa);
+		AccionAtacar accion = new AccionAtacar(capaQueEscuchaClicks, miUnidad, ventanaMapa);
 		
 		//Agrego el mouse listener que cree a la capa invisible
 		capaQueEscuchaClicks.addMouseListener(accion);
