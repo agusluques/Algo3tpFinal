@@ -24,13 +24,12 @@ import fiuba.algo3.tpfinal.vista.unidades.ScoutVista;
 import fiuba.algo3.tpfinal.vista.unidades.ZealotVista;
 
 public class AccionCrearMapaTierra implements ActionListener {
-	
+
 	private JLabel miCapa;
 
 	public AccionCrearMapaTierra(JLabel capa) {
 		miCapa = capa;
 	}
-	
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
@@ -39,8 +38,7 @@ public class AccionCrearMapaTierra implements ActionListener {
 		frame.setLocation(10, 10);
 		frame.setClosable(true);
 		frame.setVisible(true);
-		
-		
+
 		Mapa mapa;
 		try {
 			mapa = new Mapa("mapaTierra_1.txt");	
@@ -55,37 +53,37 @@ public class AccionCrearMapaTierra implements ActionListener {
 			infoUnidades.setResizable(true);
 			infoUnidades.setVisible(true);
 			miCapa.add(infoUnidades);
-			
+
 			Marine marine = new Marine();
-			mapa.insertarUnidad(new Coordenada(2,2),marine);
+			mapa.insertarUnidad(new Coordenada(2, 2), marine);
 			MarineVista vistaMarine = new MarineVista();
 			vistaMarine.setVentanaDeAccion(infoUnidades);
 			vistaMarine.setObservable(marine);
-			((Observable)marine).agregarObservador(vistaMarine);
-			
+			((Observable) marine).agregarObservador(vistaMarine);
+
 			Zealot zealot = new Zealot();
-			mapa.insertarUnidad(new Coordenada(1,1), zealot);
+			mapa.insertarUnidad(new Coordenada(1, 1), zealot);
 			ZealotVista vistaZealot = new ZealotVista();
 			vistaZealot.setVentanaDeAccion(infoUnidades);
 			vistaZealot.setObservable(zealot);
-			((Observable)zealot).agregarObservador(vistaZealot);
-				
+			((Observable) zealot).agregarObservador(vistaZealot);
+
 			Scout scout = new Scout();
-			jugador.agregarUnidad(scout, new Coordenada(1,2));
+			jugador.agregarUnidad(scout, new Coordenada(1, 2));
 			ScoutVista vistaScout = new ScoutVista();
 			vistaScout.setVentanaDeAccion(infoUnidades);
 			vistaScout.setObservable(scout);
-			((Observable)scout).agregarObservador(vistaScout);
-			
+			((Observable) scout).agregarObservador(vistaScout);
+
 			Scout scout2 = new Scout();
-			jugador2.agregarUnidad(scout2, new Coordenada(1,13));
+			jugador2.agregarUnidad(scout2, new Coordenada(1, 13));
 			ScoutVista vistaScout2 = new ScoutVista();
 			vistaScout2.setVentanaDeAccion(infoUnidades);
 			vistaScout2.setObservable(scout2);
-			((Observable)scout2).agregarObservador(vistaScout2);
-			
+			((Observable) scout2).agregarObservador(vistaScout2);
+
 			NaveTransporteTerran nave = new NaveTransporteTerran();
-			jugador3.agregarUnidad(nave, new Coordenada(2,13));
+			jugador3.agregarUnidad(nave, new Coordenada(2, 13));
 			NaveTransporteTerranVista vistaNave = new NaveTransporteTerranVista();
 			vistaNave.setVentanaDeAccion(infoUnidades);
 			vistaNave.setObservable(nave);
@@ -101,21 +99,23 @@ public class AccionCrearMapaTierra implements ActionListener {
 			
 			JPanel panelMapa = new MapaVista(mapa);
 			JScrollPane panelMapaConScroll = new JScrollPane(panelMapa);
-			panelMapaConScroll.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-			panelMapaConScroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
-			panelMapaConScroll.setBounds(300, 0, 2*miCapa.getMaximumSize().width/5, miCapa.getMaximumSize().height/2);
-			
-			
-	        frame.pack();
-	        frame.setVisible(true);
-	        miCapa.add(panelMapaConScroll);
+			panelMapaConScroll
+					.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+			panelMapaConScroll
+					.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+			panelMapaConScroll.setBounds(300, 0,
+					2 * miCapa.getMaximumSize().width / 5,
+					miCapa.getMaximumSize().height / 2);
+
+			frame.pack();
+			frame.setVisible(true);
+			miCapa.add(panelMapaConScroll);
 			frame.setSelected(true);
-	        
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
-		
+
 	}
 
 }

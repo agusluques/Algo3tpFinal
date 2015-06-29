@@ -50,12 +50,17 @@ public class MapaVista extends JPanel {
 					Class<?> claseVista = generadorParcelas.hash
 							.get(parcelaActual.getOcupante().getClass());
 					Vista vista = (Vista) claseVista.newInstance();
-					vista.setObservable((Observable) parcelaActual.getOcupante());
+					vista.setObservable((Observable) parcelaActual
+							.getOcupante());
 					this.add(vista);
 				}
 			}
 		}
 
+	}
+
+	public Mapa getMapa() {
+		return miMapa;
 	}
 
 }

@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
 
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
@@ -138,6 +139,11 @@ public class CrearJuego implements ActionListener {
 		frame.setLocation(miCapa.getWidth() / 2, miCapa.getHeight() / 2);
 		frame.setClosable(true);
 		frame.setVisible(true);
+
+		JButton aceptar = new JButton("OK");
+		aceptar.addActionListener(new AccionCerrarVentanaEmergente(frame));
+		frame.getContentPane().add(aceptar, BorderLayout.AFTER_LAST_LINE);
+
 		return frame;
 	}
 

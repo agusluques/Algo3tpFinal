@@ -1,7 +1,5 @@
 package fiuba.algo3.tpfinal.vista.programa;
 
-import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
 
@@ -13,17 +11,12 @@ import fiuba.algo3.tpfinal.vista.Vista;
 public class DepositoDeMineralesVista extends Vista {
 
 	private Image img;
-    
-	public DepositoDeMineralesVista(){
-    	img = (new ImageIcon("imagenes/mineral.png")).getImage();
-    
+
+	public DepositoDeMineralesVista() {
+		img = (new ImageIcon("imagenes/mineral.png")).getImage();
 	}
 
-
-	  public void paint(Graphics g) {
-		 
-	    
-	        g.drawImage(img,0,0,40,40, null);
-
-	   }
+	public void paint(Graphics g) {
+		g.drawImage(img, 0, 0, 40, 40, null);
+	}
 }
