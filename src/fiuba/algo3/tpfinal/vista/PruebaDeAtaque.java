@@ -9,6 +9,12 @@ import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.JScrollPane;
 
+import fiuba.algo3.tpfinal.construcciones.Barraca;
+import fiuba.algo3.tpfinal.construcciones.CentroDeMineral;
+import fiuba.algo3.tpfinal.construcciones.DepositoSuministro;
+import fiuba.algo3.tpfinal.construcciones.Fabrica;
+import fiuba.algo3.tpfinal.construcciones.PuertoEstelarTerran;
+import fiuba.algo3.tpfinal.construcciones.Refineria;
 import fiuba.algo3.tpfinal.programa.Coordenada;
 import fiuba.algo3.tpfinal.programa.JugadorProtoss;
 import fiuba.algo3.tpfinal.programa.JugadorTerran;
@@ -49,6 +55,32 @@ public class PruebaDeAtaque implements ActionListener {
 			
 			Golliat golliat = new Golliat();
 			jugador.agregarUnidad(golliat, new Coordenada(4,4));
+			
+			Refineria refineria = new Refineria();
+			CentroDeMineral centro = new CentroDeMineral();
+			jugador.construir(centro, new Coordenada(7,6));
+			jugador.construir(refineria, new Coordenada(7,7));
+			for(int i=0; i<50; i++) {
+				jugador.pasarTurno();
+			}
+			
+			Barraca barraca = new Barraca();
+			jugador.construir(barraca, new Coordenada(1,2));
+			for(int i=0; i<12; i++) {
+				jugador.pasarTurno();
+			}
+			
+			Fabrica construccion = new Fabrica();
+			jugador.construir(construccion, new Coordenada(7,8));
+			for(int i=0; i<12; i++) {
+				jugador.pasarTurno();
+			}
+			
+			PuertoEstelarTerran puerto = new PuertoEstelarTerran();
+			jugador.construir(puerto, new Coordenada(7,9));
+			for(int i=0; i<10; i++) {
+				jugador.pasarTurno();
+			}
 			
 			JInternalFrame infoUnidades = new JInternalFrame("Informacion de unidades");
 			infoUnidades.setSize(300, 300);
