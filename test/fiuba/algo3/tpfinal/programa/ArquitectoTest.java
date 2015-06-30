@@ -1,6 +1,5 @@
 package fiuba.algo3.tpfinal.programa;
 
-import junit.framework.Assert;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -8,6 +7,7 @@ import org.junit.Test;
 import fiuba.algo3.tpfinal.construcciones.ConstruccionProtoss;
 import fiuba.algo3.tpfinal.construcciones.Pilon;
 import fiuba.algo3.tpfinal.excepciones.ConstruccionRequeridaInexistente;
+import fiuba.algo3.tpfinal.excepciones.ParcelaVacia;
 
 public class ArquitectoTest {
 
@@ -64,14 +64,13 @@ public class ArquitectoTest {
 	//
 	// }
 
-	@Test
-	public void siElArquitectoConstruyeUnEdificioElMismoApareceEnElMapa()
+	@Test(expected = ParcelaVacia.class)
+	public void siElArquitectoConstruyeUnEdificioElMismoNoApareceEnElMapaHastaEstarTerminado()
 			throws ConstruccionRequeridaInexistente {
 		ConstruccionProtoss construccion = new Pilon();
 		Coordenada posicion = new Coordenada(3, 3);
 		jugador.construir(construccion, posicion);
-		Assert.assertTrue(construccion.equals(this.mapa.getParcela(posicion)
-				.getOcupante()));
+		this.mapa.getParcela(posicion).getOcupante();
 	}
 
 }

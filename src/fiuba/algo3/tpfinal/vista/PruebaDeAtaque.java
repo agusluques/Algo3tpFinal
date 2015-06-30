@@ -9,12 +9,12 @@ import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.JScrollPane;
 
-import fiuba.algo3.tpfinal.construcciones.Barraca;
-import fiuba.algo3.tpfinal.construcciones.CentroDeMineral;
-import fiuba.algo3.tpfinal.construcciones.DepositoSuministro;
-import fiuba.algo3.tpfinal.construcciones.Fabrica;
-import fiuba.algo3.tpfinal.construcciones.PuertoEstelarTerran;
-import fiuba.algo3.tpfinal.construcciones.Refineria;
+import fiuba.algo3.tpfinal.construcciones.Acceso;
+import fiuba.algo3.tpfinal.construcciones.ArchivosTemplarios;
+import fiuba.algo3.tpfinal.construcciones.Asimilador;
+import fiuba.algo3.tpfinal.construcciones.NexoMineral;
+import fiuba.algo3.tpfinal.construcciones.Pilon;
+import fiuba.algo3.tpfinal.construcciones.PuertoEstelarProtoss;
 import fiuba.algo3.tpfinal.programa.Coordenada;
 import fiuba.algo3.tpfinal.programa.JugadorProtoss;
 import fiuba.algo3.tpfinal.programa.JugadorTerran;
@@ -56,30 +56,36 @@ public class PruebaDeAtaque implements ActionListener {
 			Golliat golliat = new Golliat();
 			jugador.agregarUnidad(golliat, new Coordenada(4,4));
 			
-			Refineria refineria = new Refineria();
-			CentroDeMineral centro = new CentroDeMineral();
-			jugador.construir(centro, new Coordenada(7,6));
-			jugador.construir(refineria, new Coordenada(7,7));
-			for(int i=0; i<50; i++) {
-				jugador.pasarTurno();
+			Asimilador refineria = new Asimilador();
+			NexoMineral centro = new NexoMineral();
+			jugador2.construir(centro, new Coordenada(7,6));
+			jugador2.construir(refineria, new Coordenada(7,7));
+			for(int i=0; i<100; i++) {
+				jugador2.pasarTurno();
 			}
 			
-			Barraca barraca = new Barraca();
-			jugador.construir(barraca, new Coordenada(1,2));
-			for(int i=0; i<12; i++) {
-				jugador.pasarTurno();
+			Pilon pilon = new Pilon();
+			jugador2.construir(pilon, new Coordenada(1,2));
+			for(int i=0; i<5; i++) {
+				jugador2.pasarTurno();
 			}
 			
-			Fabrica construccion = new Fabrica();
-			jugador.construir(construccion, new Coordenada(7,8));
-			for(int i=0; i<12; i++) {
-				jugador.pasarTurno();
+			Acceso construccion = new Acceso();
+			jugador2.construir(construccion, new Coordenada(7,8));
+			for(int i=0; i<9; i++) {
+				jugador2.pasarTurno();
 			}
 			
-			PuertoEstelarTerran puerto = new PuertoEstelarTerran();
-			jugador.construir(puerto, new Coordenada(7,9));
+			PuertoEstelarProtoss puerto = new PuertoEstelarProtoss();
+			jugador2.construir(puerto, new Coordenada(7,9));
 			for(int i=0; i<10; i++) {
-				jugador.pasarTurno();
+				jugador2.pasarTurno();
+			}
+			
+			ArchivosTemplarios archivo = new ArchivosTemplarios();
+			jugador2.construir(archivo, new Coordenada(7,10));
+			for(int i=0; i<9; i++) {
+				jugador2.pasarTurno();
 			}
 			
 			JInternalFrame infoUnidades = new JInternalFrame("Informacion de unidades");

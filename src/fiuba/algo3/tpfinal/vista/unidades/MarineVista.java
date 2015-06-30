@@ -36,6 +36,11 @@ public class MarineVista extends Vista {
 		if (miMarine == null){
 			miMarine = (Marine) marine;
 		}
+		crearPanel(marine);
+	
+	}
+
+	private void crearPanel(Observable marine) {
 		miPanel = new JPanel();
 		
 		JLabel capaNombre = new JLabel("Marine");
@@ -57,13 +62,14 @@ public class MarineVista extends Vista {
 		miPanel.add(botonMover);
 		
 		miPanel.setVisible(false);
-	
 	}
 	
 	public void actualizar() {
 		if (miMarine.estaMuerto()) {
 			System.out.println("Me mori");
 			ventanaMapa.repaint();
+		} else {
+			crearPanel((Observable) miMarine);
 		}
 
 	}

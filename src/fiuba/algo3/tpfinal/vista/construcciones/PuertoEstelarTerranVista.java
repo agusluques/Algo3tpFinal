@@ -8,7 +8,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import fiuba.algo3.tpfinal.construcciones.Fabrica;
 import fiuba.algo3.tpfinal.construcciones.PuertoEstelarTerran;
 import fiuba.algo3.tpfinal.vista.Observable;
 import fiuba.algo3.tpfinal.vista.Vista;

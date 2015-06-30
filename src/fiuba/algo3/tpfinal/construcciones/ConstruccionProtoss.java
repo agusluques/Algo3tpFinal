@@ -2,6 +2,7 @@ package fiuba.algo3.tpfinal.construcciones;
 
 import java.util.Collection;
 
+import fiuba.algo3.tpfinal.programa.Coordenada;
 import fiuba.algo3.tpfinal.programa.Costo;
 import fiuba.algo3.tpfinal.programa.Parcela;
 import fiuba.algo3.tpfinal.programa.Protoss;
@@ -67,6 +68,11 @@ public abstract class ConstruccionProtoss extends Protoss implements
 	@Override
 	public boolean puedeConstruirseEn(Parcela ubicacion) {
 		return this.esValidaLaUbicacion(ubicacion);
+	}
+	
+	@Override
+	public Coordenada getPosicion() {
+		return this.posicion;
 	}
 
 }
