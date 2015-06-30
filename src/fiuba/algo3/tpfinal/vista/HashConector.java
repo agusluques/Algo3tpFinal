@@ -17,6 +17,8 @@ import fiuba.algo3.tpfinal.construcciones.Refineria;
 import fiuba.algo3.tpfinal.programa.Aire;
 import fiuba.algo3.tpfinal.programa.DepositoDeGas;
 import fiuba.algo3.tpfinal.programa.DepositoDeMinerales;
+import fiuba.algo3.tpfinal.programa.JugadorProtoss;
+import fiuba.algo3.tpfinal.programa.JugadorTerran;
 import fiuba.algo3.tpfinal.programa.Tierra;
 import fiuba.algo3.tpfinal.unidades.AltoTemplario;
 import fiuba.algo3.tpfinal.unidades.Dragon;
@@ -43,6 +45,8 @@ import fiuba.algo3.tpfinal.vista.construcciones.RefineriaVista;
 import fiuba.algo3.tpfinal.vista.programa.AireVista;
 import fiuba.algo3.tpfinal.vista.programa.DepositoDeGasVista;
 import fiuba.algo3.tpfinal.vista.programa.DepositoDeMineralesVista;
+import fiuba.algo3.tpfinal.vista.programa.JugadorProtossVista;
+import fiuba.algo3.tpfinal.vista.programa.JugadorTerranVista;
 import fiuba.algo3.tpfinal.vista.programa.TierraVista;
 import fiuba.algo3.tpfinal.vista.unidades.AltoTemplarioVista;
 import fiuba.algo3.tpfinal.vista.unidades.DragonVista;
@@ -60,6 +64,10 @@ public class HashConector {
 	public HashMap<Class, Class> hash = new HashMap<Class, Class>();
 
 	public HashConector() {
+		
+		//Ingreso los jugadores
+		hash.put(JugadorTerran.class, JugadorTerranVista.class);
+		hash.put(JugadorProtoss.class, JugadorProtossVista.class);
 
 		// Ingreso unidades Terran
 		hash.put(Marine.class, MarineVista.class);
@@ -96,5 +104,10 @@ public class HashConector {
 		hash.put(Tierra.class, TierraVista.class);
 		hash.put(DepositoDeGas.class, DepositoDeGasVista.class);
 		hash.put(DepositoDeMinerales.class, DepositoDeMineralesVista.class);
+	}
+	
+	@SuppressWarnings("rawtypes")
+	public Class get(Class clase) {
+		return hash.get(clase);
 	}
 }

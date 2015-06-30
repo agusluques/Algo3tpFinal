@@ -8,6 +8,7 @@ import javax.swing.JLayeredPane;
 import javax.swing.JScrollPane;
 
 import fiuba.algo3.tpfinal.programa.Juego;
+import fiuba.algo3.tpfinal.vista.HashConector;
 import fiuba.algo3.tpfinal.vista.MapaVista;
 import fiuba.algo3.tpfinal.vista.Observable;
 import fiuba.algo3.tpfinal.vista.Observador;
@@ -16,6 +17,7 @@ public class JuegoVista {
 
 	private JLabel miCapa;
 	private Juego miJuego;
+	private HashConector hash = new HashConector();
 
 	public JuegoVista(JLabel capa, Juego juego) throws Exception {
 		this.miJuego = juego;
@@ -36,13 +38,13 @@ public class JuegoVista {
 		infoJuego.setVisible(true);
 		miCapa.add(infoJuego);
 	
-		JugadorVista jugador1Vista = new JugadorVista();
+		JugadorVista jugador1Vista = (JugadorVista) hash.get(miJuego.jugadorUno.getClass()).newInstance();
 		jugador1Vista.setJuego(miJuego);
 		jugador1Vista.setVentanaDeAccion(infoJuego);
 		jugador1Vista.setObservable(miJuego.jugadorUno);
 		(miJuego.jugadorUno).agregarObservador(jugador1Vista);	
 		
-		JugadorVista jugador2Vista = new JugadorVista();
+		JugadorVista jugador2Vista = (JugadorVista) hash.get(miJuego.jugadorDos.getClass()).newInstance();
 		jugador2Vista.setJuego(miJuego);
 		jugador2Vista.setVentanaDeAccion(infoJuego);
 		jugador2Vista.setObservable(miJuego.jugadorDos);
