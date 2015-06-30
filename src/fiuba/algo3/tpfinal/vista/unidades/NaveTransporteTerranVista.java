@@ -37,19 +37,39 @@ public class NaveTransporteTerranVista extends Vista implements Observador {
 		if (miNave == null){
 			miNave = (NaveTransporteTerran) nave;
 		}
-		miPanel = new JPanel();
-		JLabel capaNombre = new JLabel("NaveDeTransporteTerran");
-		miPanel.add(capaNombre);
-		JLabel capaVida = new JLabel("Vida: " + miNave.getVida());
-		miPanel.add(capaVida);
+		crearPanel();
 
+		crearControladores();
+		miPanel.setVisible(false);
+
+	}
+	
+	@Override
+	public void actualizar() {
+		if (miNave.estaMuerto()) {
+			System.out.println("Me mori");
+			ventanaMapa.repaint();
+		} else {
+			crearPanel();
+			crearControladores();
+		}
+
+	}
+
+	private void crearControladores() {
 		ControladorTraslado controladorTraslado = new ControladorTraslado((Trasladable) miNave, urlTraslado);
 		controladorTraslado.setVentanaMapa(ventanaMapa);
 		JButton botonMover = new JButton("Trasladar");
 		botonMover.addActionListener(controladorTraslado);
 		miPanel.add(botonMover);
-		miPanel.setVisible(false);
+	}
 
+	private void crearPanel() {
+		miPanel = new JPanel();
+		JLabel capaNombre = new JLabel("NaveDeTransporteTerran");
+		miPanel.add(capaNombre);
+		JLabel capaVida = new JLabel("Vida: " + miNave.getVida());
+		miPanel.add(capaVida);
 	}
 
 	public void paint(Graphics g) {

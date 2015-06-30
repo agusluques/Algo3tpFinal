@@ -30,6 +30,13 @@ public class CentroDeMineralVista extends Vista {
 		if (miCentroDeMineral == null){
 			miCentroDeMineral = (CentroDeMineral) centroDeMineral;
 		}
+		crearPanel();
+		
+		miPanel.setVisible(false);
+	
+	}
+
+	private void crearPanel() {
 		miPanel = new JPanel();
 		
 		JLabel capaNombre = new JLabel("Centro de mineral");
@@ -37,15 +44,14 @@ public class CentroDeMineralVista extends Vista {
 		
 		JLabel capaVida = new JLabel("Vida: " + miCentroDeMineral.getVida());
 		miPanel.add(capaVida);
-		
-		miPanel.setVisible(false);
-	
 	}
 	
 	public void actualizar() {
 		if (miCentroDeMineral.estaMuerto()) {
 			System.out.println("Me mori");
 			ventanaMapa.repaint();
+		} else {
+			crearPanel();
 		}
 
 	}

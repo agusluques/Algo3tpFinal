@@ -30,6 +30,13 @@ public class FabricaVista extends Vista{
 		if (miFabrica == null){
 			miFabrica = (Fabrica) refineria;
 		}
+		crearPanel();
+		
+		miPanel.setVisible(false);
+	
+	}
+
+	private void crearPanel() {
 		miPanel = new JPanel();
 		
 		JLabel capaNombre = new JLabel("Fabrica");
@@ -37,15 +44,14 @@ public class FabricaVista extends Vista{
 		
 		JLabel capaVida = new JLabel("Vida: " + miFabrica.getVida());
 		miPanel.add(capaVida);
-		
-		miPanel.setVisible(false);
-	
 	}
 	
 	public void actualizar() {
 		if (miFabrica.estaMuerto()) {
 			System.out.println("Me mori");
 			ventanaMapa.repaint();
+		} else {
+			crearPanel();
 		}
 
 	}

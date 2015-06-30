@@ -30,6 +30,13 @@ public class NexoMineralVista extends Vista{
 		if (miNexo == null){
 			miNexo = (NexoMineral) nexo;
 		}
+		crearPanel();
+		
+		miPanel.setVisible(false);
+	
+	}
+
+	private void crearPanel() {
 		miPanel = new JPanel();
 		
 		JLabel capaNombre = new JLabel("Nexo mineral");
@@ -40,15 +47,14 @@ public class NexoMineralVista extends Vista{
 		
 		JLabel capaEscudo = new JLabel("Escudo: " + miNexo.getEscudo());
 		miPanel.add(capaEscudo);
-		
-		miPanel.setVisible(false);
-	
 	}
 	
 	public void actualizar() {
 		if (miNexo.estaMuerto()) {
 			System.out.println("Me mori");
 			ventanaMapa.repaint();
+		} else {
+			crearPanel();
 		}
 
 	}

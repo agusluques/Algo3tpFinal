@@ -30,6 +30,13 @@ public class PuertoEstelarTerranVista extends Vista{
 		if (miPuertoEstelar == null){
 			miPuertoEstelar = (PuertoEstelarTerran) refineria;
 		}
+		crearPanel();
+		
+		miPanel.setVisible(false);
+	
+	}
+
+	private void crearPanel() {
 		miPanel = new JPanel();
 		
 		JLabel capaNombre = new JLabel("Puerto estelar");
@@ -37,15 +44,14 @@ public class PuertoEstelarTerranVista extends Vista{
 		
 		JLabel capaVida = new JLabel("Vida: " + miPuertoEstelar.getVida());
 		miPanel.add(capaVida);
-		
-		miPanel.setVisible(false);
-	
 	}
 	
 	public void actualizar() {
 		if (miPuertoEstelar.estaMuerto()) {
 			System.out.println("Me mori");
 			ventanaMapa.repaint();
+		} else {
+			crearPanel();
 		}
 
 	}

@@ -30,6 +30,13 @@ public class AsimiladorVista extends Vista{
 		if (miAsimilador == null){
 			miAsimilador = (Asimilador) pilon;
 		}
+		crearPanel();
+		
+		miPanel.setVisible(false);
+	
+	}
+
+	private void crearPanel() {
 		miPanel = new JPanel();
 		
 		JLabel capaNombre = new JLabel("Asimilador");
@@ -40,15 +47,14 @@ public class AsimiladorVista extends Vista{
 		
 		JLabel capaEscudo = new JLabel("Escudo: " + miAsimilador.getEscudo());
 		miPanel.add(capaEscudo);
-		
-		miPanel.setVisible(false);
-	
 	}
 	
 	public void actualizar() {
 		if (miAsimilador.estaMuerto()) {
 			System.out.println("Me mori");
 			ventanaMapa.repaint();
+		} else {
+		crearPanel();
 		}
 	}
 

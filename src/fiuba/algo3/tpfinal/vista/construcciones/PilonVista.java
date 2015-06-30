@@ -30,6 +30,13 @@ public class PilonVista extends Vista{
 		if (miPilon == null){
 			miPilon = (Pilon) pilon;
 		}
+		crearPanel();
+		
+		miPanel.setVisible(false);
+	
+	}
+
+	private void crearPanel() {
 		miPanel = new JPanel();
 		
 		JLabel capaNombre = new JLabel("Pilon");
@@ -40,15 +47,14 @@ public class PilonVista extends Vista{
 		
 		JLabel capaEscudo = new JLabel("Escudo: " + miPilon.getEscudo());
 		miPanel.add(capaEscudo);
-		
-		miPanel.setVisible(false);
-	
 	}
 	
 	public void actualizar() {
 		if (miPilon.estaMuerto()) {
 			System.out.println("Me mori");
 			ventanaMapa.repaint();
+		} else {
+			crearPanel();
 		}
 
 	}

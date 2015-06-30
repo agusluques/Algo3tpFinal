@@ -36,6 +36,29 @@ public class DragonVista extends Vista{
 		if (miDragon == null){
 			miDragon = (Dragon) dragon;
 		}
+		crearPanel();
+		
+		crearControladores();
+		
+		miPanel.setVisible(false);
+	
+	}
+
+	private void crearControladores() {
+		ControladorAtaque controladorAtaque = new ControladorAtaque((Observable) miDragon, urlAtaque );
+		controladorAtaque.setVentanaMapa(ventanaMapa);
+		JButton botonAtacar = new JButton("Atacar");
+		botonAtacar.addActionListener(controladorAtaque);
+		miPanel.add(botonAtacar);
+		
+		ControladorTraslado controladorTraslado = new ControladorTraslado((Trasladable) miDragon, urlTraslado );
+		controladorTraslado.setVentanaMapa(ventanaMapa);
+		JButton botonMover = new JButton("Trasladar");
+		botonMover.addActionListener(controladorTraslado);
+		miPanel.add(botonMover);
+	}
+
+	private void crearPanel() {
 		miPanel = new JPanel();
 		
 		JLabel capaNombre = new JLabel("Dragon");
@@ -46,27 +69,15 @@ public class DragonVista extends Vista{
 		
 		JLabel capaEscudo = new JLabel("Escudo: " + miDragon.getEscudo());
 		miPanel.add(capaEscudo);
-		
-		ControladorAtaque controladorAtaque = new ControladorAtaque(dragon, urlAtaque );
-		controladorAtaque.setVentanaMapa(ventanaMapa);
-		JButton botonAtacar = new JButton("Atacar");
-		botonAtacar.addActionListener(controladorAtaque);
-		miPanel.add(botonAtacar);
-		
-		ControladorTraslado controladorTraslado = new ControladorTraslado((Trasladable) dragon, urlTraslado );
-		controladorTraslado.setVentanaMapa(ventanaMapa);
-		JButton botonMover = new JButton("Trasladar");
-		botonMover.addActionListener(controladorTraslado);
-		miPanel.add(botonMover);
-		
-		miPanel.setVisible(false);
-	
 	}
 	
 	public void actualizar() {
 		if (miDragon.estaMuerto()) {
 			System.out.println("Me mori");
 			ventanaMapa.repaint();
+		} else {
+			crearPanel();
+			crearControladores();
 		}
 
 	}

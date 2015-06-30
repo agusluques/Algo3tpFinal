@@ -37,6 +37,7 @@ public class ZealotVista extends Vista implements Observador {
 			ventanaMapa.repaint();
 		} else {
 			crearPanel();
+			crearControladores();
 		}
 
 	}
@@ -50,6 +51,8 @@ public class ZealotVista extends Vista implements Observador {
 		}
 		
 		crearPanel();
+		crearControladores();
+		miPanel.setVisible(false);
 		
 	}
 
@@ -65,6 +68,9 @@ public class ZealotVista extends Vista implements Observador {
 		JLabel capaEscudo = new JLabel("Escudo: " + miZealot.getEscudo());
 		miPanel.add(capaEscudo);
 		
+	}
+
+	private void crearControladores() {
 		ControladorAtaque controladorAtaque = new ControladorAtaque(miZealot, urlAtaque);
 		controladorAtaque.setVentanaMapa(ventanaMapa);
 		JButton botonAtacar = new JButton("Atacar");
@@ -76,8 +82,6 @@ public class ZealotVista extends Vista implements Observador {
 		JButton botonMover = new JButton("Trasladar");
 		botonMover.addActionListener(controladorTraslado);
 		miPanel.add(botonMover);
-		
-		miPanel.setVisible(false);
 	}
 	
 	public void paint(Graphics g) {

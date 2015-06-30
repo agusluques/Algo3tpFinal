@@ -11,7 +11,6 @@ import javax.swing.JPanel;
 
 import fiuba.algo3.tpfinal.unidades.AltoTemplario;
 import fiuba.algo3.tpfinal.unidades.Trasladable;
-import fiuba.algo3.tpfinal.vista.ControladorAtaque;
 import fiuba.algo3.tpfinal.vista.ControladorTraslado;
 import fiuba.algo3.tpfinal.vista.Observable;
 import fiuba.algo3.tpfinal.vista.Vista;
@@ -36,6 +35,24 @@ public class AltoTemplarioVista extends Vista {
 		if (miAltoTemplario == null){
 			miAltoTemplario = (AltoTemplario) altoTemplario;
 		}
+		
+		crearPanel();
+				
+		crearControladores();
+		
+		miPanel.setVisible(false);
+	
+	}
+
+	private void crearControladores() {
+		ControladorTraslado controladorTraslado = new ControladorTraslado((Trasladable) miAltoTemplario, urlTraslado);
+		controladorTraslado.setVentanaMapa(ventanaMapa);
+		JButton botonMover = new JButton("Trasladar");
+		botonMover.addActionListener(controladorTraslado);
+		miPanel.add(botonMover);
+	}
+
+	private void crearPanel() {
 		miPanel = new JPanel();
 		
 		JLabel capaNombre = new JLabel("Alto templario");
@@ -49,22 +66,15 @@ public class AltoTemplarioVista extends Vista {
 		
 		JLabel capaEnergia = new JLabel("Energia: " + miAltoTemplario.getEnergia());
 		miPanel.add(capaEnergia);
-		
-		
-		ControladorTraslado controladorTraslado = new ControladorTraslado((Trasladable) altoTemplario, urlTraslado);
-		controladorTraslado.setVentanaMapa(ventanaMapa);
-		JButton botonMover = new JButton("Trasladar");
-		botonMover.addActionListener(controladorTraslado);
-		miPanel.add(botonMover);
-		
-		miPanel.setVisible(false);
-	
 	}
 	
 	public void actualizar() {
 		if (miAltoTemplario.estaMuerto()) {
 			System.out.println("Me mori");
 			ventanaMapa.repaint();
+		} else {
+			crearPanel();
+			crearControladores();
 		}
 
 	}

@@ -6,7 +6,6 @@ import java.awt.Image;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
@@ -33,7 +32,13 @@ public class NaveCienciaVista extends Vista {
 
 	@Override
 	public void actualizar() {
-		// TODO Auto-generated method stub
+		if (miNave.estaMuerto()) {
+			System.out.println("Me mori");
+			ventanaMapa.repaint();
+		} else {
+			crearPanel();
+			crearControladores();
+		}
 
 	}
 
@@ -43,6 +48,24 @@ public class NaveCienciaVista extends Vista {
 		if (miNave == null){
 			miNave = (NaveCiencia) nave;
 		}
+		crearPanel();
+		
+		crearControladores();
+		miPanel.setVisible(false);
+		
+	}
+
+
+	private void crearControladores() {
+		ControladorTraslado controladorTraslado = new ControladorTraslado((Trasladable) miNave, urlTraslado );
+		controladorTraslado.setVentanaMapa(ventanaMapa);
+		JButton botonMover = new JButton("Trasladar");
+		botonMover.addActionListener(controladorTraslado);
+		miPanel.add(botonMover);
+	}
+
+
+	private void crearPanel() {
 		miPanel = new JPanel();
 		JLabel capaNombre = new JLabel("Nave ciencia");
 		miPanel.add(capaNombre);
@@ -50,28 +73,17 @@ public class NaveCienciaVista extends Vista {
 		miPanel.add(capaVida);
 		JLabel capaEnergia = new JLabel("Energia: " + miNave.getEnergia());
 		miPanel.add(capaEnergia);
-		
-		ControladorTraslado controladorTraslado = new ControladorTraslado((Trasladable) miNave, urlTraslado );
-		controladorTraslado.setVentanaMapa(ventanaMapa);
-		JButton botonMover = new JButton("Trasladar");
-		botonMover.addActionListener(controladorTraslado);
-		miPanel.add(botonMover);
-		miPanel.setVisible(false);
-		
 	}
 
-	@Override
-	public void setVentanaDeAccion(JInternalFrame ventana) {
-		miVentanaDeAccion = ventana;
+	
+	public void paint(Graphics g) {
+		Coordenada miCoord = miNave.getCoordenada();
+		Class<?> sup = miNave.getJugador().getMapa().getParcela(miCoord)
+				.getSuperficie().getClass();
+
+		g.drawImage(imagenes.get(sup), 0, 0, 40, 40, null);
+		g.drawImage(img, 0, 0, 40, 40, null);
 
 	}
-	   public void paint(Graphics g) {
-		   Coordenada miCoord = miNave.getCoordenada();
-		   Class<?> sup = miNave.getJugador().getMapa().getParcela(miCoord).getSuperficie().getClass();
-			
-		   g.drawImage(imagenes.get(sup),0,0,40,40,null);
-		   g.drawImage(img,0,0,40,40, null);
-
-	   }
 
 }

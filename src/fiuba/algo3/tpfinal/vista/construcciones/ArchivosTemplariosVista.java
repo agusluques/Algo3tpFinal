@@ -31,7 +31,7 @@ public class ArchivosTemplariosVista extends Vista{
 			miArchivoTemplario = (ArchivosTemplarios) archivoTemplario;
 		}
 		crearPanel();
-	
+		miPanel.setVisible(false);
 	}
 
 	private void crearPanel() {
@@ -46,7 +46,6 @@ public class ArchivosTemplariosVista extends Vista{
 		JLabel capaEscudo = new JLabel("Escudo: " + miArchivoTemplario.getEscudo());
 		miPanel.add(capaEscudo);
 		
-		miPanel.setVisible(false);
 	}
 	
 	public void actualizar() {

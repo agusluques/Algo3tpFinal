@@ -36,6 +36,29 @@ public class GolliatVista extends Vista{
 		if (miGolliat == null){
 			miGolliat = (Golliat) golliat;
 		}
+		crearPanel();
+		
+		crearControladores();
+		
+		miPanel.setVisible(false);
+	
+	}
+
+	private void crearControladores() {
+		ControladorAtaque controladorAtaque = new ControladorAtaque((Observable) miGolliat, urlAtaque);
+		controladorAtaque.setVentanaMapa(ventanaMapa);
+		JButton botonAtacar = new JButton("Atacar");
+		botonAtacar.addActionListener(controladorAtaque);
+		miPanel.add(botonAtacar);
+		
+		ControladorTraslado controladorTraslado = new ControladorTraslado((Trasladable) miGolliat, urlTraslado );
+		controladorTraslado.setVentanaMapa(ventanaMapa);
+		JButton botonMover = new JButton("Trasladar");
+		botonMover.addActionListener(controladorTraslado);
+		miPanel.add(botonMover);
+	}
+
+	private void crearPanel() {
 		miPanel = new JPanel();
 		
 		JLabel capaNombre = new JLabel("Golliat");
@@ -43,27 +66,15 @@ public class GolliatVista extends Vista{
 		
 		JLabel capaVida = new JLabel("Vida: " + miGolliat.getVida());
 		miPanel.add(capaVida);
-		
-		ControladorAtaque controladorAtaque = new ControladorAtaque(golliat, urlAtaque);
-		controladorAtaque.setVentanaMapa(ventanaMapa);
-		JButton botonAtacar = new JButton("Atacar");
-		botonAtacar.addActionListener(controladorAtaque);
-		miPanel.add(botonAtacar);
-		
-		ControladorTraslado controladorTraslado = new ControladorTraslado((Trasladable) golliat, urlTraslado );
-		controladorTraslado.setVentanaMapa(ventanaMapa);
-		JButton botonMover = new JButton("Trasladar");
-		botonMover.addActionListener(controladorTraslado);
-		miPanel.add(botonMover);
-		
-		miPanel.setVisible(false);
-	
 	}
 	
 	public void actualizar() {
 		if (miGolliat.estaMuerto()) {
 			System.out.println("Me mori");
 			ventanaMapa.repaint();
+		} else {
+			crearPanel();
+			crearControladores();
 		}
 
 	}

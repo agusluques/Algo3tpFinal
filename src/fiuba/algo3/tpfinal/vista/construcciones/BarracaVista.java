@@ -30,6 +30,13 @@ public class BarracaVista extends Vista{
 		if (miBarraca == null){
 			miBarraca = (Barraca) barraca;
 		}
+		crearPanel();
+		
+		miPanel.setVisible(false);
+	
+	}
+
+	private void crearPanel() {
 		miPanel = new JPanel();
 		
 		JLabel capaNombre = new JLabel("Barraca");
@@ -37,15 +44,14 @@ public class BarracaVista extends Vista{
 		
 		JLabel capaVida = new JLabel("Vida: " + miBarraca.getVida());
 		miPanel.add(capaVida);
-		
-		miPanel.setVisible(false);
-	
 	}
 	
 	public void actualizar() {
 		if (miBarraca.estaMuerto()) {
 			System.out.println("Me mori");
 			ventanaMapa.repaint();
+		} else {
+			crearPanel();
 		}
 
 	}

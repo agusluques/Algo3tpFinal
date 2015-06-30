@@ -13,7 +13,6 @@ import javax.swing.JPanel;
 import fiuba.algo3.tpfinal.programa.Coordenada;
 import fiuba.algo3.tpfinal.unidades.NaveTransporteProtoss;
 import fiuba.algo3.tpfinal.unidades.Trasladable;
-import fiuba.algo3.tpfinal.vista.ControladorAtaque;
 import fiuba.algo3.tpfinal.vista.ControladorTraslado;
 import fiuba.algo3.tpfinal.vista.HashImagenes;
 import fiuba.algo3.tpfinal.vista.Observable;
@@ -34,7 +33,13 @@ public class NaveTransporteProtossVista extends Vista {
 
 	@Override
 	public void actualizar() {
-		// TODO Auto-generated method stub
+		if (miNave.estaMuerto()) {
+			System.out.println("Me mori");
+			ventanaMapa.repaint();
+		} else {
+			crearPanel();
+			crearControladores();
+		}
 
 	}
 
@@ -44,6 +49,25 @@ public class NaveTransporteProtossVista extends Vista {
 		if (miNave == null){
 			miNave = (NaveTransporteProtoss) nave;
 		}
+		crearPanel();
+
+		crearControladores();
+		
+		miPanel.setVisible(false);
+		
+	}
+
+
+	private void crearControladores() {
+		ControladorTraslado controladorTraslado = new ControladorTraslado((Trasladable) miNave, urlTraslado);
+		controladorTraslado.setVentanaMapa(ventanaMapa);
+		JButton botonMover = new JButton("Trasladar");
+		botonMover.addActionListener(controladorTraslado);
+		miPanel.add(botonMover);
+	}
+
+
+	private void crearPanel() {
 		miPanel = new JPanel();
 		JLabel capaNombre = new JLabel("Nave De Transporte Protoss");
 		miPanel.add(capaNombre);
@@ -51,15 +75,6 @@ public class NaveTransporteProtossVista extends Vista {
 		miPanel.add(capaVida);
 		JLabel capaEscudo = new JLabel("Escudo: " + miNave.getEscudo());
 		miPanel.add(capaEscudo);
-		
-		
-		ControladorTraslado controladorTraslado = new ControladorTraslado((Trasladable) miNave, urlTraslado );
-		controladorTraslado.setVentanaMapa(ventanaMapa);
-		JButton botonMover = new JButton("Trasladar");
-		botonMover.addActionListener(controladorTraslado);
-		miPanel.add(botonMover);
-		miPanel.setVisible(false);
-		
 	}
 
 	@Override

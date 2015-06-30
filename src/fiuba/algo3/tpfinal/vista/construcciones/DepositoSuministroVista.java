@@ -30,6 +30,13 @@ public class DepositoSuministroVista extends Vista{
 		if (miDeposito == null){
 			miDeposito = (DepositoSuministro) deposito;
 		}
+		crearPanel();
+		
+		miPanel.setVisible(false);
+	
+	}
+
+	private void crearPanel() {
 		miPanel = new JPanel();
 		
 		JLabel capaNombre = new JLabel("Deposito suministro");
@@ -37,15 +44,14 @@ public class DepositoSuministroVista extends Vista{
 		
 		JLabel capaVida = new JLabel("Vida: " + miDeposito.getVida());
 		miPanel.add(capaVida);
-		
-		miPanel.setVisible(false);
-	
 	}
 	
 	public void actualizar() {
 		if (miDeposito.estaMuerto()) {
 			System.out.println("Me mori");
 			ventanaMapa.repaint();
+		} else {
+			crearPanel();
 		}
 
 	}

@@ -22,6 +22,7 @@ public abstract class Vista extends JPanel implements Observador {
 
 	@Override
 	public void imprimirMenuObservador() {
+		actualizar();
 		miVentanaDeAccion.add(miPanel);
 		miPanel.setVisible(true);
 		

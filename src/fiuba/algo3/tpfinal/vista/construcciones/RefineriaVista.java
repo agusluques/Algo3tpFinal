@@ -30,6 +30,13 @@ public class RefineriaVista extends Vista{
 		if (miRefineria == null){
 			miRefineria = (Refineria) refineria;
 		}
+		crearPanel();
+		
+		miPanel.setVisible(false);
+	
+	}
+
+	private void crearPanel() {
 		miPanel = new JPanel();
 		
 		JLabel capaNombre = new JLabel("Refineria");
@@ -37,15 +44,14 @@ public class RefineriaVista extends Vista{
 		
 		JLabel capaVida = new JLabel("Vida: " + miRefineria.getVida());
 		miPanel.add(capaVida);
-		
-		miPanel.setVisible(false);
-	
 	}
 	
 	public void actualizar() {
 		if (miRefineria.estaMuerto()) {
 			System.out.println("Me mori");
 			ventanaMapa.repaint();
+		} else {
+			crearPanel();
 		}
 
 	}

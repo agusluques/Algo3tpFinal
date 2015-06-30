@@ -36,11 +36,13 @@ public class MarineVista extends Vista {
 		if (miMarine == null){
 			miMarine = (Marine) marine;
 		}
-		crearPanel(marine);
+		crearPanel();
+		crearControladores();
+		miPanel.setVisible(false);
 	
 	}
 
-	private void crearPanel(Observable marine) {
+	private void crearPanel() {
 		miPanel = new JPanel();
 		
 		JLabel capaNombre = new JLabel("Marine");
@@ -48,20 +50,21 @@ public class MarineVista extends Vista {
 		
 		JLabel capaVida = new JLabel("Vida: " + miMarine.getVida());
 		miPanel.add(capaVida);
-		
-		ControladorAtaque controladorAtaque = new ControladorAtaque(marine, urlAtaque );
+	
+	}
+
+	private void crearControladores() {
+		ControladorAtaque controladorAtaque = new ControladorAtaque((Observable) miMarine, urlAtaque );
 		controladorAtaque.setVentanaMapa(ventanaMapa);
 		JButton botonAtacar = new JButton("Atacar");
 		botonAtacar.addActionListener(controladorAtaque);
 		miPanel.add(botonAtacar);
 		
-		ControladorTraslado controladorTraslado = new ControladorTraslado((Trasladable) marine, urlTraslado);
+		ControladorTraslado controladorTraslado = new ControladorTraslado((Trasladable) miMarine, urlTraslado);
 		controladorTraslado.setVentanaMapa(ventanaMapa);
 		JButton botonMover = new JButton("Trasladar");
 		botonMover.addActionListener(controladorTraslado);
 		miPanel.add(botonMover);
-		
-		miPanel.setVisible(false);
 	}
 	
 	public void actualizar() {
@@ -69,7 +72,8 @@ public class MarineVista extends Vista {
 			System.out.println("Me mori");
 			ventanaMapa.repaint();
 		} else {
-			crearPanel((Observable) miMarine);
+			crearPanel();
+			crearControladores();
 		}
 
 	}

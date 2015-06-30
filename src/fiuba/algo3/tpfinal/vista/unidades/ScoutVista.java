@@ -39,14 +39,14 @@ public class ScoutVista extends Vista implements Observador {
 			miScout = (Scout) scout;
 		}
 		
-		miPanel = new JPanel();
-		JLabel capaNombre = new JLabel("Scout");
-		miPanel.add(capaNombre);
-		JLabel capaVida = new JLabel("Vida: " + miScout.getVida());
-		miPanel.add(capaVida);
-		JLabel capaEscudo = new JLabel("Escudo: " + miScout.getEscudo());
-		miPanel.add(capaEscudo);
+		crearPanel();
 		
+		crearControladores();
+		miPanel.setVisible(false);
+
+	}
+
+	private void crearControladores() {
 		ControladorAtaque controladorAtaque = new ControladorAtaque(miScout, urlAtaque);
 		controladorAtaque.setVentanaMapa(ventanaMapa);
 		JButton botonAtacar = new JButton("Atacar");
@@ -58,7 +58,27 @@ public class ScoutVista extends Vista implements Observador {
 		JButton botonMover = new JButton("Trasladar");
 		botonMover.addActionListener(controladorTraslado);
 		miPanel.add(botonMover);
-		miPanel.setVisible(false);
+	}
+
+	private void crearPanel() {
+		miPanel = new JPanel();
+		JLabel capaNombre = new JLabel("Scout");
+		miPanel.add(capaNombre);
+		JLabel capaVida = new JLabel("Vida: " + miScout.getVida());
+		miPanel.add(capaVida);
+		JLabel capaEscudo = new JLabel("Escudo: " + miScout.getEscudo());
+		miPanel.add(capaEscudo);
+	}
+	
+	@Override
+	public void actualizar() {
+		if (miScout.estaMuerto()) {
+			System.out.println("Me mori");
+			ventanaMapa.repaint();
+		} else {
+			crearPanel();
+			crearControladores();
+		}
 
 	}
 

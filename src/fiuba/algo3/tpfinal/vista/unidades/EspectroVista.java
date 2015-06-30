@@ -37,6 +37,30 @@ public class EspectroVista extends Vista {
 		if (miEspectro == null){
 			miEspectro = (Espectro) espectro;
 		}
+		
+		crearPanel();
+		
+		crearControladores();
+		
+		miPanel.setVisible(false);
+	
+	}
+
+	private void crearControladores() {
+		ControladorAtaque controladorAtaque = new ControladorAtaque((Observable) miEspectro, urlAtaque);
+		controladorAtaque.setVentanaMapa(ventanaMapa);
+		JButton botonAtacar = new JButton("Atacar");
+		botonAtacar.addActionListener(controladorAtaque);
+		miPanel.add(botonAtacar);
+		
+		ControladorTraslado controladorTraslado = new ControladorTraslado((Trasladable) miEspectro, urlTraslado );
+		controladorTraslado.setVentanaMapa(ventanaMapa);
+		JButton botonMover = new JButton("Trasladar");
+		botonMover.addActionListener(controladorTraslado);
+		miPanel.add(botonMover);
+	}
+
+	private void crearPanel() {
 		miPanel = new JPanel();
 		
 		JLabel capaNombre = new JLabel("Espectro");
@@ -44,27 +68,15 @@ public class EspectroVista extends Vista {
 		
 		JLabel capaVida = new JLabel("Vida: " + miEspectro.getVida());
 		miPanel.add(capaVida);
-		
-		ControladorAtaque controladorAtaque = new ControladorAtaque(espectro, urlAtaque);
-		controladorAtaque.setVentanaMapa(ventanaMapa);
-		JButton botonAtacar = new JButton("Atacar");
-		botonAtacar.addActionListener(controladorAtaque);
-		miPanel.add(botonAtacar);
-		
-		ControladorTraslado controladorTraslado = new ControladorTraslado((Trasladable) espectro, urlTraslado );
-		controladorTraslado.setVentanaMapa(ventanaMapa);
-		JButton botonMover = new JButton("Trasladar");
-		botonMover.addActionListener(controladorTraslado);
-		miPanel.add(botonMover);
-		
-		miPanel.setVisible(false);
-	
 	}
 	
 	public void actualizar() {
 		if (miEspectro.estaMuerto()) {
 			System.out.println("Me mori");
 			ventanaMapa.repaint();
+		} else {
+			crearPanel();
+			crearControladores();
 		}
 
 	}

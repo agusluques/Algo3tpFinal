@@ -30,7 +30,7 @@ public class AccesoVista extends Vista {
 			miAcceso = (Acceso) acceso;
 		}
 		crearPanel();
-	
+		miPanel.setVisible(false);
 	}
 
 	private void crearPanel() {
@@ -44,8 +44,6 @@ public class AccesoVista extends Vista {
 		
 		JLabel capaEscudo = new JLabel("Escudo: " + miAcceso.getEscudo());
 		miPanel.add(capaEscudo);
-		
-		miPanel.setVisible(false);
 	}
 	
 	public void actualizar() {
