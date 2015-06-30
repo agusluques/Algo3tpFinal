@@ -62,7 +62,9 @@ public class NexoMineralVista extends Vista{
 	public void paint(Graphics g) {
 
 		g.drawImage(fondo, 0, 0, 40, 40, null);
-		g.drawImage(img, 0, 0, 40, 40, null);
+		if (!miNexo.estaMuerto()){
+			g.drawImage(img, 0, 0, 40, 40, null);
+		}
 
 	}
 
