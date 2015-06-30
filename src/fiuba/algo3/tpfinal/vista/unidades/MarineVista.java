@@ -37,7 +37,6 @@ public class MarineVista extends Vista {
 			miMarine = (Marine) marine;
 		}
 		crearPanel();
-		crearControladores();
 		miPanel.setVisible(false);
 	
 	}
@@ -50,6 +49,10 @@ public class MarineVista extends Vista {
 		
 		JLabel capaVida = new JLabel("Vida: " + miMarine.getVida());
 		miPanel.add(capaVida);
+		
+		if(miJuego.jugadorActual.equals(miMarine.getJugador())){
+			crearControladores();
+		}
 	
 	}
 
@@ -73,7 +76,6 @@ public class MarineVista extends Vista {
 			ventanaMapa.repaint();
 		} else {
 			crearPanel();
-			crearControladores();
 		}
 
 	}

@@ -39,7 +39,6 @@ public class NaveTransporteTerranVista extends Vista implements Observador {
 		}
 		crearPanel();
 
-		crearControladores();
 		miPanel.setVisible(false);
 
 	}
@@ -51,7 +50,6 @@ public class NaveTransporteTerranVista extends Vista implements Observador {
 			ventanaMapa.repaint();
 		} else {
 			crearPanel();
-			crearControladores();
 		}
 
 	}
@@ -70,6 +68,10 @@ public class NaveTransporteTerranVista extends Vista implements Observador {
 		miPanel.add(capaNombre);
 		JLabel capaVida = new JLabel("Vida: " + miNave.getVida());
 		miPanel.add(capaVida);
+		
+		if(miJuego.jugadorActual.equals(miNave.getJugador())){
+			crearControladores();
+		}
 	}
 
 	public void paint(Graphics g) {

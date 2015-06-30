@@ -37,7 +37,6 @@ public class NaveCienciaVista extends Vista {
 			ventanaMapa.repaint();
 		} else {
 			crearPanel();
-			crearControladores();
 		}
 
 	}
@@ -50,7 +49,6 @@ public class NaveCienciaVista extends Vista {
 		}
 		crearPanel();
 		
-		crearControladores();
 		miPanel.setVisible(false);
 		
 	}
@@ -73,6 +71,10 @@ public class NaveCienciaVista extends Vista {
 		miPanel.add(capaVida);
 		JLabel capaEnergia = new JLabel("Energia: " + miNave.getEnergia());
 		miPanel.add(capaEnergia);
+		
+		if(miJuego.jugadorActual.equals(miNave.getJugador())){
+			crearControladores();
+		}
 	}
 
 	

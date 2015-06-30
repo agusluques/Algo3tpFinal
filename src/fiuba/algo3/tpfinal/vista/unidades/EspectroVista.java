@@ -39,9 +39,7 @@ public class EspectroVista extends Vista {
 		}
 		
 		crearPanel();
-		
-		crearControladores();
-		
+				
 		miPanel.setVisible(false);
 	
 	}
@@ -68,6 +66,10 @@ public class EspectroVista extends Vista {
 		
 		JLabel capaVida = new JLabel("Vida: " + miEspectro.getVida());
 		miPanel.add(capaVida);
+		
+		if(miJuego.jugadorActual.equals(miEspectro.getJugador())){
+			crearControladores();
+		}
 	}
 	
 	public void actualizar() {
@@ -76,7 +78,6 @@ public class EspectroVista extends Vista {
 			ventanaMapa.repaint();
 		} else {
 			crearPanel();
-			crearControladores();
 		}
 
 	}

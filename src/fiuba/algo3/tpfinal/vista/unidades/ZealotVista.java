@@ -37,7 +37,6 @@ public class ZealotVista extends Vista implements Observador {
 			ventanaMapa.repaint();
 		} else {
 			crearPanel();
-			crearControladores();
 		}
 
 	}
@@ -51,7 +50,7 @@ public class ZealotVista extends Vista implements Observador {
 		}
 		
 		crearPanel();
-		crearControladores();
+		
 		miPanel.setVisible(false);
 		
 	}
@@ -67,6 +66,10 @@ public class ZealotVista extends Vista implements Observador {
 		
 		JLabel capaEscudo = new JLabel("Escudo: " + miZealot.getEscudo());
 		miPanel.add(capaEscudo);
+		
+		if(miJuego.jugadorActual.equals(miZealot.getJugador())){
+			crearControladores();
+		}
 		
 	}
 

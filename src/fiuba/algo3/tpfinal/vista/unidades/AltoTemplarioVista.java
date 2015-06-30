@@ -37,9 +37,7 @@ public class AltoTemplarioVista extends Vista {
 		}
 		
 		crearPanel();
-				
-		crearControladores();
-		
+						
 		miPanel.setVisible(false);
 	
 	}
@@ -66,6 +64,10 @@ public class AltoTemplarioVista extends Vista {
 		
 		JLabel capaEnergia = new JLabel("Energia: " + miAltoTemplario.getEnergia());
 		miPanel.add(capaEnergia);
+		
+		if(miJuego.jugadorActual.equals(miAltoTemplario.getJugador())){
+			crearControladores();
+		}
 	}
 	
 	public void actualizar() {
@@ -74,7 +76,6 @@ public class AltoTemplarioVista extends Vista {
 			ventanaMapa.repaint();
 		} else {
 			crearPanel();
-			crearControladores();
 		}
 
 	}

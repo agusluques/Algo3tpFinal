@@ -53,6 +53,7 @@ public class JuegoVista {
 	
 		MapaVista panelMapa = new MapaVista(miJuego.getMapa());
 		((Observable) miJuego.getMapa()).agregarObservador((Observador) panelMapa);
+		panelMapa.setJuego(juego);
 		panelConCapas.add(panelMapa);
 		
 		JScrollPane panelMapaConScroll = new JScrollPane(panelConCapas);

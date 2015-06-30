@@ -38,7 +38,6 @@ public class NaveTransporteProtossVista extends Vista {
 			ventanaMapa.repaint();
 		} else {
 			crearPanel();
-			crearControladores();
 		}
 
 	}
@@ -51,7 +50,6 @@ public class NaveTransporteProtossVista extends Vista {
 		}
 		crearPanel();
 
-		crearControladores();
 		
 		miPanel.setVisible(false);
 		
@@ -75,6 +73,10 @@ public class NaveTransporteProtossVista extends Vista {
 		miPanel.add(capaVida);
 		JLabel capaEscudo = new JLabel("Escudo: " + miNave.getEscudo());
 		miPanel.add(capaEscudo);
+		
+		if(miJuego.jugadorActual.equals(miNave.getJugador())){
+			crearControladores();
+		}
 	}
 
 	@Override

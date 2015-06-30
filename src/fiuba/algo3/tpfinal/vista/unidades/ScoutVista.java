@@ -41,7 +41,6 @@ public class ScoutVista extends Vista implements Observador {
 		
 		crearPanel();
 		
-		crearControladores();
 		miPanel.setVisible(false);
 
 	}
@@ -68,6 +67,10 @@ public class ScoutVista extends Vista implements Observador {
 		miPanel.add(capaVida);
 		JLabel capaEscudo = new JLabel("Escudo: " + miScout.getEscudo());
 		miPanel.add(capaEscudo);
+		
+		if(miJuego.jugadorActual.equals(miScout.getJugador())){
+			crearControladores();
+		}
 	}
 	
 	@Override
@@ -77,7 +80,6 @@ public class ScoutVista extends Vista implements Observador {
 			ventanaMapa.repaint();
 		} else {
 			crearPanel();
-			crearControladores();
 		}
 
 	}

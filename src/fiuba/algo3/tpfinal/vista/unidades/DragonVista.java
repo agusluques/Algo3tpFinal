@@ -37,9 +37,7 @@ public class DragonVista extends Vista{
 			miDragon = (Dragon) dragon;
 		}
 		crearPanel();
-		
-		crearControladores();
-		
+				
 		miPanel.setVisible(false);
 	
 	}
@@ -69,6 +67,10 @@ public class DragonVista extends Vista{
 		
 		JLabel capaEscudo = new JLabel("Escudo: " + miDragon.getEscudo());
 		miPanel.add(capaEscudo);
+		
+		if(miJuego.jugadorActual.equals(miDragon.getJugador())){
+			crearControladores();
+		}
 	}
 	
 	public void actualizar() {
@@ -77,7 +79,6 @@ public class DragonVista extends Vista{
 			ventanaMapa.repaint();
 		} else {
 			crearPanel();
-			crearControladores();
 		}
 
 	}

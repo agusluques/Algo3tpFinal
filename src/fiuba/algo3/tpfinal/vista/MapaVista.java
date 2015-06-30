@@ -58,6 +58,7 @@ public class MapaVista extends Vista {
 					Vista vista = (Vista) claseVista.newInstance();
 					vista.setVentanaDeAccion(ventanaDeAccionDeUnidades);
 					vista.setVentanaMapa(panelConCapasParaUnidades);
+					vista.setJuego(miJuego);
 					vista.setObservable((Observable) parcelaActual
 							.getOcupante());
 					((Observable) parcelaActual.getOcupante()).agregarObservador(vista);

@@ -37,9 +37,7 @@ public class GolliatVista extends Vista{
 			miGolliat = (Golliat) golliat;
 		}
 		crearPanel();
-		
-		crearControladores();
-		
+				
 		miPanel.setVisible(false);
 	
 	}
@@ -66,6 +64,10 @@ public class GolliatVista extends Vista{
 		
 		JLabel capaVida = new JLabel("Vida: " + miGolliat.getVida());
 		miPanel.add(capaVida);
+		
+		if(miJuego.jugadorActual.equals(miGolliat.getJugador())){
+			crearControladores();
+		}
 	}
 	
 	public void actualizar() {
@@ -74,7 +76,6 @@ public class GolliatVista extends Vista{
 			ventanaMapa.repaint();
 		} else {
 			crearPanel();
-			crearControladores();
 		}
 
 	}
