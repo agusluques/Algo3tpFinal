@@ -5,10 +5,12 @@ import java.awt.Graphics;
 import java.awt.Image;
 
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import fiuba.algo3.tpfinal.construcciones.Barraca;
+import fiuba.algo3.tpfinal.vista.AccionCrearMarine;
 import fiuba.algo3.tpfinal.vista.Observable;
 import fiuba.algo3.tpfinal.vista.Vista;
 
@@ -44,6 +46,18 @@ public class BarracaVista extends Vista{
 		
 		JLabel capaVida = new JLabel("Vida: " + miBarraca.getVida());
 		miPanel.add(capaVida);
+		
+		if(miJuego.jugadorActual.equals(miBarraca.getJugador())){
+			crearControladores();
+		}
+	}
+	
+	private void crearControladores() {
+		AccionCrearMarine controladorMarine = new AccionCrearMarine(miBarraca);
+		controladorMarine.setVentanaMapa(ventanaMapa);
+		JButton botonMarine = new JButton("Construir Marine");
+		botonMarine.addActionListener(controladorMarine);
+		miPanel.add(botonMarine);
 	}
 	
 	public void actualizar() {
@@ -53,15 +67,12 @@ public class BarracaVista extends Vista{
 		} else {
 			crearPanel();
 		}
-
 	}
 
 	public void paint(Graphics g) {
-
 		g.drawImage(fondo, 0, 0, 40, 40, null);
 		if (!miBarraca.estaMuerto()){
 			g.drawImage(img, 0, 0, 40, 40, null);
 		}
-
 	}
 }

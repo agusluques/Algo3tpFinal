@@ -5,10 +5,12 @@ import java.awt.Graphics;
 import java.awt.Image;
 
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import fiuba.algo3.tpfinal.construcciones.Fabrica;
+import fiuba.algo3.tpfinal.vista.AccionCrearGolliat;
 import fiuba.algo3.tpfinal.vista.Observable;
 import fiuba.algo3.tpfinal.vista.Vista;
 
@@ -44,6 +46,18 @@ public class FabricaVista extends Vista{
 		
 		JLabel capaVida = new JLabel("Vida: " + miFabrica.getVida());
 		miPanel.add(capaVida);
+		
+		if(miJuego.jugadorActual.equals(miFabrica.getJugador())){
+			crearControladores();
+		}
+	}
+	
+	private void crearControladores() {
+		AccionCrearGolliat controladorGolliat = new AccionCrearGolliat(miFabrica);
+		controladorGolliat.setVentanaMapa(ventanaMapa);
+		JButton botonGolliat = new JButton("Construir Golliat");
+		botonGolliat.addActionListener(controladorGolliat);
+		miPanel.add(botonGolliat);
 	}
 	
 	public void actualizar() {
