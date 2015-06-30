@@ -13,9 +13,11 @@ public class ControladorAtaque implements ActionListener {
 
 	private Atacante miUnidad;
 	private JLayeredPane ventanaMapa;
+	private String urlAtaque;
 	
-	public ControladorAtaque(Observable unidad) {
+	public ControladorAtaque(Observable unidad, String url) {
 		miUnidad = (Atacante) unidad;
+		urlAtaque = url;
 	}
 
 	@Override
@@ -31,7 +33,7 @@ public class ControladorAtaque implements ActionListener {
 		
 		//Crea un AccionAtacar, que es un mouse listener, lo instanceo pasandole la capa
 		//invisible que cree, el layeredPane donde esta el mapa y el marine
-		AccionAtacar accion = new AccionAtacar(capaQueEscuchaClicks, miUnidad, ventanaMapa);
+		AccionAtacar accion = new AccionAtacar(capaQueEscuchaClicks, miUnidad, ventanaMapa, urlAtaque);
 		
 		//Agrego el mouse listener que cree a la capa invisible
 		capaQueEscuchaClicks.addMouseListener(accion);

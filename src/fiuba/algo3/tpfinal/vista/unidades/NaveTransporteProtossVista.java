@@ -51,11 +51,11 @@ public class NaveTransporteProtossVista extends Vista {
 		JLabel capaEscudo = new JLabel("Escudo: " + miNave.getEscudo());
 		miPanel.add(capaEscudo);
 		
-		ControladorAtaque controladorAtaque = new ControladorAtaque(miNave);
+		/*ControladorAtaque controladorAtaque = new ControladorAtaque(miNave);
 		controladorAtaque.setVentanaMapa(ventanaMapa);
 		JButton botonAtacar = new JButton("Atacar");
 		botonAtacar.addActionListener(controladorAtaque);
-		miPanel.add(botonAtacar);
+		miPanel.add(botonAtacar);*/
 		
 		ControladorTraslado controladorTraslado = new ControladorTraslado((Trasladable) miNave);
 		controladorTraslado.setVentanaMapa(ventanaMapa);

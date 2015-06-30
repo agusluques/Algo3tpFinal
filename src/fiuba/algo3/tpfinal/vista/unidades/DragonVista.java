@@ -11,6 +11,7 @@ import javax.swing.JPanel;
 
 import fiuba.algo3.tpfinal.unidades.Dragon;
 import fiuba.algo3.tpfinal.unidades.Trasladable;
+import fiuba.algo3.tpfinal.vista.ControladorAtaque;
 import fiuba.algo3.tpfinal.vista.ControladorTraslado;
 import fiuba.algo3.tpfinal.vista.Observable;
 import fiuba.algo3.tpfinal.vista.Vista;
@@ -21,6 +22,7 @@ public class DragonVista extends Vista{
 	private Dragon miDragon;
 	private Image img;
 	private Image fondo;
+	private String url = "ataqueDragon.wav";
 	
 	public DragonVista() {
 		setPreferredSize(new Dimension(40, 40));
@@ -43,6 +45,12 @@ public class DragonVista extends Vista{
 		
 		JLabel capaEscudo = new JLabel("Escudo: " + miDragon.getEscudo());
 		miPanel.add(capaEscudo);
+		
+		ControladorAtaque controladorAtaque = new ControladorAtaque(dragon, url );
+		controladorAtaque.setVentanaMapa(ventanaMapa);
+		JButton botonAtacar = new JButton("Atacar");
+		botonAtacar.addActionListener(controladorAtaque);
+		miPanel.add(botonAtacar);
 		
 		ControladorTraslado controladorTraslado = new ControladorTraslado((Trasladable) dragon);
 		controladorTraslado.setVentanaMapa(ventanaMapa);

@@ -25,6 +25,7 @@ public class ScoutVista extends Vista implements Observador {
 	private Scout miScout;
 	private Image img;
 	private HashImagenes imagenes = new HashImagenes();
+	private String url = "ataqueScout.wav";
 
 	public ScoutVista() {
 		setPreferredSize(new Dimension(40, 40));
@@ -45,7 +46,7 @@ public class ScoutVista extends Vista implements Observador {
 		JLabel capaEscudo = new JLabel("Escudo: " + miScout.getEscudo());
 		miPanel.add(capaEscudo);
 		
-		ControladorAtaque controladorAtaque = new ControladorAtaque(miScout);
+		ControladorAtaque controladorAtaque = new ControladorAtaque(miScout, url);
 		controladorAtaque.setVentanaMapa(ventanaMapa);
 		JButton botonAtacar = new JButton("Atacar");
 		botonAtacar.addActionListener(controladorAtaque);

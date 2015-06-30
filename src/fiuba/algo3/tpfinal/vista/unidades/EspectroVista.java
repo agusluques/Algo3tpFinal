@@ -24,6 +24,7 @@ public class EspectroVista extends Vista {
 	private Espectro miEspectro;
 	private Image img;
 	private HashImagenes imagenes = new HashImagenes();
+	private String url = "ataqueEspectro.wav";
 	
 	public EspectroVista() {
 		setPreferredSize(new Dimension(40, 40));
@@ -43,7 +44,7 @@ public class EspectroVista extends Vista {
 		JLabel capaVida = new JLabel("Vida: " + miEspectro.getVida());
 		miPanel.add(capaVida);
 		
-		ControladorAtaque controladorAtaque = new ControladorAtaque(espectro);
+		ControladorAtaque controladorAtaque = new ControladorAtaque(espectro, url);
 		controladorAtaque.setVentanaMapa(ventanaMapa);
 		JButton botonAtacar = new JButton("Atacar");
 		botonAtacar.addActionListener(controladorAtaque);

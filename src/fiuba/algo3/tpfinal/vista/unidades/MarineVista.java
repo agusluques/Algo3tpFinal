@@ -22,6 +22,7 @@ public class MarineVista extends Vista {
 	private Marine miMarine;
 	private Image img;
 	private Image fondo;
+	private String url = "ataqueMarine.wav";
 	
 	public MarineVista() {
 		setPreferredSize(new Dimension(40, 40));
@@ -42,7 +43,7 @@ public class MarineVista extends Vista {
 		JLabel capaVida = new JLabel("Vida: " + miMarine.getVida());
 		miPanel.add(capaVida);
 		
-		ControladorAtaque controladorAtaque = new ControladorAtaque(marine);
+		ControladorAtaque controladorAtaque = new ControladorAtaque(marine, url );
 		controladorAtaque.setVentanaMapa(ventanaMapa);
 		JButton botonAtacar = new JButton("Atacar");
 		botonAtacar.addActionListener(controladorAtaque);

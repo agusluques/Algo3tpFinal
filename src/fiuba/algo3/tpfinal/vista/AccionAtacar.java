@@ -10,6 +10,7 @@ import javax.swing.JPanel;
 import fiuba.algo3.tpfinal.construcciones.Atacable;
 import fiuba.algo3.tpfinal.programa.Coordenada;
 import fiuba.algo3.tpfinal.unidades.Atacante;
+import fiuba.algo3.tpfinal.vista.sonidos.SonidoAtaque;
 import fiuba.algo3.tpfinal.vista.sonidos.SonidoErrorAtaque;
 
 public class AccionAtacar implements MouseListener {
@@ -17,13 +18,15 @@ public class AccionAtacar implements MouseListener {
 	private Atacante miUnidad;
 	private JPanel capaQueEscucho;
 	private JLayeredPane ventanaMapa;
+	private String urlAtaque;
 	
 	
 	public AccionAtacar(JPanel capaQueEscuchaClicks, Atacante miUnidad,
-			JLayeredPane ventanaMapa) {
+			JLayeredPane ventanaMapa, String url) {
 		this.miUnidad = miUnidad;
 		this.capaQueEscucho = capaQueEscuchaClicks;
 		this.ventanaMapa = ventanaMapa;
+		this.urlAtaque = url;
 	}
 
 	@Override
@@ -36,6 +39,7 @@ public class AccionAtacar implements MouseListener {
 		try{
 			Atacable unidad = ((Atacable) miUnidad).getJugador().getMapa().getParcela(new Coordenada(fila,columna)).getOcupante();
 			miUnidad.atacar(unidad);
+			new SonidoAtaque(urlAtaque);
 		}catch (Exception e){
 			try {
 				new SonidoErrorAtaque();

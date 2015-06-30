@@ -22,6 +22,7 @@ public class GolliatVista extends Vista{
 	private Golliat miGolliat;
 	private Image img;
 	private Image fondo;
+	private String url = "ataqueGolliat.wav";
 	
 	public GolliatVista() {
 		setPreferredSize(new Dimension(40, 40));
@@ -42,7 +43,7 @@ public class GolliatVista extends Vista{
 		JLabel capaVida = new JLabel("Vida: " + miGolliat.getVida());
 		miPanel.add(capaVida);
 		
-		ControladorAtaque controladorAtaque = new ControladorAtaque(golliat);
+		ControladorAtaque controladorAtaque = new ControladorAtaque(golliat, url);
 		controladorAtaque.setVentanaMapa(ventanaMapa);
 		JButton botonAtacar = new JButton("Atacar");
 		botonAtacar.addActionListener(controladorAtaque);

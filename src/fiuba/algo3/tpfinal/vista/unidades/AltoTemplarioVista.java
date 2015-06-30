@@ -22,6 +22,7 @@ public class AltoTemplarioVista extends Vista {
 	private AltoTemplario miAltoTemplario;
 	private Image img;
 	private Image fondo;
+	private String url = "ataqueAltoTemplario.wav";
 	
 	public AltoTemplarioVista() {
 		setPreferredSize(new Dimension(40, 40));
@@ -48,7 +49,7 @@ public class AltoTemplarioVista extends Vista {
 		JLabel capaEnergia = new JLabel("Energia: " + miAltoTemplario.getEnergia());
 		miPanel.add(capaEnergia);
 		
-		ControladorAtaque controladorAtaque = new ControladorAtaque(altoTemplario);
+		ControladorAtaque controladorAtaque = new ControladorAtaque(altoTemplario, url);
 		controladorAtaque.setVentanaMapa(ventanaMapa);
 		JButton botonAtacar = new JButton("Atacar");
 		botonAtacar.addActionListener(controladorAtaque);
