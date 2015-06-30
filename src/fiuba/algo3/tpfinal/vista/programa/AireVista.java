@@ -15,7 +15,6 @@ import fiuba.algo3.tpfinal.vista.Vista;
 public class AireVista extends Vista {
 
 	private Image img;
-	@SuppressWarnings("unused")
 	private Aire miAire;
 
 	public AireVista() {

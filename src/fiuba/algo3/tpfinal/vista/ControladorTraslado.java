@@ -21,7 +21,7 @@ public class ControladorTraslado implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		JPanel capaQueEscuchaClicks = new JPanel();
-		capaQueEscuchaClicks.setBounds(0, 0, 1000, 1000);
+		capaQueEscuchaClicks.setBounds(0, 0, 4000, 4000);
 		capaQueEscuchaClicks.setBackground(new Color(0,0,0,0));
 		
 		AccionTrasladar accion = new AccionTrasladar(capaQueEscuchaClicks, miUnidad, ventanaMapa);

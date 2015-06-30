@@ -15,7 +15,6 @@ import fiuba.algo3.tpfinal.vista.Vista;
 public class DepositoDeGasVista extends Vista {
 
 	private Image img;
-	@SuppressWarnings("unused")
 	private DepositoDeGas miGas;
 
 	public DepositoDeGasVista() {

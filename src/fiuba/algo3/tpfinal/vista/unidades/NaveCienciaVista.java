@@ -47,6 +47,8 @@ public class NaveCienciaVista extends Vista {
 		miPanel.add(capaNombre);
 		JLabel capaVida = new JLabel("Vida: " + miNave.getVida());
 		miPanel.add(capaVida);
+		JLabel capaEnergia = new JLabel("Energia: " + miNave.getEnergia());
+		miPanel.add(capaEnergia);
 		
 		ControladorTraslado controladorTraslado = new ControladorTraslado((Trasladable) miNave);
 		controladorTraslado.setVentanaMapa(ventanaMapa);

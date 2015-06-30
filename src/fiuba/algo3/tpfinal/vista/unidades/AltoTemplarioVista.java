@@ -45,6 +45,9 @@ public class AltoTemplarioVista extends Vista {
 		JLabel capaEscudo = new JLabel("Escudo: " + miAltoTemplario.getEscudo());
 		miPanel.add(capaEscudo);
 		
+		JLabel capaEnergia = new JLabel("Energia: " + miAltoTemplario.getEnergia());
+		miPanel.add(capaEnergia);
+		
 		ControladorAtaque controladorAtaque = new ControladorAtaque(altoTemplario);
 		controladorAtaque.setVentanaMapa(ventanaMapa);
 		JButton botonAtacar = new JButton("Atacar");

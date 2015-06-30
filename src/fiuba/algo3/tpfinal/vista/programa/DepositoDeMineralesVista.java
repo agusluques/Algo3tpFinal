@@ -15,7 +15,6 @@ import fiuba.algo3.tpfinal.vista.Vista;
 public class DepositoDeMineralesVista extends Vista {
 
 	private Image img;
-	@SuppressWarnings("unused")
 	private DepositoDeMinerales miMineral;
 
 	public DepositoDeMineralesVista() {

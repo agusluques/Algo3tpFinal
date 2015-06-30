@@ -9,6 +9,8 @@ import javax.swing.JScrollPane;
 
 import fiuba.algo3.tpfinal.programa.Juego;
 import fiuba.algo3.tpfinal.vista.MapaVista;
+import fiuba.algo3.tpfinal.vista.Observable;
+import fiuba.algo3.tpfinal.vista.Observador;
 
 public class JuegoVista {
 
@@ -50,6 +52,7 @@ public class JuegoVista {
 		panelConCapas.setPreferredSize(new Dimension(4000,4000));
 	
 		MapaVista panelMapa = new MapaVista(miJuego.getMapa());
+		((Observable) miJuego.getMapa()).agregarObservador((Observador) panelMapa);
 		panelConCapas.add(panelMapa);
 		
 		JScrollPane panelMapaConScroll = new JScrollPane(panelConCapas);
