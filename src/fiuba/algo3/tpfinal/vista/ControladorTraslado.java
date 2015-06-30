@@ -13,9 +13,12 @@ public class ControladorTraslado implements ActionListener{
 	
 	private Trasladable miUnidad;
 	private JLayeredPane ventanaMapa;
+	private String urlTraslado;
+	
 
-	public ControladorTraslado(Trasladable unidad) {
+	public ControladorTraslado(Trasladable unidad,String url) {
 		miUnidad = unidad;
+		urlTraslado = url;
 	}
 
 	@Override
@@ -24,7 +27,7 @@ public class ControladorTraslado implements ActionListener{
 		capaQueEscuchaClicks.setBounds(0, 0, 4000, 4000);
 		capaQueEscuchaClicks.setBackground(new Color(0,0,0,0));
 		
-		AccionTrasladar accion = new AccionTrasladar(capaQueEscuchaClicks, miUnidad, ventanaMapa);
+		AccionTrasladar accion = new AccionTrasladar(capaQueEscuchaClicks, miUnidad, ventanaMapa, urlTraslado);
 		
 		capaQueEscuchaClicks.addMouseListener(accion);
 		capaQueEscuchaClicks.setVisible(true);

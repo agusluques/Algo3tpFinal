@@ -22,7 +22,8 @@ public class GolliatVista extends Vista{
 	private Golliat miGolliat;
 	private Image img;
 	private Image fondo;
-	private String url = "ataqueGolliat.wav";
+	private String urlAtaque = "ataqueGolliat.wav";
+	private String urlTraslado = "trasladoGolliat.wav";
 	
 	public GolliatVista() {
 		setPreferredSize(new Dimension(40, 40));
@@ -43,13 +44,13 @@ public class GolliatVista extends Vista{
 		JLabel capaVida = new JLabel("Vida: " + miGolliat.getVida());
 		miPanel.add(capaVida);
 		
-		ControladorAtaque controladorAtaque = new ControladorAtaque(golliat, url);
+		ControladorAtaque controladorAtaque = new ControladorAtaque(golliat, urlAtaque);
 		controladorAtaque.setVentanaMapa(ventanaMapa);
 		JButton botonAtacar = new JButton("Atacar");
 		botonAtacar.addActionListener(controladorAtaque);
 		miPanel.add(botonAtacar);
 		
-		ControladorTraslado controladorTraslado = new ControladorTraslado((Trasladable) golliat);
+		ControladorTraslado controladorTraslado = new ControladorTraslado((Trasladable) golliat, urlTraslado );
 		controladorTraslado.setVentanaMapa(ventanaMapa);
 		JButton botonMover = new JButton("Trasladar");
 		botonMover.addActionListener(controladorTraslado);

@@ -22,7 +22,8 @@ public class MarineVista extends Vista {
 	private Marine miMarine;
 	private Image img;
 	private Image fondo;
-	private String url = "ataqueMarine.wav";
+	private String urlAtaque = "ataqueMarine.wav";
+	private String urlTraslado = "trasladoMarine.wav";
 	
 	public MarineVista() {
 		setPreferredSize(new Dimension(40, 40));
@@ -43,13 +44,13 @@ public class MarineVista extends Vista {
 		JLabel capaVida = new JLabel("Vida: " + miMarine.getVida());
 		miPanel.add(capaVida);
 		
-		ControladorAtaque controladorAtaque = new ControladorAtaque(marine, url );
+		ControladorAtaque controladorAtaque = new ControladorAtaque(marine, urlAtaque );
 		controladorAtaque.setVentanaMapa(ventanaMapa);
 		JButton botonAtacar = new JButton("Atacar");
 		botonAtacar.addActionListener(controladorAtaque);
 		miPanel.add(botonAtacar);
 		
-		ControladorTraslado controladorTraslado = new ControladorTraslado((Trasladable) marine);
+		ControladorTraslado controladorTraslado = new ControladorTraslado((Trasladable) marine, urlTraslado);
 		controladorTraslado.setVentanaMapa(ventanaMapa);
 		JButton botonMover = new JButton("Trasladar");
 		botonMover.addActionListener(controladorTraslado);

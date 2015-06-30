@@ -24,6 +24,7 @@ public class NaveTransporteTerranVista extends Vista implements Observador {
 	private NaveTransporteTerran miNave;
 	private Image img;
 	private HashImagenes imagenes = new HashImagenes();
+	private String urlTraslado = "trasladoNaveTTerran.wav";
 
 	public NaveTransporteTerranVista() {
 		setPreferredSize(new Dimension(40, 40));
@@ -42,7 +43,7 @@ public class NaveTransporteTerranVista extends Vista implements Observador {
 		JLabel capaVida = new JLabel("Vida: " + miNave.getVida());
 		miPanel.add(capaVida);
 
-		ControladorTraslado controladorTraslado = new ControladorTraslado((Trasladable) miNave);
+		ControladorTraslado controladorTraslado = new ControladorTraslado((Trasladable) miNave, urlTraslado);
 		controladorTraslado.setVentanaMapa(ventanaMapa);
 		JButton botonMover = new JButton("Trasladar");
 		botonMover.addActionListener(controladorTraslado);

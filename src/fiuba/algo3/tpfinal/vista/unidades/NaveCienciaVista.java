@@ -24,6 +24,7 @@ public class NaveCienciaVista extends Vista {
 	private NaveCiencia miNave;
 	private Image img;
 	private HashImagenes imagenes = new HashImagenes();
+	private String urlTraslado = "trasladoNaveCiencia.wav";
 
 	public NaveCienciaVista() {
 		setPreferredSize(new Dimension(40, 40));
@@ -50,7 +51,7 @@ public class NaveCienciaVista extends Vista {
 		JLabel capaEnergia = new JLabel("Energia: " + miNave.getEnergia());
 		miPanel.add(capaEnergia);
 		
-		ControladorTraslado controladorTraslado = new ControladorTraslado((Trasladable) miNave);
+		ControladorTraslado controladorTraslado = new ControladorTraslado((Trasladable) miNave, urlTraslado );
 		controladorTraslado.setVentanaMapa(ventanaMapa);
 		JButton botonMover = new JButton("Trasladar");
 		botonMover.addActionListener(controladorTraslado);

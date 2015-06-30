@@ -22,7 +22,8 @@ public class DragonVista extends Vista{
 	private Dragon miDragon;
 	private Image img;
 	private Image fondo;
-	private String url = "ataqueDragon.wav";
+	private String urlAtaque = "ataqueDragon.wav";
+	private String urlTraslado = "trasladoDragon.wav";
 	
 	public DragonVista() {
 		setPreferredSize(new Dimension(40, 40));
@@ -46,13 +47,13 @@ public class DragonVista extends Vista{
 		JLabel capaEscudo = new JLabel("Escudo: " + miDragon.getEscudo());
 		miPanel.add(capaEscudo);
 		
-		ControladorAtaque controladorAtaque = new ControladorAtaque(dragon, url );
+		ControladorAtaque controladorAtaque = new ControladorAtaque(dragon, urlAtaque );
 		controladorAtaque.setVentanaMapa(ventanaMapa);
 		JButton botonAtacar = new JButton("Atacar");
 		botonAtacar.addActionListener(controladorAtaque);
 		miPanel.add(botonAtacar);
 		
-		ControladorTraslado controladorTraslado = new ControladorTraslado((Trasladable) dragon);
+		ControladorTraslado controladorTraslado = new ControladorTraslado((Trasladable) dragon, urlTraslado );
 		controladorTraslado.setVentanaMapa(ventanaMapa);
 		JButton botonMover = new JButton("Trasladar");
 		botonMover.addActionListener(controladorTraslado);

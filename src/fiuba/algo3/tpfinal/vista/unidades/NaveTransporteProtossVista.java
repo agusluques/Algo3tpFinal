@@ -25,6 +25,7 @@ public class NaveTransporteProtossVista extends Vista {
 	private NaveTransporteProtoss miNave;
 	private Image img;
 	private HashImagenes imagenes = new HashImagenes();
+	private String urlTraslado = "trasladoNaveTProtoss.wav";
 
 	public NaveTransporteProtossVista() {
 		setPreferredSize(new Dimension(40, 40));
@@ -57,7 +58,7 @@ public class NaveTransporteProtossVista extends Vista {
 		botonAtacar.addActionListener(controladorAtaque);
 		miPanel.add(botonAtacar);*/
 		
-		ControladorTraslado controladorTraslado = new ControladorTraslado((Trasladable) miNave);
+		ControladorTraslado controladorTraslado = new ControladorTraslado((Trasladable) miNave, urlTraslado );
 		controladorTraslado.setVentanaMapa(ventanaMapa);
 		JButton botonMover = new JButton("Trasladar");
 		botonMover.addActionListener(controladorTraslado);

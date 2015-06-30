@@ -23,7 +23,8 @@ public class ZealotVista extends Vista implements Observador {
 	private Zealot miZealot;
 	private Image img;
 	private Image fondo;
-	private String url = "ataqueZealot.wav";
+	private String urlAtaque = "ataqueZealot.wav";
+	private String urlTraslado = "trasladoZealot.wav";
 
 	public ZealotVista() {
 		setPreferredSize(new Dimension(40, 40));
@@ -57,13 +58,13 @@ public class ZealotVista extends Vista implements Observador {
 		JLabel capaEscudo = new JLabel("Escudo: " + miZealot.getEscudo());
 		miPanel.add(capaEscudo);
 		
-		ControladorAtaque controladorAtaque = new ControladorAtaque(miZealot, url);
+		ControladorAtaque controladorAtaque = new ControladorAtaque(miZealot, urlAtaque);
 		controladorAtaque.setVentanaMapa(ventanaMapa);
 		JButton botonAtacar = new JButton("Atacar");
 		botonAtacar.addActionListener(controladorAtaque);
 		miPanel.add(botonAtacar);
 		
-		ControladorTraslado controladorTraslado = new ControladorTraslado((Trasladable) miZealot);
+		ControladorTraslado controladorTraslado = new ControladorTraslado((Trasladable) miZealot, urlTraslado );
 		controladorTraslado.setVentanaMapa(ventanaMapa);
 		JButton botonMover = new JButton("Trasladar");
 		botonMover.addActionListener(controladorTraslado);

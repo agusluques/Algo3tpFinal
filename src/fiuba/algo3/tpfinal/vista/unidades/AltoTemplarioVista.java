@@ -22,7 +22,8 @@ public class AltoTemplarioVista extends Vista {
 	private AltoTemplario miAltoTemplario;
 	private Image img;
 	private Image fondo;
-	private String url = "ataqueAltoTemplario.wav";
+	private String urlAtaque = "ataqueAltoTemplario.wav";
+	private String urlTraslado = "trasladoAltoTemplario.wav";
 	
 	public AltoTemplarioVista() {
 		setPreferredSize(new Dimension(40, 40));
@@ -49,13 +50,13 @@ public class AltoTemplarioVista extends Vista {
 		JLabel capaEnergia = new JLabel("Energia: " + miAltoTemplario.getEnergia());
 		miPanel.add(capaEnergia);
 		
-		ControladorAtaque controladorAtaque = new ControladorAtaque(altoTemplario, url);
+		ControladorAtaque controladorAtaque = new ControladorAtaque(altoTemplario, urlAtaque);
 		controladorAtaque.setVentanaMapa(ventanaMapa);
 		JButton botonAtacar = new JButton("Atacar");
 		botonAtacar.addActionListener(controladorAtaque);
 		miPanel.add(botonAtacar);
 		
-		ControladorTraslado controladorTraslado = new ControladorTraslado((Trasladable) altoTemplario);
+		ControladorTraslado controladorTraslado = new ControladorTraslado((Trasladable) altoTemplario, urlTraslado);
 		controladorTraslado.setVentanaMapa(ventanaMapa);
 		JButton botonMover = new JButton("Trasladar");
 		botonMover.addActionListener(controladorTraslado);
