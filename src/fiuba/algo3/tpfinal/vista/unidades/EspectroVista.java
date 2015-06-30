@@ -4,7 +4,6 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
 
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -40,7 +39,7 @@ public class EspectroVista extends Vista {
 			miEspectro = (Espectro) espectro;
 			imagenesUnidades = new HashImagenesConColor(miEspectro.getJugador().getColor());
 		}
-		img = imagenes.get("Espectro");
+		img = imagenesUnidades.get("Espectro");
 		crearPanel();
 				
 		miPanel.setVisible(false);
@@ -89,7 +88,9 @@ public class EspectroVista extends Vista {
 		Coordenada miCoord = miEspectro.getCoordenada();
 		Class<?> sup = miEspectro.getJugador().getMapa().getParcela(miCoord).getSuperficie().getClass();
 		g.drawImage(imagenes.get(sup), 0, 0, 40, 40, null);
-		g.drawImage(img, 0, 0, 40, 40, null);
+		if (!miEspectro.estaMuerto()){
+			g.drawImage(img, 0, 0, 40, 40, null);
+		}
 
 	}
 

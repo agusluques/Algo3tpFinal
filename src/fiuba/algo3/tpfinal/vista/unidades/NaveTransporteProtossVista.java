@@ -4,7 +4,6 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
 
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
@@ -51,7 +50,7 @@ public class NaveTransporteProtossVista extends Vista {
 			miNave = (NaveTransporteProtoss) nave;
 			imagenesUnidades = new HashImagenesConColor(miNave.getJugador().getColor());
 		}
-		img = imagenes.get("NaveTransporteProtoss");
+		img = imagenesUnidades.get("NaveTransporteProtoss");
 		crearPanel();
 
 		
@@ -93,7 +92,9 @@ public class NaveTransporteProtossVista extends Vista {
 		   Class<?> sup = miNave.getJugador().getMapa().getParcela(miCoord).getSuperficie().getClass();
 			
 		   g.drawImage(imagenes.get(sup),0,0,40,40,null);
-		   g.drawImage(img,0,0,40,40, null);
+		   if (!miNave.estaMuerto()){
+			   g.drawImage(img,0,0,40,40, null);
+		   }
 
 	   }
 

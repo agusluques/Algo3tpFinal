@@ -4,7 +4,6 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
 
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -40,7 +39,7 @@ public class NaveTransporteTerranVista extends Vista implements Observador {
 			miNave = (NaveTransporteTerran) nave;
 			imagenesUnidades = new HashImagenesConColor(miNave.getJugador().getColor());
 		}
-		img = imagenes.get("NaveTransporteTerran");
+		img = imagenesUnidades.get("NaveTransporteTerran");
 		crearPanel();
 
 		miPanel.setVisible(false);
@@ -84,7 +83,9 @@ public class NaveTransporteTerranVista extends Vista implements Observador {
 				.getSuperficie().getClass();
 
 		g.drawImage(imagenes.get(sup), 0, 0, 40, 40, null);
-		g.drawImage(img, 0, 0, 40, 40, null);
+		if (!miNave.estaMuerto()){
+			g.drawImage(img, 0, 0, 40, 40, null);
+		}
 
 	}
 

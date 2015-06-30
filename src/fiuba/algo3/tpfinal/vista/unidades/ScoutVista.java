@@ -4,7 +4,6 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
 
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -41,7 +40,7 @@ public class ScoutVista extends Vista implements Observador {
 			miScout = (Scout) scout;
 			imagenesUnidades = new HashImagenesConColor(miScout.getJugador().getColor());
 		}
-		img = imagenes.get("Scout");
+		img = imagenesUnidades.get("Scout");
 		crearPanel();
 		
 		miPanel.setVisible(false);
@@ -93,7 +92,9 @@ public class ScoutVista extends Vista implements Observador {
 				.getSuperficie().getClass();
 
 		g.drawImage(imagenes.get(sup), 0, 0, 40, 40, null);
-		g.drawImage(img, 0, 0, 40, 40, null);
+		if (!miScout.estaMuerto()){
+			g.drawImage(img, 0, 0, 40, 40, null);
+		}
 
 	}
 }

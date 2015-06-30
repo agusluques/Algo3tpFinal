@@ -4,7 +4,6 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
 
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -50,7 +49,7 @@ public class NaveCienciaVista extends Vista {
 			miNave = (NaveCiencia) nave;
 			imagenesUnidades = new HashImagenesConColor(miNave.getJugador().getColor());
 		}
-		img = imagenes.get("NaveCiencia");
+		img = imagenesUnidades.get("NaveCiencia");
 		crearPanel();
 		
 		miPanel.setVisible(false);
@@ -88,7 +87,9 @@ public class NaveCienciaVista extends Vista {
 				.getSuperficie().getClass();
 
 		g.drawImage(imagenes.get(sup), 0, 0, 40, 40, null);
-		g.drawImage(img, 0, 0, 40, 40, null);
+		if (!miNave.estaMuerto()){
+			g.drawImage(img, 0, 0, 40, 40, null);
+		}
 
 	}
 
