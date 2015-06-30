@@ -39,7 +39,9 @@ public class NaveCienciaVista extends Vista {
 	@Override
 	public void setObservable(Observable nave) {
 		img = (new ImageIcon("imagenes/unidades/NaveCiencia.png")).getImage();
-		miNave = (NaveCiencia) nave;
+		if (miNave == null){
+			miNave = (NaveCiencia) nave;
+		}
 		miPanel = new JPanel();
 		JLabel capaNombre = new JLabel("Nave ciencia");
 		miPanel.add(capaNombre);

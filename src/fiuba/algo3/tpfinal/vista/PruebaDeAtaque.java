@@ -61,7 +61,7 @@ public class PruebaDeAtaque implements ActionListener {
 			panelConCapas.setPreferredSize(new Dimension(1000,1000));
 		
 			MapaVista panelMapa = new MapaVista(mapa);
-			//((Observable) mapa).agregarObservador((Observador) panelMapa);
+			((Observable) mapa).agregarObservador((Observador) panelMapa);
 			panelConCapas.add(panelMapa);
 			
 			JScrollPane panelMapaConScroll = new JScrollPane(panelConCapas);

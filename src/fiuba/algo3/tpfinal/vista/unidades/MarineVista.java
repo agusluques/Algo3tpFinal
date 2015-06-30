@@ -31,7 +31,9 @@ public class MarineVista extends Vista {
 	public void setObservable(Observable marine) {
 		img = (new ImageIcon("imagenes/marine.png")).getImage();
 		fondo = (new ImageIcon("imagenes/superficies/tierra.png")).getImage();
-		miMarine = (Marine) marine;
+		if (miMarine == null){
+			miMarine = (Marine) marine;
+		}
 		miPanel = new JPanel();
 		
 		JLabel capaNombre = new JLabel("Marine");

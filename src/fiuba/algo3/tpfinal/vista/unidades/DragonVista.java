@@ -30,7 +30,9 @@ public class DragonVista extends Vista{
 	public void setObservable(Observable dragon) {
 		img = (new ImageIcon("imagenes/unidades/dragon.png")).getImage();
 		fondo = (new ImageIcon("imagenes/superficies/tierra.png")).getImage();
-		miDragon = (Dragon) dragon;
+		if (miDragon == null){
+			miDragon = (Dragon) dragon;
+		}
 		miPanel = new JPanel();
 		
 		JLabel capaNombre = new JLabel("Dragon");

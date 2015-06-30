@@ -30,7 +30,7 @@ public class MapaVista extends Vista {
 		setAlignmentY(Component.TOP_ALIGNMENT);
 		setAlignmentX(Component.LEFT_ALIGNMENT);
 		setLayout(new GridLayout(miMapa.getAncho(), miMapa.getAlto()));
-
+	
 	}
 
 	public void imprimirMapa() throws InstantiationException,
@@ -74,8 +74,16 @@ public class MapaVista extends Vista {
 	
 	@Override
 	public void actualizar() {
-		this.repaint();
-
+		this.removeAll();
+		try {
+			this.imprimirMapa();
+		} catch (InstantiationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public void setVentanaDeAccionParaLasUnidades(JInternalFrame infoUnidades) {

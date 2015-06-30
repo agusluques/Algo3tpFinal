@@ -41,8 +41,10 @@ public class ZealotVista extends Vista implements Observador {
 	public void setObservable(Observable zealot) {
 		img = (new ImageIcon("imagenes/unidades/zealot.png")).getImage();
 		fondo = (new ImageIcon("imagenes/superficies/tierra.png")).getImage();
+		if (miZealot == null){
+			miZealot = (Zealot) zealot;
+		}
 		
-		miZealot = (Zealot) zealot;
 		miPanel = new JPanel();
 		
 		JLabel capaNombre = new JLabel("Zealot");

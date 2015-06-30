@@ -25,7 +25,9 @@ public class AireVista extends Vista {
 	
 	@Override
 	public void setObservable(Observable aire) {
-		miAire = (Aire) aire;
+		if (miAire == null){
+			miAire = (Aire) aire;
+		}
 		miPanel = new JPanel();
 		JLabel capaNombre = new JLabel("Aire");
 		miPanel.add(capaNombre);

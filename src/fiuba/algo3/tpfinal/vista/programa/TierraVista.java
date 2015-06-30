@@ -24,7 +24,9 @@ public class TierraVista extends Vista {
 	
 	@Override
 	public void setObservable(Observable tierra) {
-		miTierra = (Tierra) tierra;
+		if (miTierra == null){
+			miTierra = (Tierra) tierra;
+		}
 		miPanel = new JPanel();
 		JLabel capaNombre = new JLabel("Tierra");
 		miPanel.add(capaNombre);

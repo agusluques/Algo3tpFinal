@@ -74,6 +74,7 @@ public class Mapa extends Observable{
 		Parcela parcela2 = this.getParcela(coord2);
 
 		parcela2.ocupar(parcela1.desocupar());
+		this.notificarObservador();
 	}
 
 	public void ubicarCercaDe(Atacable unidad, Coordenada posicion) {

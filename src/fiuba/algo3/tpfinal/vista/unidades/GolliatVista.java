@@ -31,7 +31,9 @@ public class GolliatVista extends Vista{
 	public void setObservable(Observable golliat) {
 		img = (new ImageIcon("imagenes/unidades/Golliat.png")).getImage();
 		fondo = (new ImageIcon("imagenes/superficies/tierra.png")).getImage();
-		miGolliat = (Golliat) golliat;
+		if (miGolliat == null){
+			miGolliat = (Golliat) golliat;
+		}
 		miPanel = new JPanel();
 		
 		JLabel capaNombre = new JLabel("Golliat");

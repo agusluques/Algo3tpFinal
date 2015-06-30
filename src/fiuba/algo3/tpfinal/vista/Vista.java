@@ -24,6 +24,7 @@ public abstract class Vista extends JPanel implements Observador {
 	public void imprimirMenuObservador() {
 		miVentanaDeAccion.add(miPanel);
 		miPanel.setVisible(true);
+		
 	}
 
 	@Override
@@ -36,7 +37,7 @@ public abstract class Vista extends JPanel implements Observador {
 	public void ocultarMenuObservador() {
 		miPanel.setVisible(false);
 		miVentanaDeAccion.remove(miPanel);
-
+	
 	}
 
 	public void setVentanaMapa(JLayeredPane mapa) {

@@ -32,19 +32,17 @@ public class AccionClickMouse implements MouseListener {
 			Atacable unidad = miMapa.getParcela(
 					new Coordenada(fila / 40 + 1, columna / 40 + 1))
 					.getOcupante();
-
 			observado = (Observable) unidad;
 		} else {
-			Superficie superficie = miMapa.getParcela(new Coordenada(fila / 40 + 1, columna / 40 + 1)).getSuperficie();
 			
+			Superficie superficie = miMapa.getParcela(new Coordenada(fila / 40 + 1, columna / 40 + 1)).getSuperficie();
 			observado = (Observable) superficie;
 
 		}
 		if (unidadSeleccionada == null) {
 			((Observable) observado).notificarObservadorSobreSeleccion();
 
-		}
-		if (unidadSeleccionada != null) {
+		}else {
 			unidadSeleccionada.notificarObservadorSobreSeleccion();
 			((Observable) observado).notificarObservadorSobreSeleccion();
 

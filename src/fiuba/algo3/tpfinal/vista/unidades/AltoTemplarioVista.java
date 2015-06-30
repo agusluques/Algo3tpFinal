@@ -31,7 +31,9 @@ public class AltoTemplarioVista extends Vista {
 	public void setObservable(Observable altoTemplario) {
 		img = (new ImageIcon("imagenes/unidades/altoTemplario.png")).getImage();
 		fondo = (new ImageIcon("imagenes/superficies/tierra.png")).getImage();
-		miAltoTemplario = (AltoTemplario) altoTemplario;
+		if (miAltoTemplario == null){
+			miAltoTemplario = (AltoTemplario) altoTemplario;
+		}
 		miPanel = new JPanel();
 		
 		JLabel capaNombre = new JLabel("Alto templario");

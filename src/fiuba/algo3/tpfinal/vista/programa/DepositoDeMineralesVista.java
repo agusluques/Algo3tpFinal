@@ -24,7 +24,9 @@ public class DepositoDeMineralesVista extends Vista {
 	
 	@Override
 	public void setObservable(Observable mineral) {
-		miMineral = (DepositoDeMinerales) mineral;
+		if (miMineral == null){
+			miMineral = (DepositoDeMinerales) mineral;
+		}
 		miPanel = new JPanel();
 		JLabel capaNombre = new JLabel("Mineral");
 		miPanel.add(capaNombre);

@@ -32,7 +32,9 @@ public class EspectroVista extends Vista {
 	@Override
 	public void setObservable(Observable espectro) {
 		img = (new ImageIcon("imagenes/unidades/Espectro.png")).getImage();
-		miEspectro = (Espectro) espectro;
+		if (miEspectro == null){
+			miEspectro = (Espectro) espectro;
+		}
 		miPanel = new JPanel();
 		
 		JLabel capaNombre = new JLabel("Espectro");

@@ -6,7 +6,10 @@ public class Observable {
 	protected boolean seleccionado = false;
 
 	public void agregarObservador(Observador observador) {
-		this.miObservador = observador;
+		if (miObservador == null){
+			this.miObservador = observador;
+		}
+		
 	}
 
 	public void notificarObservador() {
@@ -24,14 +27,14 @@ public class Observable {
 				seleccionado = false;
 			} catch (NullPointerException e) {
 			}
-			;
 		} else {
 			try {
 				miObservador.imprimirMenuObservador();
 				seleccionado = true;
+				
 			} catch (NullPointerException e) {
 			}
-			;
+			
 		}
 
 	}

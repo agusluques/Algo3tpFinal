@@ -33,7 +33,9 @@ public class NaveTransporteTerranVista extends Vista implements Observador {
 	@Override
 	public void setObservable(Observable nave) {
 		img = (new ImageIcon("imagenes/medivac_1.png")).getImage();
-		miNave = (NaveTransporteTerran) nave;
+		if (miNave == null){
+			miNave = (NaveTransporteTerran) nave;
+		}
 		miPanel = new JPanel();
 		JLabel capaNombre = new JLabel("NaveDeTransporteTerran");
 		miPanel.add(capaNombre);

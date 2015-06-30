@@ -25,7 +25,9 @@ public class DepositoDeGasVista extends Vista {
 	
 	@Override
 	public void setObservable(Observable gas) {
-		miGas = (DepositoDeGas) gas;
+		if (miGas == null){
+			miGas = (DepositoDeGas) gas;
+		}
 		miPanel = new JPanel();
 		JLabel capaNombre = new JLabel("Gas Vespeno");
 		miPanel.add(capaNombre);

@@ -40,7 +40,9 @@ public class NaveTransporteProtossVista extends Vista {
 	@Override
 	public void setObservable(Observable nave) {
 		img = (new ImageIcon("imagenes/warp-prism.png")).getImage();
-		miNave = (NaveTransporteProtoss) nave;
+		if (miNave == null){
+			miNave = (NaveTransporteProtoss) nave;
+		}
 		miPanel = new JPanel();
 		JLabel capaNombre = new JLabel("Nave De Transporte Protoss");
 		miPanel.add(capaNombre);
