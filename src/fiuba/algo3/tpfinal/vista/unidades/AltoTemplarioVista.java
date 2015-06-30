@@ -22,7 +22,7 @@ public class AltoTemplarioVista extends Vista {
 	private AltoTemplario miAltoTemplario;
 	private Image img;
 	private Image fondo;
-	private String urlAtaque = "ataqueAltoTemplario.wav";
+	//private String urlAtaque = "ataqueAltoTemplario.wav";//TODO: para las magias
 	private String urlTraslado = "trasladoAltoTemplario.wav";
 	
 	public AltoTemplarioVista() {
@@ -50,11 +50,6 @@ public class AltoTemplarioVista extends Vista {
 		JLabel capaEnergia = new JLabel("Energia: " + miAltoTemplario.getEnergia());
 		miPanel.add(capaEnergia);
 		
-		ControladorAtaque controladorAtaque = new ControladorAtaque(altoTemplario, urlAtaque);
-		controladorAtaque.setVentanaMapa(ventanaMapa);
-		JButton botonAtacar = new JButton("Atacar");
-		botonAtacar.addActionListener(controladorAtaque);
-		miPanel.add(botonAtacar);
 		
 		ControladorTraslado controladorTraslado = new ControladorTraslado((Trasladable) altoTemplario, urlTraslado);
 		controladorTraslado.setVentanaMapa(ventanaMapa);
