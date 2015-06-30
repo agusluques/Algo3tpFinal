@@ -1,5 +1,6 @@
 package fiuba.algo3.tpfinal.construcciones;
 
+import fiuba.algo3.tpfinal.excepciones.ParcelaOcupada;
 import fiuba.algo3.tpfinal.programa.Costo;
 import fiuba.algo3.tpfinal.programa.DepositoDeGas;
 import fiuba.algo3.tpfinal.programa.Mapa;
@@ -32,7 +33,7 @@ public class Asimilador extends ConstruccionProtoss implements RecolectorDeGas {
 		return superficie.extraerRecursos();
 	}
 
-	public void pasarTurno() {
+	public void pasarTurno() throws ParcelaOcupada {
 		this.recolectar(jugador.getMapa());
 		super.pasarTurno();
 	}

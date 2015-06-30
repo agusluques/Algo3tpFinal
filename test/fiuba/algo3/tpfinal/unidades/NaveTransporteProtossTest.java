@@ -7,6 +7,7 @@ import org.junit.Test;
 import fiuba.algo3.tpfinal.excepciones.CapacidadInsuficiente;
 import fiuba.algo3.tpfinal.excepciones.MovimientoInvalido;
 import fiuba.algo3.tpfinal.excepciones.NoHayPasajerosEnLaNave;
+import fiuba.algo3.tpfinal.excepciones.ParcelaOcupada;
 import fiuba.algo3.tpfinal.programa.Aire;
 import fiuba.algo3.tpfinal.programa.Coordenada;
 import fiuba.algo3.tpfinal.programa.Danio;
@@ -55,7 +56,7 @@ public class NaveTransporteProtossTest {
 
 	@Test(expected = NoHayPasajerosEnLaNave.class)
 	public void siQuieroDescenderLosPasajerosDeUnaNaveSinPasajerosLanzaExcpecion()
-			throws NoHayPasajerosEnLaNave {
+			throws NoHayPasajerosEnLaNave, ParcelaOcupada {
 		NaveTransporteProtoss nave = new NaveTransporteProtoss();
 		nave.bajarPasajeros();
 	}

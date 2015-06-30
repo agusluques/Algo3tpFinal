@@ -9,6 +9,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import fiuba.algo3.tpfinal.excepciones.MovimientoInvalido;
+import fiuba.algo3.tpfinal.excepciones.ParcelaOcupada;
 import fiuba.algo3.tpfinal.programa.Coordenada;
 import fiuba.algo3.tpfinal.unidades.Trasladable;
 import fiuba.algo3.tpfinal.vista.sonidos.SonidoTraslado;
@@ -35,7 +36,13 @@ public class AccionTrasladar implements MouseListener {
 		int columna = (arg0.getX()/40)+1;
 		
 		try { 
-			miUnidad.trasladarA(new Coordenada(fila, columna), miUnidad.getJugador().getMapa());
+			try {
+				miUnidad.trasladarA(new Coordenada(fila, columna), miUnidad.getJugador().getMapa());
+			} catch (ParcelaOcupada e) {
+				JOptionPane.showMessageDialog(ventanaMapa, "El lugar esta ocupado",
+						"Error",
+				    	JOptionPane.ERROR_MESSAGE);
+			}
 			ventanaMapa.repaint();
 			new SonidoTraslado(urlTraslado );
 		} catch (MovimientoInvalido | MalformedURLException error) {

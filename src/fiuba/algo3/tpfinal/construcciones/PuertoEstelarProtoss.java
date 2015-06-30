@@ -6,6 +6,7 @@ import java.util.Iterator;
 import fiuba.algo3.tpfinal.excepciones.GasInsuficiente;
 import fiuba.algo3.tpfinal.excepciones.LimitePoblacionalAlcanzado;
 import fiuba.algo3.tpfinal.excepciones.MineralInsuficiente;
+import fiuba.algo3.tpfinal.excepciones.ParcelaOcupada;
 import fiuba.algo3.tpfinal.programa.Costo;
 import fiuba.algo3.tpfinal.programa.Parcela;
 import fiuba.algo3.tpfinal.programa.Tierra;
@@ -35,29 +36,23 @@ public class PuertoEstelarProtoss extends ConstruccionProtoss {
 		this.construccionesNecesarias.add(new Acceso());
 	}
 
-	public void fabricarScout() {
+	public void fabricarScout() throws MineralInsuficiente, GasInsuficiente {
 		this.fabricar(new Scout());
 	}
 
-	public void fabricarNaveDeTransporte() {
+	public void fabricarNaveDeTransporte() throws MineralInsuficiente, GasInsuficiente {
 		this.fabricar(new NaveTransporteProtoss());
 	}
 
 	// TODO: ¿Respeta esta clase el principio de única responsabilidad?
-	private void fabricar(Fabricable unidad) {
+	private void fabricar(Fabricable unidad) throws MineralInsuficiente, GasInsuficiente {
 		if (unidadesEnConstruccion.size() < 6) {
-			try {
 				jugador.getPresupuesto().gastar(unidad.getCosto());
 				unidadesEnConstruccion.add(unidad);
-			} catch (MineralInsuficiente e) {
-				throw e;
-			} catch (GasInsuficiente e) {
-				throw e;
-			}
 		}
 	}
 
-	public void pasarTurno() {
+	public void pasarTurno() throws ParcelaOcupada {
 		if (unidadesEnConstruccion.size() > 0) {
 			Iterator<Fabricable> iterador = unidadesEnConstruccion.iterator();
 			Fabricable unidadEnConstruccion = iterador.next();

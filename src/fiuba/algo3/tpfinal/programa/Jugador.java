@@ -7,6 +7,7 @@ import java.util.Iterator;
 
 import fiuba.algo3.tpfinal.construcciones.Atacable;
 import fiuba.algo3.tpfinal.construcciones.Constructible;
+import fiuba.algo3.tpfinal.excepciones.ParcelaOcupada;
 import fiuba.algo3.tpfinal.unidades.Fabricable;
 import fiuba.algo3.tpfinal.unidades.Magia;
 import fiuba.algo3.tpfinal.vista.Observable;
@@ -92,7 +93,7 @@ public abstract class Jugador extends Observable{
 		this.magias.add(magia);
 	}
 
-	public void pasarTurno() {
+	public void pasarTurno() throws ParcelaOcupada {
 		for (Atacable unidad : unidades) {
 			unidad.pasarTurno();
 		}

@@ -47,6 +47,10 @@ public class JugadorVista extends Vista {
 		crearControladores();
 	}
 	
+	@Override
+	public void actualizar() {
+		crearPanel();
+	}
 	public void setMapaVista(MapaVista mapaVista) {
 		miMapaVista = mapaVista;
 	}

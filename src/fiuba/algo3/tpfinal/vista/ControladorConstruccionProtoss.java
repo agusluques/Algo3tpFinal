@@ -7,16 +7,16 @@ import java.awt.event.ActionListener;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 
-import fiuba.algo3.tpfinal.construcciones.ConstruccionTerran;
-import fiuba.algo3.tpfinal.programa.JugadorTerran;
+import fiuba.algo3.tpfinal.construcciones.ConstruccionProtoss;
+import fiuba.algo3.tpfinal.programa.JugadorProtoss;
 
-public class ControladorConstruccionTerran implements ActionListener {
-
+public class ControladorConstruccionProtoss implements ActionListener{
+	
 	private Class<?> construccionAConstruir;
-	private JugadorTerran miJugador;
+	private JugadorProtoss miJugador;
 	private JLayeredPane ventanaMapa;
 
-	public ControladorConstruccionTerran(JugadorTerran jugador, Class<?> construccion) {
+	public ControladorConstruccionProtoss(JugadorProtoss jugador, Class<?> construccion) {
 		construccionAConstruir = construccion;
 		miJugador = jugador;
 	}
@@ -29,8 +29,8 @@ public class ControladorConstruccionTerran implements ActionListener {
 			capaQueEscuchaClicks.setBounds(0, 0, 4000, 4000);
 			capaQueEscuchaClicks.setBackground(new Color(0, 0, 0, 0));
 			
-			AccionConstruirTerran accion = new AccionConstruirTerran(capaQueEscuchaClicks, miJugador,
-					(ConstruccionTerran) construccionAConstruir.newInstance(), ventanaMapa);
+			AccionConstruirProtoss accion = new AccionConstruirProtoss(capaQueEscuchaClicks, miJugador,
+					(ConstruccionProtoss) construccionAConstruir.newInstance(), ventanaMapa);
 
 			capaQueEscuchaClicks.addMouseListener(accion);
 			capaQueEscuchaClicks.setVisible(true);

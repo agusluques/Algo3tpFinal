@@ -1,10 +1,12 @@
 package fiuba.algo3.tpfinal.programa;
 
+import fiuba.algo3.tpfinal.excepciones.ParcelaOcupada;
+
 public class Juego {
 	public Jugador jugadorUno;
 	public Jugador jugadorDos;
 	public Jugador jugadorActual;
-	public Jugador jugadorEnEspera;
+	public Jugador ganador;
 	private Mapa mapa;
 
 	public Juego(Jugador jugadorUno, Jugador jugadorDos, Mapa mapa) {
@@ -14,10 +16,9 @@ public class Juego {
 		this.jugadorDos = jugadorDos;
 		jugadorDos.inicializarEnUltimaBase();
 		this.jugadorActual = jugadorUno;
-		this.jugadorEnEspera = jugadorDos;
 	}
 
-	public void pasarTurno(Jugador jugador) {
+	public void pasarTurno(Jugador jugador) throws ParcelaOcupada {
 		Jugador otroJugador = jugadorUno;
 		if (jugador.nombre == jugadorUno.nombre) {
 			otroJugador = jugadorDos;
@@ -25,19 +26,26 @@ public class Juego {
 		jugadorActual.pasarTurno();
 		otroJugador.empezarTurno();
 		if (otroJugador.estaExtinto() || jugador.estaExtinto()) {
-			Jugador ganador = jugador;
+			ganador = jugador;
 			if (jugador.estaExtinto()) {
 				ganador = otroJugador;
 			}
 			System.out.print("GANOOOOO: ");
 			System.out.println(ganador.nombre);
 		}
-		jugadorEnEspera = jugadorActual;
 		jugadorActual = otroJugador;
 	}
 
 	public Mapa getMapa() {
 		return mapa;
+	}
+
+	public boolean hayGanador() {
+		return (jugadorUno.estaExtinto() || jugadorDos.estaExtinto());
+	}
+	
+	public Jugador getGanador() {
+		return ganador;
 	}
 
 }

@@ -1,6 +1,8 @@
 package fiuba.algo3.tpfinal.unidades;
 
 import fiuba.algo3.tpfinal.excepciones.EnergiaInsuficiente;
+import fiuba.algo3.tpfinal.excepciones.LimitePoblacionalAlcanzado;
+import fiuba.algo3.tpfinal.excepciones.ParcelaOcupada;
 import fiuba.algo3.tpfinal.programa.Coordenada;
 import fiuba.algo3.tpfinal.programa.Costo;
 import fiuba.algo3.tpfinal.programa.Danio;
@@ -27,7 +29,7 @@ public class AltoTemplario extends UnidadProtoss {
 	}
 
 	public void crearAlucinaciones(UnidadProtoss unidad)
-			throws EnergiaInsuficiente {
+			throws EnergiaInsuficiente, LimitePoblacionalAlcanzado, ParcelaOcupada {
 		if (unidad.getJugador().equals(this.jugador)) {
 			try {
 				this.miEnergia.gastarEnergia(100);
@@ -40,7 +42,7 @@ public class AltoTemplario extends UnidadProtoss {
 		}
 	}
 
-	public void pasarTurno() {
+	public void pasarTurno() throws ParcelaOcupada {
 		this.miEnergia.aumentarEnergia(15);
 		super.pasarTurno();
 	}

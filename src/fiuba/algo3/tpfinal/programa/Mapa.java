@@ -29,13 +29,9 @@ public class Mapa extends Observable{
 		return true;
 	}
 
-	public void insertarUnidad(Coordenada coord, Atacable unidad) {
-		try {
+	public void insertarUnidad(Coordenada coord, Atacable unidad) throws ParcelaOcupada {
 			(mapa.get(coord)).ocupar(unidad);
 			unidad.setCoordenada(coord);
-		} catch (ParcelaOcupada e) {
-			throw e;
-		}
 
 	}
 
@@ -69,7 +65,7 @@ public class Mapa extends Observable{
 		return altoMax;
 	}
 
-	public void moverUnidad(Coordenada coord1, Coordenada coord2) {
+	public void moverUnidad(Coordenada coord1, Coordenada coord2) throws ParcelaOcupada {
 		Parcela parcela1 = this.getParcela(coord1);
 		Parcela parcela2 = this.getParcela(coord2);
 
@@ -77,7 +73,7 @@ public class Mapa extends Observable{
 		this.notificarObservador();
 	}
 
-	public void ubicarCercaDe(Atacable unidad, Coordenada posicion) {
+	public void ubicarCercaDe(Atacable unidad, Coordenada posicion) throws ParcelaOcupada {
 		int fila = posicion.getFila();
 		int columna = posicion.getColumna();
 		int mod = 0;

@@ -6,6 +6,7 @@ import java.util.Iterator;
 import fiuba.algo3.tpfinal.excepciones.GasInsuficiente;
 import fiuba.algo3.tpfinal.excepciones.LimitePoblacionalAlcanzado;
 import fiuba.algo3.tpfinal.excepciones.MineralInsuficiente;
+import fiuba.algo3.tpfinal.excepciones.ParcelaOcupada;
 import fiuba.algo3.tpfinal.programa.Costo;
 import fiuba.algo3.tpfinal.programa.Parcela;
 import fiuba.algo3.tpfinal.programa.Tierra;
@@ -35,7 +36,7 @@ public class ArchivosTemplarios extends ConstruccionProtoss {
 		this.construccionesNecesarias.add(new Acceso());
 	}
 
-	public void fabricarAltoTemplario() {
+	public void fabricarAltoTemplario() throws MineralInsuficiente, GasInsuficiente {
 		if (this.unidadesEnConstruccion.size() < 6) {
 			try {
 				jugador.getPresupuesto().gastar(new AltoTemplario().getCosto());
@@ -48,7 +49,7 @@ public class ArchivosTemplarios extends ConstruccionProtoss {
 		}
 	}
 
-	public void pasarTurno() {
+	public void pasarTurno() throws ParcelaOcupada {
 		if (unidadesEnConstruccion.size() > 0) {
 			Iterator<Fabricable> iterador = unidadesEnConstruccion.iterator();
 			Fabricable unidadEnConstruccion = iterador.next();

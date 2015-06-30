@@ -21,7 +21,7 @@ public class ParcelaTest {
 	}
 
 	@Test
-	public void siAgregoUnaUnidadLaParcelaNoEstaVacia() {
+	public void siAgregoUnaUnidadLaParcelaNoEstaVacia() throws ParcelaOcupada {
 
 		Tierra tierra = new Tierra();
 		Parcela parcela = new Parcela(tierra);
@@ -32,7 +32,7 @@ public class ParcelaTest {
 	}
 
 	@Test
-	public void siAgregoUnaUnidadYLuegoLaPidoMeDevuelveLaMisma() {
+	public void siAgregoUnaUnidadYLuegoLaPidoMeDevuelveLaMisma() throws ParcelaOcupada {
 
 		Tierra tierra = new Tierra();
 		Parcela parcela = new Parcela(tierra);
@@ -66,7 +66,7 @@ public class ParcelaTest {
 	}
 
 	@Test
-	public void siDesocupoUnaParcelaMeDevuelteSuOcupante() {
+	public void siDesocupoUnaParcelaMeDevuelteSuOcupante() throws ParcelaOcupada {
 		Tierra tierra = new Tierra();
 		Parcela parcela = new Parcela(tierra);
 		Zealot zealot1 = new Zealot();
@@ -78,7 +78,7 @@ public class ParcelaTest {
 	}
 
 	@Test
-	public void siDesocupoUnaParcelaQuedaVacia() {
+	public void siDesocupoUnaParcelaQuedaVacia() throws ParcelaOcupada {
 		Tierra tierra = new Tierra();
 		Parcela parcela = new Parcela(tierra);
 		Zealot zealot1 = new Zealot();

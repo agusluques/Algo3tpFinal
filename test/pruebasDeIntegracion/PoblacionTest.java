@@ -8,7 +8,11 @@ import org.junit.Test;
 import fiuba.algo3.tpfinal.construcciones.DepositoSuministro;
 import fiuba.algo3.tpfinal.construcciones.Pilon;
 import fiuba.algo3.tpfinal.excepciones.ConstruccionRequeridaInexistente;
+import fiuba.algo3.tpfinal.excepciones.GasInsuficiente;
 import fiuba.algo3.tpfinal.excepciones.LimitePoblacionalAlcanzado;
+import fiuba.algo3.tpfinal.excepciones.MineralInsuficiente;
+import fiuba.algo3.tpfinal.excepciones.ParcelaOcupada;
+import fiuba.algo3.tpfinal.excepciones.TerrenoInapropiado;
 import fiuba.algo3.tpfinal.programa.Coordenada;
 import fiuba.algo3.tpfinal.programa.JugadorProtoss;
 import fiuba.algo3.tpfinal.programa.JugadorTerran;
@@ -42,7 +46,7 @@ public class PoblacionTest {
 
 	@Test
 	public void siElJugadorConstruyePilonesElLimitePoblacionalAUmentaEn5()
-			throws ConstruccionRequeridaInexistente {
+			throws ConstruccionRequeridaInexistente, MineralInsuficiente, GasInsuficiente, TerrenoInapropiado, ParcelaOcupada {
 
 		jugador.construir(new Pilon(), coordTierra);
 		for (int i = 0; i < 5; i++) {
@@ -60,7 +64,7 @@ public class PoblacionTest {
 
 	@Test
 	public void aunqueElJugadorConstruyaMuchosPilonesSuLimitePoblacionalNoPasaDe200()
-			throws ConstruccionRequeridaInexistente {
+			throws ConstruccionRequeridaInexistente, MineralInsuficiente, GasInsuficiente, TerrenoInapropiado, ParcelaOcupada {
 		jugador.getPresupuesto().agregarMineral(100000);
 		for (int x = 1; x <= 10; x++) {
 			for (int y = 1; y <= 5; y++) {
@@ -86,9 +90,8 @@ public class PoblacionTest {
 
 	@Test
 	public void siElJugadorTiene2MarinesSuPoblacionEsDos()
-			throws ConstruccionRequeridaInexistente {
+			throws ConstruccionRequeridaInexistente, LimitePoblacionalAlcanzado, ParcelaOcupada {
 		jugadorTerran.inicializarEnPrimeraBase();
-
 		jugadorTerran.agregarUnidad(new Marine(), new Coordenada(1, 1));
 		jugadorTerran.agregarUnidad(new Marine(), new Coordenada(1, 2));
 		Assert.assertTrue(jugadorTerran.contarPoblacion() == 3);
@@ -96,7 +99,7 @@ public class PoblacionTest {
 
 	@Test
 	public void siElJugadorTieneUnMarineYSeLoMatanSuPoblacionVuelveACero()
-			throws ConstruccionRequeridaInexistente {
+			throws ConstruccionRequeridaInexistente, LimitePoblacionalAlcanzado, ParcelaOcupada {
 		jugadorTerran.inicializarEnPrimeraBase();
 		Marine marine = new Marine();
 		jugadorTerran.agregarUnidad(marine, new Coordenada(1, 1));
@@ -116,7 +119,7 @@ public class PoblacionTest {
 
 	@Test
 	public void siElJugadorTieneUnDepositoYSeLoMatanSuPoblacionLimiteVuelveACinco()
-			throws ConstruccionRequeridaInexistente {
+			throws ConstruccionRequeridaInexistente, MineralInsuficiente, GasInsuficiente, TerrenoInapropiado, ParcelaOcupada {
 		DepositoSuministro deposito = new DepositoSuministro();
 		jugadorTerran.construir(deposito, coordTierra);
 		for (int i = 0; i < 6; i++) {
@@ -136,7 +139,7 @@ public class PoblacionTest {
 	}
 
 	@Test(expected = LimitePoblacionalAlcanzado.class)
-	public void siIntentoFabricarUnidadesYMePasoDelLimiteLanzaExcepcion() {
+	public void siIntentoFabricarUnidadesYMePasoDelLimiteLanzaExcepcion() throws LimitePoblacionalAlcanzado, ParcelaOcupada {
 
 		for (int i = 0; i < 6; i++) {
 			jugadorTerran.agregarUnidad(new Marine(), new Coordenada(1, i + 1));

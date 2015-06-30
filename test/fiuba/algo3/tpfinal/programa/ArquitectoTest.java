@@ -7,7 +7,11 @@ import org.junit.Test;
 import fiuba.algo3.tpfinal.construcciones.ConstruccionProtoss;
 import fiuba.algo3.tpfinal.construcciones.Pilon;
 import fiuba.algo3.tpfinal.excepciones.ConstruccionRequeridaInexistente;
+import fiuba.algo3.tpfinal.excepciones.GasInsuficiente;
+import fiuba.algo3.tpfinal.excepciones.MineralInsuficiente;
+import fiuba.algo3.tpfinal.excepciones.ParcelaOcupada;
 import fiuba.algo3.tpfinal.excepciones.ParcelaVacia;
+import fiuba.algo3.tpfinal.excepciones.TerrenoInapropiado;
 
 public class ArquitectoTest {
 
@@ -66,7 +70,7 @@ public class ArquitectoTest {
 
 	@Test(expected = ParcelaVacia.class)
 	public void siElArquitectoConstruyeUnEdificioElMismoNoApareceEnElMapaHastaEstarTerminado()
-			throws ConstruccionRequeridaInexistente {
+			throws ConstruccionRequeridaInexistente, MineralInsuficiente, GasInsuficiente, TerrenoInapropiado, ParcelaOcupada {
 		ConstruccionProtoss construccion = new Pilon();
 		Coordenada posicion = new Coordenada(3, 3);
 		jugador.construir(construccion, posicion);

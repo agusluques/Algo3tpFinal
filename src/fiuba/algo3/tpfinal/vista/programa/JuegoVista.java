@@ -60,20 +60,18 @@ public class JuegoVista {
 		panelMapa.imprimirMapa();
 		
 		jugador1Vista.setVentanaMapa(panelConCapas);
-		//jugador1Vista.setMapaVista(panelMapa);
+		jugador1Vista.setMapaVista(panelMapa);
 		jugador1Vista.setJuego(miJuego);
 		jugador1Vista.setVentanaDeAccion(infoJuego);
 		jugador1Vista.setObservable(miJuego.jugadorUno);
 		(miJuego.jugadorUno).agregarObservador(jugador1Vista);
 		
 		jugador2Vista.setVentanaMapa(panelConCapas);
-		//jugador2Vista.setMapaVista(panelMapa);
+		jugador2Vista.setMapaVista(panelMapa);
 		jugador2Vista.setJuego(miJuego);
 		jugador2Vista.setVentanaDeAccion(infoJuego);
 		jugador2Vista.setObservable(miJuego.jugadorDos);
 		(miJuego.jugadorDos).agregarObservador(jugador2Vista);
-		
-		
 		
 		miCapa.add(panelMapaConScroll);
 		

@@ -1,6 +1,7 @@
 package fiuba.algo3.tpfinal.programa;
 
 import fiuba.algo3.tpfinal.construcciones.Atacable;
+import fiuba.algo3.tpfinal.excepciones.ParcelaOcupada;
 import fiuba.algo3.tpfinal.unidades.AfectablePorEMP;
 import fiuba.algo3.tpfinal.vista.Observable;
 
@@ -41,7 +42,7 @@ public abstract class Terran extends Observable implements Atacable,
 		return (this.vida.getCantidadDeVida() == 0);
 	}
 
-	public void pasarTurno() {
+	public void pasarTurno() throws ParcelaOcupada {
 	}
 
 	public void recibirImpactoEMP() {

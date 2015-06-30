@@ -6,6 +6,7 @@ import java.util.Iterator;
 
 import fiuba.algo3.tpfinal.excepciones.CapacidadInsuficiente;
 import fiuba.algo3.tpfinal.excepciones.NoHayPasajerosEnLaNave;
+import fiuba.algo3.tpfinal.excepciones.ParcelaOcupada;
 import fiuba.algo3.tpfinal.programa.Aire;
 import fiuba.algo3.tpfinal.programa.Costo;
 import fiuba.algo3.tpfinal.programa.Danio;
@@ -45,7 +46,7 @@ public class NaveTransporteProtoss extends UnidadProtoss {
 		}
 	}
 
-	public void bajarPasajeros() throws NoHayPasajerosEnLaNave {
+	public void bajarPasajeros() throws NoHayPasajerosEnLaNave, ParcelaOcupada {
 		if (this.cantidadDePasajeros() == 0) {
 			throw new NoHayPasajerosEnLaNave();
 		}

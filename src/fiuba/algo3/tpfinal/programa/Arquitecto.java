@@ -25,29 +25,18 @@ public class Arquitecto {
 	}
 
 	public void construir(Constructible construccion, Coordenada posicion)
-			throws ConstruccionRequeridaInexistente {
+			throws ConstruccionRequeridaInexistente, MineralInsuficiente, GasInsuficiente, TerrenoInapropiado, ParcelaOcupada {
 
-		try {
-			if (construccion.puedeConstruirseEn(mapa.getParcela(posicion))) {
-				this.cobrarConstruccion(construccion);
-				this.construccionesEnConstruccion.add(construccion);
-				//this.mapa.getParcela(posicion).ocupar((Atacable) construccion);
-				((Atacable) construccion).setCoordenada(posicion);
-			}
-
-		} catch (MineralInsuficiente e) {
-			throw e;
-		} catch (GasInsuficiente e) {
-			throw e;
-		} catch (TerrenoInapropiado e) {
-			throw e;
-		} catch (ParcelaOcupada e) {
-			throw e;
+		if (construccion.puedeConstruirseEn(mapa.getParcela(posicion))) {
+			this.cobrarConstruccion(construccion);
+			this.construccionesEnConstruccion.add(construccion);
+			//this.mapa.getParcela(posicion).ocupar((Atacable) construccion);
+			((Atacable) construccion).setCoordenada(posicion);
 		}
 
 	}
 
-	private void cobrarConstruccion(Constructible construccion) {
+	private void cobrarConstruccion(Constructible construccion) throws MineralInsuficiente, GasInsuficiente {
 		try {
 			this.jugador.getPresupuesto().gastar(construccion.getCosto());
 		} catch (MineralInsuficiente e) {
@@ -57,7 +46,7 @@ public class Arquitecto {
 		}
 	}
 
-	public void pasarTurno() {
+	public void pasarTurno() throws ParcelaOcupada {
 		Iterator<Constructible> iterador = construccionesEnConstruccion
 				.iterator();
 		while (iterador.hasNext()) {

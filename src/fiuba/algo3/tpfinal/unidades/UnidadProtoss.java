@@ -2,6 +2,7 @@ package fiuba.algo3.tpfinal.unidades;
 
 import fiuba.algo3.tpfinal.construcciones.Atacable;
 import fiuba.algo3.tpfinal.excepciones.MovimientoInvalido;
+import fiuba.algo3.tpfinal.excepciones.ParcelaOcupada;
 import fiuba.algo3.tpfinal.programa.Aire;
 import fiuba.algo3.tpfinal.programa.Coordenada;
 import fiuba.algo3.tpfinal.programa.Costo;
@@ -70,7 +71,7 @@ public abstract class UnidadProtoss extends Protoss implements Fabricable,
 	}
 
 	@Override
-	public void trasladarA(Coordenada coord, Mapa mapa) {
+	public void trasladarA(Coordenada coord, Mapa mapa) throws ParcelaOcupada {
 		Parcela parcelaNueva = mapa.getParcela(coord);
 		if (parcelaNueva.estaVacia()
 				&& this.sePuedeMoverA(parcelaNueva.getSuperficie())) {

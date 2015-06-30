@@ -2,13 +2,54 @@ package fiuba.algo3.tpfinal.vista.programa;
 
 import javax.swing.JButton;
 
+import fiuba.algo3.tpfinal.construcciones.Acceso;
+import fiuba.algo3.tpfinal.construcciones.ArchivosTemplarios;
+import fiuba.algo3.tpfinal.construcciones.Asimilador;
+import fiuba.algo3.tpfinal.construcciones.NexoMineral;
+import fiuba.algo3.tpfinal.construcciones.Pilon;
+import fiuba.algo3.tpfinal.construcciones.PuertoEstelarProtoss;
+import fiuba.algo3.tpfinal.programa.JugadorProtoss;
+import fiuba.algo3.tpfinal.vista.ControladorConstruccionProtoss;
+
 @SuppressWarnings("serial")
 public class JugadorProtossVista extends JugadorVista {
 
 	protected void crearControladores() {
-		
-		JButton botonCrearNexoMineral = new JButton("Construir nexo mineral");
+		ControladorConstruccionProtoss controladorNexoMineral = new ControladorConstruccionProtoss((JugadorProtoss) miJugador, NexoMineral.class);
+		controladorNexoMineral.setVentanaMapa(ventanaMapa);
+		JButton botonCrearNexoMineral = new JButton("Construir NexoMineral");
+		botonCrearNexoMineral.addActionListener(controladorNexoMineral);
 		miPanel.add(botonCrearNexoMineral);
+		
+		ControladorConstruccionProtoss controladorPilon = new ControladorConstruccionProtoss((JugadorProtoss) miJugador, Pilon.class);
+		controladorPilon.setVentanaMapa(ventanaMapa);
+		JButton botonCrearPilon = new JButton("Construir Pilon");
+		botonCrearPilon.addActionListener(controladorPilon);
+		miPanel.add(botonCrearPilon);
+		
+		ControladorConstruccionProtoss controladorAsimilador = new ControladorConstruccionProtoss((JugadorProtoss) miJugador, Asimilador.class);
+		controladorAsimilador.setVentanaMapa(ventanaMapa);
+		JButton botonCrearAsimilador = new JButton("Construir Asimilador");
+		botonCrearAsimilador.addActionListener(controladorAsimilador);
+		miPanel.add(botonCrearAsimilador);
+		
+		ControladorConstruccionProtoss controladorAcceso = new ControladorConstruccionProtoss((JugadorProtoss) miJugador, Acceso.class);
+		controladorAcceso.setVentanaMapa(ventanaMapa);
+		JButton botonCrearAcceso = new JButton("Construir Acceso");
+		botonCrearAcceso.addActionListener(controladorAcceso);
+		miPanel.add(botonCrearAcceso);
+		
+		ControladorConstruccionProtoss controladorPuertoEstelar = new ControladorConstruccionProtoss((JugadorProtoss) miJugador, PuertoEstelarProtoss.class);
+		controladorPuertoEstelar.setVentanaMapa(ventanaMapa);
+		JButton botonCrearPuertoEstelar = new JButton("Construir PuertoEstelar");
+		botonCrearPuertoEstelar.addActionListener(controladorPuertoEstelar);
+		miPanel.add(botonCrearPuertoEstelar);
+		
+		ControladorConstruccionProtoss controladorArchivosTemplarios = new ControladorConstruccionProtoss((JugadorProtoss) miJugador, ArchivosTemplarios.class);
+		controladorArchivosTemplarios.setVentanaMapa(ventanaMapa);
+		JButton botonCrearArchivosTemplarios = new JButton("Construir ArchivosTemplarios");
+		botonCrearArchivosTemplarios.addActionListener(controladorArchivosTemplarios);
+		miPanel.add(botonCrearArchivosTemplarios);
 		
 		super.crearControladores();
 	}

@@ -1,5 +1,6 @@
 package fiuba.algo3.tpfinal.construcciones;
 
+import fiuba.algo3.tpfinal.excepciones.ParcelaOcupada;
 import fiuba.algo3.tpfinal.programa.Coordenada;
 import fiuba.algo3.tpfinal.programa.Danio;
 import fiuba.algo3.tpfinal.programa.Jugador;
@@ -19,5 +20,5 @@ public interface Atacable {
 
 	int rangoDeAtaqueCorrespondiente(RangoDeAtaque rango);
 
-	void pasarTurno();
+	void pasarTurno() throws ParcelaOcupada;
 }

@@ -22,6 +22,8 @@ import fiuba.algo3.tpfinal.construcciones.Refineria;
 import fiuba.algo3.tpfinal.excepciones.ConstruccionRequeridaInexistente;
 import fiuba.algo3.tpfinal.excepciones.GasInsuficiente;
 import fiuba.algo3.tpfinal.excepciones.MineralInsuficiente;
+import fiuba.algo3.tpfinal.excepciones.ParcelaOcupada;
+import fiuba.algo3.tpfinal.excepciones.TerrenoInapropiado;
 import fiuba.algo3.tpfinal.unidades.Marine;
 
 public class JugadorTest {
@@ -75,7 +77,7 @@ public class JugadorTest {
 	}
 
 	@Test
-	public void siElJugadorSuma20DeMineralYGasta10Tiene210() {
+	public void siElJugadorSuma20DeMineralYGasta10Tiene210() throws MineralInsuficiente, GasInsuficiente {
 		jugadorProtoss.getPresupuesto().agregarMineral(20);
 		jugadorProtoss.getPresupuesto().gastar(new Costo(10));
 		Assert.assertEquals(210, jugadorProtoss.getPresupuesto()
@@ -83,16 +85,17 @@ public class JugadorTest {
 	}
 
 	@Test
-	public void siElJugadorSuma20DeGasYGasta10Tiene10() {
+	public void siElJugadorSuma20DeGasYGasta10Tiene10() throws MineralInsuficiente, GasInsuficiente {
 		jugadorProtoss.getPresupuesto().agregarGas(20);
 		jugadorProtoss.getPresupuesto().gastar(new Costo(0, 10));
 		Assert.assertEquals(10, jugadorProtoss.getPresupuesto().cantidadDeGas());
 	}
 
 	@Test
-	public void siElJugadorGastaMasGasDelQueTieneSeLanzaExcepcion() {
+	public void siElJugadorGastaMasGasDelQueTieneSeLanzaExcepcion() throws MineralInsuficiente {
 		jugadorProtoss.getPresupuesto().agregarGas(20);
 		try {
+			
 			jugadorProtoss.getPresupuesto().gastar(new Costo(0, 30));
 			Assert.assertTrue(false);
 		} catch (GasInsuficiente e) {
@@ -102,7 +105,7 @@ public class JugadorTest {
 	}
 
 	@Test
-	public void siElJugadorGastaMasMineralDelQueTieneSeLanzaExcepcion() {
+	public void siElJugadorGastaMasMineralDelQueTieneSeLanzaExcepcion() throws GasInsuficiente {
 		jugadorProtoss.getPresupuesto().agregarMineral(20);
 		try {
 			jugadorProtoss.getPresupuesto().gastar(new Costo(300));
@@ -153,7 +156,7 @@ public class JugadorTest {
 
 	@Test
 	public void elJugadorProtossConstruyeUnNexoMineral()
-			throws ConstruccionRequeridaInexistente {
+			throws ConstruccionRequeridaInexistente, MineralInsuficiente, GasInsuficiente, TerrenoInapropiado, ParcelaOcupada {
 		ConstruccionProtoss construccion = new NexoMineral();
 		jugadorProtoss.construir(construccion, new Coordenada(1, 100));
 		for (int i = 0; i < 4; i++) {
@@ -165,7 +168,7 @@ public class JugadorTest {
 
 	@Test
 	public void elJugadorProtossConstruyeUnNexoMineralPeroNoPasanTurnosEntoncesNoLoTiene()
-			throws ConstruccionRequeridaInexistente {
+			throws ConstruccionRequeridaInexistente, MineralInsuficiente, GasInsuficiente, TerrenoInapropiado, ParcelaOcupada {
 		ConstruccionProtoss construccion = new NexoMineral();
 		jugadorProtoss.construir(construccion, new Coordenada(1, 100));
 		Assert.assertFalse(jugadorProtoss.getConstrucciones().contains(
@@ -174,7 +177,7 @@ public class JugadorTest {
 
 	@Test
 	public void elJugadorProtossConstruyeUnNexoMineralLeQuedan150DeMinerales()
-			throws ConstruccionRequeridaInexistente {
+			throws ConstruccionRequeridaInexistente, MineralInsuficiente, GasInsuficiente, TerrenoInapropiado, ParcelaOcupada {
 		ConstruccionProtoss construccion = new NexoMineral();
 		jugadorProtoss.construir(construccion, new Coordenada(1, 100));
 		for (int i = 0; i < 4; i++) {
@@ -186,7 +189,7 @@ public class JugadorTest {
 
 	@Test
 	public void elJugadorProtossConstruyeUnPilon()
-			throws ConstruccionRequeridaInexistente {
+			throws ConstruccionRequeridaInexistente, MineralInsuficiente, GasInsuficiente, TerrenoInapropiado, ParcelaOcupada {
 		ConstruccionProtoss construccion = new Pilon();
 		jugadorProtoss.construir(construccion, coordTierra);
 		for (int i = 0; i < 5; i++) {
@@ -198,7 +201,7 @@ public class JugadorTest {
 
 	@Test
 	public void elJugadorProtossConstruyeUnPilonLeQuedan100DeMinerales()
-			throws ConstruccionRequeridaInexistente {
+			throws ConstruccionRequeridaInexistente, MineralInsuficiente, GasInsuficiente, TerrenoInapropiado, ParcelaOcupada {
 		ConstruccionProtoss construccion = new Pilon();
 		jugadorProtoss.construir(construccion, coordTierra);
 		for (int i = 0; i < 5; i++) {
@@ -210,7 +213,7 @@ public class JugadorTest {
 
 	@Test
 	public void elJugadorProtossConstruyeUnAsimilador()
-			throws ConstruccionRequeridaInexistente {
+			throws ConstruccionRequeridaInexistente, MineralInsuficiente, GasInsuficiente, TerrenoInapropiado, ParcelaOcupada {
 		ConstruccionProtoss construccion = new Asimilador();
 		jugadorProtoss.construir(construccion, new Coordenada(1, 90));
 		for (int i = 0; i < 6; i++) {
@@ -222,7 +225,7 @@ public class JugadorTest {
 
 	@Test
 	public void elJugadorProtossConstruyeUnAsimiladorLeQuedan100DeMinerales()
-			throws ConstruccionRequeridaInexistente {
+			throws ConstruccionRequeridaInexistente, MineralInsuficiente, GasInsuficiente, TerrenoInapropiado, ParcelaOcupada {
 		ConstruccionProtoss construccion = new Asimilador();
 		jugadorProtoss.construir(construccion, new Coordenada(1, 90));
 		for (int i = 0; i < 6; i++) {
@@ -234,7 +237,7 @@ public class JugadorTest {
 
 	@Test
 	public void elJugadorProtossConstruyeUnAcceso()
-			throws ConstruccionRequeridaInexistente {
+			throws ConstruccionRequeridaInexistente, MineralInsuficiente, GasInsuficiente, TerrenoInapropiado, ParcelaOcupada {
 		ConstruccionProtoss construccion = new Acceso();
 		jugadorProtoss.construir(construccion, coordTierra);
 		for (int i = 0; i < 8; i++) {
@@ -246,7 +249,7 @@ public class JugadorTest {
 
 	@Test
 	public void elJugadorProtossConstruyeUnAccesoLeQuedan50DeMinerales()
-			throws ConstruccionRequeridaInexistente {
+			throws ConstruccionRequeridaInexistente, ParcelaOcupada, MineralInsuficiente, GasInsuficiente, TerrenoInapropiado {
 		ConstruccionProtoss construccion = new Acceso();
 		jugadorProtoss.construir(construccion, coordTierra);
 		for (int i = 0; i < 8; i++) {
@@ -269,7 +272,7 @@ public class JugadorTest {
 
 	@Test(expected = MineralInsuficiente.class)
 	public void siElJugadorProtossQuiereConstruirUnPuertoEstelarYNoLeAlcanzaLanzaExcepcion()
-			throws ConstruccionRequeridaInexistente {
+			throws ConstruccionRequeridaInexistente, ParcelaOcupada, MineralInsuficiente, GasInsuficiente, TerrenoInapropiado {
 		ConstruccionProtoss acceso = new Acceso();
 		jugadorProtoss.construir(acceso, coordTierra);
 		for (int i = 0; i < 8; i++) {
@@ -281,7 +284,7 @@ public class JugadorTest {
 
 	@Test(expected = GasInsuficiente.class)
 	public void siElJugadorProtossQuiereConstruirUnPuertoEstelarYNoLeAlcanzaElGasLanzaExcepcion()
-			throws ConstruccionRequeridaInexistente {
+			throws ConstruccionRequeridaInexistente, MineralInsuficiente, GasInsuficiente, TerrenoInapropiado, ParcelaOcupada {
 		jugadorProtoss.getPresupuesto().agregarMineral(1000);
 		ConstruccionProtoss acceso = new Acceso();
 		jugadorProtoss.construir(acceso, coordTierra);
@@ -294,7 +297,7 @@ public class JugadorTest {
 
 	@Test
 	public void elJugadorProtossConstruyeUnPuertoEstelar()
-			throws ConstruccionRequeridaInexistente {
+			throws ConstruccionRequeridaInexistente, MineralInsuficiente, GasInsuficiente, TerrenoInapropiado, ParcelaOcupada {
 
 		ConstruccionProtoss acceso = new Acceso();
 		ConstruccionProtoss puerto = new PuertoEstelarProtoss();
@@ -340,7 +343,7 @@ public class JugadorTest {
 
 	@Test
 	public void elJugadorProtossPuedeConstruirUnArchivoTemplarioConUnPuertoEstelar()
-			throws ConstruccionRequeridaInexistente {
+			throws ConstruccionRequeridaInexistente, MineralInsuficiente, GasInsuficiente, TerrenoInapropiado, ParcelaOcupada {
 
 		ConstruccionProtoss archivo = new ArchivosTemplarios();
 		ConstruccionProtoss acceso = new Acceso();
@@ -366,7 +369,7 @@ public class JugadorTest {
 
 	@Test
 	public void elJugadorTerranConstruyeUnCentroDeMineral()
-			throws ConstruccionRequeridaInexistente {
+			throws ConstruccionRequeridaInexistente, MineralInsuficiente, GasInsuficiente, TerrenoInapropiado, ParcelaOcupada {
 		ConstruccionTerran construccion = new CentroDeMineral();
 		jugadorTerran.construir(construccion, new Coordenada(1, 91));
 		for (int i = 0; i < 4; i++) {
@@ -378,7 +381,7 @@ public class JugadorTest {
 
 	@Test
 	public void elJugadorTerranConstruyeUnaBarraca()
-			throws ConstruccionRequeridaInexistente {
+			throws ConstruccionRequeridaInexistente, MineralInsuficiente, GasInsuficiente, TerrenoInapropiado, ParcelaOcupada {
 		ConstruccionTerran construccion = new Barraca();
 		jugadorTerran.construir(construccion, coordTierra);
 		for (int i = 0; i < 12; i++) {
@@ -390,7 +393,7 @@ public class JugadorTest {
 
 	@Test
 	public void elJugadorTerranConstruyeUnDepositoSuministro()
-			throws ConstruccionRequeridaInexistente {
+			throws ConstruccionRequeridaInexistente, MineralInsuficiente, GasInsuficiente, TerrenoInapropiado, ParcelaOcupada {
 		ConstruccionTerran construccion = new DepositoSuministro();
 		jugadorTerran.construir(construccion, coordTierra);
 		for (int i = 0; i < 6; i++) {
@@ -402,7 +405,7 @@ public class JugadorTest {
 
 	@Test
 	public void elJugadorTerranConstruyeUnaRefineria()
-			throws ConstruccionRequeridaInexistente {
+			throws ConstruccionRequeridaInexistente, MineralInsuficiente, GasInsuficiente, TerrenoInapropiado, ParcelaOcupada {
 		ConstruccionTerran construccion = new Refineria();
 		jugadorTerran.construir(construccion, new Coordenada(1, 90));
 		for (int i = 0; i < 6; i++) {
@@ -426,7 +429,7 @@ public class JugadorTest {
 
 	@Test
 	public void elJugadorTerranPuedeConstruirUnaFabricaConUnaBarraca()
-			throws ConstruccionRequeridaInexistente {
+			throws ConstruccionRequeridaInexistente, MineralInsuficiente, GasInsuficiente, TerrenoInapropiado, ParcelaOcupada {
 
 		ConstruccionTerran barraca = new Barraca();
 		ConstruccionTerran fabrica = new Fabrica();
@@ -482,7 +485,7 @@ public class JugadorTest {
 
 	@Test
 	public void elJugadorTerranPuedeConstruirUnPuertoEstelarConUnaFabrica()
-			throws ConstruccionRequeridaInexistente {
+			throws ConstruccionRequeridaInexistente, MineralInsuficiente, GasInsuficiente, TerrenoInapropiado, ParcelaOcupada {
 
 		ConstruccionTerran barraca = new Barraca();
 		ConstruccionTerran fabrica = new Fabrica();
@@ -510,7 +513,7 @@ public class JugadorTest {
 
 	@Test
 	public void siElJugadorConstruyeDepositosDeSuministrosElLimitePoblacionalAUmentaEn5()
-			throws ConstruccionRequeridaInexistente {
+			throws ConstruccionRequeridaInexistente, MineralInsuficiente, GasInsuficiente, TerrenoInapropiado, ParcelaOcupada {
 
 		jugadorTerran.construir(new DepositoSuministro(), coordTierra);
 		for (int i = 0; i < 6; i++) {
@@ -526,7 +529,7 @@ public class JugadorTest {
 
 	@Test
 	public void siElJugadorTieneUnMarineYSeLoMatanSuPoblacionVuelveACero()
-			throws ConstruccionRequeridaInexistente {
+			throws ConstruccionRequeridaInexistente, MineralInsuficiente, GasInsuficiente, TerrenoInapropiado, ParcelaOcupada {
 		jugadorTerran.inicializarEnPrimeraBase();
 		jugadorTerran.construir(new DepositoSuministro(), coordTierra);
 		for (int i = 0; i < 6; i++) {
@@ -550,7 +553,7 @@ public class JugadorTest {
 
 	@Test
 	public void siElJugadorTieneUnDepositoYSeLoMatanSuPoblacionLimiteVuelveACinco()
-			throws ConstruccionRequeridaInexistente {
+			throws ConstruccionRequeridaInexistente, MineralInsuficiente, GasInsuficiente, TerrenoInapropiado, ParcelaOcupada {
 		DepositoSuministro deposito = new DepositoSuministro();
 		jugadorTerran.construir(deposito, coordTierra);
 		for (int i = 0; i < 6; i++) {
@@ -571,7 +574,7 @@ public class JugadorTest {
 
 	@Test
 	public void siElJugadorTieneDosDepositosYLeMatanUnoSuPoblacionLimiteVuelveADiez()
-			throws ConstruccionRequeridaInexistente {
+			throws ConstruccionRequeridaInexistente, MineralInsuficiente, GasInsuficiente, TerrenoInapropiado, ParcelaOcupada {
 		DepositoSuministro deposito = new DepositoSuministro();
 		DepositoSuministro otroDeposito = new DepositoSuministro();
 		Coordenada otraCoordenada = new Coordenada(1, 2);

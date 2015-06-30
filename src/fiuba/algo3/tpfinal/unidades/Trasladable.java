@@ -1,5 +1,6 @@
 package fiuba.algo3.tpfinal.unidades;
 
+import fiuba.algo3.tpfinal.excepciones.ParcelaOcupada;
 import fiuba.algo3.tpfinal.programa.Aire;
 import fiuba.algo3.tpfinal.programa.Coordenada;
 import fiuba.algo3.tpfinal.programa.DepositoDeGas;
@@ -11,7 +12,7 @@ import fiuba.algo3.tpfinal.programa.Tierra;
 
 public interface Trasladable {
 
-	void trasladarA(Coordenada coord, Mapa mapa);
+	void trasladarA(Coordenada coord, Mapa mapa) throws ParcelaOcupada;
 
 	boolean sePuedeMoverA(Superficie superficie);
 

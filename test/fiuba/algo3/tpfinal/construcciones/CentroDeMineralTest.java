@@ -5,6 +5,7 @@ import junit.framework.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import fiuba.algo3.tpfinal.excepciones.ParcelaOcupada;
 import fiuba.algo3.tpfinal.programa.Coordenada;
 import fiuba.algo3.tpfinal.programa.Danio;
 import fiuba.algo3.tpfinal.programa.DepositoDeMinerales;
@@ -73,7 +74,7 @@ public class CentroDeMineralTest {
 	}
 
 	@Test
-	public void unCentroDeMineralPuedeExtraerDeUnDepositoDeMinerales() {
+	public void unCentroDeMineralPuedeExtraerDeUnDepositoDeMinerales() throws ParcelaOcupada {
 		Coordenada coord = new Coordenada(1, 91);
 		ambiente.insertarUnidad(coord, this.centroMineral);
 		Assert.assertEquals(10,
@@ -81,7 +82,7 @@ public class CentroDeMineralTest {
 	}
 
 	@Test
-	public void siUnCentroDeMineralExtraeDeUnDepositoDeMineralesLeRestan990() {
+	public void siUnCentroDeMineralExtraeDeUnDepositoDeMineralesLeRestan990() throws ParcelaOcupada {
 		Coordenada coord = new Coordenada(1, 91);
 		ambiente.insertarUnidad(coord, this.centroMineral);
 		Parcela parcela = ambiente.getParcela(coord);
