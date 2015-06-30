@@ -15,6 +15,7 @@ import fiuba.algo3.tpfinal.unidades.Trasladable;
 import fiuba.algo3.tpfinal.vista.ControladorAtaque;
 import fiuba.algo3.tpfinal.vista.ControladorTraslado;
 import fiuba.algo3.tpfinal.vista.HashImagenes;
+import fiuba.algo3.tpfinal.vista.HashImagenesConColor;
 import fiuba.algo3.tpfinal.vista.Observable;
 import fiuba.algo3.tpfinal.vista.Observador;
 import fiuba.algo3.tpfinal.vista.Vista;
@@ -27,6 +28,7 @@ public class ScoutVista extends Vista implements Observador {
 	private HashImagenes imagenes = new HashImagenes();
 	private String urlAtaque = "ataqueScout.wav";
 	private String urlTraslado = "trasladoScout.wav";
+	private HashImagenesConColor imagenesUnidades;
 
 	public ScoutVista() {
 		setPreferredSize(new Dimension(40, 40));
@@ -34,11 +36,12 @@ public class ScoutVista extends Vista implements Observador {
 
 	@Override
 	public void setObservable(Observable scout) {
-		img = (new ImageIcon("imagenes/unidades/scout.png")).getImage();
+		
 		if (miScout == null){
 			miScout = (Scout) scout;
+			imagenesUnidades = new HashImagenesConColor(miScout.getJugador().getColor());
 		}
-		
+		img = imagenes.get("Scout");
 		crearPanel();
 		
 		miPanel.setVisible(false);

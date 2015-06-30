@@ -1,5 +1,6 @@
 package fiuba.algo3.tpfinal.programa;
 
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
@@ -22,6 +23,7 @@ public abstract class Jugador extends Observable{
 	protected int limitePoblacionalInicial;
 	protected int limitePoblacionalMaximo;
 	protected Coordenada baseInicial;
+	protected Color color;
 
 	public Jugador(String nombre, Mapa mapa) {
 		this.nombre = nombre;
@@ -33,6 +35,14 @@ public abstract class Jugador extends Observable{
 		this.limitePoblacionalInicial = 5;
 		this.limitePoblacionalMaximo = 200;
 		this.arquitecto = new Arquitecto(mapa, this);
+	}
+
+	public void setColor(Color color){
+		this.color = color;
+	}
+	
+	public Color getColor(){
+		return this.color;
 	}
 
 	public String getNombre() {
@@ -166,5 +176,7 @@ public abstract class Jugador extends Observable{
 	}
 
 	protected abstract void agregarUnidadBasica();
+
+	
 
 }

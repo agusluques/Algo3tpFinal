@@ -13,6 +13,7 @@ import fiuba.algo3.tpfinal.unidades.Trasladable;
 import fiuba.algo3.tpfinal.unidades.Zealot;
 import fiuba.algo3.tpfinal.vista.ControladorAtaque;
 import fiuba.algo3.tpfinal.vista.ControladorTraslado;
+import fiuba.algo3.tpfinal.vista.HashImagenesConColor;
 import fiuba.algo3.tpfinal.vista.Observable;
 import fiuba.algo3.tpfinal.vista.Observador;
 import fiuba.algo3.tpfinal.vista.Vista;
@@ -25,9 +26,11 @@ public class ZealotVista extends Vista implements Observador {
 	private Image fondo;
 	private String urlAtaque = "ataqueZealot.wav";
 	private String urlTraslado = "trasladoZealot.wav";
+	private HashImagenesConColor imagenes;
 
 	public ZealotVista() {
 		setPreferredSize(new Dimension(40, 40));
+		fondo = (new ImageIcon("imagenes/superficies/tierra.png")).getImage();
 	}
 
 	@Override
@@ -43,11 +46,16 @@ public class ZealotVista extends Vista implements Observador {
 
 	@Override
 	public void setObservable(Observable zealot) {
-		img = (new ImageIcon("imagenes/unidades/zealot.png")).getImage();
-		fondo = (new ImageIcon("imagenes/superficies/tierra.png")).getImage();
+		
+		
+	
+		
 		if (miZealot == null){
 			miZealot = (Zealot) zealot;
+			imagenes = new HashImagenesConColor(miZealot.getJugador().getColor());
 		}
+		
+		img = imagenes.get("Zealot");
 		
 		crearPanel();
 		
@@ -88,7 +96,7 @@ public class ZealotVista extends Vista implements Observador {
 	}
 	
 	public void paint(Graphics g) {
-
+	
 		g.drawImage(fondo, 0, 0, 40, 40, null);
 		if (!miZealot.estaMuerto())
 			g.drawImage(img, 0, 0, 40, 40, null);

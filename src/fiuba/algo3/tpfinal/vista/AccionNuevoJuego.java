@@ -42,8 +42,7 @@ public class AccionNuevoJuego implements ActionListener {
 
 		// Creo las opciones de as razas y colores
 		String[] razas = { "Terran", "Protoss" };
-		String[] colores = { "Rojo", "Azul", "Amarillo", "Verde", "Naranja",
-				"Violeta" };
+		String[] colores = { "Rojo", "Azul", "Verde" };
 
 		// Creo el ingreso de nombre Jugador Uno
 		JPanel panelUno = new JPanel();

@@ -13,6 +13,7 @@ import fiuba.algo3.tpfinal.unidades.Dragon;
 import fiuba.algo3.tpfinal.unidades.Trasladable;
 import fiuba.algo3.tpfinal.vista.ControladorAtaque;
 import fiuba.algo3.tpfinal.vista.ControladorTraslado;
+import fiuba.algo3.tpfinal.vista.HashImagenesConColor;
 import fiuba.algo3.tpfinal.vista.Observable;
 import fiuba.algo3.tpfinal.vista.Vista;
 
@@ -24,18 +25,22 @@ public class DragonVista extends Vista{
 	private Image fondo;
 	private String urlAtaque = "ataqueDragon.wav";
 	private String urlTraslado = "trasladoDragon.wav";
+	private HashImagenesConColor imagenes;
 	
 	public DragonVista() {
 		setPreferredSize(new Dimension(40, 40));
+		fondo = (new ImageIcon("imagenes/superficies/tierra.png")).getImage();
 	}
 	
 	@Override
 	public void setObservable(Observable dragon) {
-		img = (new ImageIcon("imagenes/unidades/dragon.png")).getImage();
-		fondo = (new ImageIcon("imagenes/superficies/tierra.png")).getImage();
+		
+		
 		if (miDragon == null){
 			miDragon = (Dragon) dragon;
+			imagenes = new HashImagenesConColor(miDragon.getJugador().getColor());
 		}
+		img = imagenes.get("Dragon");
 		crearPanel();
 				
 		miPanel.setVisible(false);

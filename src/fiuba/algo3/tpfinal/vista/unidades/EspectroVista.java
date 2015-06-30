@@ -15,6 +15,7 @@ import fiuba.algo3.tpfinal.unidades.Trasladable;
 import fiuba.algo3.tpfinal.vista.ControladorAtaque;
 import fiuba.algo3.tpfinal.vista.ControladorTraslado;
 import fiuba.algo3.tpfinal.vista.HashImagenes;
+import fiuba.algo3.tpfinal.vista.HashImagenesConColor;
 import fiuba.algo3.tpfinal.vista.Observable;
 import fiuba.algo3.tpfinal.vista.Vista;
 
@@ -26,6 +27,7 @@ public class EspectroVista extends Vista {
 	private HashImagenes imagenes = new HashImagenes();
 	private String urlAtaque = "ataqueEspectro.wav";
 	private String urlTraslado = "trasladoEspectro.wav";
+	private HashImagenesConColor imagenesUnidades;
 	
 	public EspectroVista() {
 		setPreferredSize(new Dimension(40, 40));
@@ -33,11 +35,12 @@ public class EspectroVista extends Vista {
 
 	@Override
 	public void setObservable(Observable espectro) {
-		img = (new ImageIcon("imagenes/unidades/Espectro.png")).getImage();
+		
 		if (miEspectro == null){
 			miEspectro = (Espectro) espectro;
+			imagenesUnidades = new HashImagenesConColor(miEspectro.getJugador().getColor());
 		}
-		
+		img = imagenes.get("Espectro");
 		crearPanel();
 				
 		miPanel.setVisible(false);

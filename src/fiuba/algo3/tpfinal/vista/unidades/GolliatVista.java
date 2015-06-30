@@ -13,6 +13,7 @@ import fiuba.algo3.tpfinal.unidades.Golliat;
 import fiuba.algo3.tpfinal.unidades.Trasladable;
 import fiuba.algo3.tpfinal.vista.ControladorAtaque;
 import fiuba.algo3.tpfinal.vista.ControladorTraslado;
+import fiuba.algo3.tpfinal.vista.HashImagenesConColor;
 import fiuba.algo3.tpfinal.vista.Observable;
 import fiuba.algo3.tpfinal.vista.Vista;
 
@@ -24,18 +25,21 @@ public class GolliatVista extends Vista{
 	private Image fondo;
 	private String urlAtaque = "ataqueGolliat.wav";
 	private String urlTraslado = "trasladoGolliat.wav";
+	private HashImagenesConColor imagenes;
 	
 	public GolliatVista() {
 		setPreferredSize(new Dimension(40, 40));
+		fondo = (new ImageIcon("imagenes/superficies/tierra.png")).getImage();
 	}
 
 	@Override
 	public void setObservable(Observable golliat) {
-		img = (new ImageIcon("imagenes/unidades/Golliat.png")).getImage();
-		fondo = (new ImageIcon("imagenes/superficies/tierra.png")).getImage();
+				
 		if (miGolliat == null){
 			miGolliat = (Golliat) golliat;
+			imagenes = new HashImagenesConColor(miGolliat.getJugador().getColor());
 		}
+		img = imagenes.get("Golliat");
 		crearPanel();
 				
 		miPanel.setVisible(false);

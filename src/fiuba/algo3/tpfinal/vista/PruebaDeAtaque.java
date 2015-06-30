@@ -1,5 +1,6 @@
 package fiuba.algo3.tpfinal.vista;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -45,7 +46,9 @@ public class PruebaDeAtaque implements ActionListener {
 		try {
 			mapa = new Mapa("mapaTierra_1.txt");	
 			JugadorTerran jugador = new JugadorTerran("Luciano",mapa);
+			jugador.setColor(Color.RED);
 			JugadorProtoss jugador2 = new JugadorProtoss("Luciano2",mapa);
+			jugador2.setColor(Color.GREEN);
 	
 			Zealot zealot = new Zealot();
 			jugador2.agregarUnidad(zealot, new Coordenada(2,2));

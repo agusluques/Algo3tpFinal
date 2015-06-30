@@ -12,6 +12,7 @@ import javax.swing.JPanel;
 import fiuba.algo3.tpfinal.unidades.AltoTemplario;
 import fiuba.algo3.tpfinal.unidades.Trasladable;
 import fiuba.algo3.tpfinal.vista.ControladorTraslado;
+import fiuba.algo3.tpfinal.vista.HashImagenesConColor;
 import fiuba.algo3.tpfinal.vista.Observable;
 import fiuba.algo3.tpfinal.vista.Vista;
 
@@ -23,19 +24,22 @@ public class AltoTemplarioVista extends Vista {
 	private Image fondo;
 	//private String urlAtaque = "ataqueAltoTemplario.wav";//TODO: para las magias
 	private String urlTraslado = "trasladoAltoTemplario.wav";
+	private HashImagenesConColor imagenes;
 	
 	public AltoTemplarioVista() {
 		setPreferredSize(new Dimension(40, 40));
+		fondo = (new ImageIcon("imagenes/superficies/tierra.png")).getImage();
 	}
 	
 	@Override
 	public void setObservable(Observable altoTemplario) {
-		img = (new ImageIcon("imagenes/unidades/altoTemplario.png")).getImage();
-		fondo = (new ImageIcon("imagenes/superficies/tierra.png")).getImage();
+		
+		
 		if (miAltoTemplario == null){
 			miAltoTemplario = (AltoTemplario) altoTemplario;
+			imagenes = new HashImagenesConColor(miAltoTemplario.getJugador().getColor());
 		}
-		
+		img = imagenes.get("AltoTemplario");
 		crearPanel();
 						
 		miPanel.setVisible(false);

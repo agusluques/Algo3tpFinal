@@ -15,6 +15,7 @@ import fiuba.algo3.tpfinal.unidades.NaveTransporteProtoss;
 import fiuba.algo3.tpfinal.unidades.Trasladable;
 import fiuba.algo3.tpfinal.vista.ControladorTraslado;
 import fiuba.algo3.tpfinal.vista.HashImagenes;
+import fiuba.algo3.tpfinal.vista.HashImagenesConColor;
 import fiuba.algo3.tpfinal.vista.Observable;
 import fiuba.algo3.tpfinal.vista.Vista;
 
@@ -25,6 +26,7 @@ public class NaveTransporteProtossVista extends Vista {
 	private Image img;
 	private HashImagenes imagenes = new HashImagenes();
 	private String urlTraslado = "trasladoNaveTProtoss.wav";
+	private HashImagenesConColor imagenesUnidades;
 
 	public NaveTransporteProtossVista() {
 		setPreferredSize(new Dimension(40, 40));
@@ -44,10 +46,12 @@ public class NaveTransporteProtossVista extends Vista {
 
 	@Override
 	public void setObservable(Observable nave) {
-		img = (new ImageIcon("imagenes/warp-prism.png")).getImage();
+	
 		if (miNave == null){
 			miNave = (NaveTransporteProtoss) nave;
+			imagenesUnidades = new HashImagenesConColor(miNave.getJugador().getColor());
 		}
+		img = imagenes.get("NaveTransporteProtoss");
 		crearPanel();
 
 		

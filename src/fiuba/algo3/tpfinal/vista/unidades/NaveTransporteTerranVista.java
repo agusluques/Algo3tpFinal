@@ -14,6 +14,7 @@ import fiuba.algo3.tpfinal.unidades.NaveTransporteTerran;
 import fiuba.algo3.tpfinal.unidades.Trasladable;
 import fiuba.algo3.tpfinal.vista.ControladorTraslado;
 import fiuba.algo3.tpfinal.vista.HashImagenes;
+import fiuba.algo3.tpfinal.vista.HashImagenesConColor;
 import fiuba.algo3.tpfinal.vista.Observable;
 import fiuba.algo3.tpfinal.vista.Observador;
 import fiuba.algo3.tpfinal.vista.Vista;
@@ -25,6 +26,7 @@ public class NaveTransporteTerranVista extends Vista implements Observador {
 	private Image img;
 	private HashImagenes imagenes = new HashImagenes();
 	private String urlTraslado = "trasladoNaveTTerran.wav";
+	private HashImagenesConColor imagenesUnidades;
 
 	public NaveTransporteTerranVista() {
 		setPreferredSize(new Dimension(40, 40));
@@ -33,10 +35,12 @@ public class NaveTransporteTerranVista extends Vista implements Observador {
 
 	@Override
 	public void setObservable(Observable nave) {
-		img = (new ImageIcon("imagenes/medivac_1.png")).getImage();
+		
 		if (miNave == null){
 			miNave = (NaveTransporteTerran) nave;
+			imagenesUnidades = new HashImagenesConColor(miNave.getJugador().getColor());
 		}
+		img = imagenes.get("NaveTransporteTerran");
 		crearPanel();
 
 		miPanel.setVisible(false);

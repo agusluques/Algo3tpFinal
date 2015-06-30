@@ -14,6 +14,7 @@ import fiuba.algo3.tpfinal.unidades.NaveCiencia;
 import fiuba.algo3.tpfinal.unidades.Trasladable;
 import fiuba.algo3.tpfinal.vista.ControladorTraslado;
 import fiuba.algo3.tpfinal.vista.HashImagenes;
+import fiuba.algo3.tpfinal.vista.HashImagenesConColor;
 import fiuba.algo3.tpfinal.vista.Observable;
 import fiuba.algo3.tpfinal.vista.Vista;
 
@@ -24,6 +25,7 @@ public class NaveCienciaVista extends Vista {
 	private Image img;
 	private HashImagenes imagenes = new HashImagenes();
 	private String urlTraslado = "trasladoNaveCiencia.wav";
+	private HashImagenesConColor imagenesUnidades;
 
 	public NaveCienciaVista() {
 		setPreferredSize(new Dimension(40, 40));
@@ -43,10 +45,12 @@ public class NaveCienciaVista extends Vista {
 
 	@Override
 	public void setObservable(Observable nave) {
-		img = (new ImageIcon("imagenes/unidades/NaveCiencia.png")).getImage();
+		
 		if (miNave == null){
 			miNave = (NaveCiencia) nave;
+			imagenesUnidades = new HashImagenesConColor(miNave.getJugador().getColor());
 		}
+		img = imagenes.get("NaveCiencia");
 		crearPanel();
 		
 		miPanel.setVisible(false);
