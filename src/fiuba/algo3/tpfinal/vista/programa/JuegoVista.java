@@ -39,16 +39,8 @@ public class JuegoVista {
 		miCapa.add(infoJuego);
 	
 		JugadorVista jugador1Vista = (JugadorVista) hash.get(miJuego.jugadorUno.getClass()).newInstance();
-		jugador1Vista.setJuego(miJuego);
-		jugador1Vista.setVentanaDeAccion(infoJuego);
-		jugador1Vista.setObservable(miJuego.jugadorUno);
-		(miJuego.jugadorUno).agregarObservador(jugador1Vista);	
 		
 		JugadorVista jugador2Vista = (JugadorVista) hash.get(miJuego.jugadorDos.getClass()).newInstance();
-		jugador2Vista.setJuego(miJuego);
-		jugador2Vista.setVentanaDeAccion(infoJuego);
-		jugador2Vista.setObservable(miJuego.jugadorDos);
-		(miJuego.jugadorDos).agregarObservador(jugador2Vista);
 		
 		JLayeredPane panelConCapas = new JLayeredPane();
 		panelConCapas.setPreferredSize(new Dimension(4000,4000));
@@ -66,6 +58,22 @@ public class JuegoVista {
 		panelMapa.setPanelConCapasParaUnidades(panelConCapas);
 		panelMapa.setVentanaDeAccionParaLasUnidades(infoUnidades);
 		panelMapa.imprimirMapa();
+		
+		jugador1Vista.setVentanaMapa(panelConCapas);
+		//jugador1Vista.setMapaVista(panelMapa);
+		jugador1Vista.setJuego(miJuego);
+		jugador1Vista.setVentanaDeAccion(infoJuego);
+		jugador1Vista.setObservable(miJuego.jugadorUno);
+		(miJuego.jugadorUno).agregarObservador(jugador1Vista);
+		
+		jugador2Vista.setVentanaMapa(panelConCapas);
+		//jugador2Vista.setMapaVista(panelMapa);
+		jugador2Vista.setJuego(miJuego);
+		jugador2Vista.setVentanaDeAccion(infoJuego);
+		jugador2Vista.setObservable(miJuego.jugadorDos);
+		(miJuego.jugadorDos).agregarObservador(jugador2Vista);
+		
+		
 		
 		miCapa.add(panelMapaConScroll);
 		

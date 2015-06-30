@@ -5,13 +5,15 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import fiuba.algo3.tpfinal.programa.Jugador;
+import fiuba.algo3.tpfinal.vista.MapaVista;
 import fiuba.algo3.tpfinal.vista.Observable;
 import fiuba.algo3.tpfinal.vista.Vista;
 
 @SuppressWarnings("serial")
 public class JugadorVista extends Vista {
 	
-	private Jugador miJugador;
+	protected Jugador miJugador;
+	private MapaVista miMapaVista;
 	
 	@Override
 	public void setObservable(Observable jugador) {
@@ -24,7 +26,7 @@ public class JugadorVista extends Vista {
 
 	protected void crearControladores() {
 		JButton botonPasarTurno = new JButton("Pasar turno");
-		botonPasarTurno.addActionListener(new AccionPasarTurno(miJuego, miJugador));
+		botonPasarTurno.addActionListener(new AccionPasarTurno(miJuego, miJugador, miMapaVista));
 		miPanel.add(botonPasarTurno);
 	}
 
@@ -43,6 +45,10 @@ public class JugadorVista extends Vista {
 		miPanel.add(capaGas);
 		
 		crearControladores();
+	}
+	
+	public void setMapaVista(MapaVista mapaVista) {
+		miMapaVista = mapaVista;
 	}
 
 }

@@ -57,7 +57,7 @@ public class MarineVista extends Vista {
 	}
 
 	private void crearControladores() {
-		ControladorAtaque controladorAtaque = new ControladorAtaque((Observable) miMarine, urlAtaque );
+		ControladorAtaque controladorAtaque = new ControladorAtaque((Observable) miMarine, urlAtaque);
 		controladorAtaque.setVentanaMapa(ventanaMapa);
 		JButton botonAtacar = new JButton("Atacar");
 		botonAtacar.addActionListener(controladorAtaque);

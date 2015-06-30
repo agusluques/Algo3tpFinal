@@ -6,6 +6,7 @@ import javax.swing.JButton;
 public class JugadorProtossVista extends JugadorVista {
 
 	protected void crearControladores() {
+		
 		JButton botonCrearNexoMineral = new JButton("Construir nexo mineral");
 		miPanel.add(botonCrearNexoMineral);
 		
