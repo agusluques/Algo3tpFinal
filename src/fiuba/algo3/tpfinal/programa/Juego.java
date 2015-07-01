@@ -24,7 +24,6 @@ public class Juego {
 			otroJugador = jugadorDos;
 		}
 		jugadorActual.pasarTurno();
-		otroJugador.pasarTurno();
 		otroJugador.empezarTurno();
 		if (otroJugador.estaExtinto() || jugador.estaExtinto()) {
 			ganador = jugador;

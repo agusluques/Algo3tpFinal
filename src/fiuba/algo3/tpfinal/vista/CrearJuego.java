@@ -95,7 +95,7 @@ public class CrearJuego implements ActionListener {
 
 	private String elegirMapa() {
 		ArrayList<String> mapas = new ArrayList<String>();
-		mapas.add("mapaTierra.txt");
+		mapas.add("mapaTierra_1.txt");
 		Random generadorDePosicionAleatoria = new Random();
 		int posicionAleatoria = generadorDePosicionAleatoria.nextInt(mapas
 				.size());
