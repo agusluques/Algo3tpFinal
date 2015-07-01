@@ -13,6 +13,7 @@ import fiuba.algo3.tpfinal.programa.Coordenada;
 import fiuba.algo3.tpfinal.programa.Danio;
 import fiuba.algo3.tpfinal.programa.DepositoDeGas;
 import fiuba.algo3.tpfinal.programa.DepositoDeMinerales;
+import fiuba.algo3.tpfinal.programa.JugadorTerran;
 import fiuba.algo3.tpfinal.programa.Mapa;
 import fiuba.algo3.tpfinal.programa.Superficie;
 import fiuba.algo3.tpfinal.programa.Tierra;
@@ -79,21 +80,33 @@ public class NaveTransporteTerranTest {
 	}
 
 	@Test
-	public void unaNaveConUnMarineTieneCapacidad7() {
+	public void unaNaveConUnMarineTieneCapacidad7() throws Exception {
 		NaveTransporteTerran nave = new NaveTransporteTerran();
-		Marine marine = new Marine();
+		Mapa mapa = new Mapa("mapaTierra.txt");
+		JugadorTerran jugador = new JugadorTerran("Damian", mapa);
+		nave.setJugador(jugador);
 
+		Marine marine = new Marine();
+		mapa.insertarUnidad(new Coordenada( 1,1), marine);
+		marine.setJugador(jugador);
+		marine.setCoordenada(new Coordenada(1, 1));
 		nave.subirPasajero(marine);
 
 		Assert.assertEquals(7, nave.getCapacidad());
 	}
 
 	@Test
-	public void unaNavePuedeSubir8Marines() {
+	public void unaNavePuedeSubir8Marines() throws Exception {
 		NaveTransporteTerran nave = new NaveTransporteTerran();
-		Marine marine = new Marine();
+		Mapa mapa = new Mapa("mapaTierra.txt");
+		JugadorTerran jugador = new JugadorTerran("Damian", mapa);
+		nave.setJugador(jugador);
 
 		for (int i = 0; i < 8; i++) {
+			Marine marine = new Marine();
+			mapa.insertarUnidad(new Coordenada(i + 1, i + 1), marine);
+			marine.setJugador(jugador);
+			marine.setCoordenada(new Coordenada(i + 1, i + 1));
 			nave.subirPasajero(marine);
 		}
 
@@ -101,11 +114,17 @@ public class NaveTransporteTerranTest {
 	}
 
 	@Test(expected = CapacidadInsuficiente.class)
-	public void siUnaNaveIntentaSubir9MarinesLanzaExcepcion() {
+	public void siUnaNaveIntentaSubir9MarinesLanzaExcepcion() throws Exception {
 		NaveTransporteTerran nave = new NaveTransporteTerran();
-		Marine marine = new Marine();
+		Mapa mapa = new Mapa("mapaTierra.txt");
+		JugadorTerran jugador = new JugadorTerran("Damian", mapa);
+		nave.setJugador(jugador);
 
 		for (int i = 0; i < 9; i++) {
+			Marine marine = new Marine();
+			mapa.insertarUnidad(new Coordenada(i + 1, i + 1), marine);
+			marine.setJugador(jugador);
+			marine.setCoordenada(new Coordenada(i + 1, i + 1));
 			nave.subirPasajero(marine);
 		}
 	}
