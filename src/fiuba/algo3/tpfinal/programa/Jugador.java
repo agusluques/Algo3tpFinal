@@ -108,6 +108,7 @@ public abstract class Jugador extends Observable{
 			magiaActual.pasarTurno();
 		}
 		arquitecto.pasarTurno();
+		mapa.pasarTurno();
 	}
 
 	public void empezarTurno() {

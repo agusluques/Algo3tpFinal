@@ -32,6 +32,7 @@ public class Mapa extends Observable{
 	public void insertarUnidad(Coordenada coord, Atacable unidad) throws ParcelaOcupada {
 			(mapa.get(coord)).ocupar(unidad);
 			unidad.setCoordenada(coord);
+		
 			this.notificarObservador();
 	}
 
@@ -149,5 +150,15 @@ public class Mapa extends Observable{
 		}
 		return ultimaBase;
 
+	}
+	
+	public void pasarTurno(){
+		for (Parcela parcelaActual : mapa.values()){
+			if(!parcelaActual.estaVacia()){
+				if(parcelaActual.getOcupante().estaMuerto()){
+					parcelaActual.desocupar();
+				}
+			}
+		}
 	}
 }
