@@ -42,7 +42,7 @@ public abstract class UnidadTerran extends Terran implements Fabricable,
 
 	@Override
 	public void atacar(Atacable enemigo) {
-		if (!this.estaEnRangoDeAtaque(enemigo) || enemigo.getJugador().equals(this.getJugador())) {
+		if (!this.estaEnRangoDeAtaque(enemigo)) {
 			enemigo.atacado(new Danio(0, 0));
 		}else {enemigo.atacado(miDanio);}
 	}

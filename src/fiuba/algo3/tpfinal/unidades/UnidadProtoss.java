@@ -47,7 +47,7 @@ public abstract class UnidadProtoss extends Protoss implements Fabricable,
 	
 	@Override
 	public void atacar(Atacable enemigo) {
-		if (!this.estaEnRangoDeAtaque(enemigo) || enemigo.getJugador().equals(this.getJugador())) {
+		if (!this.estaEnRangoDeAtaque(enemigo)) {
 			enemigo.atacado(new Danio(0, 0));
 		}else {enemigo.atacado(miDanio);}
 	}
