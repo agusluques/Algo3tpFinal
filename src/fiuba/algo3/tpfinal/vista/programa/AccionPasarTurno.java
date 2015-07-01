@@ -2,6 +2,7 @@ package fiuba.algo3.tpfinal.vista.programa;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.net.MalformedURLException;
 
 import javax.swing.JOptionPane;
 
@@ -9,6 +10,7 @@ import fiuba.algo3.tpfinal.excepciones.ParcelaOcupada;
 import fiuba.algo3.tpfinal.programa.Juego;
 import fiuba.algo3.tpfinal.programa.Jugador;
 import fiuba.algo3.tpfinal.vista.MapaVista;
+import fiuba.algo3.tpfinal.vista.sonidos.SonidoGanador;
 
 public class AccionPasarTurno implements ActionListener {
 	
@@ -36,6 +38,12 @@ public class AccionPasarTurno implements ActionListener {
 		miJuego.jugadorActual.notificarObservadorSobreSeleccion();
 		miMapaVista.actualizar();
 		if(miJuego.hayGanador()) {
+			try {
+				new SonidoGanador();
+			} catch (MalformedURLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			JOptionPane.showMessageDialog(null, "Ganador: "+miJuego.getGanador().getNombre(),
 					"Felicitaciones!",
 			    	JOptionPane.WARNING_MESSAGE);
