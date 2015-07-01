@@ -63,7 +63,6 @@ public class FabricaVista extends Vista{
 	
 	private void crearControladores() {
 		AccionCrearGolliat controladorGolliat = new AccionCrearGolliat(miFabrica);
-		controladorGolliat.setVentanaMapa(ventanaMapa);
 		JButton botonGolliat = new JButton("Construir Golliat");
 		botonGolliat.addActionListener(controladorGolliat);
 		miPanel.add(botonGolliat);

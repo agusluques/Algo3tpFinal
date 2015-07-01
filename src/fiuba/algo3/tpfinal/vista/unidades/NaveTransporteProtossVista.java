@@ -12,6 +12,8 @@ import javax.swing.JPanel;
 import fiuba.algo3.tpfinal.programa.Coordenada;
 import fiuba.algo3.tpfinal.unidades.NaveTransporteProtoss;
 import fiuba.algo3.tpfinal.unidades.Trasladable;
+import fiuba.algo3.tpfinal.vista.AccionBajarPasajerosProtoss;
+import fiuba.algo3.tpfinal.vista.ControladorSubirPasajeroProtoss;
 import fiuba.algo3.tpfinal.vista.ControladorTraslado;
 import fiuba.algo3.tpfinal.vista.HashImagenes;
 import fiuba.algo3.tpfinal.vista.HashImagenesConColor;
@@ -72,6 +74,17 @@ public class NaveTransporteProtossVista extends Vista {
 		JButton botonMover = new JButton("Trasladar");
 		botonMover.addActionListener(controladorTraslado);
 		miPanel.add(botonMover);
+		
+		ControladorSubirPasajeroProtoss controladorSubir = new ControladorSubirPasajeroProtoss(miNave);
+		controladorSubir.setVentanaMapa(ventanaMapa);
+		JButton botonSubir = new JButton("Subir pasajero");
+		botonSubir.addActionListener(controladorSubir);
+		miPanel.add(botonSubir);
+		
+		AccionBajarPasajerosProtoss controladorBajar = new AccionBajarPasajerosProtoss(miNave);
+		JButton botonBajar = new JButton("Bajar pasajero");
+		botonBajar.addActionListener(controladorBajar);
+		miPanel.add(botonBajar);
 	}
 
 
@@ -79,10 +92,12 @@ public class NaveTransporteProtossVista extends Vista {
 		miPanel = new JPanel();
 		JLabel capaNombre = new JLabel("Nave De Transporte Protoss");
 		miPanel.add(capaNombre);
-		JLabel capaVida = new JLabel("Vida: " + miNave.getVida());
+		JLabel capaVida = new JLabel("Vida: " + miNave.getCantidadDeVida());
 		miPanel.add(capaVida);
-		JLabel capaEscudo = new JLabel("Escudo: " + miNave.getEscudo());
+		JLabel capaEscudo = new JLabel("Escudo: " + miNave.getCantidadDeEscudo());
 		miPanel.add(capaEscudo);
+		JLabel capaCapacidad = new JLabel("Capacidad restante: "+miNave.getCapacidad());
+		miPanel.add(capaCapacidad);
 		
 		if(miJuego.jugadorActual.equals(miNave.getJugador())){
 			crearControladores();

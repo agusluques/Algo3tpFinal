@@ -76,10 +76,10 @@ public class ZealotVista extends Vista implements Observador {
 		JLabel capaNombre = new JLabel("Zealot");
 		miPanel.add(capaNombre);
 		
-		JLabel capaVida = new JLabel("Vida: " + miZealot.getVida());
+		JLabel capaVida = new JLabel("Vida: " + miZealot.getCantidadDeVida());
 		miPanel.add(capaVida);
 		
-		JLabel capaEscudo = new JLabel("Escudo: " + miZealot.getEscudo());
+		JLabel capaEscudo = new JLabel("Escudo: " + miZealot.getCantidadDeEscudo());
 		miPanel.add(capaEscudo);
 		
 		if(miJuego.jugadorActual.equals(miZealot.getJugador())){

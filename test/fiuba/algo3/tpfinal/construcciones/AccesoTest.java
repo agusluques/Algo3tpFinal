@@ -25,12 +25,12 @@ public class AccesoTest {
 	@Test
 	public void unAccesoDebeTener500DeVidaInicial() {
 		// asserTrue(this.accesso.tieneVida(500));
-		assertTrue(this.acceso.getVida() == 500);
+		assertTrue(this.acceso.getCantidadDeVida() == 500);
 	}
 
 	@Test
 	public void unAccesoDebeTener500DeEscudoInicial() {
-		Assert.assertTrue(this.acceso.getEscudo() == 500);
+		Assert.assertTrue(this.acceso.getCantidadDeEscudo() == 500);
 	}
 
 	@Test

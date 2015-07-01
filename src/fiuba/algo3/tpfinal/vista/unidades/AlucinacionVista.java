@@ -59,7 +59,7 @@ public class AlucinacionVista extends Vista implements Observador {
 		if (miAlucinacion == null)
 			miAlucinacion = (Alucinacion) alucinacion;
 			
-		vidaFicticia = miAlucinacion.getUnidadCopiada().getVida();
+		vidaFicticia = miAlucinacion.getUnidadCopiada().getCantidadDeVida();
 		
 		img = imagenes.obtener(miAlucinacion.getUnidadCopiada().getClass(), miAlucinacion.getJugador().getColor());
 		
@@ -76,7 +76,7 @@ public class AlucinacionVista extends Vista implements Observador {
 			JLabel capaNombre = new JLabel("Alucinacion");
 			miPanel.add(capaNombre);
 					
-			JLabel capaEscudo = new JLabel("Escudo: " + miAlucinacion.getEscudo());
+			JLabel capaEscudo = new JLabel("Escudo: " + miAlucinacion.getCantidadDeEscudo());
 			miPanel.add(capaEscudo);
 			crearControladores();
 		}else{
@@ -86,7 +86,7 @@ public class AlucinacionVista extends Vista implements Observador {
 			JLabel capaVida = new JLabel("Vida: " + vidaFicticia);
 			miPanel.add(capaVida);
 			
-			JLabel capaEscudo = new JLabel("Escudo: " + miAlucinacion.getEscudo());
+			JLabel capaEscudo = new JLabel("Escudo: " + miAlucinacion.getCantidadDeEscudo());
 			miPanel.add(capaEscudo);
 		}
 		

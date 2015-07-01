@@ -65,9 +65,9 @@ public class ScoutVista extends Vista implements Observador {
 		miPanel = new JPanel();
 		JLabel capaNombre = new JLabel("Scout");
 		miPanel.add(capaNombre);
-		JLabel capaVida = new JLabel("Vida: " + miScout.getVida());
+		JLabel capaVida = new JLabel("Vida: " + miScout.getCantidadDeVida());
 		miPanel.add(capaVida);
-		JLabel capaEscudo = new JLabel("Escudo: " + miScout.getEscudo());
+		JLabel capaEscudo = new JLabel("Escudo: " + miScout.getCantidadDeEscudo());
 		miPanel.add(capaEscudo);
 		
 		if(miJuego.jugadorActual.equals(miScout.getJugador())){

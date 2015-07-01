@@ -52,10 +52,10 @@ public class AccesoVista extends Vista {
 		JLabel capaNombre = new JLabel("Acceso");
 		miPanel.add(capaNombre);
 		
-		JLabel capaVida = new JLabel("Vida: " + miAcceso.getVida());
+		JLabel capaVida = new JLabel("Vida: " + miAcceso.getCantidadDeVida());
 		miPanel.add(capaVida);
 		
-		JLabel capaEscudo = new JLabel("Escudo: " + miAcceso.getEscudo());
+		JLabel capaEscudo = new JLabel("Escudo: " + miAcceso.getCantidadDeEscudo());
 		miPanel.add(capaEscudo);
 		
 		if(miJuego.jugadorActual.equals(miAcceso.getJugador())){
@@ -65,13 +65,11 @@ public class AccesoVista extends Vista {
 	
 	private void crearControladores() {
 		AccionCrearZealot controladorZealot = new AccionCrearZealot(miAcceso);
-		controladorZealot.setVentanaMapa(ventanaMapa);
 		JButton botonZealot = new JButton("Construir Zealot");
 		botonZealot.addActionListener(controladorZealot);
 		miPanel.add(botonZealot);
 		
 		AccionCrearDragon controladorDragon = new AccionCrearDragon(miAcceso);
-		controladorDragon.setVentanaMapa(ventanaMapa);
 		JButton botonDragon = new JButton("Construir Dragon");
 		botonDragon.addActionListener(controladorDragon);
 		miPanel.add(botonDragon);

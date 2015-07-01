@@ -52,10 +52,10 @@ public class PuertoEstelarProtossVista extends Vista {
 		JLabel capaNombre = new JLabel("Puerto Estelar");
 		miPanel.add(capaNombre);
 		
-		JLabel capaVida = new JLabel("Vida: " + miPuertoEstelar.getVida());
+		JLabel capaVida = new JLabel("Vida: " + miPuertoEstelar.getCantidadDeVida());
 		miPanel.add(capaVida);
 		
-		JLabel capaEscudo = new JLabel("Escudo: " + miPuertoEstelar.getEscudo());
+		JLabel capaEscudo = new JLabel("Escudo: " + miPuertoEstelar.getCantidadDeEscudo());
 		miPanel.add(capaEscudo);
 		
 		if(miJuego.jugadorActual.equals(miPuertoEstelar.getJugador())){
@@ -67,13 +67,11 @@ public class PuertoEstelarProtossVista extends Vista {
 	
 	private void crearControladores() {
 		AccionCrearScout controladorScout = new AccionCrearScout(miPuertoEstelar);
-		controladorScout.setVentanaMapa(ventanaMapa);
 		JButton botonScout = new JButton("Construir Scout");
 		botonScout.addActionListener(controladorScout);
 		miPanel.add(botonScout);
 		
 		AccionCrearNaveDeTransporteProtoss controladorNaveTransporte = new AccionCrearNaveDeTransporteProtoss(miPuertoEstelar);
-		controladorNaveTransporte.setVentanaMapa(ventanaMapa);
 		JButton botonNaveTransporte = new JButton("Construir nave de transporte");
 		botonNaveTransporte.addActionListener(controladorNaveTransporte);
 		miPanel.add(botonNaveTransporte);

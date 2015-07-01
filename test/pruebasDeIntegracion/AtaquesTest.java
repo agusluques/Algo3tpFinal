@@ -33,21 +33,21 @@ public class AtaquesTest {
 
 		// El zealot lo ataca una vez
 		zealot.atacar(enemigo);
-		Assert.assertEquals(52, enemigo.getEscudo());
-		Assert.assertEquals(100, enemigo.getVida());
+		Assert.assertEquals(52, enemigo.getCantidadDeEscudo());
+		Assert.assertEquals(100, enemigo.getCantidadDeVida());
 
 		// El enemigo se escapa. El zealot lo trata de atacar pero no le hace
 		// danio
 		enemigo.trasladarA(new Coordenada(4, 1), mapa);
 		zealot.atacar(enemigo);
-		Assert.assertEquals(52, enemigo.getEscudo());
-		Assert.assertEquals(100, enemigo.getVida());
+		Assert.assertEquals(52, enemigo.getCantidadDeEscudo());
+		Assert.assertEquals(100, enemigo.getCantidadDeVida());
 
 		// El enemigo pasa el turno, se recupera su escudo
 		// El jugador lo mando como null, total no lo necesito en este caso
 		enemigo.pasarTurno();
-		Assert.assertEquals(60, enemigo.getEscudo());
-		Assert.assertEquals(100, enemigo.getVida());
+		Assert.assertEquals(60, enemigo.getCantidadDeEscudo());
+		Assert.assertEquals(100, enemigo.getCantidadDeVida());
 	}
 
 	@Test
@@ -60,8 +60,8 @@ public class AtaquesTest {
 
 		// El zealot lo ataca una vez
 		zealot.atacar(enemigo);
-		Assert.assertEquals(100, enemigo.getEscudo());
-		Assert.assertEquals(150, enemigo.getVida());
+		Assert.assertEquals(100, enemigo.getCantidadDeEscudo());
+		Assert.assertEquals(150, enemigo.getCantidadDeVida());
 	}
 
 	// Ataques del Dragon
@@ -75,21 +75,21 @@ public class AtaquesTest {
 
 		// La unidad lo ataca una vez
 		unidad.atacar(enemigo);
-		Assert.assertEquals(40, enemigo.getEscudo());
-		Assert.assertEquals(100, enemigo.getVida());
+		Assert.assertEquals(40, enemigo.getCantidadDeEscudo());
+		Assert.assertEquals(100, enemigo.getCantidadDeVida());
 
 		// El enemigo se escapa. La unidad lo trata de atacar pero no le hace
 		// danio
 		enemigo.trasladarA(new Coordenada(1, 6), mapa);
 		unidad.atacar(enemigo);
-		Assert.assertEquals(40, enemigo.getEscudo());
-		Assert.assertEquals(100, enemigo.getVida());
+		Assert.assertEquals(40, enemigo.getCantidadDeEscudo());
+		Assert.assertEquals(100, enemigo.getCantidadDeVida());
 
 		// El enemigo pasa el turno, se recupera su escudo
 		// El jugador lo mando como null, total no lo necesito en este caso
 		enemigo.pasarTurno();
-		Assert.assertEquals(48, enemigo.getEscudo());
-		Assert.assertEquals(100, enemigo.getVida());
+		Assert.assertEquals(48, enemigo.getCantidadDeEscudo());
+		Assert.assertEquals(100, enemigo.getCantidadDeVida());
 	}
 
 	@Test
@@ -102,21 +102,21 @@ public class AtaquesTest {
 
 		// La unidad lo ataca una vez
 		unidad.atacar(enemigo);
-		Assert.assertEquals(80, enemigo.getEscudo());
-		Assert.assertEquals(150, enemigo.getVida());
+		Assert.assertEquals(80, enemigo.getCantidadDeEscudo());
+		Assert.assertEquals(150, enemigo.getCantidadDeVida());
 
 		// El enemigo se escapa. La unidad lo trata de atacar pero no le hace
 		// danio
 		enemigo.trasladarA(new Coordenada(1, 6), mapa);
 		unidad.atacar(enemigo);
-		Assert.assertEquals(80, enemigo.getEscudo());
-		Assert.assertEquals(150, enemigo.getVida());
+		Assert.assertEquals(80, enemigo.getCantidadDeEscudo());
+		Assert.assertEquals(150, enemigo.getCantidadDeVida());
 
 		// El enemigo pasa el turno, se recupera su escudo
 		// El jugador lo mando como null, total no lo necesito en este caso
 		enemigo.pasarTurno();
-		Assert.assertEquals(88, enemigo.getEscudo());
-		Assert.assertEquals(150, enemigo.getVida());
+		Assert.assertEquals(88, enemigo.getCantidadDeEscudo());
+		Assert.assertEquals(150, enemigo.getCantidadDeVida());
 	}
 
 	// Ataques Scout
@@ -130,21 +130,21 @@ public class AtaquesTest {
 
 		// La unidad lo ataca una vez
 		unidad.atacar(enemigo);
-		Assert.assertEquals(52, enemigo.getEscudo());
-		Assert.assertEquals(100, enemigo.getVida());
+		Assert.assertEquals(52, enemigo.getCantidadDeEscudo());
+		Assert.assertEquals(100, enemigo.getCantidadDeVida());
 
 		// El enemigo se escapa. La unidad lo trata de atacar pero no le hace
 		// danio
 		enemigo.trasladarA(new Coordenada(1, 6), mapa);
 		unidad.atacar(enemigo);
-		Assert.assertEquals(52, enemigo.getEscudo());
-		Assert.assertEquals(100, enemigo.getVida());
+		Assert.assertEquals(52, enemigo.getCantidadDeEscudo());
+		Assert.assertEquals(100, enemigo.getCantidadDeVida());
 
 		// El enemigo pasa el turno, se recupera su escudo
 		// El jugador lo mando como null, total no lo necesito en este caso
 		enemigo.pasarTurno();
-		Assert.assertEquals(60, enemigo.getEscudo());
-		Assert.assertEquals(100, enemigo.getVida());
+		Assert.assertEquals(60, enemigo.getCantidadDeEscudo());
+		Assert.assertEquals(100, enemigo.getCantidadDeVida());
 	}
 
 	@Test
@@ -157,21 +157,21 @@ public class AtaquesTest {
 
 		// La unidad lo ataca una vez
 		unidad.atacar(enemigo);
-		Assert.assertEquals(86, enemigo.getEscudo());
-		Assert.assertEquals(150, enemigo.getVida());
+		Assert.assertEquals(86, enemigo.getCantidadDeEscudo());
+		Assert.assertEquals(150, enemigo.getCantidadDeVida());
 
 		// El enemigo se escapa. La unidad lo trata de atacar pero no le hace
 		// danio
 		enemigo.trasladarA(new Coordenada(1, 6), mapa);
 		unidad.atacar(enemigo);
-		Assert.assertEquals(86, enemigo.getEscudo());
-		Assert.assertEquals(150, enemigo.getVida());
+		Assert.assertEquals(86, enemigo.getCantidadDeEscudo());
+		Assert.assertEquals(150, enemigo.getCantidadDeVida());
 
 		// El enemigo pasa el turno, se recupera su escudo
 		// El jugador lo mando como null, total no lo necesito en este caso
 		enemigo.pasarTurno();
-		Assert.assertEquals(94, enemigo.getEscudo());
-		Assert.assertEquals(150, enemigo.getVida());
+		Assert.assertEquals(94, enemigo.getCantidadDeEscudo());
+		Assert.assertEquals(150, enemigo.getCantidadDeVida());
 	}
 
 	// Ataques Alto Templario
@@ -185,16 +185,16 @@ public class AtaquesTest {
 
 		// Lo ataca una vez
 		unidad.atacar(enemigo);
-		Assert.assertEquals(60, enemigo.getEscudo());
-		Assert.assertEquals(100, enemigo.getVida());
+		Assert.assertEquals(60, enemigo.getCantidadDeEscudo());
+		Assert.assertEquals(100, enemigo.getCantidadDeVida());
 
 		Scout enemigoAire = new Scout();
 		mapa.insertarUnidad(new Coordenada(1, 2), enemigoAire);
 
 		// La unidad lo ataca una vez
 		unidad.atacar(enemigoAire);
-		Assert.assertEquals(100, enemigoAire.getEscudo());
-		Assert.assertEquals(150, enemigoAire.getVida());
+		Assert.assertEquals(100, enemigoAire.getCantidadDeEscudo());
+		Assert.assertEquals(150, enemigoAire.getCantidadDeVida());
 	}
 
 	// Ataques Marine
@@ -208,21 +208,21 @@ public class AtaquesTest {
 
 		// La unidad lo ataca una vez
 		unidad.atacar(enemigo);
-		Assert.assertEquals(54, enemigo.getEscudo());
-		Assert.assertEquals(100, enemigo.getVida());
+		Assert.assertEquals(54, enemigo.getCantidadDeEscudo());
+		Assert.assertEquals(100, enemigo.getCantidadDeVida());
 
 		// El enemigo se escapa. La unidad lo trata de atacar pero no le hace
 		// danio
 		enemigo.trasladarA(new Coordenada(1, 6), mapa);
 		unidad.atacar(enemigo);
-		Assert.assertEquals(54, enemigo.getEscudo());
-		Assert.assertEquals(100, enemigo.getVida());
+		Assert.assertEquals(54, enemigo.getCantidadDeEscudo());
+		Assert.assertEquals(100, enemigo.getCantidadDeVida());
 
 		// El enemigo pasa el turno, se recupera su escudo
 		// El jugador lo mando como null, total no lo necesito en este caso
 		enemigo.pasarTurno();
-		Assert.assertEquals(60, enemigo.getEscudo());
-		Assert.assertEquals(100, enemigo.getVida());
+		Assert.assertEquals(60, enemigo.getCantidadDeEscudo());
+		Assert.assertEquals(100, enemigo.getCantidadDeVida());
 	}
 
 	@Test
@@ -235,21 +235,21 @@ public class AtaquesTest {
 
 		// La unidad lo ataca una vez
 		unidad.atacar(enemigo);
-		Assert.assertEquals(94, enemigo.getEscudo());
-		Assert.assertEquals(150, enemigo.getVida());
+		Assert.assertEquals(94, enemigo.getCantidadDeEscudo());
+		Assert.assertEquals(150, enemigo.getCantidadDeVida());
 
 		// El enemigo se escapa. La unidad lo trata de atacar pero no le hace
 		// danio
 		enemigo.trasladarA(new Coordenada(1, 6), mapa);
 		unidad.atacar(enemigo);
-		Assert.assertEquals(94, enemigo.getEscudo());
-		Assert.assertEquals(150, enemigo.getVida());
+		Assert.assertEquals(94, enemigo.getCantidadDeEscudo());
+		Assert.assertEquals(150, enemigo.getCantidadDeVida());
 
 		// El enemigo pasa el turno, se recupera su escudo
 		// El jugador lo mando como null, total no lo necesito en este caso
 		enemigo.pasarTurno();
-		Assert.assertEquals(100, enemigo.getEscudo());
-		Assert.assertEquals(150, enemigo.getVida());
+		Assert.assertEquals(100, enemigo.getCantidadDeEscudo());
+		Assert.assertEquals(150, enemigo.getCantidadDeVida());
 	}
 
 	// Ataques Golliat
@@ -263,21 +263,21 @@ public class AtaquesTest {
 
 		// La unidad lo ataca una vez
 		unidad.atacar(enemigo);
-		Assert.assertEquals(48, enemigo.getEscudo());
-		Assert.assertEquals(100, enemigo.getVida());
+		Assert.assertEquals(48, enemigo.getCantidadDeEscudo());
+		Assert.assertEquals(100, enemigo.getCantidadDeVida());
 
 		// El enemigo se escapa. La unidad lo trata de atacar pero no le hace
 		// danio
 		enemigo.trasladarA(new Coordenada(1, 8), mapa);
 		unidad.atacar(enemigo);
-		Assert.assertEquals(48, enemigo.getEscudo());
-		Assert.assertEquals(100, enemigo.getVida());
+		Assert.assertEquals(48, enemigo.getCantidadDeEscudo());
+		Assert.assertEquals(100, enemigo.getCantidadDeVida());
 
 		// El enemigo pasa el turno, se recupera su escudo
 		// El jugador lo mando como null, total no lo necesito en este caso
 		enemigo.pasarTurno();
-		Assert.assertEquals(56, enemigo.getEscudo());
-		Assert.assertEquals(100, enemigo.getVida());
+		Assert.assertEquals(56, enemigo.getCantidadDeEscudo());
+		Assert.assertEquals(100, enemigo.getCantidadDeVida());
 	}
 
 	@Test
@@ -290,21 +290,21 @@ public class AtaquesTest {
 
 		// La unidad lo ataca una vez
 		unidad.atacar(enemigo);
-		Assert.assertEquals(90, enemigo.getEscudo());
-		Assert.assertEquals(150, enemigo.getVida());
+		Assert.assertEquals(90, enemigo.getCantidadDeEscudo());
+		Assert.assertEquals(150, enemigo.getCantidadDeVida());
 
 		// El enemigo se escapa. La unidad lo trata de atacar pero no le hace
 		// danio
 		enemigo.trasladarA(new Coordenada(1, 7), mapa);
 		unidad.atacar(enemigo);
-		Assert.assertEquals(90, enemigo.getEscudo());
-		Assert.assertEquals(150, enemigo.getVida());
+		Assert.assertEquals(90, enemigo.getCantidadDeEscudo());
+		Assert.assertEquals(150, enemigo.getCantidadDeVida());
 
 		// El enemigo pasa el turno, se recupera su escudo
 		// El jugador lo mando como null, total no lo necesito en este caso
 		enemigo.pasarTurno();
-		Assert.assertEquals(98, enemigo.getEscudo());
-		Assert.assertEquals(150, enemigo.getVida());
+		Assert.assertEquals(98, enemigo.getCantidadDeEscudo());
+		Assert.assertEquals(150, enemigo.getCantidadDeVida());
 	}
 
 	// Ataques Espectro
@@ -318,21 +318,21 @@ public class AtaquesTest {
 
 		// La unidad lo ataca una vez
 		unidad.atacar(enemigo);
-		Assert.assertEquals(52, enemigo.getEscudo());
-		Assert.assertEquals(100, enemigo.getVida());
+		Assert.assertEquals(52, enemigo.getCantidadDeEscudo());
+		Assert.assertEquals(100, enemigo.getCantidadDeVida());
 
 		// El enemigo se escapa. La unidad lo trata de atacar pero no le hace
 		// danio
 		enemigo.trasladarA(new Coordenada(1, 7), mapa);
 		unidad.atacar(enemigo);
-		Assert.assertEquals(52, enemigo.getEscudo());
-		Assert.assertEquals(100, enemigo.getVida());
+		Assert.assertEquals(52, enemigo.getCantidadDeEscudo());
+		Assert.assertEquals(100, enemigo.getCantidadDeVida());
 
 		// El enemigo pasa el turno, se recupera su escudo
 		// El jugador lo mando como null, total no lo necesito en este caso
 		enemigo.pasarTurno();
-		Assert.assertEquals(60, enemigo.getEscudo());
-		Assert.assertEquals(100, enemigo.getVida());
+		Assert.assertEquals(60, enemigo.getCantidadDeEscudo());
+		Assert.assertEquals(100, enemigo.getCantidadDeVida());
 	}
 
 	@Test
@@ -345,21 +345,21 @@ public class AtaquesTest {
 
 		// La unidad lo ataca una vez
 		unidad.atacar(enemigo);
-		Assert.assertEquals(80, enemigo.getEscudo());
-		Assert.assertEquals(150, enemigo.getVida());
+		Assert.assertEquals(80, enemigo.getCantidadDeEscudo());
+		Assert.assertEquals(150, enemigo.getCantidadDeVida());
 
 		// El enemigo se escapa. La unidad lo trata de atacar pero no le hace
 		// danio
 		enemigo.trasladarA(new Coordenada(1, 7), mapa);
 		unidad.atacar(enemigo);
-		Assert.assertEquals(80, enemigo.getEscudo());
-		Assert.assertEquals(150, enemigo.getVida());
+		Assert.assertEquals(80, enemigo.getCantidadDeEscudo());
+		Assert.assertEquals(150, enemigo.getCantidadDeVida());
 
 		// El enemigo pasa el turno, se recupera su escudo
 		// El jugador lo mando como null, total no lo necesito en este caso
 		enemigo.pasarTurno();
-		Assert.assertEquals(88, enemigo.getEscudo());
-		Assert.assertEquals(150, enemigo.getVida());
+		Assert.assertEquals(88, enemigo.getCantidadDeEscudo());
+		Assert.assertEquals(150, enemigo.getCantidadDeVida());
 	}
 
 	// Ataques Nave Ciencia
@@ -374,16 +374,16 @@ public class AtaquesTest {
 
 		// Lo ataca una vez
 		unidad.atacar(enemigo);
-		Assert.assertEquals(60, enemigo.getEscudo());
-		Assert.assertEquals(100, enemigo.getVida());
+		Assert.assertEquals(60, enemigo.getCantidadDeEscudo());
+		Assert.assertEquals(100, enemigo.getCantidadDeVida());
 
 		Scout enemigoAire = new Scout();
 		mapa.insertarUnidad(new Coordenada(1, 2), enemigoAire);
 
 		// La unidad lo ataca una vez
 		unidad.atacar(enemigoAire);
-		Assert.assertEquals(100, enemigoAire.getEscudo());
-		Assert.assertEquals(150, enemigoAire.getVida());
+		Assert.assertEquals(100, enemigoAire.getCantidadDeEscudo());
+		Assert.assertEquals(150, enemigoAire.getCantidadDeVida());
 	}
 
 	@Test
@@ -412,8 +412,8 @@ public class AtaquesTest {
 			jugador1.empezarTurno();
 		}
 
-		Assert.assertEquals(60, zealot.getEscudo());
-		Assert.assertEquals(100, zealot.getVida());
+		Assert.assertEquals(60, zealot.getCantidadDeEscudo());
+		Assert.assertEquals(100, zealot.getCantidadDeVida());
 		Assert.assertTrue(marine.estaMuerto());
 		Assert.assertTrue(jugador1.estaExtinto());
 		Assert.assertFalse(jugador2.estaExtinto());

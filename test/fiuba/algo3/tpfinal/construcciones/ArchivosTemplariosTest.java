@@ -19,14 +19,14 @@ public class ArchivosTemplariosTest {
 	public void unArchivoTemplarioDebeTener500DeVidaInicial()
 			throws ConstruccionRequeridaInexistente {
 		this.archivo = new ArchivosTemplarios();
-		Assert.assertTrue(this.archivo.getVida() == 500);
+		Assert.assertTrue(this.archivo.getCantidadDeVida() == 500);
 	}
 
 	@Test
 	public void unArchivoTemplarioDebeTener500DeEscudoInicial()
 			throws ConstruccionRequeridaInexistente {
 		this.archivo = new ArchivosTemplarios();
-		Assert.assertTrue(this.archivo.getEscudo() == 500);
+		Assert.assertTrue(this.archivo.getCantidadDeEscudo() == 500);
 	}
 
 	@Test

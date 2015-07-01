@@ -44,6 +44,10 @@ public class NaveTransporteProtoss extends UnidadProtoss {
 		} else {
 			pasajeros.add(pasajero);
 			capacidad -= pasajero.transporte;
+			
+			Mapa mapa = jugador.getMapa();
+			Parcela parcela = mapa.getParcela(pasajero.getCoordenada());
+			parcela.desocupar();
 		}
 	}
 

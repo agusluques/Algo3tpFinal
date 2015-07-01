@@ -51,10 +51,10 @@ public class PilonVista extends Vista{
 		JLabel capaNombre = new JLabel("Pilon");
 		miPanel.add(capaNombre);
 		
-		JLabel capaVida = new JLabel("Vida: " + miPilon.getVida());
+		JLabel capaVida = new JLabel("Vida: " + miPilon.getCantidadDeVida());
 		miPanel.add(capaVida);
 		
-		JLabel capaEscudo = new JLabel("Escudo: " + miPilon.getEscudo());
+		JLabel capaEscudo = new JLabel("Escudo: " + miPilon.getCantidadDeEscudo());
 		miPanel.add(capaEscudo);
 	}
 	

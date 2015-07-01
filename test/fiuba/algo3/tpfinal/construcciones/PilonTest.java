@@ -18,12 +18,12 @@ public class PilonTest {
 
 	@Test
 	public void unPilonDebeTener300DeVidaInicial() {
-		Assert.assertTrue(this.pilon.getVida() == 300);
+		Assert.assertTrue(this.pilon.getCantidadDeVida() == 300);
 	}
 
 	@Test
 	public void unPilonDebeTener300DeEscudoInicial() {
-		Assert.assertTrue(this.pilon.getEscudo() == 300);
+		Assert.assertTrue(this.pilon.getCantidadDeEscudo() == 300);
 	}
 
 	@Test

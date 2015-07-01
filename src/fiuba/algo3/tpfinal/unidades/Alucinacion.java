@@ -8,7 +8,7 @@ public class Alucinacion extends UnidadProtoss {
 	private UnidadProtoss unidadCopiada;
 
 	public Alucinacion(UnidadProtoss unidad) {
-		this.vida = new VidaConEscudo(0, unidad.getEscudo());
+		this.vida = new VidaConEscudo(0, unidad.getCantidadDeEscudo());
 		this.miDanio = new Danio(0, 0);
 		this.rangoDeAtaque = unidad.getRangoCompleto();
 		this.suministro = 0;

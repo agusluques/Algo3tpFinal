@@ -39,7 +39,7 @@ public class AccionTrasladar implements MouseListener {
 			try {
 				miUnidad.trasladarA(new Coordenada(fila, columna), miUnidad.getJugador().getMapa());
 			} catch (ParcelaOcupada e) {
-				JOptionPane.showMessageDialog(ventanaMapa, "El lugar esta ocupado",
+				JOptionPane.showMessageDialog(null, "El lugar esta ocupado",
 						"Error",
 				    	JOptionPane.ERROR_MESSAGE);
 			}
@@ -53,7 +53,7 @@ public class AccionTrasladar implements MouseListener {
 	}
 
 	private void lanzarVentanaDeError() {
-		JOptionPane.showMessageDialog(ventanaMapa, "Movimiento Invalido!",
+		JOptionPane.showMessageDialog(null, "Movimiento Invalido!",
 				"Ups!",
 		    	JOptionPane.ERROR_MESSAGE);
 	}

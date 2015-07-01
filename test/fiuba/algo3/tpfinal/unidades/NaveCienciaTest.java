@@ -204,7 +204,7 @@ public class NaveCienciaTest {
 		jugador2.agregarUnidad((UnidadProtoss) zealot, new Coordenada(5, 5));
 
 		nave.lanzarEMP(new Coordenada(4, 4));
-		Assert.assertTrue(((Protoss) zealot).getEscudo() == 0);
+		Assert.assertTrue(((Protoss) zealot).getCantidadDeEscudo() == 0);
 
 	}
 
@@ -226,7 +226,7 @@ public class NaveCienciaTest {
 		jugador2.agregarUnidad((UnidadProtoss) templar, new Coordenada(5, 5));
 
 		nave.lanzarEMP(new Coordenada(4, 4));
-		Assert.assertTrue(((Protoss) templar).getEscudo() == 0);
+		Assert.assertTrue(((Protoss) templar).getCantidadDeEscudo() == 0);
 		Assert.assertTrue(((AltoTemplario) templar).getEnergia() == 0);
 
 	}

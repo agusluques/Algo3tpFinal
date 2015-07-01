@@ -12,11 +12,11 @@ public abstract class Protoss extends Observable implements Atacable,
 	protected Coordenada posicion;
 	protected JugadorProtoss jugador;
 
-	public int getVida() {
+	public int getCantidadDeVida() {
 		return this.vida.getCantidadDeVida();
 	}
 
-	public int getEscudo() {
+	public int getCantidadDeEscudo() {
 		return this.vida.getCantidadDeEscudo();
 	}
 

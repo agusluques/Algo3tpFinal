@@ -75,10 +75,10 @@ public class AltoTemplarioVista extends Vista {
 		JLabel capaNombre = new JLabel("Alto templario");
 		miPanel.add(capaNombre);
 		
-		JLabel capaVida = new JLabel("Vida: " + miAltoTemplario.getVida());
+		JLabel capaVida = new JLabel("Vida: " + miAltoTemplario.getCantidadDeVida());
 		miPanel.add(capaVida);
 		
-		JLabel capaEscudo = new JLabel("Escudo: " + miAltoTemplario.getEscudo());
+		JLabel capaEscudo = new JLabel("Escudo: " + miAltoTemplario.getCantidadDeEscudo());
 		miPanel.add(capaEscudo);
 		
 		JLabel capaEnergia = new JLabel("Energia: " + miAltoTemplario.getEnergia());

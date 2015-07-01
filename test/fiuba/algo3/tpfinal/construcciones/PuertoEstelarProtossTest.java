@@ -20,14 +20,14 @@ public class PuertoEstelarProtossTest {
 	public void unPuertoEstelarDebeTener600DeVidaInicial()
 			throws ConstruccionRequeridaInexistente {
 		this.puertoEstelar = new PuertoEstelarProtoss();
-		Assert.assertTrue(this.puertoEstelar.getVida() == 600);
+		Assert.assertTrue(this.puertoEstelar.getCantidadDeVida() == 600);
 	}
 
 	@Test
 	public void unPuertoEstelarDebeTener600DeEscudoInicial()
 			throws ConstruccionRequeridaInexistente {
 		this.puertoEstelar = new PuertoEstelarProtoss();
-		Assert.assertTrue(this.puertoEstelar.getEscudo() == 600);
+		Assert.assertTrue(this.puertoEstelar.getCantidadDeEscudo() == 600);
 	}
 
 	@Test

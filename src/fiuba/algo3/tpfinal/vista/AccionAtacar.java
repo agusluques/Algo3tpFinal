@@ -30,7 +30,6 @@ public class AccionAtacar implements MouseListener {
 
 	@Override
 	public void mouseClicked(MouseEvent arg0) {
-		System.out.println("TOcaste la capa!");
 
 		int fila = (arg0.getY() / 40) + 1;
 		int columna = (arg0.getX() / 40) + 1;

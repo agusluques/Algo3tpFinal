@@ -23,12 +23,12 @@ public class AsimiladorTest {
 
 	@Test
 	public void unAsimiladorDebeTener450DeVidaInicial() {
-		Assert.assertTrue(this.asimilador.getVida() == 450);
+		Assert.assertTrue(this.asimilador.getCantidadDeVida() == 450);
 	}
 
 	@Test
 	public void unAsimiladorDebeTener450DeEscudoInicial() {
-		Assert.assertTrue(this.asimilador.getEscudo() == 450);
+		Assert.assertTrue(this.asimilador.getCantidadDeEscudo() == 450);
 	}
 
 	@Test
@@ -63,7 +63,7 @@ public class AsimiladorTest {
 		asimilador.setJugador(jugador);
 		zealot.atacar(asimilador);
 		asimilador.pasarTurno();
-		Assert.assertEquals(450, asimilador.getEscudo());
+		Assert.assertEquals(450, asimilador.getCantidadDeEscudo());
 		Assert.assertEquals(10, jugador.getPresupuesto().cantidadDeGas());
 	}
 

@@ -69,7 +69,7 @@ public class TormentaPsionicaTest {
 			tormenta.pasarTurno();
 		}
 
-		Assert.assertTrue(((Scout) scout).getVida() == 50);
+		Assert.assertTrue(((Scout) scout).getCantidadDeVida() == 50);
 
 	}
 

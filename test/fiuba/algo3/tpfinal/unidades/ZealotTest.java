@@ -22,7 +22,7 @@ public class ZealotTest {
 		Zealot unZealot = new Zealot();
 		Danio unDanio = new Danio(0, 30);
 		unZealot.atacado(unDanio);
-		Assert.assertTrue(unZealot.getEscudo() == 30);
+		Assert.assertTrue(unZealot.getCantidadDeEscudo() == 30);
 
 	}
 
@@ -32,8 +32,8 @@ public class ZealotTest {
 		Zealot unZealot = new Zealot();
 		Danio unDanio = new Danio(0, 70);
 		unZealot.atacado(unDanio);
-		Assert.assertTrue(unZealot.getEscudo() == 0);
-		Assert.assertTrue(unZealot.getVida() == 90);
+		Assert.assertTrue(unZealot.getCantidadDeEscudo() == 0);
+		Assert.assertTrue(unZealot.getCantidadDeVida() == 90);
 
 	}
 
@@ -45,7 +45,7 @@ public class ZealotTest {
 		Zealot otroZealot = new Zealot();
 		otroZealot.setCoordenada(new Coordenada(0, 1));
 		unZealot.atacar(otroZealot);
-		Assert.assertTrue(otroZealot.getEscudo() == 52);
+		Assert.assertTrue(otroZealot.getCantidadDeEscudo() == 52);
 	}
 
 	@Test
@@ -59,7 +59,7 @@ public class ZealotTest {
 
 		unZealot.atacar(otroZealot);
 
-		Assert.assertTrue(otroZealot.getEscudo() == 60);
+		Assert.assertTrue(otroZealot.getCantidadDeEscudo() == 60);
 	}
 
 	@Test

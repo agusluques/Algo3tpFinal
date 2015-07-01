@@ -11,18 +11,18 @@ import javax.swing.JPanel;
 import fiuba.algo3.tpfinal.excepciones.CapacidadInsuficiente;
 import fiuba.algo3.tpfinal.programa.Coordenada;
 import fiuba.algo3.tpfinal.programa.Parcela;
-import fiuba.algo3.tpfinal.unidades.NaveTransporteTerran;
-import fiuba.algo3.tpfinal.unidades.UnidadTerran;
+import fiuba.algo3.tpfinal.unidades.NaveTransporteProtoss;
+import fiuba.algo3.tpfinal.unidades.UnidadProtoss;
 import fiuba.algo3.tpfinal.vista.sonidos.SonidoError;
 
-public class AccionSubirPasajero implements MouseListener {
-
-	private NaveTransporteTerran miNave;
+public class AccionSubirPasajeroProtoss implements MouseListener {
+	
+	private NaveTransporteProtoss miNave;
 	private JPanel capaQueEscucho;
 	private JLayeredPane ventanaMapa;
 
-	public AccionSubirPasajero(JPanel capaQueEscuchaClicks,
-			NaveTransporteTerran miNave, JLayeredPane ventanaMapa) {
+	public AccionSubirPasajeroProtoss(JPanel capaQueEscuchaClicks,
+			NaveTransporteProtoss miNave, JLayeredPane ventanaMapa) {
 		this.miNave = miNave;
 		this.capaQueEscucho = capaQueEscuchaClicks;
 		this.ventanaMapa = ventanaMapa;
@@ -40,7 +40,7 @@ public class AccionSubirPasajero implements MouseListener {
 			} catch (MalformedURLException e) {
 				e.printStackTrace();
 			}
-			JOptionPane.showMessageDialog(ventanaMapa, "Debes seleccionar una unidad",
+			JOptionPane.showMessageDialog(null, "Debes seleccionar una unidad",
 					"Error",
 			    	JOptionPane.ERROR_MESSAGE);
 			capaQueEscucho.setVisible(false);
@@ -53,7 +53,7 @@ public class AccionSubirPasajero implements MouseListener {
 			} catch (MalformedURLException e) {
 				e.printStackTrace();
 			}
-			JOptionPane.showMessageDialog(ventanaMapa, "Debes seleccionar una unidad propia",
+			JOptionPane.showMessageDialog(null, "Debes seleccionar una unidad propia",
 					"Error",
 			    	JOptionPane.ERROR_MESSAGE);
 			capaQueEscucho.setVisible(false);
@@ -61,14 +61,14 @@ public class AccionSubirPasajero implements MouseListener {
 			return;
 		}
 		try {
-			miNave.subirPasajero((UnidadTerran) parcelaActual.getOcupante());
+			miNave.subirPasajero((UnidadProtoss) parcelaActual.getOcupante());
 		} catch (CapacidadInsuficiente e) {
 			try {
 				new SonidoError();
 			} catch (MalformedURLException e1) {
 				e1.printStackTrace();
 			}
-			JOptionPane.showMessageDialog(ventanaMapa, "No hay mas capacidad en la nave",
+			JOptionPane.showMessageDialog(null, "No hay mas capacidad en la nave",
 					"Error",
 			    	JOptionPane.ERROR_MESSAGE);
 		}

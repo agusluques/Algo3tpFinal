@@ -23,8 +23,8 @@ public class AltoTemplarioTest {
 	@Test
 	public void siSeCreaUnAltoTemplarioDebeTener40DeVidaY40DeEscudo() {
 		AltoTemplario altoTemplario = new AltoTemplario();
-		Assert.assertTrue(altoTemplario.getVida() == 40);
-		Assert.assertTrue(altoTemplario.getEscudo() == 40);
+		Assert.assertTrue(altoTemplario.getCantidadDeVida() == 40);
+		Assert.assertTrue(altoTemplario.getCantidadDeEscudo() == 40);
 
 	}
 
@@ -33,7 +33,7 @@ public class AltoTemplarioTest {
 		AltoTemplario altoTemplario = new AltoTemplario();
 		Danio danio = new Danio(0, 50);
 		altoTemplario.atacado(danio);
-		Assert.assertTrue(altoTemplario.getVida() == 30);
+		Assert.assertTrue(altoTemplario.getCantidadDeVida() == 30);
 	}
 
 	@Test
@@ -41,7 +41,7 @@ public class AltoTemplarioTest {
 		AltoTemplario altoTemplario = new AltoTemplario();
 		Danio danio = new Danio(0, 800);
 		altoTemplario.atacado(danio);
-		Assert.assertTrue(altoTemplario.getVida() == 0);
+		Assert.assertTrue(altoTemplario.getCantidadDeVida() == 0);
 	}
 
 	@Test
@@ -52,8 +52,8 @@ public class AltoTemplarioTest {
 		AltoTemplario altoTemplario = new AltoTemplario();
 		altoTemplario.setCoordenada(new Coordenada(0, 1));
 		unDragon.atacar(altoTemplario);
-		Assert.assertTrue(altoTemplario.getVida() == 40);
-		Assert.assertTrue(altoTemplario.getEscudo() == 20);
+		Assert.assertTrue(altoTemplario.getCantidadDeVida() == 40);
+		Assert.assertTrue(altoTemplario.getCantidadDeEscudo() == 20);
 
 	}
 

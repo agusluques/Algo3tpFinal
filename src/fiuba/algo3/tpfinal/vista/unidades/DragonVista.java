@@ -67,10 +67,10 @@ public class DragonVista extends Vista{
 		JLabel capaNombre = new JLabel("Dragon");
 		miPanel.add(capaNombre);
 		
-		JLabel capaVida = new JLabel("Vida: " + miDragon.getVida());
+		JLabel capaVida = new JLabel("Vida: " + miDragon.getCantidadDeVida());
 		miPanel.add(capaVida);
 		
-		JLabel capaEscudo = new JLabel("Escudo: " + miDragon.getEscudo());
+		JLabel capaEscudo = new JLabel("Escudo: " + miDragon.getCantidadDeEscudo());
 		miPanel.add(capaEscudo);
 		
 		if(miJuego.jugadorActual.equals(miDragon.getJugador())){

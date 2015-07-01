@@ -8,14 +8,14 @@ import javax.swing.JOptionPane;
 
 import fiuba.algo3.tpfinal.excepciones.NoHayPasajerosEnLaNave;
 import fiuba.algo3.tpfinal.excepciones.ParcelaOcupada;
-import fiuba.algo3.tpfinal.unidades.NaveTransporteTerran;
+import fiuba.algo3.tpfinal.unidades.NaveTransporteProtoss;
 import fiuba.algo3.tpfinal.vista.sonidos.SonidoError;
 
-public class AccionBajarPasajerosTerran implements ActionListener{
+public class AccionBajarPasajerosProtoss implements ActionListener{
+
+	private NaveTransporteProtoss miNave;
 	
-	private NaveTransporteTerran miNave;
-	
-	public AccionBajarPasajerosTerran(NaveTransporteTerran nave) {
+	public AccionBajarPasajerosProtoss(NaveTransporteProtoss nave) {
 		miNave = nave;
 	}
 
@@ -39,6 +39,4 @@ public class AccionBajarPasajerosTerran implements ActionListener{
 		
 	}
 	
-	
-
 }

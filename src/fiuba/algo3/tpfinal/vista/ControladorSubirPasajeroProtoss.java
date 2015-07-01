@@ -7,14 +7,14 @@ import java.awt.event.ActionListener;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 
-import fiuba.algo3.tpfinal.unidades.NaveTransporteTerran;
+import fiuba.algo3.tpfinal.unidades.NaveTransporteProtoss;
 
-public class ControladorSubirPasajeroTerran implements ActionListener {
+public class ControladorSubirPasajeroProtoss implements ActionListener {
 	
-	private NaveTransporteTerran miNave;
+	private NaveTransporteProtoss miNave;
 	private JLayeredPane ventanaMapa;
 	
-	public ControladorSubirPasajeroTerran(NaveTransporteTerran nave) {
+	public ControladorSubirPasajeroProtoss(NaveTransporteProtoss nave) {
 		miNave = nave;
 	}
 	
@@ -25,7 +25,7 @@ public class ControladorSubirPasajeroTerran implements ActionListener {
 		capaQueEscuchaClicks.setBounds(0, 0, 4000, 4000);
 		capaQueEscuchaClicks.setBackground(new Color(0,0,0,0));
 		
-		AccionSubirPasajeroTerran accion = new AccionSubirPasajeroTerran(capaQueEscuchaClicks, miNave, ventanaMapa);
+		AccionSubirPasajeroProtoss accion = new AccionSubirPasajeroProtoss(capaQueEscuchaClicks, miNave, ventanaMapa);
 		
 		capaQueEscuchaClicks.addMouseListener(accion);
 		capaQueEscuchaClicks.setVisible(true);

@@ -51,10 +51,10 @@ public class ArchivosTemplariosVista extends Vista{
 		JLabel capaNombre = new JLabel("Archivo Templario");
 		miPanel.add(capaNombre);
 		
-		JLabel capaVida = new JLabel("Vida: " + miArchivoTemplario.getVida());
+		JLabel capaVida = new JLabel("Vida: " + miArchivoTemplario.getCantidadDeVida());
 		miPanel.add(capaVida);
 		
-		JLabel capaEscudo = new JLabel("Escudo: " + miArchivoTemplario.getEscudo());
+		JLabel capaEscudo = new JLabel("Escudo: " + miArchivoTemplario.getCantidadDeEscudo());
 		miPanel.add(capaEscudo);
 		
 		if(miJuego.jugadorActual.equals(miArchivoTemplario.getJugador())){
@@ -65,7 +65,6 @@ public class ArchivosTemplariosVista extends Vista{
 	
 	private void crearControladores() {
 		AccionCrearAltoTemplario controladorAltoTemplario = new AccionCrearAltoTemplario(miArchivoTemplario);
-		controladorAltoTemplario.setVentanaMapa(ventanaMapa);
 		JButton botonAltoTemplario = new JButton("Construir Alto Templario");
 		botonAltoTemplario.addActionListener(controladorAltoTemplario);
 		miPanel.add(botonAltoTemplario);

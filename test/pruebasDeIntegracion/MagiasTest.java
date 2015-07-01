@@ -47,7 +47,7 @@ public class MagiasTest {
 		jugador2.agregarUnidad((UnidadProtoss) zealot, new Coordenada(5, 5));
 
 		nave.lanzarEMP(new Coordenada(4, 4));
-		Assert.assertTrue(((Protoss) zealot).getEscudo() == 0);
+		Assert.assertTrue(((Protoss) zealot).getCantidadDeEscudo() == 0);
 		Assert.assertTrue(nave.getEnergia() == 10);
 
 	}
@@ -102,8 +102,8 @@ public class MagiasTest {
 
 		otraNave.lanzarEMP(new Coordenada(2, 2));
 
-		Assert.assertTrue(((Zealot) zealot).getEscudo() == 60);
-		Assert.assertTrue(((AltoTemplario) templar).getEscudo() == 40);
+		Assert.assertTrue(((Zealot) zealot).getCantidadDeEscudo() == 60);
+		Assert.assertTrue(((AltoTemplario) templar).getCantidadDeEscudo() == 40);
 		Assert.assertTrue(((AltoTemplario) templar).getEnergia() == 50);
 
 	}
@@ -177,8 +177,8 @@ public class MagiasTest {
 		altoTemplario.crearAlucinaciones(zealot);
 		for (Atacable unidad : jugador.getUnidades()) {
 			if (unidad.getClass() == (new Alucinacion(zealot)).getClass()) {
-				Assert.assertTrue(((Alucinacion) unidad).getVida() == 0);
-				Assert.assertTrue(((Alucinacion) unidad).getEscudo() == 60);
+				Assert.assertTrue(((Alucinacion) unidad).getCantidadDeVida() == 0);
+				Assert.assertTrue(((Alucinacion) unidad).getCantidadDeEscudo() == 60);
 
 			}
 		}
@@ -215,8 +215,8 @@ public class MagiasTest {
 			}
 		}
 
-		Assert.assertTrue(zealot.getEscudo() == 60);
-		Assert.assertTrue(zealot.getVida() == 100);
+		Assert.assertTrue(zealot.getCantidadDeEscudo() == 60);
+		Assert.assertTrue(zealot.getCantidadDeVida() == 100);
 	}
 
 	@Test

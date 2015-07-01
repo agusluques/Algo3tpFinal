@@ -51,10 +51,10 @@ public class NexoMineralVista extends Vista{
 		JLabel capaNombre = new JLabel("Nexo mineral");
 		miPanel.add(capaNombre);
 		
-		JLabel capaVida = new JLabel("Vida: " + miNexo.getVida());
+		JLabel capaVida = new JLabel("Vida: " + miNexo.getCantidadDeVida());
 		miPanel.add(capaVida);
 		
-		JLabel capaEscudo = new JLabel("Escudo: " + miNexo.getEscudo());
+		JLabel capaEscudo = new JLabel("Escudo: " + miNexo.getCantidadDeEscudo());
 		miPanel.add(capaEscudo);
 	}
 	

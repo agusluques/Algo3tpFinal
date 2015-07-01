@@ -51,10 +51,10 @@ public class AsimiladorVista extends Vista{
 		JLabel capaNombre = new JLabel("Asimilador");
 		miPanel.add(capaNombre);
 		
-		JLabel capaVida = new JLabel("Vida: " + miAsimilador.getVida());
+		JLabel capaVida = new JLabel("Vida: " + miAsimilador.getCantidadDeVida());
 		miPanel.add(capaVida);
 		
-		JLabel capaEscudo = new JLabel("Escudo: " + miAsimilador.getEscudo());
+		JLabel capaEscudo = new JLabel("Escudo: " + miAsimilador.getCantidadDeEscudo());
 		miPanel.add(capaEscudo);
 	}
 	

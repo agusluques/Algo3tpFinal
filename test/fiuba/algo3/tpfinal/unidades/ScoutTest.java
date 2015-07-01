@@ -19,8 +19,8 @@ public class ScoutTest {
 	@Test
 	public void siSeCreaUnScoutDebeTener150DeVidaY100DeEscudo() {
 		Scout scout = new Scout();
-		Assert.assertTrue(scout.getVida() == 150);
-		Assert.assertTrue(scout.getEscudo() == 100);
+		Assert.assertTrue(scout.getCantidadDeVida() == 150);
+		Assert.assertTrue(scout.getCantidadDeEscudo() == 100);
 
 	}
 
@@ -29,7 +29,7 @@ public class ScoutTest {
 		Scout scout = new Scout();
 		Danio danio = new Danio(110, 0);
 		scout.atacado(danio);
-		Assert.assertTrue(scout.getVida() == 140);
+		Assert.assertTrue(scout.getCantidadDeVida() == 140);
 	}
 
 	@Test
@@ -37,8 +37,8 @@ public class ScoutTest {
 		Scout scout = new Scout();
 		Danio danio = new Danio(0, 110);
 		scout.atacado(danio);
-		Assert.assertTrue(scout.getVida() == 150);
-		Assert.assertTrue(scout.getEscudo() == 100);
+		Assert.assertTrue(scout.getCantidadDeVida() == 150);
+		Assert.assertTrue(scout.getCantidadDeEscudo() == 100);
 	}
 
 	@Test
@@ -46,7 +46,7 @@ public class ScoutTest {
 		Scout scout = new Scout();
 		Danio danio = new Danio(800, 0);
 		scout.atacado(danio);
-		Assert.assertTrue(scout.getVida() == 0);
+		Assert.assertTrue(scout.getCantidadDeVida() == 0);
 	}
 
 	@Test
@@ -57,8 +57,8 @@ public class ScoutTest {
 		Scout otroScout = new Scout();
 		otroScout.setCoordenada(new Coordenada(0, 1));
 		unScout.atacar(otroScout);
-		Assert.assertTrue(otroScout.getVida() == 150);
-		Assert.assertTrue(otroScout.getEscudo() == 86);
+		Assert.assertTrue(otroScout.getCantidadDeVida() == 150);
+		Assert.assertTrue(otroScout.getCantidadDeEscudo() == 86);
 
 	}
 

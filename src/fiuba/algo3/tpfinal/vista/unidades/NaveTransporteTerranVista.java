@@ -80,7 +80,6 @@ public class NaveTransporteTerranVista extends Vista implements Observador {
 		miPanel.add(botonSubir);
 		
 		AccionBajarPasajerosTerran controladorBajar = new AccionBajarPasajerosTerran(miNave);
-		controladorBajar.setVentanaMapa(ventanaMapa);
 		JButton botonBajar = new JButton("Bajar pasajero");
 		botonBajar.addActionListener(controladorBajar);
 		miPanel.add(botonBajar);
@@ -92,6 +91,8 @@ public class NaveTransporteTerranVista extends Vista implements Observador {
 		miPanel.add(capaNombre);
 		JLabel capaVida = new JLabel("Vida: " + miNave.getVida());
 		miPanel.add(capaVida);
+		JLabel capaCapacidad = new JLabel("Capacidad restante: "+miNave.getCapacidad());
+		miPanel.add(capaCapacidad);
 		
 		if(miJuego.jugadorActual.equals(miNave.getJugador())){
 			crearControladores();

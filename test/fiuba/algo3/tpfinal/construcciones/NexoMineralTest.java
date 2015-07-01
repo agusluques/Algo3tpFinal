@@ -24,12 +24,12 @@ public class NexoMineralTest {
 
 	@Test
 	public void unNexoDebeTener250DeVidaInicial() {
-		Assert.assertTrue(this.nexo.getVida() == 250);
+		Assert.assertTrue(this.nexo.getCantidadDeVida() == 250);
 	}
 
 	@Test
 	public void unNexoDebeTener250DeEscudoInicial() {
-		Assert.assertTrue(this.nexo.getEscudo() == 250);
+		Assert.assertTrue(this.nexo.getCantidadDeEscudo() == 250);
 	}
 
 	@Test
@@ -51,7 +51,7 @@ public class NexoMineralTest {
 	public void siAtacanUnNexoCon100LaVidaQuedaIntactaYElEscudoEn150() {
 		Danio danio = new Danio(0, 100);
 		nexo.atacado(danio);
-		boolean resultado = (nexo.getVida() == 250 && nexo.getEscudo() == 150);
+		boolean resultado = (nexo.getCantidadDeVida() == 250 && nexo.getCantidadDeEscudo() == 150);
 		Assert.assertTrue(resultado);
 	}
 
@@ -59,7 +59,7 @@ public class NexoMineralTest {
 	public void siAtacanUnNexoCon250LaVidaQuedaIntactaYElEscudoEn0() {
 		Danio danio = new Danio(0, 250);
 		nexo.atacado(danio);
-		boolean resultado = (nexo.getVida() == 250 && nexo.getEscudo() == 0);
+		boolean resultado = (nexo.getCantidadDeVida() == 250 && nexo.getCantidadDeEscudo() == 0);
 		Assert.assertTrue(resultado);
 	}
 
@@ -67,7 +67,7 @@ public class NexoMineralTest {
 	public void siAtacanUnNexoCon300LaVidaQuedaEn200YElEscudoEn0() {
 		Danio danio = new Danio(0, 300);
 		nexo.atacado(danio);
-		boolean resultado = (nexo.getVida() == 200 && nexo.getEscudo() == 0);
+		boolean resultado = (nexo.getCantidadDeVida() == 200 && nexo.getCantidadDeEscudo() == 0);
 		Assert.assertTrue(resultado);
 	}
 
@@ -75,7 +75,7 @@ public class NexoMineralTest {
 	public void siAtacanUnNexoCon600LaVidaQuedaEn0YElEscudoEn0() {
 		Danio danio = new Danio(0, 600);
 		nexo.atacado(danio);
-		boolean resultado = (nexo.getVida() == 0 && nexo.getEscudo() == 0);
+		boolean resultado = (nexo.getCantidadDeVida() == 0 && nexo.getCantidadDeEscudo() == 0);
 		Assert.assertTrue(resultado);
 	}
 
@@ -97,7 +97,7 @@ public class NexoMineralTest {
 		zealot.atacar(nexo);
 		nexo.pasarTurno();
 
-		Assert.assertEquals(250, nexo.getEscudo());
+		Assert.assertEquals(250, nexo.getCantidadDeEscudo());
 		Assert.assertEquals(210, jugador.getPresupuesto().cantidadDeMineral());
 	}
 

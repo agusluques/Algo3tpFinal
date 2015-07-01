@@ -66,19 +66,16 @@ public class PuertoEstelarTerranVista extends Vista{
 	private void crearControladores() {
 		
 		AccionCrearEspectro controladorEspectro = new AccionCrearEspectro(miPuertoEstelar);
-		controladorEspectro.setVentanaMapa(ventanaMapa);
 		JButton botonEspectro = new JButton("Construir Espectro");
 		botonEspectro.addActionListener(controladorEspectro);
 		miPanel.add(botonEspectro);
 		
 		AccionCrearNaveDeTransporteTerran controladorNaveTransporte = new AccionCrearNaveDeTransporteTerran(miPuertoEstelar);
-		controladorNaveTransporte.setVentanaMapa(ventanaMapa);
 		JButton botonNaveTransporte = new JButton("Construir Nave De Transporte");
 		botonNaveTransporte.addActionListener(controladorNaveTransporte);
 		miPanel.add(botonNaveTransporte);
 		
 		AccionCrearNaveCiencia controladorNaveCiencia = new AccionCrearNaveCiencia(miPuertoEstelar);
-		controladorNaveCiencia.setVentanaMapa(ventanaMapa);
 		JButton botonNaveCiencia = new JButton("Construir Nave De Ciencia");
 		botonNaveCiencia.addActionListener(controladorNaveCiencia);
 		miPanel.add(botonNaveCiencia);

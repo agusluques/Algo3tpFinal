@@ -19,8 +19,8 @@ public class DragonTest {
 	@Test
 	public void siSeCreaUnDragonDebeTener100DeVidaY80DeEscudo() {
 		Dragon dragon = new Dragon();
-		Assert.assertTrue(dragon.getVida() == 100);
-		Assert.assertTrue(dragon.getEscudo() == 80);
+		Assert.assertTrue(dragon.getCantidadDeVida() == 100);
+		Assert.assertTrue(dragon.getCantidadDeEscudo() == 80);
 
 	}
 
@@ -29,7 +29,7 @@ public class DragonTest {
 		Dragon dragon = new Dragon();
 		Danio danio = new Danio(0, 110);
 		dragon.atacado(danio);
-		Assert.assertTrue(dragon.getVida() == 70);
+		Assert.assertTrue(dragon.getCantidadDeVida() == 70);
 	}
 
 	@Test
@@ -37,7 +37,7 @@ public class DragonTest {
 		Dragon dragon = new Dragon();
 		Danio danio = new Danio(0, 800);
 		dragon.atacado(danio);
-		Assert.assertTrue(dragon.getVida() == 0);
+		Assert.assertTrue(dragon.getCantidadDeVida() == 0);
 	}
 
 	@Test
@@ -48,8 +48,8 @@ public class DragonTest {
 		Dragon otroDragon = new Dragon();
 		otroDragon.setCoordenada(new Coordenada(0, 1));
 		unDragon.atacar(otroDragon);
-		Assert.assertTrue(otroDragon.getVida() == 100);
-		Assert.assertTrue(otroDragon.getEscudo() == 60);
+		Assert.assertTrue(otroDragon.getCantidadDeVida() == 100);
+		Assert.assertTrue(otroDragon.getCantidadDeEscudo() == 60);
 
 	}
 

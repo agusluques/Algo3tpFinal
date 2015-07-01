@@ -63,7 +63,6 @@ public class BarracaVista extends Vista{
 	
 	private void crearControladores() {
 		AccionCrearMarine controladorMarine = new AccionCrearMarine(miBarraca);
-		controladorMarine.setVentanaMapa(ventanaMapa);
 		JButton botonMarine = new JButton("Construir Marine");
 		botonMarine.addActionListener(controladorMarine);
 		miPanel.add(botonMarine);
