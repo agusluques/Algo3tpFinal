@@ -24,6 +24,7 @@ public abstract class UnidadTerran extends Terran implements Fabricable,
 	protected RangoDeAtaque rangoDeAtaque;
 	protected Costo costo;
 	protected int transporte;
+	protected int ataques = 0;
 
 	public int getTiempoRestante() {
 		return this.tiempoDeConstruccion;
@@ -44,9 +45,16 @@ public abstract class UnidadTerran extends Terran implements Fabricable,
 	public void atacar(Atacable enemigo) {
 		if (!this.estaEnRangoDeAtaque(enemigo)) {
 			enemigo.atacado(new Danio(0, 0));
-		}else {enemigo.atacado(miDanio);}
+		}else {
+			enemigo.atacado(miDanio);
+			ataques = 1;	
+		}
 	}
 	
+	@Override
+	public int getCantidadDeAtaques(){
+		return ataques;
+	}
 
 	protected boolean estaEnRangoDeAtaque(Atacable enemigo) {
 		Coordenada coordenadaEnemigo = enemigo.getCoordenada();

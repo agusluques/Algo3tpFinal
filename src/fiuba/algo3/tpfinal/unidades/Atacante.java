@@ -6,4 +6,6 @@ public interface Atacante {
 
 	void atacar(Atacable enemigo);
 
+	int getCantidadDeAtaques();
+
 }

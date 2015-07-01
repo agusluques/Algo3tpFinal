@@ -24,6 +24,7 @@ public abstract class UnidadProtoss extends Protoss implements Fabricable,
 	protected int tiempoDeConstruccion;
 	protected int transporte; // El espacio que ocupa en la nave
 	protected RangoDeAtaque rangoDeAtaque;
+	protected int ataques = 0;
 
 	public int getTiempoRestante() {
 		return this.tiempoDeConstruccion;
@@ -49,7 +50,10 @@ public abstract class UnidadProtoss extends Protoss implements Fabricable,
 	public void atacar(Atacable enemigo) {
 		if (!this.estaEnRangoDeAtaque(enemigo)) {
 			enemigo.atacado(new Danio(0, 0));
-		}else {enemigo.atacado(miDanio);}
+		}else {
+			enemigo.atacado(miDanio);
+			ataques = 1;
+		}
 	}
 
 	protected boolean estaEnRangoDeAtaque(Atacable enemigo) {
@@ -69,6 +73,11 @@ public abstract class UnidadProtoss extends Protoss implements Fabricable,
 		this.posicion.mover(fila, columna);
 	}
 
+	@Override
+	public int getCantidadDeAtaques(){
+		return ataques;
+	}
+	
 	@Override
 	public void trasladarA(Coordenada coord, Mapa mapa) throws ParcelaOcupada {
 		Parcela parcelaNueva = mapa.getParcela(coord);

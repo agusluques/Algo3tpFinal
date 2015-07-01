@@ -21,4 +21,5 @@ public interface Atacable {
 	int rangoDeAtaqueCorrespondiente(RangoDeAtaque rango);
 
 	void pasarTurno() throws ParcelaOcupada;
+
 }
