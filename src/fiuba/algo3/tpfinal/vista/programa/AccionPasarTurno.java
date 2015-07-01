@@ -27,7 +27,7 @@ public class AccionPasarTurno implements ActionListener {
 		try {
 			miJuego.pasarTurno(miJugador);
 		} catch (ParcelaOcupada e) {
-			JOptionPane.showMessageDialog(miMapaVista, "La posicion esta ocupada",
+			JOptionPane.showMessageDialog(null, "La posicion esta ocupada",
 					"Error",
 			    	JOptionPane.ERROR_MESSAGE);
 		}
@@ -36,9 +36,10 @@ public class AccionPasarTurno implements ActionListener {
 		miJuego.jugadorActual.notificarObservadorSobreSeleccion();
 		miMapaVista.actualizar();
 		if(miJuego.hayGanador()) {
-			JOptionPane.showMessageDialog(miMapaVista, "Ganador: "+miJuego.getGanador().getNombre(),
+			JOptionPane.showMessageDialog(null, "Ganador: "+miJuego.getGanador().getNombre(),
 					"Felicitaciones!",
 			    	JOptionPane.WARNING_MESSAGE);
+			System.exit(0);
 		}
 	}
 	

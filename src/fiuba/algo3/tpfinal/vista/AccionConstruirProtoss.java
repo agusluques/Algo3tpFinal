@@ -42,23 +42,23 @@ public class AccionConstruirProtoss implements MouseListener{
 		try {
 			miJugador.construir(miConstruccion, posicion);
 		} catch (MineralInsuficiente e) {
-			JOptionPane.showMessageDialog(ventanaMapa, "No te alcanza el mineral",
+			JOptionPane.showMessageDialog(null, "No te alcanza el mineral",
 					"Error",
 			    	JOptionPane.ERROR_MESSAGE);
 		} catch (GasInsuficiente e) {
-			JOptionPane.showMessageDialog(ventanaMapa, "No te alcanza el gas",
+			JOptionPane.showMessageDialog(null, "No te alcanza el gas",
 					"Error",
 			    	JOptionPane.ERROR_MESSAGE);
 		} catch (TerrenoInapropiado e) {
-			JOptionPane.showMessageDialog(ventanaMapa, "No se puede construir aca",
+			JOptionPane.showMessageDialog(null, "No se puede construir aca",
 					"Error",
 			    	JOptionPane.ERROR_MESSAGE);
 		} catch (ParcelaOcupada e) {
-			JOptionPane.showMessageDialog(ventanaMapa, "El lugar esta ocupado",
+			JOptionPane.showMessageDialog(null, "El lugar esta ocupado",
 					"Error",
 			    	JOptionPane.ERROR_MESSAGE);
 		} catch (ConstruccionRequeridaInexistente e) {
-			JOptionPane.showMessageDialog(ventanaMapa, "Te faltan construcciones",
+			JOptionPane.showMessageDialog(null, "Te faltan construcciones",
 					"Error",
 			    	JOptionPane.ERROR_MESSAGE);
 			

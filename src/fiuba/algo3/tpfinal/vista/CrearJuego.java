@@ -114,7 +114,7 @@ public class CrearJuego implements ActionListener {
 		if (((String) colorJUno.getSelectedItem()).matches((String) colorJDos
 				.getSelectedItem())) {
 			new SonidoError();
-			JOptionPane.showMessageDialog(frame, "Los colores no pueden ser iguales",
+			JOptionPane.showMessageDialog(null, "Los colores no pueden ser iguales",
 					"Error",
 			    	JOptionPane.ERROR_MESSAGE);
 		}
@@ -123,7 +123,7 @@ public class CrearJuego implements ActionListener {
 	private void verificarIgualdadDeNombres(Component frame) throws MalformedURLException {
 		if (nombreJUno.getText().matches(nombreJDos.getText())) {
 			new SonidoError();
-			JOptionPane.showMessageDialog(frame, "Los nombres no pueden ser iguales",
+			JOptionPane.showMessageDialog(null, "Los nombres no pueden ser iguales",
 					"Error",
 			    	JOptionPane.ERROR_MESSAGE);
 		}
@@ -133,7 +133,7 @@ public class CrearJuego implements ActionListener {
 		if ((nombreJUno.getText().length() < 4)
 				|| (nombreJDos.getText().length() < 4)) {
 			new SonidoError();
-			JOptionPane.showMessageDialog(frame, "El nombre debe tener 4 caracteres como maximo",
+			JOptionPane.showMessageDialog(null, "El nombre debe tener 4 caracteres como maximo",
 					"Error",
 			    	JOptionPane.ERROR_MESSAGE);
 		}
