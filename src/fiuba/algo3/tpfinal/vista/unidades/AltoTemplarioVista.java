@@ -9,6 +9,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import fiuba.algo3.tpfinal.construcciones.Atacable;
 import fiuba.algo3.tpfinal.unidades.AltoTemplario;
 import fiuba.algo3.tpfinal.unidades.Trasladable;
 import fiuba.algo3.tpfinal.vista.ControladorTraslado;
@@ -52,6 +53,20 @@ public class AltoTemplarioVista extends Vista {
 		JButton botonMover = new JButton("Trasladar");
 		botonMover.addActionListener(controladorTraslado);
 		miPanel.add(botonMover);
+	
+		AccionTormentaPsionica tormenta = new AccionTormentaPsionica();
+		ControladorDeMagias controladorMagias = new ControladorDeMagias(tormenta,(Atacable)miAltoTemplario);
+		controladorMagias.setVentanaMapa(ventanaMapa);
+		JButton botonTormenta = new JButton("Tormenta Psionica");
+		botonTormenta.addActionListener(controladorMagias);
+		miPanel.add(botonTormenta);
+		
+		AccionAlucinacion alucinacion = new AccionAlucinacion();
+		ControladorDeMagias controlador = new ControladorDeMagias(alucinacion,(Atacable)miAltoTemplario);
+		controlador.setVentanaMapa(ventanaMapa);
+		JButton botonAlucinacion = new JButton("Alucinacion");
+		botonAlucinacion.addActionListener(controlador);
+		miPanel.add(botonAlucinacion);
 	}
 
 	private void crearPanel() {

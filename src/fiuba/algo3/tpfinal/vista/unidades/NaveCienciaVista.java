@@ -8,6 +8,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import fiuba.algo3.tpfinal.construcciones.Atacable;
 import fiuba.algo3.tpfinal.programa.Coordenada;
 import fiuba.algo3.tpfinal.unidades.NaveCiencia;
 import fiuba.algo3.tpfinal.unidades.Trasladable;
@@ -63,6 +64,20 @@ public class NaveCienciaVista extends Vista {
 		JButton botonMover = new JButton("Trasladar");
 		botonMover.addActionListener(controladorTraslado);
 		miPanel.add(botonMover);
+	
+		AccionIrradiar irradiar = new AccionIrradiar();
+		ControladorDeMagias controladorMagias = new ControladorDeMagias(irradiar,(Atacable)miNave);
+		controladorMagias.setVentanaMapa(ventanaMapa);
+		JButton botonIrradiar = new JButton("Irradiar");
+		botonIrradiar.addActionListener(controladorMagias);
+		miPanel.add(botonIrradiar);
+		
+		AccionLanzarEMP emp = new AccionLanzarEMP();
+		ControladorDeMagias controlador = new ControladorDeMagias(emp,(Atacable)miNave);
+		controlador.setVentanaMapa(ventanaMapa);
+		JButton botonEMP = new JButton("Lanzar EMP");
+		botonEMP.addActionListener(controlador);
+		miPanel.add(botonEMP);
 	}
 
 
@@ -91,6 +106,7 @@ public class NaveCienciaVista extends Vista {
 			g.drawImage(img, 0, 0, 40, 40, null);
 		}
 
+	
 	}
 
 }
