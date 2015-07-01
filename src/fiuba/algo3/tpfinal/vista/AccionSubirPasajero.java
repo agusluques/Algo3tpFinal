@@ -68,7 +68,7 @@ public class AccionSubirPasajero implements MouseListener {
 			} catch (MalformedURLException e1) {
 				e1.printStackTrace();
 			}
-			JOptionPane.showMessageDialog(ventanaMapa, "No hay más capacidad en la nave",
+			JOptionPane.showMessageDialog(ventanaMapa, "No hay mas capacidad en la nave",
 					"Error",
 			    	JOptionPane.ERROR_MESSAGE);
 		}
