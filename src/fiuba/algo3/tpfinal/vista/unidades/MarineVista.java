@@ -83,13 +83,13 @@ public class MarineVista extends Vista {
 			miPanel.setVisible(false);
 			miVentanaDeAccion.remove(miPanel);
 		} 
-		if (miPanel.isVisible()){
+		else{
 			
-			miPanel.setVisible(false);
-			miVentanaDeAccion.remove(miPanel);
+			//miPanel.setVisible(false);
+			//miVentanaDeAccion.remove(miPanel);
 			crearPanel();
-			miVentanaDeAccion.add(miPanel);
-			miPanel.setVisible(true);
+			//miVentanaDeAccion.add(miPanel);
+			//miPanel.setVisible(true);
 		}
 	}
 	public void paint(Graphics g) {

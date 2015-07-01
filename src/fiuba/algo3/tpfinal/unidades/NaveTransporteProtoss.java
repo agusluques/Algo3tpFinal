@@ -72,7 +72,7 @@ public class NaveTransporteProtoss extends UnidadProtoss {
 		return this.capacidad;
 	}
 
-	public int cantidadDePasajeros() {
+	private int cantidadDePasajeros() {
 		return pasajeros.size();
 	}
 

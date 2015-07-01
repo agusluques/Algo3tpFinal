@@ -1,14 +1,11 @@
 package fiuba.algo3.tpfinal.vista.programa;
 
-import java.awt.Component;
-import java.awt.event.MouseListener;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import fiuba.algo3.tpfinal.programa.Jugador;
-import fiuba.algo3.tpfinal.vista.AccionClickMouse;
 import fiuba.algo3.tpfinal.vista.MapaVista;
 import fiuba.algo3.tpfinal.vista.Observable;
 import fiuba.algo3.tpfinal.vista.Vista;
@@ -51,45 +48,28 @@ public class JugadorVista extends Vista {
 		crearControladores();
 		
 	}
-	@Override
-	public void imprimirMenuObservador() {
-		this.notificarUnidadSeleccionada();
+	public void actualizar() {
 		crearPanel();
-		miVentanaDeAccion.add(miPanel);
-		miPanel.setVisible(true);
-		
+	
 	}
-
+	
 	@Override
 	public void ocultarMenuObservador() {
 		miPanel.setVisible(false);
 		miVentanaDeAccion.remove(miPanel);
-		this.notificarUnidadSeleccionada();
+		//this.notificarUnidadSeleccionada();
 	}
 	
-	private void notificarUnidadSeleccionada(){
+	/*private void notificarUnidadSeleccionada(){
 		for (MouseListener mouse :miMapaVista.getMouseListeners()){
 			try{
 				((AccionClickMouse)mouse).unidadSeleccionada.notificarObservador();
 				
 			}catch (Exception e){}
 		}
-	}
-	
-	@Override
-	public void actualizar() { 
-		
-		for(Component componenteActual : miVentanaDeAccion.getContentPane().getComponents()){
-			if(componenteActual.equals(miPanel)){
-				miPanel.setVisible(false);
-				miVentanaDeAccion.remove(miPanel);
-				crearPanel();
-				miVentanaDeAccion.add(miPanel);
-				miPanel.setVisible(true);
-				
-			}
-		}
-	}
+	}*/
+
+
 	public void setMapaVista(MapaVista mapaVista) {
 		miMapaVista = mapaVista;
 	}

@@ -60,11 +60,11 @@ public abstract class UnidadProtoss extends Protoss implements Fabricable,
 		Coordenada coordenadaAtacante = this.getCoordenada();
 		double distancia = coordenadaEnemigo.distancia(coordenadaAtacante);
 
-		boolean estaEnRango = (this.rangoDeAtaque(enemigo) >= distancia);
+		boolean estaEnRango = (this.obtenerRangoDeAtaqueDelEnemigo(enemigo) >= distancia);
 		return estaEnRango;
 	}
 
-	private int rangoDeAtaque(Atacable enemigo) {
+	private int obtenerRangoDeAtaqueDelEnemigo(Atacable enemigo) {
 		return enemigo.rangoDeAtaqueCorrespondiente(this.rangoDeAtaque);
 	}
 

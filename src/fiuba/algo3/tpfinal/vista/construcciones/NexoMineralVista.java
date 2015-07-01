@@ -65,14 +65,8 @@ public class NexoMineralVista extends Vista{
 			ventanaMapa.repaint();
 			miPanel.setVisible(false);
 			miVentanaDeAccion.remove(miPanel);
-		} 
-		if (miPanel.isVisible()){
-			
-			miPanel.setVisible(false);
-			miVentanaDeAccion.remove(miPanel);
+		} else {
 			crearPanel();
-			miVentanaDeAccion.add(miPanel);
-			miPanel.setVisible(true);
 		}
 	}
 

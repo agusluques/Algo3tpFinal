@@ -29,7 +29,7 @@ public class Arquitecto {
 
 		if (construccion.puedeConstruirseEn(mapa.getParcela(posicion))) {
 			this.cobrarConstruccion(construccion);
-			this.jugador.notificarObservador();
+			///this.jugador.notificarObservador();
 			this.construccionesEnConstruccion.add(construccion);
 			((Atacable) construccion).setCoordenada(posicion);
 			this.mapa.insertarUnidad(posicion,(Atacable) construccion);

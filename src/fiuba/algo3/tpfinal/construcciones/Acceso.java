@@ -36,7 +36,7 @@ public class Acceso extends ConstruccionProtoss {
 		this.fabricar(new Dragon());
 	}
 
-	public void fabricar(Fabricable unidad) throws MineralInsuficiente, GasInsuficiente {
+	private void fabricar(Fabricable unidad) throws MineralInsuficiente, GasInsuficiente {
 		if (unidadesEnConstruccion.size() < 6) {
 			try {
 				jugador.getPresupuesto().gastar(unidad.getCosto());

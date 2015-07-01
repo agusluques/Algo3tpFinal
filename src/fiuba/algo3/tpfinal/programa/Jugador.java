@@ -59,7 +59,7 @@ public abstract class Jugador extends Observable{
 		return i;
 	}
 
-	private int contarCasas() {
+	private int contarPoblacionDisponible() {
 		int i = 0;
 		for (Constructible cons : this.construcciones) {
 			i = i + cons.aumentoDePoblacion();
@@ -68,10 +68,10 @@ public abstract class Jugador extends Observable{
 	}
 
 	public int limitePoblacional() {
-		if (limitePoblacionalInicial + this.contarCasas() >= limitePoblacionalMaximo) {
+		if (limitePoblacionalInicial + this.contarPoblacionDisponible() >= limitePoblacionalMaximo) {
 			return limitePoblacionalMaximo;
 		} else {
-			return limitePoblacionalInicial + this.contarCasas();
+			return limitePoblacionalInicial + this.contarPoblacionDisponible();
 
 		}
 
