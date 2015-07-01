@@ -24,8 +24,7 @@ public abstract class UnidadProtoss extends Protoss implements Fabricable,
 	protected int tiempoDeConstruccion;
 	protected int transporte; // El espacio que ocupa en la nave
 	protected RangoDeAtaque rangoDeAtaque;
-	protected int ataques = 0;
-
+	
 	public int getTiempoRestante() {
 		return this.tiempoDeConstruccion;
 	}

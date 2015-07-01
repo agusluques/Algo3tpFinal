@@ -11,6 +11,7 @@ public abstract class Terran extends Observable implements Atacable,
 	protected Vida vida;
 	protected Coordenada posicion;
 	protected JugadorTerran jugador;
+	protected int ataques = 0;
 
 	public int getVida() {
 		return this.vida.getCantidadDeVida();
@@ -44,6 +45,7 @@ public abstract class Terran extends Observable implements Atacable,
 	}
 
 	public void pasarTurno() throws ParcelaOcupada {
+		ataques = 0;
 	}
 
 	public void recibirImpactoEMP() {

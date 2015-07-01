@@ -11,6 +11,7 @@ public abstract class Protoss extends Observable implements Atacable,
 	protected VidaConEscudo vida;
 	protected Coordenada posicion;
 	protected JugadorProtoss jugador;
+	protected int ataques = 0;
 
 	public int getCantidadDeVida() {
 		return this.vida.getCantidadDeVida();
@@ -48,6 +49,7 @@ public abstract class Protoss extends Observable implements Atacable,
 
 	public void pasarTurno() throws ParcelaOcupada {
 		this.vida.pasarTurno();
+		this.ataques = 0;
 	}
 
 	public void recibirImpactoEMP() {

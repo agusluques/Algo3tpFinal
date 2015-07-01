@@ -24,7 +24,7 @@ public abstract class UnidadTerran extends Terran implements Fabricable,
 	protected RangoDeAtaque rangoDeAtaque;
 	protected Costo costo;
 	protected int transporte;
-	protected int ataques = 0;
+	
 
 	public int getTiempoRestante() {
 		return this.tiempoDeConstruccion;
