@@ -12,7 +12,6 @@ import fiuba.algo3.tpfinal.excepciones.ConstruccionRequeridaInexistente;
 import fiuba.algo3.tpfinal.excepciones.GasInsuficiente;
 import fiuba.algo3.tpfinal.excepciones.MineralInsuficiente;
 import fiuba.algo3.tpfinal.excepciones.ParcelaOcupada;
-import fiuba.algo3.tpfinal.excepciones.ParcelaVacia;
 import fiuba.algo3.tpfinal.excepciones.TerrenoInapropiado;
 
 public class ArquitectoTest {

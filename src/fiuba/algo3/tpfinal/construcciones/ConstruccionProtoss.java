@@ -2,6 +2,9 @@ package fiuba.algo3.tpfinal.construcciones;
 
 import java.util.Collection;
 
+import fiuba.algo3.tpfinal.excepciones.ConstruccionRequeridaInexistente;
+import fiuba.algo3.tpfinal.excepciones.ParcelaOcupada;
+import fiuba.algo3.tpfinal.excepciones.TerrenoInapropiado;
 import fiuba.algo3.tpfinal.programa.Coordenada;
 import fiuba.algo3.tpfinal.programa.Costo;
 import fiuba.algo3.tpfinal.programa.Parcela;
@@ -52,25 +55,29 @@ public abstract class ConstruccionProtoss extends Protoss implements
 		return 0;
 	}
 
-	protected boolean esValidaLaUbicacion(Parcela ubicacion) {
-		return (ubicacion.estaVacia() && ubicacion.getSuperficie().equals(
-				superficieNecesaria));
+	protected boolean esValidaLaUbicacion(Parcela ubicacion) throws TerrenoInapropiado, ParcelaOcupada {
+		if(!ubicacion.estaVacia()) {
+			throw new ParcelaOcupada();
+		}
+		if(!ubicacion.getSuperficie().equals(superficieNecesaria)) {
+			throw new TerrenoInapropiado();
+		}
+		return true;
 	}
 
 	protected boolean construccionesRequeridasEncontradas(
-			Collection<Constructible> construccionesNecesarias) {
-		boolean aux = true;
+			Collection<Constructible> construccionesNecesarias) throws ConstruccionRequeridaInexistente {
 		for (Constructible construccionRequerida : construccionesNecesarias) {
 			if (!this.jugador.getConstrucciones().contains(
 					construccionRequerida)) {
-				aux = false;
+				throw new ConstruccionRequeridaInexistente();
 			}
 		}
-		return aux;
+		return true;
 	}
 
 	@Override
-	public boolean puedeConstruirseEn(Parcela ubicacion) {
+	public boolean puedeConstruirseEn(Parcela ubicacion) throws ParcelaOcupada, TerrenoInapropiado, ConstruccionRequeridaInexistente {
 		return this.esValidaLaUbicacion(ubicacion);
 	}
 	

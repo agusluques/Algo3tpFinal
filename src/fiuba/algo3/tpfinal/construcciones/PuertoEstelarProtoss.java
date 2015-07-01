@@ -3,10 +3,12 @@ package fiuba.algo3.tpfinal.construcciones;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import fiuba.algo3.tpfinal.excepciones.ConstruccionRequeridaInexistente;
 import fiuba.algo3.tpfinal.excepciones.GasInsuficiente;
 import fiuba.algo3.tpfinal.excepciones.LimitePoblacionalAlcanzado;
 import fiuba.algo3.tpfinal.excepciones.MineralInsuficiente;
 import fiuba.algo3.tpfinal.excepciones.ParcelaOcupada;
+import fiuba.algo3.tpfinal.excepciones.TerrenoInapropiado;
 import fiuba.algo3.tpfinal.programa.Costo;
 import fiuba.algo3.tpfinal.programa.Parcela;
 import fiuba.algo3.tpfinal.programa.Tierra;
@@ -76,7 +78,7 @@ public class PuertoEstelarProtoss extends ConstruccionProtoss {
 	}
 
 	@Override
-	public boolean puedeConstruirseEn(Parcela ubicacion) {
+	public boolean puedeConstruirseEn(Parcela ubicacion) throws TerrenoInapropiado, ParcelaOcupada, ConstruccionRequeridaInexistente {
 		return (this.esValidaLaUbicacion(ubicacion) && this
 				.construccionesRequeridasEncontradas(this.construccionesNecesarias));
 	}
