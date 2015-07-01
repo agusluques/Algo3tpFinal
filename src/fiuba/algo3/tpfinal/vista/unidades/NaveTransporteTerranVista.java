@@ -11,6 +11,8 @@ import javax.swing.JPanel;
 import fiuba.algo3.tpfinal.programa.Coordenada;
 import fiuba.algo3.tpfinal.unidades.NaveTransporteTerran;
 import fiuba.algo3.tpfinal.unidades.Trasladable;
+import fiuba.algo3.tpfinal.vista.AccionBajarPasajerosTerran;
+import fiuba.algo3.tpfinal.vista.ControladorSubirPasajeroTerran;
 import fiuba.algo3.tpfinal.vista.ControladorTraslado;
 import fiuba.algo3.tpfinal.vista.HashImagenes;
 import fiuba.algo3.tpfinal.vista.HashImagenesConColor;
@@ -63,6 +65,18 @@ public class NaveTransporteTerranVista extends Vista implements Observador {
 		JButton botonMover = new JButton("Trasladar");
 		botonMover.addActionListener(controladorTraslado);
 		miPanel.add(botonMover);
+		
+		ControladorSubirPasajeroTerran controladorSubir = new ControladorSubirPasajeroTerran(miNave);
+		controladorSubir.setVentanaMapa(ventanaMapa);
+		JButton botonSubir = new JButton("Subir pasajero");
+		botonSubir.addActionListener(controladorSubir);
+		miPanel.add(botonSubir);
+		
+		AccionBajarPasajerosTerran controladorBajar = new AccionBajarPasajerosTerran(miNave);
+		controladorBajar.setVentanaMapa(ventanaMapa);
+		JButton botonBajar = new JButton("Bajar pasajero");
+		botonBajar.addActionListener(controladorBajar);
+		miPanel.add(botonBajar);
 	}
 
 	private void crearPanel() {
