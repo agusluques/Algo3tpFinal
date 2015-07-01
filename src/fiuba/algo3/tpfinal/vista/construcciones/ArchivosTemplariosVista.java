@@ -5,10 +5,12 @@ import java.awt.Graphics;
 import java.awt.Image;
 
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import fiuba.algo3.tpfinal.construcciones.ArchivosTemplarios;
+import fiuba.algo3.tpfinal.vista.AccionCrearAltoTemplario;
 import fiuba.algo3.tpfinal.vista.HashImagenesConColor;
 import fiuba.algo3.tpfinal.vista.Observable;
 import fiuba.algo3.tpfinal.vista.Vista;
@@ -55,8 +57,21 @@ public class ArchivosTemplariosVista extends Vista{
 		JLabel capaEscudo = new JLabel("Escudo: " + miArchivoTemplario.getEscudo());
 		miPanel.add(capaEscudo);
 		
+		if(miJuego.jugadorActual.equals(miArchivoTemplario.getJugador())){
+			crearControladores();
+		}
+		
 	}
 	
+	private void crearControladores() {
+		AccionCrearAltoTemplario controladorAltoTemplario = new AccionCrearAltoTemplario(miArchivoTemplario);
+		controladorAltoTemplario.setVentanaMapa(ventanaMapa);
+		JButton botonAltoTemplario = new JButton("Construir Alto Templario");
+		botonAltoTemplario.addActionListener(controladorAltoTemplario);
+		miPanel.add(botonAltoTemplario);
+		
+	}
+
 	public void actualizar() {
 		if (miArchivoTemplario.estaMuerto()) {
 			System.out.println("Me mori");

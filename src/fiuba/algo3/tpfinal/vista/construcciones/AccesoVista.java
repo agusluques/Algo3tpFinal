@@ -5,10 +5,13 @@ import java.awt.Graphics;
 import java.awt.Image;
 
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import fiuba.algo3.tpfinal.construcciones.Acceso;
+import fiuba.algo3.tpfinal.vista.AccionCrearDragon;
+import fiuba.algo3.tpfinal.vista.AccionCrearZealot;
 import fiuba.algo3.tpfinal.vista.HashImagenesConColor;
 import fiuba.algo3.tpfinal.vista.Observable;
 import fiuba.algo3.tpfinal.vista.Vista;
@@ -54,8 +57,26 @@ public class AccesoVista extends Vista {
 		
 		JLabel capaEscudo = new JLabel("Escudo: " + miAcceso.getEscudo());
 		miPanel.add(capaEscudo);
+		
+		if(miJuego.jugadorActual.equals(miAcceso.getJugador())){
+			crearControladores();
+		}
 	}
 	
+	private void crearControladores() {
+		AccionCrearZealot controladorZealot = new AccionCrearZealot(miAcceso);
+		controladorZealot.setVentanaMapa(ventanaMapa);
+		JButton botonZealot = new JButton("Construir Zealot");
+		botonZealot.addActionListener(controladorZealot);
+		miPanel.add(botonZealot);
+		
+		AccionCrearDragon controladorDragon = new AccionCrearDragon(miAcceso);
+		controladorDragon.setVentanaMapa(ventanaMapa);
+		JButton botonDragon = new JButton("Construir Dragon");
+		botonDragon.addActionListener(controladorDragon);
+		miPanel.add(botonDragon);
+	}
+
 	public void actualizar() {
 		if (miAcceso.estaMuerto()) {
 			System.out.println("Me mori");
