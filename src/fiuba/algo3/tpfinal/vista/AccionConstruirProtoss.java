@@ -67,7 +67,9 @@ public class AccionConstruirProtoss implements MouseListener{
 
 		capaQueEscucho.setVisible(false);
 		ventanaMapa.remove(capaQueEscucho);
-		
+	
+	
+	
 	}
 
 	@Override

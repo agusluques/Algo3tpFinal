@@ -20,6 +20,10 @@ public abstract class ConstruccionProtoss extends Protoss implements
 		return this.costo;
 	}
 
+	public boolean estaEnContruccion(){
+		return (tiempoDeConstruccion>0);
+	}
+	
 	@Override
 	public int getTiempoRestante() {
 		return this.tiempoDeConstruccion;

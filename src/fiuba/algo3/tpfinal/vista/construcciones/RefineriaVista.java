@@ -9,6 +9,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import fiuba.algo3.tpfinal.construcciones.Refineria;
+import fiuba.algo3.tpfinal.vista.HashImagenesConColor;
 import fiuba.algo3.tpfinal.vista.Observable;
 import fiuba.algo3.tpfinal.vista.Vista;
 
@@ -18,18 +19,26 @@ public class RefineriaVista extends Vista{
 	private Refineria miRefineria;
 	private Image img;
 	private Image fondo;
+	private HashImagenesConColor imagenes;
 	
 	public RefineriaVista() {
 		setPreferredSize(new Dimension(40, 40));
+		fondo = (new ImageIcon("imagenes/superficies/vespene.png")).getImage();
 	}
 
 	@Override
 	public void setObservable(Observable refineria) {
-		img = (new ImageIcon("imagenes/construcciones/Refineria.png")).getImage();
-		fondo = (new ImageIcon("imagenes/superficies/vespene.png")).getImage();
+				
 		if (miRefineria == null){
 			miRefineria = (Refineria) refineria;
+			imagenes = new HashImagenesConColor(miRefineria.getJugador().getColor());
 		}
+		if(miRefineria.estaEnContruccion()){
+			img = imagenes.get("EdificioEnConstruccionTerran");
+		}else{
+			img = imagenes.get("Refineria");
+		}
+		
 		crearPanel();
 		
 		miPanel.setVisible(false);
@@ -37,6 +46,7 @@ public class RefineriaVista extends Vista{
 	}
 
 	private void crearPanel() {
+		
 		miPanel = new JPanel();
 		
 		JLabel capaNombre = new JLabel("Refineria");

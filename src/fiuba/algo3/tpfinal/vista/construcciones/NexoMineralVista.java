@@ -9,6 +9,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import fiuba.algo3.tpfinal.construcciones.NexoMineral;
+import fiuba.algo3.tpfinal.vista.HashImagenesConColor;
 import fiuba.algo3.tpfinal.vista.Observable;
 import fiuba.algo3.tpfinal.vista.Vista;
 
@@ -18,17 +19,25 @@ public class NexoMineralVista extends Vista{
 	private NexoMineral miNexo;
 	private Image img;
 	private Image fondo;
+	private HashImagenesConColor imagenes;
 	
 	public NexoMineralVista() {
 		setPreferredSize(new Dimension(40, 40));
+		fondo = (new ImageIcon("imagenes/superficies/mineral.png")).getImage();
 	}
 
 	@Override
 	public void setObservable(Observable nexo) {
-		img = (new ImageIcon("imagenes/construcciones/NexoMineral.png")).getImage();
-		fondo = (new ImageIcon("imagenes/superficies/mineral.png")).getImage();
+		
+	
 		if (miNexo == null){
 			miNexo = (NexoMineral) nexo;
+			imagenes = new HashImagenesConColor(miNexo.getJugador().getColor());
+		}
+		if(miNexo.estaEnContruccion()){
+			img = imagenes.get("EdificioEnConstruccionProtoss");
+		}else{
+			img = imagenes.get("NexoMineral");
 		}
 		crearPanel();
 		

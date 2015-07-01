@@ -9,6 +9,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import fiuba.algo3.tpfinal.construcciones.PuertoEstelarProtoss;
+import fiuba.algo3.tpfinal.vista.HashImagenesConColor;
 import fiuba.algo3.tpfinal.vista.Observable;
 import fiuba.algo3.tpfinal.vista.Vista;
 
@@ -18,20 +19,28 @@ public class PuertoEstelarProtossVista extends Vista {
 	private PuertoEstelarProtoss miPuertoEstelar;
 	private Image img;
 	private Image fondo;
+	private HashImagenesConColor imagenes;
 	
 	public PuertoEstelarProtossVista() {
 		setPreferredSize(new Dimension(40, 40));
+		fondo = (new ImageIcon("imagenes/superficies/tierra.png")).getImage();
 	}
 
 	@Override
 	public void setObservable(Observable puertoEstelar) {
-		img = (new ImageIcon("imagenes/construcciones/PuertoEstelarProtoss.png")).getImage();
-		fondo = (new ImageIcon("imagenes/superficies/tierra.png")).getImage();
+		
+		
 		if (miPuertoEstelar == null){
 			miPuertoEstelar = (PuertoEstelarProtoss) puertoEstelar;
+			imagenes = new HashImagenesConColor(miPuertoEstelar.getJugador().getColor());
+		}
+		if(miPuertoEstelar.estaEnContruccion()){
+			img = imagenes.get("EdificioEnConstruccionProtoss");
+		}else{
+			img = imagenes.get("PuertoEstelarProtoss");
 		}
 		crearPanel();
-	
+		miPanel.setVisible(false);
 	}
 
 	private void crearPanel() {

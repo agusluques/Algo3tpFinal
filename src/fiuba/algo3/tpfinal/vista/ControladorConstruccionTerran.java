@@ -37,6 +37,7 @@ public class ControladorConstruccionTerran implements ActionListener {
 			
 			ventanaMapa.add(capaQueEscuchaClicks);
 			ventanaMapa.moveToFront(capaQueEscuchaClicks);
+			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

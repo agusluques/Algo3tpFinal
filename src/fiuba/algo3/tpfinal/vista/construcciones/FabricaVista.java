@@ -10,6 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import fiuba.algo3.tpfinal.construcciones.Fabrica;
+import fiuba.algo3.tpfinal.vista.HashImagenesConColor;
 import fiuba.algo3.tpfinal.vista.AccionCrearGolliat;
 import fiuba.algo3.tpfinal.vista.Observable;
 import fiuba.algo3.tpfinal.vista.Vista;
@@ -20,17 +21,25 @@ public class FabricaVista extends Vista{
 	private Fabrica miFabrica;
 	private Image img;
 	private Image fondo;
+	private HashImagenesConColor imagenes;
 	
 	public FabricaVista() {
 		setPreferredSize(new Dimension(40, 40));
+		fondo = (new ImageIcon("imagenes/superficies/tierra.png")).getImage();
 	}
 
 	@Override
 	public void setObservable(Observable refineria) {
-		img = (new ImageIcon("imagenes/construcciones/Fabrica.png")).getImage();
-		fondo = (new ImageIcon("imagenes/superficies/tierra.png")).getImage();
+		
+		
 		if (miFabrica == null){
 			miFabrica = (Fabrica) refineria;
+			imagenes = new HashImagenesConColor(miFabrica.getJugador().getColor());
+		}
+		if(miFabrica.estaEnContruccion()){
+			img = imagenes.get("EdificioEnConstruccionTerran");
+		}else{
+			img = imagenes.get("Fabrica");
 		}
 		crearPanel();
 		

@@ -77,14 +77,14 @@ public class CrearJuego implements ActionListener {
 					.getDeclaredConstructor(String.class, Mapa.class)
 					.newInstance(nombreJUno.getText(), mapa);
 			jugadorUno.setColor(colores.get((String) colorJUno.getSelectedItem()));
-			System.out.println((String) colorJUno.getSelectedItem());
+		
 			Jugador jugadorDos = (Jugador) hashDeRazas
 					.get(razaJDos.getSelectedItem())
 					.getDeclaredConstructor(String.class, Mapa.class)
 					.newInstance(nombreJDos.getText(), mapa);
 			jugadorDos.setColor(colores.get((String) colorJDos.getSelectedItem()));
 			Juego nuevoJuego = new Juego(jugadorUno, jugadorDos, mapa);
-			System.out.println((String) colorJDos.getSelectedItem());
+			
 			new JuegoVista(miCapa, nuevoJuego);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

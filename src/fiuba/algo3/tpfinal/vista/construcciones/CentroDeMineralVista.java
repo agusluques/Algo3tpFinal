@@ -9,6 +9,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import fiuba.algo3.tpfinal.construcciones.CentroDeMineral;
+import fiuba.algo3.tpfinal.vista.HashImagenesConColor;
 import fiuba.algo3.tpfinal.vista.Observable;
 import fiuba.algo3.tpfinal.vista.Vista;
 
@@ -18,17 +19,25 @@ public class CentroDeMineralVista extends Vista {
 	private CentroDeMineral miCentroDeMineral;
 	private Image img;
 	private Image fondo;
+	private HashImagenesConColor imagenes;
 	
 	public CentroDeMineralVista() {
 		setPreferredSize(new Dimension(40, 40));
+		fondo = (new ImageIcon("imagenes/superficies/mineral.png")).getImage();
 	}
 
 	@Override
 	public void setObservable(Observable centroDeMineral) {
-		img = (new ImageIcon("imagenes/construcciones/CentroMineral.png")).getImage();
-		fondo = (new ImageIcon("imagenes/superficies/mineral.png")).getImage();
+		
+		
 		if (miCentroDeMineral == null){
 			miCentroDeMineral = (CentroDeMineral) centroDeMineral;
+			imagenes = new HashImagenesConColor(miCentroDeMineral.getJugador().getColor());
+		}
+		if(miCentroDeMineral.estaEnContruccion()){
+			img = imagenes.get("EdificioEnConstruccionTerran");
+		}else{
+			img = imagenes.get("CentroDeMineral");
 		}
 		crearPanel();
 		

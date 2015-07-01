@@ -20,7 +20,8 @@ public class HashImagenesConColor extends HashMap<String, Image> {
 		if(color == Color.GREEN)
 			this.crearHashVerde();
 				
-		
+		hash.put("EdificioEnConstruccionProtoss",(new ImageIcon("imagenes/edificios/protoss/edificioenconstruccionprotoss.png")).getImage());
+		hash.put("EdificioEnConstruccionTerran",(new ImageIcon("imagenes/edificios/terran/edificioenconstruccionterran.png")).getImage());
 			
 	
 	}
@@ -57,7 +58,7 @@ public class HashImagenesConColor extends HashMap<String, Image> {
 				hash.put("Acceso", (new ImageIcon("imagenes/edificios/protoss/rojo/acceso.png")).getImage());
 				hash.put("ArchivosTemplarios", (new ImageIcon("imagenes/edificios/protoss/rojo/archivostemplarios.png")).getImage());
 				hash.put("PuertoEstelarProtoss", (new ImageIcon("imagenes/edificios/protoss/rojo/puertoestelar.png")).getImage());
-
+				
 			}
 	
 	private void crearHashAzul(){

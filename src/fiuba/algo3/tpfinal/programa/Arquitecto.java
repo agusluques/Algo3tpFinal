@@ -30,8 +30,8 @@ public class Arquitecto {
 		if (construccion.puedeConstruirseEn(mapa.getParcela(posicion))) {
 			this.cobrarConstruccion(construccion);
 			this.construccionesEnConstruccion.add(construccion);
-			//this.mapa.getParcela(posicion).ocupar((Atacable) construccion);
 			((Atacable) construccion).setCoordenada(posicion);
+			this.mapa.insertarUnidad(posicion,(Atacable) construccion);
 		}
 
 	}
@@ -55,7 +55,7 @@ public class Arquitecto {
 			if (construccionEnConstruccion.getTiempoRestante() == 0) {
 				this.jugador.getConstrucciones()
 						.add(construccionEnConstruccion);
-				this.mapa.getParcela(construccionEnConstruccion.getPosicion()).ocupar((Atacable) construccionEnConstruccion);
+				
 				iterador.remove();
 			}
 		}

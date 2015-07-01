@@ -19,6 +19,10 @@ public abstract class ConstruccionTerran extends Terran implements
 	public Costo getCosto() {
 		return this.costo;
 	}
+	
+	public boolean estaEnContruccion(){
+		return (tiempoDeConstruccion>0);
+	}
 
 	@Override
 	public int getTiempoRestante() {

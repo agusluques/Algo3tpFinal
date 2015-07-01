@@ -31,9 +31,10 @@ public class AccionPasarTurno implements ActionListener {
 					"Error",
 			    	JOptionPane.ERROR_MESSAGE);
 		}
+		
 		miJugador.notificarObservadorSobreSeleccion();
 		miJuego.jugadorActual.notificarObservadorSobreSeleccion();
-		//miMapaVista.actualizar();
+		miMapaVista.actualizar();
 		if(miJuego.hayGanador()) {
 			JOptionPane.showMessageDialog(miMapaVista, "Ganador: "+miJuego.getGanador().getNombre(),
 					"Felicitaciones!",

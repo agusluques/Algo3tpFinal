@@ -10,6 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import fiuba.algo3.tpfinal.construcciones.Barraca;
+import fiuba.algo3.tpfinal.vista.HashImagenesConColor;
 import fiuba.algo3.tpfinal.vista.AccionCrearMarine;
 import fiuba.algo3.tpfinal.vista.Observable;
 import fiuba.algo3.tpfinal.vista.Vista;
@@ -20,17 +21,25 @@ public class BarracaVista extends Vista{
 	private Barraca miBarraca;
 	private Image img;
 	private Image fondo;
+	private HashImagenesConColor imagenes;
 	
 	public BarracaVista() {
 		setPreferredSize(new Dimension(40, 40));
+		fondo = (new ImageIcon("imagenes/superficies/tierra.png")).getImage();
 	}
 
 	@Override
 	public void setObservable(Observable barraca) {
-		img = (new ImageIcon("imagenes/construcciones/Barraca.png")).getImage();
-		fondo = (new ImageIcon("imagenes/superficies/tierra.png")).getImage();
+		
+		
 		if (miBarraca == null){
 			miBarraca = (Barraca) barraca;
+			imagenes = new HashImagenesConColor(miBarraca.getJugador().getColor());
+		}
+		if(miBarraca.estaEnContruccion()){
+				img = imagenes.get("EdificioEnConstruccionTerran");
+		}else{
+				img = imagenes.get("Barraca");
 		}
 		crearPanel();
 		
@@ -67,12 +76,15 @@ public class BarracaVista extends Vista{
 		} else {
 			crearPanel();
 		}
+
 	}
 
 	public void paint(Graphics g) {
+
 		g.drawImage(fondo, 0, 0, 40, 40, null);
 		if (!miBarraca.estaMuerto()){
 			g.drawImage(img, 0, 0, 40, 40, null);
 		}
+
 	}
 }

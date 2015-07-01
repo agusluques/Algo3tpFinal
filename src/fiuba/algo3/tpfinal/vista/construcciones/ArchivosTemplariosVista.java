@@ -9,6 +9,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import fiuba.algo3.tpfinal.construcciones.ArchivosTemplarios;
+import fiuba.algo3.tpfinal.vista.HashImagenesConColor;
 import fiuba.algo3.tpfinal.vista.Observable;
 import fiuba.algo3.tpfinal.vista.Vista;
 
@@ -18,17 +19,25 @@ public class ArchivosTemplariosVista extends Vista{
 	private ArchivosTemplarios miArchivoTemplario;
 	private Image img;
 	private Image fondo;
+	private HashImagenesConColor imagenes;
 	
 	public ArchivosTemplariosVista() {
 		setPreferredSize(new Dimension(40, 40));
+		fondo = (new ImageIcon("imagenes/superficies/tierra.png")).getImage();
 	}
 
 	@Override
 	public void setObservable(Observable archivoTemplario) {
-		img = (new ImageIcon("imagenes/construcciones/ArchivosTemplarios.png")).getImage();
-		fondo = (new ImageIcon("imagenes/superficies/tierra.png")).getImage();
+		
+	
 		if (miArchivoTemplario == null){
 			miArchivoTemplario = (ArchivosTemplarios) archivoTemplario;
+			imagenes = new HashImagenesConColor(miArchivoTemplario.getJugador().getColor());
+		}
+		if(miArchivoTemplario.estaEnContruccion()){
+			img = imagenes.get("EdificioEnConstruccionProtoss");
+		}else{
+			img = imagenes.get("ArchivosTemplarios");
 		}
 		crearPanel();
 		miPanel.setVisible(false);

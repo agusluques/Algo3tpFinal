@@ -1,6 +1,8 @@
 package fiuba.algo3.tpfinal.programa;
 
 
+import junit.framework.Assert;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -68,13 +70,13 @@ public class ArquitectoTest {
 	//
 	// }
 
-	@Test(expected = ParcelaVacia.class)
-	public void siElArquitectoConstruyeUnEdificioElMismoNoApareceEnElMapaHastaEstarTerminado()
+	@Test
+	public void siElArquitectoConstruyeUnEdificioApareceInmediatamenteEnElMapa()
 			throws ConstruccionRequeridaInexistente, MineralInsuficiente, GasInsuficiente, TerrenoInapropiado, ParcelaOcupada {
 		ConstruccionProtoss construccion = new Pilon();
 		Coordenada posicion = new Coordenada(3, 3);
 		jugador.construir(construccion, posicion);
-		this.mapa.getParcela(posicion).getOcupante();
+		Assert.assertTrue(construccion.equals(this.mapa.getParcela(posicion).getOcupante()));
 	}
 
 }

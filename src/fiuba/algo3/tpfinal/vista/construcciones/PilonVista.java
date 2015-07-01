@@ -9,6 +9,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import fiuba.algo3.tpfinal.construcciones.Pilon;
+import fiuba.algo3.tpfinal.vista.HashImagenesConColor;
 import fiuba.algo3.tpfinal.vista.Observable;
 import fiuba.algo3.tpfinal.vista.Vista;
 
@@ -18,17 +19,25 @@ public class PilonVista extends Vista{
 	private Pilon miPilon;
 	private Image img;
 	private Image fondo;
+	private HashImagenesConColor imagenes;
 	
 	public PilonVista() {
 		setPreferredSize(new Dimension(40, 40));
+		fondo = (new ImageIcon("imagenes/superficies/tierra.png")).getImage();
 	}
 
 	@Override
 	public void setObservable(Observable pilon) {
-		img = (new ImageIcon("imagenes/construcciones/Pilon.png")).getImage();
-		fondo = (new ImageIcon("imagenes/superficies/tierra.png")).getImage();
+		
+		
 		if (miPilon == null){
 			miPilon = (Pilon) pilon;
+			imagenes = new HashImagenesConColor(miPilon.getJugador().getColor());
+		}
+		if(miPilon.estaEnContruccion()){
+			img = imagenes.get("EdificioEnConstruccionProtoss");
+		}else{
+			img = imagenes.get("Pylon");
 		}
 		crearPanel();
 		

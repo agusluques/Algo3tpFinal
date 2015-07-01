@@ -9,6 +9,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import fiuba.algo3.tpfinal.construcciones.Asimilador;
+import fiuba.algo3.tpfinal.vista.HashImagenesConColor;
 import fiuba.algo3.tpfinal.vista.Observable;
 import fiuba.algo3.tpfinal.vista.Vista;
 
@@ -18,17 +19,25 @@ public class AsimiladorVista extends Vista{
 	private Asimilador miAsimilador;
 	private Image img;
 	private Image fondo;
+	private HashImagenesConColor imagenes;
 	
 	public AsimiladorVista() {
 		setPreferredSize(new Dimension(40, 40));
+		fondo = (new ImageIcon("imagenes/superficies/vespene.png")).getImage();
 	}
 
 	@Override
 	public void setObservable(Observable pilon) {
-		img = (new ImageIcon("imagenes/construcciones/Asimilador.png")).getImage();
-		fondo = (new ImageIcon("imagenes/superficies/vespene.png")).getImage();
+		
+		
 		if (miAsimilador == null){
 			miAsimilador = (Asimilador) pilon;
+			imagenes = new HashImagenesConColor(miAsimilador.getJugador().getColor());
+		}
+		if(miAsimilador.estaEnContruccion()){
+			img = imagenes.get("EdificioEnConstruccionProtoss");
+		}else{
+			img = imagenes.get("Asimilador");
 		}
 		crearPanel();
 		

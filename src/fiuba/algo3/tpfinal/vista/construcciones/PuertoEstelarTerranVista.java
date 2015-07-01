@@ -10,6 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import fiuba.algo3.tpfinal.construcciones.PuertoEstelarTerran;
+import fiuba.algo3.tpfinal.vista.HashImagenesConColor;
 import fiuba.algo3.tpfinal.vista.AccionCrearEspectro;
 import fiuba.algo3.tpfinal.vista.AccionCrearNaveCiencia;
 import fiuba.algo3.tpfinal.vista.AccionCrearNaveDeTransporteTerran;
@@ -22,17 +23,25 @@ public class PuertoEstelarTerranVista extends Vista{
 	private PuertoEstelarTerran miPuertoEstelar;
 	private Image img;
 	private Image fondo;
+	private HashImagenesConColor imagenes;
 	
 	public PuertoEstelarTerranVista() {
 		setPreferredSize(new Dimension(40, 40));
+		fondo = (new ImageIcon("imagenes/superficies/tierra.png")).getImage();
 	}
 
 	@Override
 	public void setObservable(Observable refineria) {
-		img = (new ImageIcon("imagenes/construcciones/PuertoEstelarTerran.png")).getImage();
-		fondo = (new ImageIcon("imagenes/superficies/tierra.png")).getImage();
+		
+		
 		if (miPuertoEstelar == null){
 			miPuertoEstelar = (PuertoEstelarTerran) refineria;
+			imagenes = new HashImagenesConColor(miPuertoEstelar.getJugador().getColor());
+		}
+		if(miPuertoEstelar.estaEnContruccion()){
+			img = imagenes.get("EdificioEnConstruccionTerran");
+		}else{
+			img = imagenes.get("PuertoEstelarTerran");
 		}
 		crearPanel();
 		

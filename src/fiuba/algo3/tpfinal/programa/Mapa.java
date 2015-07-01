@@ -32,11 +32,12 @@ public class Mapa extends Observable{
 	public void insertarUnidad(Coordenada coord, Atacable unidad) throws ParcelaOcupada {
 			(mapa.get(coord)).ocupar(unidad);
 			unidad.setCoordenada(coord);
-
+			this.notificarObservador();
 	}
 
 	public Parcela getParcela(Coordenada coord) {
 		return mapa.get(coord);
+		
 	}
 
 	public int getAncho() {
@@ -102,6 +103,7 @@ public class Mapa extends Observable{
 
 			}
 		}
+		this.notificarObservador();
 	}
 
 	public ArrayList<Atacable> unidadesEnUnRadio(Coordenada centro, int radio) {

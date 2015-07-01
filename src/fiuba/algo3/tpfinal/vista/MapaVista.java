@@ -72,7 +72,7 @@ public class MapaVista extends Vista {
 	public Mapa getMapa() {
 		return miMapa;
 	}
-	
+	 
 	@Override
 	public void actualizar() {
 		this.removeAll();
