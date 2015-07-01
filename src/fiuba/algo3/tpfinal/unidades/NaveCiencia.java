@@ -27,6 +27,7 @@ public class NaveCiencia extends UnidadTerran {
 	@Override
 	public void atacado(Danio danio) {
 		this.vida.recibirDanio(danio.getDanioAire());
+		this.notificarObservador();
 	}
 
 	@Override
@@ -50,6 +51,7 @@ public class NaveCiencia extends UnidadTerran {
 			if (this.estaEnRangoDeAtaque(unidad)) {
 				try {
 					this.miEnergia.gastarEnergia(75);
+					this.notificarObservador();
 					Radiacion radiacion = new Radiacion(unidad);
 					this.jugador.agregarMagia(radiacion);
 				} catch (EnergiaInsuficiente e) {
@@ -70,6 +72,7 @@ public class NaveCiencia extends UnidadTerran {
 				.getRangoAire()) {
 			try {
 				this.miEnergia.gastarEnergia(100);
+				this.notificarObservador();
 				for (Atacable unidadActual : this.getJugador().getMapa()
 						.unidadesEnUnRadio(posicion, 1)) {
 					if (!this.jugador.equals(unidadActual.getJugador())) {
@@ -86,5 +89,6 @@ public class NaveCiencia extends UnidadTerran {
 	@Override
 	public void recibirImpactoEMP() {
 		this.miEnergia = new Energia(0);
+		this.notificarObservador();
 	}
 }

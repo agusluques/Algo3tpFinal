@@ -72,12 +72,21 @@ public class ArchivosTemplariosVista extends Vista{
 		
 	}
 
+	@Override
 	public void actualizar() {
-		if (miArchivoTemplario.estaMuerto()) {
+		if (miArchivoTemplario.estaMuerto()){
 			System.out.println("Me mori");
 			ventanaMapa.repaint();
-		} else {
+			miPanel.setVisible(false);
+			miVentanaDeAccion.remove(miPanel);
+		} 
+		if (miPanel.isVisible()){
+			
+			miPanel.setVisible(false);
+			miVentanaDeAccion.remove(miPanel);
 			crearPanel();
+			miVentanaDeAccion.add(miPanel);
+			miPanel.setVisible(true);
 		}
 	}
 

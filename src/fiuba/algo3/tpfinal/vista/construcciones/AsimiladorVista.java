@@ -58,12 +58,21 @@ public class AsimiladorVista extends Vista{
 		miPanel.add(capaEscudo);
 	}
 	
+	@Override
 	public void actualizar() {
-		if (miAsimilador.estaMuerto()) {
+		if (miAsimilador.estaMuerto()){
 			System.out.println("Me mori");
 			ventanaMapa.repaint();
-		} else {
-		crearPanel();
+			miPanel.setVisible(false);
+			miVentanaDeAccion.remove(miPanel);
+		} 
+		if (miPanel.isVisible()){
+			
+			miPanel.setVisible(false);
+			miVentanaDeAccion.remove(miPanel);
+			crearPanel();
+			miVentanaDeAccion.add(miPanel);
+			miPanel.setVisible(true);
 		}
 	}
 

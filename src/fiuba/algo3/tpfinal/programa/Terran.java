@@ -18,6 +18,7 @@ public abstract class Terran extends Observable implements Atacable,
 
 	public void atacado(Danio danio) {
 		this.vida.recibirDanio(danio.getDanioTierra());
+		this.notificarObservador();
 	}
 
 	public Coordenada getCoordenada() {

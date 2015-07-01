@@ -9,33 +9,32 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import fiuba.algo3.tpfinal.unidades.Alucinacion;
 import fiuba.algo3.tpfinal.unidades.Trasladable;
-import fiuba.algo3.tpfinal.unidades.Zealot;
-import fiuba.algo3.tpfinal.vista.ControladorAtaque;
 import fiuba.algo3.tpfinal.vista.ControladorTraslado;
-import fiuba.algo3.tpfinal.vista.HashImagenesConColor;
 import fiuba.algo3.tpfinal.vista.Observable;
 import fiuba.algo3.tpfinal.vista.Observador;
 import fiuba.algo3.tpfinal.vista.Vista;
 
 @SuppressWarnings("serial")
-public class ZealotVista extends Vista implements Observador {
+public class AlucinacionVista extends Vista implements Observador {
 
-	private Zealot miZealot;
+	private Alucinacion miAlucinacion;
 	private Image img;
 	private Image fondo;
-	private String urlAtaque = "ataqueZealot.wav";
 	private String urlTraslado = "trasladoZealot.wav";
-	private HashImagenesConColor imagenes;
+	private int vidaFicticia;
+	private ImagenesParaAlucinacion imagenes = new ImagenesParaAlucinacion();
+	private HashNombreUnidades nombres = new HashNombreUnidades();
 
-	public ZealotVista() {
+	public AlucinacionVista() {
 		setPreferredSize(new Dimension(40, 40));
 		fondo = (new ImageIcon("imagenes/superficies/tierra.png")).getImage();
 	}
 
 	@Override
 	public void actualizar() {
-		if (miZealot.estaMuerto()){
+		if (miAlucinacion.estaMuerto()){
 			System.out.println("Me mori");
 			ventanaMapa.repaint();
 			miPanel.setVisible(false);
@@ -52,17 +51,17 @@ public class ZealotVista extends Vista implements Observador {
 	}
 
 	@Override
-	public void setObservable(Observable zealot) {
+	public void setObservable(Observable alucinacion) {
 		
 		
 	
 		
-		if (miZealot == null){
-			miZealot = (Zealot) zealot;
-			imagenes = new HashImagenesConColor(miZealot.getJugador().getColor());
-		}
+		if (miAlucinacion == null)
+			miAlucinacion = (Alucinacion) alucinacion;
+			
+		vidaFicticia = miAlucinacion.getUnidadCopiada().getVida();
 		
-		img = imagenes.get("Zealot");
+		img = imagenes.obtener(miAlucinacion.getUnidadCopiada().getClass(), miAlucinacion.getJugador().getColor());
 		
 		crearPanel();
 		
@@ -72,30 +71,30 @@ public class ZealotVista extends Vista implements Observador {
 
 	private void crearPanel() {
 		miPanel = new JPanel();
-		
-		JLabel capaNombre = new JLabel("Zealot");
-		miPanel.add(capaNombre);
-		
-		JLabel capaVida = new JLabel("Vida: " + miZealot.getVida());
-		miPanel.add(capaVida);
-		
-		JLabel capaEscudo = new JLabel("Escudo: " + miZealot.getEscudo());
-		miPanel.add(capaEscudo);
-		
-		if(miJuego.jugadorActual.equals(miZealot.getJugador())){
+				
+		if(miJuego.jugadorActual.equals(miAlucinacion.getJugador())){
+			JLabel capaNombre = new JLabel("Alucinacion");
+			miPanel.add(capaNombre);
+					
+			JLabel capaEscudo = new JLabel("Escudo: " + miAlucinacion.getEscudo());
+			miPanel.add(capaEscudo);
 			crearControladores();
+		}else{
+			JLabel capaNombre = new JLabel(nombres.get(miAlucinacion.getUnidadCopiada().getClass()));
+			miPanel.add(capaNombre);
+			
+			JLabel capaVida = new JLabel("Vida: " + vidaFicticia);
+			miPanel.add(capaVida);
+			
+			JLabel capaEscudo = new JLabel("Escudo: " + miAlucinacion.getEscudo());
+			miPanel.add(capaEscudo);
 		}
 		
 	}
 
 	private void crearControladores() {
-		ControladorAtaque controladorAtaque = new ControladorAtaque(miZealot, urlAtaque);
-		controladorAtaque.setVentanaMapa(ventanaMapa);
-		JButton botonAtacar = new JButton("Atacar");
-		botonAtacar.addActionListener(controladorAtaque);
-		miPanel.add(botonAtacar);
-		
-		ControladorTraslado controladorTraslado = new ControladorTraslado((Trasladable) miZealot, urlTraslado );
+			
+		ControladorTraslado controladorTraslado = new ControladorTraslado((Trasladable) miAlucinacion, urlTraslado );
 		controladorTraslado.setVentanaMapa(ventanaMapa);
 		JButton botonMover = new JButton("Trasladar");
 		botonMover.addActionListener(controladorTraslado);
@@ -105,8 +104,9 @@ public class ZealotVista extends Vista implements Observador {
 	public void paint(Graphics g) {
 	
 		g.drawImage(fondo, 0, 0, 40, 40, null);
-		if (!miZealot.estaMuerto())
+		if (!miAlucinacion.estaMuerto())
 			g.drawImage(img, 0, 0, 40, 40, null);
 
 	}
+
 }

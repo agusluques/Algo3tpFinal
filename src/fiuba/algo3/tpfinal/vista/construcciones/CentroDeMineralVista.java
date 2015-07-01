@@ -55,14 +55,22 @@ public class CentroDeMineralVista extends Vista {
 		miPanel.add(capaVida);
 	}
 	
+	@Override
 	public void actualizar() {
-		if (miCentroDeMineral.estaMuerto()) {
+		if (miCentroDeMineral.estaMuerto()){
 			System.out.println("Me mori");
 			ventanaMapa.repaint();
-		} else {
+			miPanel.setVisible(false);
+			miVentanaDeAccion.remove(miPanel);
+		} 
+		if (miPanel.isVisible()){
+			
+			miPanel.setVisible(false);
+			miVentanaDeAccion.remove(miPanel);
 			crearPanel();
+			miVentanaDeAccion.add(miPanel);
+			miPanel.setVisible(true);
 		}
-
 	}
 
 	public void paint(Graphics g) {

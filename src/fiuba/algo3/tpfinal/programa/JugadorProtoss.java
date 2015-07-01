@@ -29,6 +29,7 @@ public class JugadorProtoss extends Jugador {
 			throws LimitePoblacionalAlcanzado, ParcelaOcupada {
 		if ((this.contarPoblacion() + unidad.getSuministro()) <= this
 				.limitePoblacional()) {
+			((Protoss) unidad).setJugador(this);
 			this.unidades.add((Atacable) unidad);
 			this.mapa.ubicarCercaDe((Atacable) unidad, coord);
 			((Protoss) unidad).setJugador(this);

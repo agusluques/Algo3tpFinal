@@ -20,6 +20,7 @@ public class Scout extends UnidadProtoss {
 
 	public void atacado(Danio danio) {
 		this.vida.recibirDanio(danio.getDanioAire());
+		this.notificarObservador();
 	}
 
 	@Override

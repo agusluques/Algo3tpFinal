@@ -160,5 +160,6 @@ public class Mapa extends Observable{
 				}
 			}
 		}
+		this.notificarObservador();
 	}
 }

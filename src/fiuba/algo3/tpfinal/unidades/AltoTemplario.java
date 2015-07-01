@@ -35,6 +35,7 @@ public class AltoTemplario extends UnidadProtoss {
 				this.miEnergia.gastarEnergia(100);
 				this.jugador.agregarUnidad(new Alucinacion(unidad),
 						unidad.getCoordenada());
+				this.notificarObservador();
 			} catch (EnergiaInsuficiente e) {
 				// TODO mejorar nombres !!! "e" ?
 				throw e;
@@ -57,6 +58,7 @@ public class AltoTemplario extends UnidadProtoss {
 				.getRangoAire()) {
 			try {
 				this.miEnergia.gastarEnergia(75);
+				this.notificarObservador();
 				TormentaPsionica tormenta = new TormentaPsionica(this.jugador,
 						this.jugador.getMapa(), posicion);
 				this.jugador.agregarMagia(tormenta);
@@ -71,6 +73,7 @@ public class AltoTemplario extends UnidadProtoss {
 	public void recibirImpactoEMP() {
 		vida.destruirEscudo();
 		this.miEnergia = new Energia(0);
+		this.notificarObservador();
 	}
 
 }

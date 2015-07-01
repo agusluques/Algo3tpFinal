@@ -21,6 +21,7 @@ public class Espectro extends UnidadTerran {
 	@Override
 	public void atacado(Danio danio) {
 		this.vida.recibirDanio(danio.getDanioAire());
+		this.notificarObservador();
 	}
 
 	@Override

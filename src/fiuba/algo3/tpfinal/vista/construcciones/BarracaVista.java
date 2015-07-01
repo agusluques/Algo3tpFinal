@@ -69,14 +69,22 @@ public class BarracaVista extends Vista{
 		miPanel.add(botonMarine);
 	}
 	
+	@Override
 	public void actualizar() {
-		if (miBarraca.estaMuerto()) {
+		if (miBarraca.estaMuerto()){
 			System.out.println("Me mori");
 			ventanaMapa.repaint();
-		} else {
+			miPanel.setVisible(false);
+			miVentanaDeAccion.remove(miPanel);
+		} 
+		if (miPanel.isVisible()){
+			
+			miPanel.setVisible(false);
+			miVentanaDeAccion.remove(miPanel);
 			crearPanel();
+			miVentanaDeAccion.add(miPanel);
+			miPanel.setVisible(true);
 		}
-
 	}
 
 	public void paint(Graphics g) {

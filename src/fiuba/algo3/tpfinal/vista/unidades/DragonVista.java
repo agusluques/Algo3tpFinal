@@ -60,7 +60,7 @@ public class DragonVista extends Vista{
 		botonMover.addActionListener(controladorTraslado);
 		miPanel.add(botonMover);
 	}
-
+	
 	private void crearPanel() {
 		miPanel = new JPanel();
 		
@@ -78,14 +78,22 @@ public class DragonVista extends Vista{
 		}
 	}
 	
+	@Override
 	public void actualizar() {
-		if (miDragon.estaMuerto()) {
+		if (miDragon.estaMuerto()){
 			System.out.println("Me mori");
 			ventanaMapa.repaint();
-		} else {
+			miPanel.setVisible(false);
+			miVentanaDeAccion.remove(miPanel);
+		} 
+		if (miPanel.isVisible()){
+			
+			miPanel.setVisible(false);
+			miVentanaDeAccion.remove(miPanel);
 			crearPanel();
+			miVentanaDeAccion.add(miPanel);
+			miPanel.setVisible(true);
 		}
-
 	}
 
 	public void paint(Graphics g) {

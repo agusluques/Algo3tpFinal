@@ -85,14 +85,22 @@ public class PuertoEstelarTerranVista extends Vista{
 		
 	}
 	
+	@Override
 	public void actualizar() {
-		if (miPuertoEstelar.estaMuerto()) {
+		if (miPuertoEstelar.estaMuerto()){
 			System.out.println("Me mori");
 			ventanaMapa.repaint();
-		} else {
+			miPanel.setVisible(false);
+			miVentanaDeAccion.remove(miPanel);
+		} 
+		if (miPanel.isVisible()){
+			
+			miPanel.setVisible(false);
+			miVentanaDeAccion.remove(miPanel);
 			crearPanel();
+			miVentanaDeAccion.add(miPanel);
+			miPanel.setVisible(true);
 		}
-
 	}
 
 	public void paint(Graphics g) {

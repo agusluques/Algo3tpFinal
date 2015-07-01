@@ -52,6 +52,7 @@ public abstract class Protoss extends Observable implements Atacable,
 
 	public void recibirImpactoEMP() {
 		vida.destruirEscudo();
+		this.notificarObservador();
 
 	}
 }

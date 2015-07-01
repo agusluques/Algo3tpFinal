@@ -75,16 +75,23 @@ public class MarineVista extends Vista {
 		miPanel.add(botonMover);
 	}
 	
+	@Override
 	public void actualizar() {
-		if (miMarine.estaMuerto()) {
+		if (miMarine.estaMuerto()){
 			System.out.println("Me mori");
 			ventanaMapa.repaint();
-		} else {
+			miPanel.setVisible(false);
+			miVentanaDeAccion.remove(miPanel);
+		} 
+		if (miPanel.isVisible()){
+			
+			miPanel.setVisible(false);
+			miVentanaDeAccion.remove(miPanel);
 			crearPanel();
+			miVentanaDeAccion.add(miPanel);
+			miPanel.setVisible(true);
 		}
-
 	}
-
 	public void paint(Graphics g) {
 
 		g.drawImage(fondo, 0, 0, 40, 40, null);

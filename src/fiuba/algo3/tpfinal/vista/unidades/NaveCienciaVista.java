@@ -31,16 +31,22 @@ public class NaveCienciaVista extends Vista {
 		setPreferredSize(new Dimension(40, 40));
 	}
 
-
 	@Override
 	public void actualizar() {
-		if (miNave.estaMuerto()) {
+		if (miNave.estaMuerto()){
 			System.out.println("Me mori");
 			ventanaMapa.repaint();
-		} else {
+			miPanel.setVisible(false);
+			miVentanaDeAccion.remove(miPanel);
+		} 
+		if (miPanel.isVisible()){
+			
+			miPanel.setVisible(false);
+			miVentanaDeAccion.remove(miPanel);
 			crearPanel();
+			miVentanaDeAccion.add(miPanel);
+			miPanel.setVisible(true);
 		}
-
 	}
 
 	@Override

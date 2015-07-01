@@ -69,14 +69,22 @@ public class FabricaVista extends Vista{
 		miPanel.add(botonGolliat);
 	}
 	
+	@Override
 	public void actualizar() {
-		if (miFabrica.estaMuerto()) {
+		if (miFabrica.estaMuerto()){
 			System.out.println("Me mori");
 			ventanaMapa.repaint();
-		} else {
+			miPanel.setVisible(false);
+			miVentanaDeAccion.remove(miPanel);
+		} 
+		if (miPanel.isVisible()){
+			
+			miPanel.setVisible(false);
+			miVentanaDeAccion.remove(miPanel);
 			crearPanel();
+			miVentanaDeAccion.add(miPanel);
+			miPanel.setVisible(true);
 		}
-
 	}
 
 	public void paint(Graphics g) {

@@ -35,6 +35,7 @@ public class NaveTransporteProtoss extends UnidadProtoss {
 
 	public void atacado(Danio danio) {
 		this.vida.recibirDanio(danio.getDanioAire());
+		this.notificarObservador();
 	}
 
 	public void subirPasajero(UnidadProtoss pasajero) {

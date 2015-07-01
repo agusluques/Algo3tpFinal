@@ -34,6 +34,7 @@ public class NaveTransporteTerran extends UnidadTerran {
 
 	public void atacado(Danio danio) {
 		this.vida.recibirDanio(danio.getDanioAire());
+		this.notificarObservador();
 	}
 
 	public void subirPasajero(UnidadTerran pasajero) {

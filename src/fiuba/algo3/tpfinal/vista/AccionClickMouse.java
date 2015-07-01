@@ -12,7 +12,7 @@ import fiuba.algo3.tpfinal.programa.Superficie;
 public class AccionClickMouse implements MouseListener {
 
 	private Mapa miMapa;
-	private Observable unidadSeleccionada;
+	public Observable unidadSeleccionada;
 
 	public AccionClickMouse(Mapa mapa) {
 		miMapa = mapa;
