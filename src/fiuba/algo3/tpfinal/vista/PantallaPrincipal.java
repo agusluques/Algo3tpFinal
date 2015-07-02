@@ -70,7 +70,7 @@ public class PantallaPrincipal {
 
 		// Creo el item de Acerca de, lo agrego y le seteo su accion
 		JMenuItem itemAcercaDe = new JMenuItem("Acerca de");
-		itemAcercaDe.addActionListener(new AccionAcercaDe(capa));
+		itemAcercaDe.addActionListener(new AccionAcercaDe());
 		menuAyuda.add(itemAcercaDe);
 		
 		//// Creo el menu de tests y lo agrego a la barra
