@@ -8,8 +8,11 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.UIManager;
 import javax.swing.border.EtchedBorder;
+import javax.swing.plaf.FontUIResource;
 
 public class AccionAcercaDe implements ActionListener {
 
@@ -24,49 +27,36 @@ public class AccionAcercaDe implements ActionListener {
 	 */
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		// Creo la ventanita chiquita, le seteo el tamanio, la posicion y la
-		// visibilidad
-		JInternalFrame frame = new JInternalFrame("Acerca de Algocraft");
-		frame.setClosable(true);
-		frame.setSize(500, 500);
-		frame.setLocation(10, 10);
-		frame.setVisible(true);
+		Object[] opciones = {"Creadores", "Fecha De Creacion", "Corrector"};
+		UIManager.put("OptionPane.messageFont", new FontUIResource(new Font(
+	              "Verdana", Font.BOLD, 32)));
+		String resultado = (String)JOptionPane.showInputDialog(
+		                    null,
+		                    "Seleccione la opcion:\n",
+		                    "Acerca De \"TP Algoritmos 3 - FIUBA\"",
+		                    JOptionPane.INFORMATION_MESSAGE,
+		                    null,
+		                    opciones,
+		                    "Creadores");
 
-		// Agrego la informacion
-		JPanel panelUno = new JPanel();
-		JLabel informacion = new JLabel(
-				"Trabajo practico final de 'Algoritmos y Programacion III'");
-		informacion.setBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(
-				51, 51, 51), null));
-		informacion.setBackground(new Color(0, 0, 0));
-		informacion.setFont(new Font("Stencil", informacion.getFont()
-				.getStyle(), informacion.getFont().getSize() + 13));
-		panelUno.add(informacion);
-
-		JPanel panelDos = new JPanel();
-		JLabel datos = new JLabel("Los alumnos que crearon este juego son:");
-		datos.setFont(new Font("Stencil", datos.getFont().getStyle(), datos
-				.getFont().getSize() + 9));
-		panelDos.add(datos);
-
-		JPanel panelTres = new JPanel();
-		JLabel creadores = new JLabel("Agustin, Damian y Luciano");
-		creadores.setFont(new Font("Sylfaen", creadores.getFont().getStyle(),
-				creadores.getFont().getSize() + 9));
-		panelTres.add(creadores);
-
-		frame.getContentPane().add(panelUno, BorderLayout.BEFORE_FIRST_LINE);
-		frame.getContentPane().add(panelDos, BorderLayout.CENTER);
-		frame.getContentPane().add(panelTres, BorderLayout.LINE_END);
-
-		// Agrego la ventanita chiquita a la capa
-		frame.pack();
-		miCapa.add(frame);
-		try {
-			frame.setSelected(true);
-		} catch (java.beans.PropertyVetoException e1) {
+		//ACA HAY MUCHOS IF, PERO NOS PARECIA INNECESARIO USAR ALGO CON POLIFORFISMO PARA ESTO
+		if (resultado == "Creadores") {
+			
+		    JOptionPane.showMessageDialog(null,"Agustin Luques\n"
+		    		+"Damian Cassinotti\n"
+		    		+"Luciano Lopez", "Creadores", JOptionPane.PLAIN_MESSAGE);
+		    return;
 		}
 
+		if (resultado == "Fecha De Creacion") {
+			JOptionPane.showMessageDialog(null,"1er Cuatrimestre 2015", "Fecha", JOptionPane.PLAIN_MESSAGE);
+		    return;
+		}
+		
+		if (resultado == "Corrector"){
+			JOptionPane.showMessageDialog(null,"Pablo Rodriguez Massuh", "Corrector", JOptionPane.PLAIN_MESSAGE);
+		    return;
+		}
 	}
 
 }
