@@ -8,6 +8,7 @@ import javax.swing.JLayeredPane;
 import javax.swing.JScrollPane;
 
 import fiuba.algo3.tpfinal.programa.Juego;
+import fiuba.algo3.tpfinal.programa.Mapa;
 import fiuba.algo3.tpfinal.vista.HashConector;
 import fiuba.algo3.tpfinal.vista.MapaVista;
 import fiuba.algo3.tpfinal.vista.Observable;
@@ -17,12 +18,14 @@ public class JuegoVista {
 
 	private JLabel miCapa;
 	private Juego miJuego;
+	private Mapa miMapa;
 	private HashConector hash = new HashConector();
 
 	public JuegoVista(JLabel capa, Juego juego) throws Exception {
 		this.miJuego = juego;
 		this.miCapa = capa;
-
+		this.miMapa = miJuego.getMapa();
+		
 		JInternalFrame infoUnidades = new JInternalFrame(
 				"Informacion de unidades");
 		infoUnidades.setSize(300, 300);
@@ -43,7 +46,8 @@ public class JuegoVista {
 		JugadorVista jugador2Vista = (JugadorVista) hash.get(miJuego.jugadorDos.getClass()).newInstance();
 		
 		JLayeredPane panelConCapas = new JLayeredPane();
-		panelConCapas.setPreferredSize(new Dimension(4000,4000));
+		panelConCapas.setPreferredSize(new Dimension(miMapa.getAncho()*40,miMapa.getAlto()*40));//se multiplica por el ancho y largo de cada cuadradito
+																								//TODO: hardcodeo
 	
 		MapaVista panelMapa = new MapaVista(miJuego.getMapa());
 		((Observable) miJuego.getMapa()).agregarObservador((Observador) panelMapa);
@@ -53,7 +57,8 @@ public class JuegoVista {
 		JScrollPane panelMapaConScroll = new JScrollPane(panelConCapas);
 		panelMapaConScroll.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		panelMapaConScroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
-		panelMapaConScroll.setBounds(300, 0, 2*miCapa.getMaximumSize().width/5, miCapa.getMaximumSize().height/2);
+		panelMapaConScroll.setBounds(300, 0, 850, 600);
+
 		
 		panelMapa.setPanelConCapasParaUnidades(panelConCapas);
 		panelMapa.setVentanaDeAccionParaLasUnidades(infoUnidades);
