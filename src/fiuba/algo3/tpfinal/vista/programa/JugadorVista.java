@@ -52,7 +52,11 @@ public class JugadorVista extends Vista {
 		
 	}
 	public void actualizar() {
+		miPanel.setVisible(false);
+		miVentanaDeAccion.remove(miPanel);
 		crearPanel();
+		miVentanaDeAccion.add(miPanel);
+		miPanel.setVisible(true);
 	
 	}
 	
