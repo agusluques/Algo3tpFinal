@@ -58,7 +58,13 @@ public class AccesoVista extends Vista {
 		miPanel.add(capaEscudo);
 		
 		if(miJuego.jugadorActual.equals(miAcceso.getJugador())){
-			crearControladores();
+			if(miAcceso.getTiempoRestante()>0){
+				JLabel enConstruccion = new JLabel("Edificio en Construccion");
+				miPanel.add(enConstruccion);
+			}else{
+				crearControladores();
+			}
+			
 		}
 	}
 	

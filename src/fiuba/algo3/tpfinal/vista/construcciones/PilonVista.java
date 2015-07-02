@@ -54,6 +54,11 @@ public class PilonVista extends Vista{
 		
 		JLabel capaEscudo = new JLabel("Escudo: " + miPilon.getCantidadDeEscudo());
 		miPanel.add(capaEscudo);
+		
+		if(miPilon.getTiempoRestante()>0){
+			JLabel enConstruccion = new JLabel("Edificio en Construccion");
+			miPanel.add(enConstruccion);
+		}
 	}
 	
 	@Override

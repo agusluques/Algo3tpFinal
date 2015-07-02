@@ -54,6 +54,11 @@ public class AsimiladorVista extends Vista{
 		
 		JLabel capaEscudo = new JLabel("Escudo: " + miAsimilador.getCantidadDeEscudo());
 		miPanel.add(capaEscudo);
+		
+		if(miAsimilador.getTiempoRestante()>0){
+			JLabel enConstruccion = new JLabel("Edificio en Construccion");
+			miPanel.add(enConstruccion);
+		}
 	}
 	
 	@Override

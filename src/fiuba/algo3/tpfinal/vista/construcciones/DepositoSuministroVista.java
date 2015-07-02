@@ -51,6 +51,11 @@ public class DepositoSuministroVista extends Vista{
 		
 		JLabel capaVida = new JLabel("Vida: " + miDeposito.getVida());
 		miPanel.add(capaVida);
+		
+		if(miDeposito.getTiempoRestante()>0){
+			JLabel enConstruccion = new JLabel("Edificio en Construccion");
+			miPanel.add(enConstruccion);
+		}
 	}
 	
 	@Override

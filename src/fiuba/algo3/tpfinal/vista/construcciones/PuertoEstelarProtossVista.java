@@ -58,10 +58,15 @@ public class PuertoEstelarProtossVista extends Vista {
 		miPanel.add(capaEscudo);
 		
 		if(miJuego.jugadorActual.equals(miPuertoEstelar.getJugador())){
-			crearControladores();
+			if(miPuertoEstelar.getTiempoRestante()>0){
+				JLabel enConstruccion = new JLabel("Edificio en Construccion");
+				miPanel.add(enConstruccion);
+			}else{
+				crearControladores();
+			}
 		}
 		
-		miPanel.setVisible(false);
+	
 	}
 	
 	private void crearControladores() {

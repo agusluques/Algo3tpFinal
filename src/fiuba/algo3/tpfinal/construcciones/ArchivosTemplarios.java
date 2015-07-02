@@ -43,6 +43,7 @@ public class ArchivosTemplarios extends ConstruccionProtoss {
 			try {
 				jugador.getPresupuesto().gastar(new AltoTemplario().getCosto());
 				unidadesEnConstruccion.add(new AltoTemplario());
+				jugador.notificarObservador();
 			} catch (MineralInsuficiente e) {
 				throw e;
 			} catch (GasInsuficiente e) {

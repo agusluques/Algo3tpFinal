@@ -54,6 +54,10 @@ public class NexoMineralVista extends Vista{
 		
 		JLabel capaEscudo = new JLabel("Escudo: " + miNexo.getCantidadDeEscudo());
 		miPanel.add(capaEscudo);
+		if(miNexo.getTiempoRestante()>0){
+			JLabel enConstruccion = new JLabel("Edificio en Construccion");
+			miPanel.add(enConstruccion);
+		}
 	}
 	
 	@Override

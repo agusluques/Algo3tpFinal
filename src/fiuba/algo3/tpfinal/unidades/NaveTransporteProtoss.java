@@ -48,6 +48,8 @@ public class NaveTransporteProtoss extends UnidadProtoss {
 			Mapa mapa = jugador.getMapa();
 			Parcela parcela = mapa.getParcela(pasajero.getCoordenada());
 			parcela.desocupar();
+			jugador.getMapa().notificarObservador();
+			this.notificarObservador();
 		}
 	}
 
@@ -66,6 +68,7 @@ public class NaveTransporteProtoss extends UnidadProtoss {
 				this.capacidad = 8;
 			}
 		}
+		this.notificarObservador();
 	}
 
 	public int getCapacidad() {

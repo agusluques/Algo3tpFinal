@@ -41,6 +41,7 @@ public class Acceso extends ConstruccionProtoss {
 			try {
 				jugador.getPresupuesto().gastar(unidad.getCosto());
 				unidadesEnConstruccion.add(unidad);
+				jugador.notificarObservador();
 			} catch (MineralInsuficiente e) {
 				throw e;
 			} catch (GasInsuficiente e) {

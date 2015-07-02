@@ -93,6 +93,7 @@ public class Mapa extends Observable{
 							parcela.ocupar(unidad);
 							unidad.setCoordenada(new Coordenada(y, x));
 							ubicada = true;
+							this.notificarObservador();
 						}
 
 					}
@@ -104,7 +105,7 @@ public class Mapa extends Observable{
 
 			}
 		}
-		this.notificarObservador();
+		
 	}
 
 	public ArrayList<Atacable> unidadesEnUnRadio(Coordenada centro, int radio) {

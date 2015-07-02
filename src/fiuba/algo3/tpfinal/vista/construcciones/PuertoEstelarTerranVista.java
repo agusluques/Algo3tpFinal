@@ -57,7 +57,12 @@ public class PuertoEstelarTerranVista extends Vista{
 		miPanel.add(capaVida);
 		
 		if(miJuego.jugadorActual.equals(miPuertoEstelar.getJugador())){
-			crearControladores();
+			if(miPuertoEstelar.getTiempoRestante()>0){
+				JLabel enConstruccion = new JLabel("Edificio en Construccion");
+				miPanel.add(enConstruccion);
+			}else{
+				crearControladores();
+			}
 		}
 	}
 	

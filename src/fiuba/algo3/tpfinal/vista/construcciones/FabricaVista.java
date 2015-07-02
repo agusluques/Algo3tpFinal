@@ -55,7 +55,12 @@ public class FabricaVista extends Vista{
 		miPanel.add(capaVida);
 		
 		if(miJuego.jugadorActual.equals(miFabrica.getJugador())){
-			crearControladores();
+			if(miFabrica.getTiempoRestante()>0){
+				JLabel enConstruccion = new JLabel("Edificio en Construccion");
+				miPanel.add(enConstruccion);
+			}else{
+				crearControladores();
+			}
 		}
 	}
 	

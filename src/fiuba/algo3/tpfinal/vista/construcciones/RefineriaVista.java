@@ -52,6 +52,10 @@ public class RefineriaVista extends Vista{
 		
 		JLabel capaVida = new JLabel("Vida: " + miRefineria.getVida());
 		miPanel.add(capaVida);
+		if(miRefineria.getTiempoRestante()>0){
+			JLabel enConstruccion = new JLabel("Edificio en Construccion");
+			miPanel.add(enConstruccion);
+		}
 	}
 	
 	@Override

@@ -55,7 +55,12 @@ public class BarracaVista extends Vista{
 		miPanel.add(capaVida);
 		
 		if(miJuego.jugadorActual.equals(miBarraca.getJugador())){
-			crearControladores();
+			if(miBarraca.getTiempoRestante()>0){
+				JLabel enConstruccion = new JLabel("Edificio en Construccion");
+				miPanel.add(enConstruccion);
+			}else{
+				crearControladores();
+			}
 		}
 	}
 	

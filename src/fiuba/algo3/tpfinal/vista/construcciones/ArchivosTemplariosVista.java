@@ -57,7 +57,12 @@ public class ArchivosTemplariosVista extends Vista{
 		miPanel.add(capaEscudo);
 		
 		if(miJuego.jugadorActual.equals(miArchivoTemplario.getJugador())){
-			crearControladores();
+			if(miArchivoTemplario.getTiempoRestante()>0){
+				JLabel enConstruccion = new JLabel("Edificio en Construccion");
+				miPanel.add(enConstruccion);
+			}else{
+				crearControladores();
+			}
 		}
 		
 	}

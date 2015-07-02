@@ -56,6 +56,7 @@ public class PuertoEstelarTerran extends ConstruccionTerran {
 		if (unidadesEnConstruccion.size() < 6) {
 				jugador.getPresupuesto().gastar(unidad.getCosto());
 				unidadesEnConstruccion.add(unidad);
+				jugador.notificarObservador();
 		}
 	}
 

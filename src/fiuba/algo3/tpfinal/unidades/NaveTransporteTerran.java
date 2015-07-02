@@ -47,6 +47,8 @@ public class NaveTransporteTerran extends UnidadTerran {
 			Mapa mapa = jugador.getMapa();
 			Parcela parcela = mapa.getParcela(pasajero.getCoordenada());
 			parcela.desocupar();
+			jugador.getMapa().notificarObservador();
+			this.notificarObservador();
 		}
 	}
 
@@ -66,6 +68,7 @@ public class NaveTransporteTerran extends UnidadTerran {
 			}
 
 		}
+		this.notificarObservador();
 	}
 
 	public int getCapacidad() {

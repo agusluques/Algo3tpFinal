@@ -51,6 +51,11 @@ public class CentroDeMineralVista extends Vista {
 		
 		JLabel capaVida = new JLabel("Vida: " + miCentroDeMineral.getVida());
 		miPanel.add(capaVida);
+		
+		if(miCentroDeMineral.getTiempoRestante()>0){
+			JLabel enConstruccion = new JLabel("Edificio en Construccion");
+			miPanel.add(enConstruccion);
+		}
 	}
 	
 	@Override
