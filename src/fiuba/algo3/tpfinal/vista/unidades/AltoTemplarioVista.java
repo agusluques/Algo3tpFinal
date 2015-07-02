@@ -41,9 +41,7 @@ public class AltoTemplarioVista extends Vista {
 			imagenes = new HashImagenesConColor(miAltoTemplario.getJugador().getColor());
 		}
 		img = imagenes.get("AltoTemplario");
-		crearPanel();
-						
-		miPanel.setVisible(false);
+
 	
 	}
 
@@ -68,8 +66,8 @@ public class AltoTemplarioVista extends Vista {
 		botonAlucinacion.addActionListener(controlador);
 		miPanel.add(botonAlucinacion);
 	}
-
-	private void crearPanel() {
+	@Override
+	protected void crearPanel() {
 		miPanel = new JPanel();
 		
 		JLabel capaNombre = new JLabel("Alto templario");

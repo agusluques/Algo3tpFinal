@@ -41,10 +41,7 @@ public class ScoutVista extends Vista implements Observador {
 			imagenesUnidades = new HashImagenesConColor(miScout.getJugador().getColor());
 		}
 		img = imagenesUnidades.get("Scout");
-		crearPanel();
 		
-		miPanel.setVisible(false);
-
 	}
 
 	private void crearControladores() {
@@ -60,8 +57,8 @@ public class ScoutVista extends Vista implements Observador {
 		botonMover.addActionListener(controladorTraslado);
 		miPanel.add(botonMover);
 	}
-
-	private void crearPanel() {
+	@Override
+	protected void crearPanel() {
 		miPanel = new JPanel();
 		JLabel capaNombre = new JLabel("Scout");
 		miPanel.add(capaNombre);

@@ -57,9 +57,7 @@ public class NaveCienciaVista extends Vista {
 			imagenesUnidades = new HashImagenesConColor(miNave.getJugador().getColor());
 		}
 		img = imagenesUnidades.get("NaveCiencia");
-		crearPanel();
 		
-		miPanel.setVisible(false);
 		
 	}
 
@@ -86,8 +84,8 @@ public class NaveCienciaVista extends Vista {
 		miPanel.add(botonEMP);
 	}
 
-
-	private void crearPanel() {
+	@Override
+	protected void crearPanel() {
 		miPanel = new JPanel();
 		JLabel capaNombre = new JLabel("Nave ciencia");
 		miPanel.add(capaNombre);

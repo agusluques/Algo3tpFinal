@@ -39,13 +39,11 @@ public class AsimiladorVista extends Vista{
 		}else{
 			img = imagenes.get("Asimilador");
 		}
-		crearPanel();
-		
-		miPanel.setVisible(false);
+
 	
 	}
-
-	private void crearPanel() {
+	@Override
+	protected void crearPanel() {
 		miPanel = new JPanel();
 		
 		JLabel capaNombre = new JLabel("Asimilador");

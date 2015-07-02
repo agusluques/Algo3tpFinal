@@ -39,13 +39,11 @@ public class CentroDeMineralVista extends Vista {
 		}else{
 			img = imagenes.get("CentroDeMineral");
 		}
-		crearPanel();
-		
-		miPanel.setVisible(false);
+
 	
 	}
-
-	private void crearPanel() {
+	@Override
+	protected void crearPanel() {
 		miPanel = new JPanel();
 		
 		JLabel capaNombre = new JLabel("Centro de mineral");

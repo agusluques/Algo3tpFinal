@@ -60,10 +60,7 @@ public class NaveTransporteProtossVista extends Vista {
 			imagenesUnidades = new HashImagenesConColor(miNave.getJugador().getColor());
 		}
 		img = imagenesUnidades.get("NaveTransporteProtoss");
-		crearPanel();
-
 		
-		miPanel.setVisible(false);
 		
 	}
 
@@ -88,7 +85,8 @@ public class NaveTransporteProtossVista extends Vista {
 	}
 
 
-	private void crearPanel() {
+	@Override
+	protected void crearPanel() {
 		miPanel = new JPanel();
 		JLabel capaNombre = new JLabel("Nave De Transporte Protoss");
 		miPanel.add(capaNombre);

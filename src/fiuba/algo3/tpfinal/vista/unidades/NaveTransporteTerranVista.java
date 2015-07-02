@@ -42,10 +42,7 @@ public class NaveTransporteTerranVista extends Vista implements Observador {
 			imagenesUnidades = new HashImagenesConColor(miNave.getJugador().getColor());
 		}
 		img = imagenesUnidades.get("NaveTransporteTerran");
-		crearPanel();
-
-		miPanel.setVisible(false);
-
+		
 	}
 	
 	@Override
@@ -85,7 +82,8 @@ public class NaveTransporteTerranVista extends Vista implements Observador {
 		miPanel.add(botonBajar);
 	}
 
-	private void crearPanel() {
+	@Override
+	protected void crearPanel() {
 		miPanel = new JPanel();
 		JLabel capaNombre = new JLabel("NaveDeTransporteTerran");
 		miPanel.add(capaNombre);

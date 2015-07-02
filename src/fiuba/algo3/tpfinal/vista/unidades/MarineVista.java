@@ -41,16 +41,16 @@ public class MarineVista extends Vista {
 			imagenes = new HashImagenesConColor(miMarine.getJugador().getColor());
 		}
 		img = imagenes.get("Marine");
-		crearPanel();
-		miPanel.setVisible(false);
+	
 	
 	}
-
-	private void crearPanel() {
+	@Override
+	protected void crearPanel() {
 		miPanel = new JPanel();
 		
 		JLabel capaNombre = new JLabel("Marine");
 		miPanel.add(capaNombre);
+		
 		
 		JLabel capaVida = new JLabel("Vida: " + miMarine.getVida());
 		miPanel.add(capaVida);
@@ -83,13 +83,14 @@ public class MarineVista extends Vista {
 			miPanel.setVisible(false);
 			miVentanaDeAccion.remove(miPanel);
 		} 
-		else{
+		if (miPanel.isVisible()){
 			
-			//miPanel.setVisible(false);
-			//miVentanaDeAccion.remove(miPanel);
+			miPanel.setVisible(false);
+			miVentanaDeAccion.remove(miPanel);
 			crearPanel();
-			//miVentanaDeAccion.add(miPanel);
-			//miPanel.setVisible(true);
+			miPanel.setVisible(true);
+			miVentanaDeAccion.add(miPanel);
+			
 		}
 	}
 	public void paint(Graphics g) {

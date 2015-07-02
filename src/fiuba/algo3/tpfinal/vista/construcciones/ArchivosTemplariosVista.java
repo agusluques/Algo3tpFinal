@@ -41,11 +41,10 @@ public class ArchivosTemplariosVista extends Vista{
 		}else{
 			img = imagenes.get("ArchivosTemplarios");
 		}
-		crearPanel();
-		miPanel.setVisible(false);
+	
 	}
-
-	private void crearPanel() {
+	@Override
+	protected void crearPanel() {
 		miPanel = new JPanel();
 		
 		JLabel capaNombre = new JLabel("Archivo Templario");

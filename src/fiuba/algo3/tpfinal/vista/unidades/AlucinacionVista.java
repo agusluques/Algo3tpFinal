@@ -63,13 +63,11 @@ public class AlucinacionVista extends Vista implements Observador {
 		
 		img = imagenes.obtener(miAlucinacion.getUnidadCopiada().getClass(), miAlucinacion.getJugador().getColor());
 		
-		crearPanel();
-		
-		miPanel.setVisible(false);
+
 		
 	}
-
-	private void crearPanel() {
+	@Override
+	protected void crearPanel() {
 		miPanel = new JPanel();
 				
 		if(miJuego.jugadorActual.equals(miAlucinacion.getJugador())){

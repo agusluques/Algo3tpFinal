@@ -40,9 +40,7 @@ public class EspectroVista extends Vista {
 			imagenesUnidades = new HashImagenesConColor(miEspectro.getJugador().getColor());
 		}
 		img = imagenesUnidades.get("Espectro");
-		crearPanel();
-				
-		miPanel.setVisible(false);
+
 	
 	}
 
@@ -59,8 +57,8 @@ public class EspectroVista extends Vista {
 		botonMover.addActionListener(controladorTraslado);
 		miPanel.add(botonMover);
 	}
-
-	private void crearPanel() {
+	@Override
+	protected void crearPanel() {
 		miPanel = new JPanel();
 		
 		JLabel capaNombre = new JLabel("Espectro");

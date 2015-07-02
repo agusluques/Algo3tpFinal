@@ -39,13 +39,11 @@ public class DepositoSuministroVista extends Vista{
 		}else{
 			img = imagenes.get("DepositoDeSuministros");
 		}
-		crearPanel();
-		
-		miPanel.setVisible(false);
+	
 	
 	}
-
-	private void crearPanel() {
+	@Override
+	protected void crearPanel() {
 		miPanel = new JPanel();
 		
 		JLabel capaNombre = new JLabel("Deposito suministro");

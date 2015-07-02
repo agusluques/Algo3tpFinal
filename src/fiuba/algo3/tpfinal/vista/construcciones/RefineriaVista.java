@@ -39,13 +39,11 @@ public class RefineriaVista extends Vista{
 			img = imagenes.get("Refineria");
 		}
 		
-		crearPanel();
-		
-		miPanel.setVisible(false);
+	
 	
 	}
-
-	private void crearPanel() {
+	@Override
+	protected void crearPanel() {
 		
 		miPanel = new JPanel();
 		

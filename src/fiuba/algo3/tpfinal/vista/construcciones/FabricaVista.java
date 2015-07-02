@@ -41,13 +41,11 @@ public class FabricaVista extends Vista{
 		}else{
 			img = imagenes.get("Fabrica");
 		}
-		crearPanel();
 		
-		miPanel.setVisible(false);
 	
 	}
-
-	private void crearPanel() {
+	@Override
+	protected void crearPanel() {
 		miPanel = new JPanel();
 		
 		JLabel capaNombre = new JLabel("Fabrica");

@@ -55,13 +55,11 @@ public class ZealotVista extends Vista implements Observador {
 		
 		img = imagenes.get("Zealot");
 		
-		crearPanel();
-		
-		miPanel.setVisible(false);
-		
-	}
 
-	private void crearPanel() {
+	}
+	@Override
+	protected void crearPanel() {
+		System.out.println("Llegue aca");
 		miPanel = new JPanel();
 		
 		JLabel capaNombre = new JLabel("Zealot");
@@ -75,6 +73,7 @@ public class ZealotVista extends Vista implements Observador {
 		
 		if(miJuego.jugadorActual.equals(miZealot.getJugador())){
 			crearControladores();
+		
 		}
 		
 	}

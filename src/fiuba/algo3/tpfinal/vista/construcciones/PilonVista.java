@@ -39,13 +39,11 @@ public class PilonVista extends Vista{
 		}else{
 			img = imagenes.get("Pylon");
 		}
-		crearPanel();
-		
-		miPanel.setVisible(false);
+
 	
 	}
-
-	private void crearPanel() {
+	@Override
+	protected void crearPanel() {
 		miPanel = new JPanel();
 		
 		JLabel capaNombre = new JLabel("Pilon");

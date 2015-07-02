@@ -9,6 +9,7 @@ import javax.swing.JPanel;
 
 import fiuba.algo3.tpfinal.construcciones.Atacable;
 import fiuba.algo3.tpfinal.programa.Coordenada;
+import fiuba.algo3.tpfinal.programa.Terran;
 import fiuba.algo3.tpfinal.unidades.Atacante;
 import fiuba.algo3.tpfinal.vista.sonidos.SonidoAtaque;
 import fiuba.algo3.tpfinal.vista.sonidos.SonidoErrorAtaque;

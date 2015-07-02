@@ -41,9 +41,7 @@ public class DragonVista extends Vista{
 			imagenes = new HashImagenesConColor(miDragon.getJugador().getColor());
 		}
 		img = imagenes.get("Dragon");
-		crearPanel();
-				
-		miPanel.setVisible(false);
+
 	
 	}
 
@@ -60,8 +58,8 @@ public class DragonVista extends Vista{
 		botonMover.addActionListener(controladorTraslado);
 		miPanel.add(botonMover);
 	}
-	
-	private void crearPanel() {
+	@Override
+	protected void crearPanel() {
 		miPanel = new JPanel();
 		
 		JLabel capaNombre = new JLabel("Dragon");

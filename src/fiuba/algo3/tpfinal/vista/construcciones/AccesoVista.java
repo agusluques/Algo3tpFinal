@@ -42,11 +42,10 @@ public class AccesoVista extends Vista {
 		}else{
 			img = imagenes.get("Acceso");
 		}
-		crearPanel();
-		miPanel.setVisible(false);
+	
 	}
-
-	private void crearPanel() {
+	@Override
+	protected void crearPanel() {
 		miPanel = new JPanel();
 		
 		JLabel capaNombre = new JLabel("Acceso");

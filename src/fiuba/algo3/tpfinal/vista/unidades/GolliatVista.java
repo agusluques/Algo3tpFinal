@@ -40,9 +40,7 @@ public class GolliatVista extends Vista{
 			imagenes = new HashImagenesConColor(miGolliat.getJugador().getColor());
 		}
 		img = imagenes.get("Golliat");
-		crearPanel();
-				
-		miPanel.setVisible(false);
+	
 	
 	}
 
@@ -59,8 +57,8 @@ public class GolliatVista extends Vista{
 		botonMover.addActionListener(controladorTraslado);
 		miPanel.add(botonMover);
 	}
-
-	private void crearPanel() {
+	@Override
+	protected void crearPanel() {
 		miPanel = new JPanel();
 		
 		JLabel capaNombre = new JLabel("Golliat");

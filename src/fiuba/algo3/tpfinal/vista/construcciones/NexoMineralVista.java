@@ -39,13 +39,11 @@ public class NexoMineralVista extends Vista{
 		}else{
 			img = imagenes.get("NexoMineral");
 		}
-		crearPanel();
-		
-		miPanel.setVisible(false);
+
 	
 	}
-
-	private void crearPanel() {
+	@Override
+	protected void crearPanel() {
 		miPanel = new JPanel();
 		
 		JLabel capaNombre = new JLabel("Nexo mineral");
