@@ -81,8 +81,15 @@ public class AccesoVista extends Vista {
 			ventanaMapa.repaint();
 			miPanel.setVisible(false);
 			miVentanaDeAccion.remove(miPanel);
-		}else {
+		} 
+		if (miPanel.isVisible()){
+			
+			miPanel.setVisible(false);
+			miVentanaDeAccion.remove(miPanel);
 			crearPanel();
+			miPanel.setVisible(true);
+			miVentanaDeAccion.add(miPanel);
+			
 		}
 	}
 

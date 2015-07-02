@@ -40,10 +40,18 @@ public class ZealotVista extends Vista implements Observador {
 			ventanaMapa.repaint();
 			miPanel.setVisible(false);
 			miVentanaDeAccion.remove(miPanel);
-		} else {
+		} 
+		if (miPanel.isVisible()){
+			
+			miPanel.setVisible(false);
+			miVentanaDeAccion.remove(miPanel);
 			crearPanel();
+			miPanel.setVisible(true);
+			miVentanaDeAccion.add(miPanel);
+			
 		}
-	}
+	}	
+		
 
 	@Override
 	public void setObservable(Observable zealot) {
