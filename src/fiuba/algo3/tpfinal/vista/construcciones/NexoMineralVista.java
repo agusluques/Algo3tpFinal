@@ -1,9 +1,11 @@
 package fiuba.algo3.tpfinal.vista.construcciones;
 
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
 
+import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -45,18 +47,25 @@ public class NexoMineralVista extends Vista{
 	@Override
 	protected void crearPanel() {
 		miPanel = new JPanel();
+		miPanel.setLayout(new BoxLayout(miPanel,BoxLayout.Y_AXIS));
 		
 		JLabel capaNombre = new JLabel("Nexo mineral");
+		capaNombre.setAlignmentX(Component.CENTER_ALIGNMENT);
 		miPanel.add(capaNombre);
 		
-		JLabel capaVida = new JLabel("Vida: " + miNexo.getCantidadDeVida());
+		JLabel capaVida = new JLabel("Vida: " + miNexo.getCantidadDeVida() + "   Escudo: " + miNexo.getCantidadDeEscudo());
+		capaVida.setAlignmentX(Component.CENTER_ALIGNMENT);
 		miPanel.add(capaVida);
 		
-		JLabel capaEscudo = new JLabel("Escudo: " + miNexo.getCantidadDeEscudo());
-		miPanel.add(capaEscudo);
+	
 		if(miNexo.getTiempoRestante()>0){
 			JLabel enConstruccion = new JLabel("Edificio en Construccion");
+			enConstruccion.setAlignmentX(Component.CENTER_ALIGNMENT);
 			miPanel.add(enConstruccion);
+			
+			JLabel tiempo = new JLabel("Tiempo restante: " + miNexo.getTiempoRestante());
+			tiempo.setAlignmentX(Component.CENTER_ALIGNMENT);
+			miPanel.add(tiempo);
 		}
 	}
 	

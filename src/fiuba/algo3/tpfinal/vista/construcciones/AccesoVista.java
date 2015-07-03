@@ -57,7 +57,7 @@ public class AccesoVista extends Vista {
 		capaNombre.setAlignmentX(Component.CENTER_ALIGNMENT);
 		miPanel.add(capaNombre);
 		
-		JLabel capaVida = new JLabel("Vida: " + miAcceso.getCantidadDeVida() + "  " + "Escudo: " + miAcceso.getCantidadDeEscudo());
+		JLabel capaVida = new JLabel("Vida: " + miAcceso.getCantidadDeVida() + "   Escudo: " + miAcceso.getCantidadDeEscudo());
 		capaVida.setAlignmentX(Component.CENTER_ALIGNMENT);
 		miPanel.add(capaVida);
 			
@@ -66,6 +66,11 @@ public class AccesoVista extends Vista {
 				JLabel enConstruccion = new JLabel("Edificio en Construccion");
 				enConstruccion.setAlignmentX(Component.CENTER_ALIGNMENT);
 				miPanel.add(enConstruccion);
+				
+				JLabel tiempo = new JLabel("Tiempo restante: " + miAcceso.getTiempoRestante());
+				tiempo.setAlignmentX(Component.CENTER_ALIGNMENT);
+				miPanel.add(tiempo);
+				
 			}else{
 				crearControladores();
 				mostrarUnidadesEnFabricacion();

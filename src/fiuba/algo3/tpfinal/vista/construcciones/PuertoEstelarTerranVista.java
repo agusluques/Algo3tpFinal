@@ -68,6 +68,10 @@ public class PuertoEstelarTerranVista extends Vista{
 				JLabel enConstruccion = new JLabel("Edificio en Construccion");
 				enConstruccion.setAlignmentX(Component.CENTER_ALIGNMENT);
 				miPanel.add(enConstruccion);
+				
+				JLabel tiempo = new JLabel("Tiempo restante: " + miPuertoEstelar.getTiempoRestante());
+				tiempo.setAlignmentX(Component.CENTER_ALIGNMENT);
+				miPanel.add(tiempo);
 			}else{
 				crearControladores();
 				mostrarUnidadesEnFabricacion();

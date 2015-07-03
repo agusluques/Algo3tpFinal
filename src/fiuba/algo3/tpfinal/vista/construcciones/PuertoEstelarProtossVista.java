@@ -57,7 +57,7 @@ public class PuertoEstelarProtossVista extends Vista {
 		capaNombre.setAlignmentX(Component.CENTER_ALIGNMENT);
 		miPanel.add(capaNombre);
 		
-		JLabel capaVida = new JLabel("Vida: " + miPuertoEstelar.getCantidadDeVida() + "  " + "Escudo: " + miPuertoEstelar.getCantidadDeEscudo());
+		JLabel capaVida = new JLabel("Vida: " + miPuertoEstelar.getCantidadDeVida() + "   Escudo: " + miPuertoEstelar.getCantidadDeEscudo());
 		capaVida.setAlignmentX(Component.CENTER_ALIGNMENT);
 		miPanel.add(capaVida);
 	
@@ -66,6 +66,10 @@ public class PuertoEstelarProtossVista extends Vista {
 				JLabel enConstruccion = new JLabel("Edificio en Construccion");
 				enConstruccion.setAlignmentX(Component.CENTER_ALIGNMENT);
 				miPanel.add(enConstruccion);
+				
+				JLabel tiempo = new JLabel("Tiempo restante: " + miPuertoEstelar.getTiempoRestante());
+				tiempo.setAlignmentX(Component.CENTER_ALIGNMENT);
+				miPanel.add(tiempo);
 			}else{
 				crearControladores();
 				mostrarUnidadesEnFabricacion();

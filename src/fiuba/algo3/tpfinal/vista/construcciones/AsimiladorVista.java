@@ -1,9 +1,11 @@
 package fiuba.algo3.tpfinal.vista.construcciones;
 
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
 
+import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -45,19 +47,24 @@ public class AsimiladorVista extends Vista{
 	@Override
 	protected void crearPanel() {
 		miPanel = new JPanel();
+		miPanel.setLayout(new BoxLayout(miPanel,BoxLayout.Y_AXIS));
 		
 		JLabel capaNombre = new JLabel("Asimilador");
+		capaNombre.setAlignmentX(Component.CENTER_ALIGNMENT);
 		miPanel.add(capaNombre);
 		
-		JLabel capaVida = new JLabel("Vida: " + miAsimilador.getCantidadDeVida());
+		JLabel capaVida = new JLabel("Vida: " + miAsimilador.getCantidadDeVida() +"   Escudo: " + miAsimilador.getCantidadDeEscudo());
+		capaVida.setAlignmentX(Component.CENTER_ALIGNMENT);
 		miPanel.add(capaVida);
-		
-		JLabel capaEscudo = new JLabel("Escudo: " + miAsimilador.getCantidadDeEscudo());
-		miPanel.add(capaEscudo);
-		
+			
 		if(miAsimilador.getTiempoRestante()>0){
 			JLabel enConstruccion = new JLabel("Edificio en Construccion");
+			enConstruccion.setAlignmentX(Component.CENTER_ALIGNMENT);
 			miPanel.add(enConstruccion);
+			
+			JLabel tiempo = new JLabel("Tiempo restante: " + miAsimilador.getTiempoRestante());
+			tiempo.setAlignmentX(Component.CENTER_ALIGNMENT);
+			miPanel.add(tiempo);
 		}
 	}
 	

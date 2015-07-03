@@ -1,9 +1,11 @@
 package fiuba.algo3.tpfinal.vista.construcciones;
 
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
 
+import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -46,15 +48,24 @@ public class RefineriaVista extends Vista{
 	protected void crearPanel() {
 		
 		miPanel = new JPanel();
+		miPanel.setLayout(new BoxLayout(miPanel,BoxLayout.Y_AXIS));
 		
 		JLabel capaNombre = new JLabel("Refineria");
+		capaNombre.setAlignmentX(Component.CENTER_ALIGNMENT);
 		miPanel.add(capaNombre);
 		
 		JLabel capaVida = new JLabel("Vida: " + miRefineria.getVida());
+		capaVida.setAlignmentX(Component.CENTER_ALIGNMENT);
 		miPanel.add(capaVida);
+		
 		if(miRefineria.getTiempoRestante()>0){
 			JLabel enConstruccion = new JLabel("Edificio en Construccion");
+			enConstruccion.setAlignmentX(Component.CENTER_ALIGNMENT);
 			miPanel.add(enConstruccion);
+			
+			JLabel tiempo = new JLabel("Tiempo restante: " + miRefineria.getTiempoRestante());
+			tiempo.setAlignmentX(Component.CENTER_ALIGNMENT);
+			miPanel.add(tiempo);
 		}
 	}
 	

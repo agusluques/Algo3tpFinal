@@ -56,7 +56,7 @@ public class ArchivosTemplariosVista extends Vista{
 		capaNombre.setAlignmentX(Component.CENTER_ALIGNMENT);
 		miPanel.add(capaNombre);
 		
-		JLabel capaVida = new JLabel("Vida: " + miArchivoTemplario.getCantidadDeVida() + "  " + "Escudo: " + miArchivoTemplario.getCantidadDeEscudo());
+		JLabel capaVida = new JLabel("Vida: " + miArchivoTemplario.getCantidadDeVida() + "   Escudo: " + miArchivoTemplario.getCantidadDeEscudo());
 		capaVida.setAlignmentX(Component.CENTER_ALIGNMENT);
 		miPanel.add(capaVida);
 		
@@ -65,6 +65,10 @@ public class ArchivosTemplariosVista extends Vista{
 				JLabel enConstruccion = new JLabel("Edificio en Construccion");
 				enConstruccion.setAlignmentX(Component.CENTER_ALIGNMENT);
 				miPanel.add(enConstruccion);
+				
+				JLabel tiempo = new JLabel("Tiempo restante: " + miArchivoTemplario.getTiempoRestante());
+				tiempo.setAlignmentX(Component.CENTER_ALIGNMENT);
+				miPanel.add(tiempo);
 			}else{
 				crearControladores();
 				mostrarUnidadesEnFabricacion();
