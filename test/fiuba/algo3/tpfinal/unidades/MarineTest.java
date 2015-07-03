@@ -145,6 +145,29 @@ public class MarineTest {
 		mapa.insertarUnidad(destino, zealot);
 		unidad.trasladarA(destino, mapa);
 	}
+	
+	@Test
+	public void unMarineSePuedeMoverAOtraTierraSiHayUnCamino() throws Exception {
+		Marine unidad = new Marine();
+		Mapa mapa = new Mapa("mapaTierra_1.txt");
+
+		mapa.insertarUnidad(new Coordenada(1, 1), unidad);
+		Coordenada destino = new Coordenada(7, 11);
+		unidad.trasladarA(destino, mapa);
+		
+		Assert.assertEquals(destino, unidad.getCoordenada());
+		Assert.assertEquals(unidad, mapa.getParcela(destino).getOcupante());
+	}
+	
+	@Test(expected=MovimientoInvalido.class)
+	public void unMarineNoPuedeSaltarElVacio() throws Exception {
+		Marine unidad = new Marine();
+		Mapa mapa = new Mapa("mapaTierra_1.txt");
+
+		mapa.insertarUnidad(new Coordenada(1, 1), unidad);
+		Coordenada destino = new Coordenada(15, 20);
+		unidad.trasladarA(destino, mapa);
+	}
 
 	@Test
 	public void devuelveElRangoDeAtaqueCorrespondiente() {

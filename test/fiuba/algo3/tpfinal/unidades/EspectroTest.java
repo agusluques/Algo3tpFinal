@@ -125,6 +125,32 @@ public class EspectroTest {
 		mapa.insertarUnidad(destino, zealot);
 		unidad.trasladarA(destino, mapa);
 	}
+	
+	@Test
+	public void unEspectroSePuedeMoverAOtraTierraSiHayUnCamino() throws Exception {
+		Espectro unidad = new Espectro();
+		Mapa mapa = new Mapa("mapaTierra.txt");
+
+		mapa.insertarUnidad(new Coordenada(1, 1), unidad);
+		Coordenada destino = new Coordenada(7, 11);
+		unidad.trasladarA(destino, mapa);
+		
+		Assert.assertEquals(destino, unidad.getCoordenada());
+		Assert.assertEquals(unidad, mapa.getParcela(destino).getOcupante());
+	}
+	
+	@Test
+	public void unEspectroPuedeVolar() throws Exception {
+		Espectro unidad = new Espectro();
+		Mapa mapa = new Mapa("mapaTierra_1.txt");
+
+		mapa.insertarUnidad(new Coordenada(1, 1), unidad);
+		Coordenada destino = new Coordenada(15, 20);
+		unidad.trasladarA(destino, mapa);
+		
+		Assert.assertEquals(destino, unidad.getCoordenada());
+		Assert.assertEquals(unidad, mapa.getParcela(destino).getOcupante());
+	}
 
 	@Test
 	public void devuelveElRangoDeAtaqueCorrespondiente() {

@@ -1,4 +1,4 @@
-package fiuba.algo3.tpfinal.vista;
+package fiuba.algo3.tpfinal.controlador;
 
 import java.awt.Font;
 import java.awt.event.ActionEvent;

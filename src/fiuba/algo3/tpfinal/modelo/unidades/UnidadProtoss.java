@@ -1,5 +1,10 @@
 package fiuba.algo3.tpfinal.modelo.unidades;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Iterator;
+
 import fiuba.algo3.tpfinal.modelo.construcciones.Atacable;
 import fiuba.algo3.tpfinal.modelo.excepciones.MovimientoInvalido;
 import fiuba.algo3.tpfinal.modelo.excepciones.ParcelaOcupada;
@@ -81,7 +86,8 @@ public abstract class UnidadProtoss extends Protoss implements Fabricable,
 	public void trasladarA(Coordenada coord, Mapa mapa) throws ParcelaOcupada {
 		Parcela parcelaNueva = mapa.getParcela(coord);
 		if (parcelaNueva.estaVacia()
-				&& this.sePuedeMoverA(parcelaNueva.getSuperficie())) {
+				&& this.sePuedeMoverA(parcelaNueva.getSuperficie())
+				&& this.hayCaminoHasta(coord, mapa)) {
 			mapa.moverUnidad(posicion, coord);
 			this.posicion = coord;
 		} else {
@@ -116,5 +122,81 @@ public abstract class UnidadProtoss extends Protoss implements Fabricable,
 
 	public RangoDeAtaque getRangoCompleto() {
 		return this.rangoDeAtaque;
+	}
+	
+	protected boolean hayCaminoHasta(Coordenada posicionFinal, Mapa mapa) {
+		//Utilizo el algoritmo A*
+		Collection<Coordenada> posicionesEvaluadas = new ArrayList<Coordenada>();
+		Collection<Coordenada> posicionesAEvaluar = new ArrayList<Coordenada>();
+		posicionesAEvaluar.add(this.posicion);
+		
+		HashMap<Coordenada, Double> distanciaDesdeInicio = new HashMap<Coordenada, Double>();
+		distanciaDesdeInicio.put(this.posicion, (double) 0);
+		
+		HashMap<Coordenada, Double> distanciaDesdeInicioPasandoPor = new HashMap<Coordenada, Double>();
+		distanciaDesdeInicioPasandoPor.put(posicion, distanciaDesdeInicio.get(this.posicion) + this.posicion.distancia(posicionFinal));
+		
+		while(!posicionesAEvaluar.isEmpty()) {
+			Coordenada coordenadaActual = encontrarCoordenadaConDistanciaMinima(posicionesAEvaluar,
+					distanciaDesdeInicioPasandoPor);
+			if(coordenadaActual.equals(posicionFinal)) {
+				return true;
+			}
+			posicionesAEvaluar.remove(coordenadaActual);
+			posicionesEvaluadas.add(coordenadaActual);
+			for(Coordenada vecino : encontrarVecinos(coordenadaActual, mapa)) {
+				if(posicionesEvaluadas.contains(vecino)) {
+					continue;
+				}
+				double distanciaDesdeInicioAproximada = distanciaDesdeInicio.get(coordenadaActual) + coordenadaActual.distancia(vecino);
+				if(!posicionesAEvaluar.contains(vecino) || distanciaDesdeInicioAproximada < distanciaDesdeInicio.get(vecino)) {
+					distanciaDesdeInicio.put(vecino, distanciaDesdeInicioAproximada);
+					distanciaDesdeInicioPasandoPor.put(vecino, distanciaDesdeInicio.get(vecino) + vecino.distancia(posicionFinal));
+					if(!posicionesAEvaluar.contains(vecino)) {
+						posicionesAEvaluar.add(vecino);
+					}
+				}
+			}
+		}
+		
+		throw new MovimientoInvalido();
+	}
+
+	protected Collection<Coordenada> encontrarVecinos(Coordenada coordenadaActual, Mapa mapa) {
+		//Devuelve una coleccion con las coordenadas vecinas a las cual la unidad puede acceder
+		int fila = coordenadaActual.getFila();
+		int columna = coordenadaActual.getColumna();
+		Collection<Coordenada> vecinos = new ArrayList<Coordenada>();
+		for(int i = 0; i < 3; i++) {
+			for (int j = 0; j < 3; j++) {
+				int filaVecina = fila -1 + i;
+				int columnaVecina = columna - 1 + j;
+				if(filaVecina <= 0 || columnaVecina <= 0 || filaVecina>mapa.getAlto() || columnaVecina > mapa.getAncho()) {
+					continue;
+				}
+				Coordenada vecino = new Coordenada(filaVecina, columnaVecina);
+				Parcela parcelaVecina = mapa.getParcela(vecino);
+				if(parcelaVecina.estaVacia() && this.sePuedeMoverA(parcelaVecina.getSuperficie())) {
+					vecinos.add(vecino);
+				}
+			}
+		}
+		return vecinos;
+	}
+
+	protected Coordenada encontrarCoordenadaConDistanciaMinima(
+			Collection<Coordenada> posicionesAEvaluar,
+			HashMap<Coordenada, Double> distanciaDesdeInicioPasandoPor) {
+		Iterator<Coordenada> iterador = posicionesAEvaluar.iterator();
+		Coordenada coordenadaActual = iterador.next();
+		double minimaDistancia = distanciaDesdeInicioPasandoPor.get(coordenadaActual);
+		while(iterador.hasNext()) {
+			Coordenada siguienteCoordenada = iterador.next();
+			if(distanciaDesdeInicioPasandoPor.get(siguienteCoordenada) < minimaDistancia) {
+				minimaDistancia = distanciaDesdeInicioPasandoPor.get(siguienteCoordenada);
+				coordenadaActual = siguienteCoordenada;
+			}
+		}
+		return coordenadaActual;
 	}
 }

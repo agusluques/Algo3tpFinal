@@ -132,6 +132,29 @@ public class ZealotTest {
 		mapa.insertarUnidad(destino, zealot);
 		unidad.trasladarA(destino, mapa);
 	}
+	
+	@Test
+	public void unZealotSePuedeMoverAOtraTierraSiHayUnCamino() throws Exception {
+		Zealot unidad = new Zealot();
+		Mapa mapa = new Mapa("mapaTierra_1.txt");
+
+		mapa.insertarUnidad(new Coordenada(1, 1), unidad);
+		Coordenada destino = new Coordenada(7, 11);
+		unidad.trasladarA(destino, mapa);
+		
+		Assert.assertEquals(destino, unidad.getCoordenada());
+		Assert.assertEquals(unidad, mapa.getParcela(destino).getOcupante());
+	}
+	
+	@Test(expected=MovimientoInvalido.class)
+	public void unZealotNoPuedeSaltarElVacio() throws Exception {
+		Zealot unidad = new Zealot();
+		Mapa mapa = new Mapa("mapaTierra_1.txt");
+
+		mapa.insertarUnidad(new Coordenada(1, 1), unidad);
+		Coordenada destino = new Coordenada(15, 20);
+		unidad.trasladarA(destino, mapa);
+	}
 
 	@Test
 	public void devuelveElRangoDeAtaqueCorrespondiente() {
