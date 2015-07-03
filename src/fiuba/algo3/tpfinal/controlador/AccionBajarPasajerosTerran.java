@@ -35,7 +35,7 @@ public class AccionBajarPasajerosTerran implements ActionListener{
 		} catch (ParcelaOcupada e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
-		}
+		} 
 		
 	}
 	

@@ -71,6 +71,10 @@ public class AccionSubirPasajeroTerran implements MouseListener {
 			JOptionPane.showMessageDialog(null, "No hay mas capacidad en la nave",
 					"Error",
 			    	JOptionPane.ERROR_MESSAGE);
+		} catch (ClassCastException e) {
+			JOptionPane.showMessageDialog(null, "No se puede subir una construccion!",
+					"Error",
+			    	JOptionPane.ERROR_MESSAGE);
 		}
 		
 		capaQueEscucho.setVisible(false);
