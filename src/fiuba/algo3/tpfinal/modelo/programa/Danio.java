@@ -1,4 +1,4 @@
-package fiuba.algo3.tpfinal.programa;
+package fiuba.algo3.tpfinal.modelo.programa;
 
 public class Danio {
 

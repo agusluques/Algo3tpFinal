@@ -2,14 +2,14 @@ package fiuba.algo3.tpfinal.vista.programa;
 
 import javax.swing.JButton;
 
-import fiuba.algo3.tpfinal.construcciones.Acceso;
-import fiuba.algo3.tpfinal.construcciones.ArchivosTemplarios;
-import fiuba.algo3.tpfinal.construcciones.Asimilador;
-import fiuba.algo3.tpfinal.construcciones.NexoMineral;
-import fiuba.algo3.tpfinal.construcciones.Pilon;
-import fiuba.algo3.tpfinal.construcciones.PuertoEstelarProtoss;
-import fiuba.algo3.tpfinal.programa.JugadorProtoss;
-import fiuba.algo3.tpfinal.vista.ControladorConstruccionProtoss;
+import fiuba.algo3.tpfinal.controlador.ControladorConstruccionProtoss;
+import fiuba.algo3.tpfinal.modelo.construcciones.Acceso;
+import fiuba.algo3.tpfinal.modelo.construcciones.ArchivosTemplarios;
+import fiuba.algo3.tpfinal.modelo.construcciones.Asimilador;
+import fiuba.algo3.tpfinal.modelo.construcciones.NexoMineral;
+import fiuba.algo3.tpfinal.modelo.construcciones.Pilon;
+import fiuba.algo3.tpfinal.modelo.construcciones.PuertoEstelarProtoss;
+import fiuba.algo3.tpfinal.modelo.programa.JugadorProtoss;
 
 @SuppressWarnings("serial")
 public class JugadorProtossVista extends JugadorVista {

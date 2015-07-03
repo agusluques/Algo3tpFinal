@@ -6,9 +6,16 @@ import junit.framework.Assert;
 
 import org.junit.Test;
 
-import fiuba.algo3.tpfinal.construcciones.Atacable;
-import fiuba.algo3.tpfinal.excepciones.MapaInvalido;
-import fiuba.algo3.tpfinal.unidades.Zealot;
+import fiuba.algo3.tpfinal.modelo.construcciones.Atacable;
+import fiuba.algo3.tpfinal.modelo.excepciones.MapaInvalido;
+import fiuba.algo3.tpfinal.modelo.programa.Aire;
+import fiuba.algo3.tpfinal.modelo.programa.Coordenada;
+import fiuba.algo3.tpfinal.modelo.programa.DepositoDeGas;
+import fiuba.algo3.tpfinal.modelo.programa.DepositoDeMinerales;
+import fiuba.algo3.tpfinal.modelo.programa.Mapa;
+import fiuba.algo3.tpfinal.modelo.programa.Parcela;
+import fiuba.algo3.tpfinal.modelo.programa.Tierra;
+import fiuba.algo3.tpfinal.modelo.unidades.Zealot;
 
 public class MapaTest {
 

@@ -9,10 +9,10 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import fiuba.algo3.tpfinal.unidades.Trasladable;
-import fiuba.algo3.tpfinal.unidades.Zealot;
-import fiuba.algo3.tpfinal.vista.ControladorAtaque;
-import fiuba.algo3.tpfinal.vista.ControladorTraslado;
+import fiuba.algo3.tpfinal.controlador.ControladorAtaque;
+import fiuba.algo3.tpfinal.controlador.ControladorTraslado;
+import fiuba.algo3.tpfinal.modelo.unidades.Trasladable;
+import fiuba.algo3.tpfinal.modelo.unidades.Zealot;
 import fiuba.algo3.tpfinal.vista.HashImagenesConColor;
 import fiuba.algo3.tpfinal.vista.Observable;
 import fiuba.algo3.tpfinal.vista.Observador;

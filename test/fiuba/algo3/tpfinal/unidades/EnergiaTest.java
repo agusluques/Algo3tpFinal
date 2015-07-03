@@ -4,7 +4,8 @@ import junit.framework.Assert;
 
 import org.junit.Test;
 
-import fiuba.algo3.tpfinal.excepciones.EnergiaInsuficiente;
+import fiuba.algo3.tpfinal.modelo.excepciones.EnergiaInsuficiente;
+import fiuba.algo3.tpfinal.modelo.unidades.Energia;
 
 public class EnergiaTest {
 

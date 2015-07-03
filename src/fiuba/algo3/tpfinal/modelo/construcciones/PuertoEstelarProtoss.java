@@ -1,23 +1,23 @@
-package fiuba.algo3.tpfinal.construcciones;
+package fiuba.algo3.tpfinal.modelo.construcciones;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import fiuba.algo3.tpfinal.excepciones.ConstruccionRequeridaInexistente;
-import fiuba.algo3.tpfinal.excepciones.GasInsuficiente;
-import fiuba.algo3.tpfinal.excepciones.LimitePoblacionalAlcanzado;
-import fiuba.algo3.tpfinal.excepciones.MineralInsuficiente;
-import fiuba.algo3.tpfinal.excepciones.ParcelaOcupada;
-import fiuba.algo3.tpfinal.excepciones.TerrenoInapropiado;
-import fiuba.algo3.tpfinal.programa.Costo;
-import fiuba.algo3.tpfinal.programa.Parcela;
-import fiuba.algo3.tpfinal.programa.Tierra;
-import fiuba.algo3.tpfinal.programa.VidaConEscudo;
-import fiuba.algo3.tpfinal.unidades.Fabricable;
-import fiuba.algo3.tpfinal.unidades.NaveTransporteProtoss;
-import fiuba.algo3.tpfinal.unidades.RangoDeAtaque;
-import fiuba.algo3.tpfinal.unidades.Scout;
-import fiuba.algo3.tpfinal.unidades.UnidadProtoss;
+import fiuba.algo3.tpfinal.modelo.excepciones.ConstruccionRequeridaInexistente;
+import fiuba.algo3.tpfinal.modelo.excepciones.GasInsuficiente;
+import fiuba.algo3.tpfinal.modelo.excepciones.LimitePoblacionalAlcanzado;
+import fiuba.algo3.tpfinal.modelo.excepciones.MineralInsuficiente;
+import fiuba.algo3.tpfinal.modelo.excepciones.ParcelaOcupada;
+import fiuba.algo3.tpfinal.modelo.excepciones.TerrenoInapropiado;
+import fiuba.algo3.tpfinal.modelo.programa.Costo;
+import fiuba.algo3.tpfinal.modelo.programa.Parcela;
+import fiuba.algo3.tpfinal.modelo.programa.Tierra;
+import fiuba.algo3.tpfinal.modelo.programa.VidaConEscudo;
+import fiuba.algo3.tpfinal.modelo.unidades.Fabricable;
+import fiuba.algo3.tpfinal.modelo.unidades.NaveTransporteProtoss;
+import fiuba.algo3.tpfinal.modelo.unidades.RangoDeAtaque;
+import fiuba.algo3.tpfinal.modelo.unidades.Scout;
+import fiuba.algo3.tpfinal.modelo.unidades.UnidadProtoss;
 
 public class PuertoEstelarProtoss extends ConstruccionProtoss {
 

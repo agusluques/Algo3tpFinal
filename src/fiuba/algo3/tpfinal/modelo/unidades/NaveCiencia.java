@@ -1,13 +1,13 @@
-package fiuba.algo3.tpfinal.unidades;
+package fiuba.algo3.tpfinal.modelo.unidades;
 
-import fiuba.algo3.tpfinal.construcciones.Atacable;
-import fiuba.algo3.tpfinal.excepciones.EnergiaInsuficiente;
-import fiuba.algo3.tpfinal.excepciones.UnidadInvalida;
-import fiuba.algo3.tpfinal.programa.Aire;
-import fiuba.algo3.tpfinal.programa.Coordenada;
-import fiuba.algo3.tpfinal.programa.Costo;
-import fiuba.algo3.tpfinal.programa.Danio;
-import fiuba.algo3.tpfinal.programa.VidaSimple;
+import fiuba.algo3.tpfinal.modelo.construcciones.Atacable;
+import fiuba.algo3.tpfinal.modelo.excepciones.EnergiaInsuficiente;
+import fiuba.algo3.tpfinal.modelo.excepciones.UnidadInvalida;
+import fiuba.algo3.tpfinal.modelo.programa.Aire;
+import fiuba.algo3.tpfinal.modelo.programa.Coordenada;
+import fiuba.algo3.tpfinal.modelo.programa.Costo;
+import fiuba.algo3.tpfinal.modelo.programa.Danio;
+import fiuba.algo3.tpfinal.modelo.programa.VidaSimple;
 
 public class NaveCiencia extends UnidadTerran {
 

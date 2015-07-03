@@ -1,6 +1,6 @@
-package fiuba.algo3.tpfinal.programa;
+package fiuba.algo3.tpfinal.modelo.programa;
 
-import fiuba.algo3.tpfinal.excepciones.ParcelaOcupada;
+import fiuba.algo3.tpfinal.modelo.excepciones.ParcelaOcupada;
 
 public class Juego {
 	public Jugador jugadorUno;

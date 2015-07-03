@@ -2,11 +2,11 @@ package fiuba.algo3.tpfinal.vista.unidades;
 
 import java.util.HashMap;
 
-import fiuba.algo3.tpfinal.unidades.AltoTemplario;
-import fiuba.algo3.tpfinal.unidades.Dragon;
-import fiuba.algo3.tpfinal.unidades.NaveTransporteProtoss;
-import fiuba.algo3.tpfinal.unidades.Scout;
-import fiuba.algo3.tpfinal.unidades.Zealot;
+import fiuba.algo3.tpfinal.modelo.unidades.AltoTemplario;
+import fiuba.algo3.tpfinal.modelo.unidades.Dragon;
+import fiuba.algo3.tpfinal.modelo.unidades.NaveTransporteProtoss;
+import fiuba.algo3.tpfinal.modelo.unidades.Scout;
+import fiuba.algo3.tpfinal.modelo.unidades.Zealot;
 
 @SuppressWarnings({ "rawtypes", "serial" })
 public class HashNombreUnidades extends HashMap<Class,String> {

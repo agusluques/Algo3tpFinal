@@ -6,9 +6,9 @@ import java.net.MalformedURLException;
 
 import javax.swing.JOptionPane;
 
-import fiuba.algo3.tpfinal.excepciones.ParcelaOcupada;
-import fiuba.algo3.tpfinal.programa.Juego;
-import fiuba.algo3.tpfinal.programa.Jugador;
+import fiuba.algo3.tpfinal.modelo.excepciones.ParcelaOcupada;
+import fiuba.algo3.tpfinal.modelo.programa.Juego;
+import fiuba.algo3.tpfinal.modelo.programa.Jugador;
 import fiuba.algo3.tpfinal.vista.MapaVista;
 import fiuba.algo3.tpfinal.vista.sonidos.SonidoGanador;
 

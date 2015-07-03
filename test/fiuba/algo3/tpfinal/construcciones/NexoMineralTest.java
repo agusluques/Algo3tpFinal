@@ -5,12 +5,14 @@ import junit.framework.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import fiuba.algo3.tpfinal.programa.Coordenada;
-import fiuba.algo3.tpfinal.programa.Danio;
-import fiuba.algo3.tpfinal.programa.JugadorProtoss;
-import fiuba.algo3.tpfinal.programa.Mapa;
-import fiuba.algo3.tpfinal.unidades.RangoDeAtaque;
-import fiuba.algo3.tpfinal.unidades.Zealot;
+import fiuba.algo3.tpfinal.modelo.construcciones.Constructible;
+import fiuba.algo3.tpfinal.modelo.construcciones.NexoMineral;
+import fiuba.algo3.tpfinal.modelo.programa.Coordenada;
+import fiuba.algo3.tpfinal.modelo.programa.Danio;
+import fiuba.algo3.tpfinal.modelo.programa.JugadorProtoss;
+import fiuba.algo3.tpfinal.modelo.programa.Mapa;
+import fiuba.algo3.tpfinal.modelo.unidades.RangoDeAtaque;
+import fiuba.algo3.tpfinal.modelo.unidades.Zealot;
 
 public class NexoMineralTest {
 

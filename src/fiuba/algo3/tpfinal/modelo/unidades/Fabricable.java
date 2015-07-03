@@ -1,6 +1,6 @@
-package fiuba.algo3.tpfinal.unidades;
+package fiuba.algo3.tpfinal.modelo.unidades;
 
-import fiuba.algo3.tpfinal.programa.Costo;
+import fiuba.algo3.tpfinal.modelo.programa.Costo;
 
 public interface Fabricable {
 

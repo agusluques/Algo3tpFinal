@@ -9,7 +9,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import fiuba.algo3.tpfinal.construcciones.PuertoEstelarProtoss;
+import fiuba.algo3.tpfinal.modelo.construcciones.PuertoEstelarProtoss;
 import fiuba.algo3.tpfinal.vista.AccionCrearNaveDeTransporteProtoss;
 import fiuba.algo3.tpfinal.vista.AccionCrearScout;
 import fiuba.algo3.tpfinal.vista.HashImagenesConColor;

@@ -4,9 +4,9 @@ import java.awt.event.MouseEvent;
 
 import javax.swing.JOptionPane;
 
-import fiuba.algo3.tpfinal.excepciones.EnergiaInsuficiente;
-import fiuba.algo3.tpfinal.programa.Coordenada;
-import fiuba.algo3.tpfinal.unidades.AltoTemplario;
+import fiuba.algo3.tpfinal.modelo.excepciones.EnergiaInsuficiente;
+import fiuba.algo3.tpfinal.modelo.programa.Coordenada;
+import fiuba.algo3.tpfinal.modelo.unidades.AltoTemplario;
 
 public class AccionTormentaPsionica extends AccionMagia {
 

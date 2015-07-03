@@ -1,4 +1,4 @@
-package fiuba.algo3.tpfinal.vista;
+package fiuba.algo3.tpfinal.controlador;
 
 import java.awt.Color;
 import java.awt.event.ActionEvent;
@@ -7,7 +7,8 @@ import java.awt.event.ActionListener;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 
-import fiuba.algo3.tpfinal.unidades.Trasladable;
+import fiuba.algo3.tpfinal.modelo.unidades.Trasladable;
+import fiuba.algo3.tpfinal.vista.AccionTrasladar;
 
 public class ControladorTraslado implements ActionListener{
 	

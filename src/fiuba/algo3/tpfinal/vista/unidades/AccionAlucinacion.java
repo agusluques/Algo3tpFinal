@@ -4,13 +4,13 @@ import java.awt.event.MouseEvent;
 
 import javax.swing.JOptionPane;
 
-import fiuba.algo3.tpfinal.excepciones.EnergiaInsuficiente;
-import fiuba.algo3.tpfinal.excepciones.LimitePoblacionalAlcanzado;
-import fiuba.algo3.tpfinal.excepciones.ParcelaOcupada;
-import fiuba.algo3.tpfinal.excepciones.ParcelaVacia;
-import fiuba.algo3.tpfinal.programa.Coordenada;
-import fiuba.algo3.tpfinal.unidades.AltoTemplario;
-import fiuba.algo3.tpfinal.unidades.UnidadProtoss;
+import fiuba.algo3.tpfinal.modelo.excepciones.EnergiaInsuficiente;
+import fiuba.algo3.tpfinal.modelo.excepciones.LimitePoblacionalAlcanzado;
+import fiuba.algo3.tpfinal.modelo.excepciones.ParcelaOcupada;
+import fiuba.algo3.tpfinal.modelo.excepciones.ParcelaVacia;
+import fiuba.algo3.tpfinal.modelo.programa.Coordenada;
+import fiuba.algo3.tpfinal.modelo.unidades.AltoTemplario;
+import fiuba.algo3.tpfinal.modelo.unidades.UnidadProtoss;
 
 public class AccionAlucinacion extends AccionMagia {
 	

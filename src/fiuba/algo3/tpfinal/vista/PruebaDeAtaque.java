@@ -10,19 +10,19 @@ import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.JScrollPane;
 
-import fiuba.algo3.tpfinal.construcciones.Acceso;
-import fiuba.algo3.tpfinal.construcciones.ArchivosTemplarios;
-import fiuba.algo3.tpfinal.construcciones.Asimilador;
-import fiuba.algo3.tpfinal.construcciones.NexoMineral;
-import fiuba.algo3.tpfinal.construcciones.Pilon;
-import fiuba.algo3.tpfinal.construcciones.PuertoEstelarProtoss;
-import fiuba.algo3.tpfinal.programa.Coordenada;
-import fiuba.algo3.tpfinal.programa.JugadorProtoss;
-import fiuba.algo3.tpfinal.programa.JugadorTerran;
-import fiuba.algo3.tpfinal.programa.Mapa;
-import fiuba.algo3.tpfinal.unidades.Golliat;
-import fiuba.algo3.tpfinal.unidades.Marine;
-import fiuba.algo3.tpfinal.unidades.Zealot;
+import fiuba.algo3.tpfinal.modelo.construcciones.Acceso;
+import fiuba.algo3.tpfinal.modelo.construcciones.ArchivosTemplarios;
+import fiuba.algo3.tpfinal.modelo.construcciones.Asimilador;
+import fiuba.algo3.tpfinal.modelo.construcciones.NexoMineral;
+import fiuba.algo3.tpfinal.modelo.construcciones.Pilon;
+import fiuba.algo3.tpfinal.modelo.construcciones.PuertoEstelarProtoss;
+import fiuba.algo3.tpfinal.modelo.programa.Coordenada;
+import fiuba.algo3.tpfinal.modelo.programa.JugadorProtoss;
+import fiuba.algo3.tpfinal.modelo.programa.JugadorTerran;
+import fiuba.algo3.tpfinal.modelo.programa.Mapa;
+import fiuba.algo3.tpfinal.modelo.unidades.Golliat;
+import fiuba.algo3.tpfinal.modelo.unidades.Marine;
+import fiuba.algo3.tpfinal.modelo.unidades.Zealot;
 
 public class PruebaDeAtaque implements ActionListener {
 

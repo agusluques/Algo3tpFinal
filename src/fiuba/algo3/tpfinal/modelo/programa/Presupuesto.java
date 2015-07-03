@@ -1,7 +1,7 @@
-package fiuba.algo3.tpfinal.programa;
+package fiuba.algo3.tpfinal.modelo.programa;
 
-import fiuba.algo3.tpfinal.excepciones.GasInsuficiente;
-import fiuba.algo3.tpfinal.excepciones.MineralInsuficiente;
+import fiuba.algo3.tpfinal.modelo.excepciones.GasInsuficiente;
+import fiuba.algo3.tpfinal.modelo.excepciones.MineralInsuficiente;
 
 public class Presupuesto {
 

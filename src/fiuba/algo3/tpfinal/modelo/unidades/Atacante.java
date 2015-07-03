@@ -1,6 +1,6 @@
-package fiuba.algo3.tpfinal.unidades;
+package fiuba.algo3.tpfinal.modelo.unidades;
 
-import fiuba.algo3.tpfinal.construcciones.Atacable;
+import fiuba.algo3.tpfinal.modelo.construcciones.Atacable;
 
 public interface Atacante {
 

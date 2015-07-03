@@ -4,13 +4,18 @@ import junit.framework.Assert;
 
 import org.junit.Test;
 
-import fiuba.algo3.tpfinal.construcciones.Atacable;
-import fiuba.algo3.tpfinal.construcciones.DepositoSuministro;
-import fiuba.algo3.tpfinal.construcciones.Pilon;
-import fiuba.algo3.tpfinal.programa.Coordenada;
-import fiuba.algo3.tpfinal.programa.JugadorProtoss;
-import fiuba.algo3.tpfinal.programa.JugadorTerran;
-import fiuba.algo3.tpfinal.programa.Mapa;
+import fiuba.algo3.tpfinal.modelo.construcciones.Atacable;
+import fiuba.algo3.tpfinal.modelo.construcciones.DepositoSuministro;
+import fiuba.algo3.tpfinal.modelo.construcciones.Pilon;
+import fiuba.algo3.tpfinal.modelo.programa.Coordenada;
+import fiuba.algo3.tpfinal.modelo.programa.JugadorProtoss;
+import fiuba.algo3.tpfinal.modelo.programa.JugadorTerran;
+import fiuba.algo3.tpfinal.modelo.programa.Mapa;
+import fiuba.algo3.tpfinal.modelo.unidades.Golliat;
+import fiuba.algo3.tpfinal.modelo.unidades.Scout;
+import fiuba.algo3.tpfinal.modelo.unidades.TormentaPsionica;
+import fiuba.algo3.tpfinal.modelo.unidades.UnidadProtoss;
+import fiuba.algo3.tpfinal.modelo.unidades.UnidadTerran;
 
 public class TormentaPsionicaTest {
 

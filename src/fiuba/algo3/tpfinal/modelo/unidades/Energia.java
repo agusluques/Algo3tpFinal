@@ -1,6 +1,6 @@
-package fiuba.algo3.tpfinal.unidades;
+package fiuba.algo3.tpfinal.modelo.unidades;
 
-import fiuba.algo3.tpfinal.excepciones.EnergiaInsuficiente;
+import fiuba.algo3.tpfinal.modelo.excepciones.EnergiaInsuficiente;
 
 public class Energia {
 

@@ -1,4 +1,4 @@
-package fiuba.algo3.tpfinal.programa;
+package fiuba.algo3.tpfinal.modelo.programa;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Set;
 
-import fiuba.algo3.tpfinal.excepciones.MapaInvalido;
+import fiuba.algo3.tpfinal.modelo.excepciones.MapaInvalido;
 
 public class CreadorMapa {
 

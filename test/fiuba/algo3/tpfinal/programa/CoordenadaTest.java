@@ -4,6 +4,8 @@ import junit.framework.Assert;
 
 import org.junit.Test;
 
+import fiuba.algo3.tpfinal.modelo.programa.Coordenada;
+
 public class CoordenadaTest {
 
 	@Test

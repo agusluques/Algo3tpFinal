@@ -1,9 +1,9 @@
-package fiuba.algo3.tpfinal.construcciones;
+package fiuba.algo3.tpfinal.modelo.construcciones;
 
-import fiuba.algo3.tpfinal.programa.Costo;
-import fiuba.algo3.tpfinal.programa.Tierra;
-import fiuba.algo3.tpfinal.programa.VidaConEscudo;
-import fiuba.algo3.tpfinal.unidades.RangoDeAtaque;
+import fiuba.algo3.tpfinal.modelo.programa.Costo;
+import fiuba.algo3.tpfinal.modelo.programa.Tierra;
+import fiuba.algo3.tpfinal.modelo.programa.VidaConEscudo;
+import fiuba.algo3.tpfinal.modelo.unidades.RangoDeAtaque;
 
 public class Pilon extends ConstruccionProtoss {
 

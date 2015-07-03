@@ -2,14 +2,14 @@ package fiuba.algo3.tpfinal.vista.programa;
 
 import javax.swing.JButton;
 
-import fiuba.algo3.tpfinal.construcciones.Barraca;
-import fiuba.algo3.tpfinal.construcciones.CentroDeMineral;
-import fiuba.algo3.tpfinal.construcciones.DepositoSuministro;
-import fiuba.algo3.tpfinal.construcciones.Fabrica;
-import fiuba.algo3.tpfinal.construcciones.PuertoEstelarTerran;
-import fiuba.algo3.tpfinal.construcciones.Refineria;
-import fiuba.algo3.tpfinal.programa.JugadorTerran;
-import fiuba.algo3.tpfinal.vista.ControladorConstruccionTerran;
+import fiuba.algo3.tpfinal.controlador.ControladorConstruccionTerran;
+import fiuba.algo3.tpfinal.modelo.construcciones.Barraca;
+import fiuba.algo3.tpfinal.modelo.construcciones.CentroDeMineral;
+import fiuba.algo3.tpfinal.modelo.construcciones.DepositoSuministro;
+import fiuba.algo3.tpfinal.modelo.construcciones.Fabrica;
+import fiuba.algo3.tpfinal.modelo.construcciones.PuertoEstelarTerran;
+import fiuba.algo3.tpfinal.modelo.construcciones.Refineria;
+import fiuba.algo3.tpfinal.modelo.programa.JugadorTerran;
 
 @SuppressWarnings("serial")
 public class JugadorTerranVista extends JugadorVista {

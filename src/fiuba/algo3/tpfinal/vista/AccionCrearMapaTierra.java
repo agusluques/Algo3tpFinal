@@ -7,15 +7,15 @@ import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 
-import fiuba.algo3.tpfinal.programa.Coordenada;
-import fiuba.algo3.tpfinal.programa.JugadorProtoss;
-import fiuba.algo3.tpfinal.programa.JugadorTerran;
-import fiuba.algo3.tpfinal.programa.Mapa;
-import fiuba.algo3.tpfinal.unidades.Marine;
-import fiuba.algo3.tpfinal.unidades.NaveCiencia;
-import fiuba.algo3.tpfinal.unidades.NaveTransporteProtoss;
-import fiuba.algo3.tpfinal.unidades.Scout;
-import fiuba.algo3.tpfinal.unidades.Zealot;
+import fiuba.algo3.tpfinal.modelo.programa.Coordenada;
+import fiuba.algo3.tpfinal.modelo.programa.JugadorProtoss;
+import fiuba.algo3.tpfinal.modelo.programa.JugadorTerran;
+import fiuba.algo3.tpfinal.modelo.programa.Mapa;
+import fiuba.algo3.tpfinal.modelo.unidades.Marine;
+import fiuba.algo3.tpfinal.modelo.unidades.NaveCiencia;
+import fiuba.algo3.tpfinal.modelo.unidades.NaveTransporteProtoss;
+import fiuba.algo3.tpfinal.modelo.unidades.Scout;
+import fiuba.algo3.tpfinal.modelo.unidades.Zealot;
 
 public class AccionCrearMapaTierra implements ActionListener {
 

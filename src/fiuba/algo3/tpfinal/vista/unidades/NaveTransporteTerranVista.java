@@ -8,12 +8,12 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import fiuba.algo3.tpfinal.programa.Coordenada;
-import fiuba.algo3.tpfinal.unidades.NaveTransporteTerran;
-import fiuba.algo3.tpfinal.unidades.Trasladable;
+import fiuba.algo3.tpfinal.controlador.ControladorSubirPasajeroTerran;
+import fiuba.algo3.tpfinal.controlador.ControladorTraslado;
+import fiuba.algo3.tpfinal.modelo.programa.Coordenada;
+import fiuba.algo3.tpfinal.modelo.unidades.NaveTransporteTerran;
+import fiuba.algo3.tpfinal.modelo.unidades.Trasladable;
 import fiuba.algo3.tpfinal.vista.AccionBajarPasajerosTerran;
-import fiuba.algo3.tpfinal.vista.ControladorSubirPasajeroTerran;
-import fiuba.algo3.tpfinal.vista.ControladorTraslado;
 import fiuba.algo3.tpfinal.vista.HashImagenes;
 import fiuba.algo3.tpfinal.vista.HashImagenesConColor;
 import fiuba.algo3.tpfinal.vista.Observable;

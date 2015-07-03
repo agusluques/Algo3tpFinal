@@ -8,11 +8,11 @@ import javax.swing.JLayeredPane;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-import fiuba.algo3.tpfinal.excepciones.CapacidadInsuficiente;
-import fiuba.algo3.tpfinal.programa.Coordenada;
-import fiuba.algo3.tpfinal.programa.Parcela;
-import fiuba.algo3.tpfinal.unidades.NaveTransporteProtoss;
-import fiuba.algo3.tpfinal.unidades.UnidadProtoss;
+import fiuba.algo3.tpfinal.modelo.excepciones.CapacidadInsuficiente;
+import fiuba.algo3.tpfinal.modelo.programa.Coordenada;
+import fiuba.algo3.tpfinal.modelo.programa.Parcela;
+import fiuba.algo3.tpfinal.modelo.unidades.NaveTransporteProtoss;
+import fiuba.algo3.tpfinal.modelo.unidades.UnidadProtoss;
 import fiuba.algo3.tpfinal.vista.sonidos.SonidoError;
 
 public class AccionSubirPasajeroProtoss implements MouseListener {

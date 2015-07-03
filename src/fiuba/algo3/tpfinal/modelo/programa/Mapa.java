@@ -1,13 +1,13 @@
-package fiuba.algo3.tpfinal.programa;
+package fiuba.algo3.tpfinal.modelo.programa;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Set;
 
-import fiuba.algo3.tpfinal.construcciones.Atacable;
-import fiuba.algo3.tpfinal.excepciones.ParcelaOcupada;
-import fiuba.algo3.tpfinal.unidades.Trasladable;
+import fiuba.algo3.tpfinal.modelo.construcciones.Atacable;
+import fiuba.algo3.tpfinal.modelo.excepciones.ParcelaOcupada;
+import fiuba.algo3.tpfinal.modelo.unidades.Trasladable;
 import fiuba.algo3.tpfinal.vista.Observable;
 
 public class Mapa extends Observable{

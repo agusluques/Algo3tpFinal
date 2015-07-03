@@ -1,12 +1,12 @@
-package fiuba.algo3.tpfinal.unidades;
+package fiuba.algo3.tpfinal.modelo.unidades;
 
-import fiuba.algo3.tpfinal.excepciones.EnergiaInsuficiente;
-import fiuba.algo3.tpfinal.excepciones.LimitePoblacionalAlcanzado;
-import fiuba.algo3.tpfinal.excepciones.ParcelaOcupada;
-import fiuba.algo3.tpfinal.programa.Coordenada;
-import fiuba.algo3.tpfinal.programa.Costo;
-import fiuba.algo3.tpfinal.programa.Danio;
-import fiuba.algo3.tpfinal.programa.VidaConEscudo;
+import fiuba.algo3.tpfinal.modelo.excepciones.EnergiaInsuficiente;
+import fiuba.algo3.tpfinal.modelo.excepciones.LimitePoblacionalAlcanzado;
+import fiuba.algo3.tpfinal.modelo.excepciones.ParcelaOcupada;
+import fiuba.algo3.tpfinal.modelo.programa.Coordenada;
+import fiuba.algo3.tpfinal.modelo.programa.Costo;
+import fiuba.algo3.tpfinal.modelo.programa.Danio;
+import fiuba.algo3.tpfinal.modelo.programa.VidaConEscudo;
 
 public class AltoTemplario extends UnidadProtoss {
 

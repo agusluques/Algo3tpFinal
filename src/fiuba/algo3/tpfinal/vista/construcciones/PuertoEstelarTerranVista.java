@@ -9,11 +9,11 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import fiuba.algo3.tpfinal.construcciones.PuertoEstelarTerran;
-import fiuba.algo3.tpfinal.vista.HashImagenesConColor;
+import fiuba.algo3.tpfinal.modelo.construcciones.PuertoEstelarTerran;
 import fiuba.algo3.tpfinal.vista.AccionCrearEspectro;
 import fiuba.algo3.tpfinal.vista.AccionCrearNaveCiencia;
 import fiuba.algo3.tpfinal.vista.AccionCrearNaveDeTransporteTerran;
+import fiuba.algo3.tpfinal.vista.HashImagenesConColor;
 import fiuba.algo3.tpfinal.vista.Observable;
 import fiuba.algo3.tpfinal.vista.Vista;
 

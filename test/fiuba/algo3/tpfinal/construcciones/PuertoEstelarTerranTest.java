@@ -4,12 +4,17 @@ import junit.framework.Assert;
 
 import org.junit.Test;
 
-import fiuba.algo3.tpfinal.excepciones.ConstruccionRequeridaInexistente;
-import fiuba.algo3.tpfinal.excepciones.LimitePoblacionalAlcanzado;
-import fiuba.algo3.tpfinal.programa.Coordenada;
-import fiuba.algo3.tpfinal.programa.JugadorTerran;
-import fiuba.algo3.tpfinal.programa.Mapa;
-import fiuba.algo3.tpfinal.unidades.RangoDeAtaque;
+import fiuba.algo3.tpfinal.modelo.construcciones.Barraca;
+import fiuba.algo3.tpfinal.modelo.construcciones.Constructible;
+import fiuba.algo3.tpfinal.modelo.construcciones.DepositoSuministro;
+import fiuba.algo3.tpfinal.modelo.construcciones.Fabrica;
+import fiuba.algo3.tpfinal.modelo.construcciones.PuertoEstelarTerran;
+import fiuba.algo3.tpfinal.modelo.excepciones.ConstruccionRequeridaInexistente;
+import fiuba.algo3.tpfinal.modelo.excepciones.LimitePoblacionalAlcanzado;
+import fiuba.algo3.tpfinal.modelo.programa.Coordenada;
+import fiuba.algo3.tpfinal.modelo.programa.JugadorTerran;
+import fiuba.algo3.tpfinal.modelo.programa.Mapa;
+import fiuba.algo3.tpfinal.modelo.unidades.RangoDeAtaque;
 
 public class PuertoEstelarTerranTest {
 

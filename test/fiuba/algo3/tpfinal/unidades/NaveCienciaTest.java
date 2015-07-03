@@ -4,23 +4,31 @@ import junit.framework.Assert;
 
 import org.junit.Test;
 
-import fiuba.algo3.tpfinal.construcciones.Atacable;
-import fiuba.algo3.tpfinal.construcciones.DepositoSuministro;
-import fiuba.algo3.tpfinal.construcciones.Pilon;
-import fiuba.algo3.tpfinal.excepciones.EnergiaInsuficiente;
-import fiuba.algo3.tpfinal.excepciones.MovimientoInvalido;
-import fiuba.algo3.tpfinal.excepciones.UnidadInvalida;
-import fiuba.algo3.tpfinal.programa.Aire;
-import fiuba.algo3.tpfinal.programa.Coordenada;
-import fiuba.algo3.tpfinal.programa.Danio;
-import fiuba.algo3.tpfinal.programa.DepositoDeGas;
-import fiuba.algo3.tpfinal.programa.DepositoDeMinerales;
-import fiuba.algo3.tpfinal.programa.JugadorProtoss;
-import fiuba.algo3.tpfinal.programa.JugadorTerran;
-import fiuba.algo3.tpfinal.programa.Mapa;
-import fiuba.algo3.tpfinal.programa.Protoss;
-import fiuba.algo3.tpfinal.programa.Superficie;
-import fiuba.algo3.tpfinal.programa.Tierra;
+import fiuba.algo3.tpfinal.modelo.construcciones.Atacable;
+import fiuba.algo3.tpfinal.modelo.construcciones.DepositoSuministro;
+import fiuba.algo3.tpfinal.modelo.construcciones.Pilon;
+import fiuba.algo3.tpfinal.modelo.excepciones.EnergiaInsuficiente;
+import fiuba.algo3.tpfinal.modelo.excepciones.MovimientoInvalido;
+import fiuba.algo3.tpfinal.modelo.excepciones.UnidadInvalida;
+import fiuba.algo3.tpfinal.modelo.programa.Aire;
+import fiuba.algo3.tpfinal.modelo.programa.Coordenada;
+import fiuba.algo3.tpfinal.modelo.programa.Danio;
+import fiuba.algo3.tpfinal.modelo.programa.DepositoDeGas;
+import fiuba.algo3.tpfinal.modelo.programa.DepositoDeMinerales;
+import fiuba.algo3.tpfinal.modelo.programa.JugadorProtoss;
+import fiuba.algo3.tpfinal.modelo.programa.JugadorTerran;
+import fiuba.algo3.tpfinal.modelo.programa.Mapa;
+import fiuba.algo3.tpfinal.modelo.programa.Protoss;
+import fiuba.algo3.tpfinal.modelo.programa.Superficie;
+import fiuba.algo3.tpfinal.modelo.programa.Tierra;
+import fiuba.algo3.tpfinal.modelo.unidades.AltoTemplario;
+import fiuba.algo3.tpfinal.modelo.unidades.Espectro;
+import fiuba.algo3.tpfinal.modelo.unidades.Marine;
+import fiuba.algo3.tpfinal.modelo.unidades.NaveCiencia;
+import fiuba.algo3.tpfinal.modelo.unidades.RangoDeAtaque;
+import fiuba.algo3.tpfinal.modelo.unidades.UnidadProtoss;
+import fiuba.algo3.tpfinal.modelo.unidades.UnidadTerran;
+import fiuba.algo3.tpfinal.modelo.unidades.Zealot;
 
 public class NaveCienciaTest {
 

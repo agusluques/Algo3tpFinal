@@ -1,19 +1,19 @@
-package fiuba.algo3.tpfinal.construcciones;
+package fiuba.algo3.tpfinal.modelo.construcciones;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import fiuba.algo3.tpfinal.excepciones.GasInsuficiente;
-import fiuba.algo3.tpfinal.excepciones.LimitePoblacionalAlcanzado;
-import fiuba.algo3.tpfinal.excepciones.MineralInsuficiente;
-import fiuba.algo3.tpfinal.excepciones.ParcelaOcupada;
-import fiuba.algo3.tpfinal.programa.Costo;
-import fiuba.algo3.tpfinal.programa.Tierra;
-import fiuba.algo3.tpfinal.programa.VidaSimple;
-import fiuba.algo3.tpfinal.unidades.Fabricable;
-import fiuba.algo3.tpfinal.unidades.Marine;
-import fiuba.algo3.tpfinal.unidades.RangoDeAtaque;
-import fiuba.algo3.tpfinal.unidades.UnidadTerran;
+import fiuba.algo3.tpfinal.modelo.excepciones.GasInsuficiente;
+import fiuba.algo3.tpfinal.modelo.excepciones.LimitePoblacionalAlcanzado;
+import fiuba.algo3.tpfinal.modelo.excepciones.MineralInsuficiente;
+import fiuba.algo3.tpfinal.modelo.excepciones.ParcelaOcupada;
+import fiuba.algo3.tpfinal.modelo.programa.Costo;
+import fiuba.algo3.tpfinal.modelo.programa.Tierra;
+import fiuba.algo3.tpfinal.modelo.programa.VidaSimple;
+import fiuba.algo3.tpfinal.modelo.unidades.Fabricable;
+import fiuba.algo3.tpfinal.modelo.unidades.Marine;
+import fiuba.algo3.tpfinal.modelo.unidades.RangoDeAtaque;
+import fiuba.algo3.tpfinal.modelo.unidades.UnidadTerran;
 
 public class Barraca extends ConstruccionTerran {
 

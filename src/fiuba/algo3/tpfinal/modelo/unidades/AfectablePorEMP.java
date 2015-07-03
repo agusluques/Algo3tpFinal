@@ -1,4 +1,4 @@
-package fiuba.algo3.tpfinal.unidades;
+package fiuba.algo3.tpfinal.modelo.unidades;
 
 public interface AfectablePorEMP {
 

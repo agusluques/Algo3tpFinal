@@ -4,19 +4,25 @@ import junit.framework.Assert;
 
 import org.junit.Test;
 
-import fiuba.algo3.tpfinal.excepciones.CapacidadInsuficiente;
-import fiuba.algo3.tpfinal.excepciones.MovimientoInvalido;
-import fiuba.algo3.tpfinal.excepciones.NoHayPasajerosEnLaNave;
-import fiuba.algo3.tpfinal.excepciones.ParcelaOcupada;
-import fiuba.algo3.tpfinal.programa.Aire;
-import fiuba.algo3.tpfinal.programa.Coordenada;
-import fiuba.algo3.tpfinal.programa.Danio;
-import fiuba.algo3.tpfinal.programa.DepositoDeGas;
-import fiuba.algo3.tpfinal.programa.DepositoDeMinerales;
-import fiuba.algo3.tpfinal.programa.JugadorTerran;
-import fiuba.algo3.tpfinal.programa.Mapa;
-import fiuba.algo3.tpfinal.programa.Superficie;
-import fiuba.algo3.tpfinal.programa.Tierra;
+import fiuba.algo3.tpfinal.modelo.excepciones.CapacidadInsuficiente;
+import fiuba.algo3.tpfinal.modelo.excepciones.MovimientoInvalido;
+import fiuba.algo3.tpfinal.modelo.excepciones.NoHayPasajerosEnLaNave;
+import fiuba.algo3.tpfinal.modelo.excepciones.ParcelaOcupada;
+import fiuba.algo3.tpfinal.modelo.programa.Aire;
+import fiuba.algo3.tpfinal.modelo.programa.Coordenada;
+import fiuba.algo3.tpfinal.modelo.programa.Danio;
+import fiuba.algo3.tpfinal.modelo.programa.DepositoDeGas;
+import fiuba.algo3.tpfinal.modelo.programa.DepositoDeMinerales;
+import fiuba.algo3.tpfinal.modelo.programa.JugadorTerran;
+import fiuba.algo3.tpfinal.modelo.programa.Mapa;
+import fiuba.algo3.tpfinal.modelo.programa.Superficie;
+import fiuba.algo3.tpfinal.modelo.programa.Tierra;
+import fiuba.algo3.tpfinal.modelo.unidades.Espectro;
+import fiuba.algo3.tpfinal.modelo.unidades.Marine;
+import fiuba.algo3.tpfinal.modelo.unidades.NaveCiencia;
+import fiuba.algo3.tpfinal.modelo.unidades.NaveTransporteTerran;
+import fiuba.algo3.tpfinal.modelo.unidades.RangoDeAtaque;
+import fiuba.algo3.tpfinal.modelo.unidades.Zealot;
 
 public class NaveTransporteTerranTest {
 

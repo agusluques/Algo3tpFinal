@@ -2,10 +2,11 @@ package fiuba.algo3.tpfinal.vista.unidades;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 
-import fiuba.algo3.tpfinal.construcciones.Atacable;
+import fiuba.algo3.tpfinal.modelo.construcciones.Atacable;
 
 public class AccionMagia implements MouseListener {
 

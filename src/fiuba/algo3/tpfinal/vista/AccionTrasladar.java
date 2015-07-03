@@ -8,10 +8,10 @@ import javax.swing.JLayeredPane;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-import fiuba.algo3.tpfinal.excepciones.MovimientoInvalido;
-import fiuba.algo3.tpfinal.excepciones.ParcelaOcupada;
-import fiuba.algo3.tpfinal.programa.Coordenada;
-import fiuba.algo3.tpfinal.unidades.Trasladable;
+import fiuba.algo3.tpfinal.modelo.excepciones.MovimientoInvalido;
+import fiuba.algo3.tpfinal.modelo.excepciones.ParcelaOcupada;
+import fiuba.algo3.tpfinal.modelo.programa.Coordenada;
+import fiuba.algo3.tpfinal.modelo.unidades.Trasladable;
 import fiuba.algo3.tpfinal.vista.sonidos.SonidoTraslado;
 
 public class AccionTrasladar implements MouseListener {

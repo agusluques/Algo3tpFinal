@@ -4,7 +4,7 @@ import javax.swing.JInternalFrame;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 
-import fiuba.algo3.tpfinal.programa.Juego;
+import fiuba.algo3.tpfinal.modelo.programa.Juego;
 
 @SuppressWarnings("serial")
 public abstract class Vista extends JPanel implements Observador {

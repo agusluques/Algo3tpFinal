@@ -1,10 +1,10 @@
-package fiuba.algo3.tpfinal.construcciones;
+package fiuba.algo3.tpfinal.modelo.construcciones;
 
-import fiuba.algo3.tpfinal.excepciones.ParcelaOcupada;
-import fiuba.algo3.tpfinal.programa.Coordenada;
-import fiuba.algo3.tpfinal.programa.Danio;
-import fiuba.algo3.tpfinal.programa.Jugador;
-import fiuba.algo3.tpfinal.unidades.RangoDeAtaque;
+import fiuba.algo3.tpfinal.modelo.excepciones.ParcelaOcupada;
+import fiuba.algo3.tpfinal.modelo.programa.Coordenada;
+import fiuba.algo3.tpfinal.modelo.programa.Danio;
+import fiuba.algo3.tpfinal.modelo.programa.Jugador;
+import fiuba.algo3.tpfinal.modelo.unidades.RangoDeAtaque;
 
 public interface Atacable {
 

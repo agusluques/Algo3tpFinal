@@ -4,12 +4,19 @@ import junit.framework.Assert;
 
 import org.junit.Test;
 
-import fiuba.algo3.tpfinal.excepciones.ConstruccionRequeridaInexistente;
-import fiuba.algo3.tpfinal.programa.Coordenada;
-import fiuba.algo3.tpfinal.programa.JugadorProtoss;
-import fiuba.algo3.tpfinal.programa.Mapa;
-import fiuba.algo3.tpfinal.unidades.AltoTemplario;
-import fiuba.algo3.tpfinal.unidades.RangoDeAtaque;
+import fiuba.algo3.tpfinal.modelo.construcciones.Acceso;
+import fiuba.algo3.tpfinal.modelo.construcciones.ArchivosTemplarios;
+import fiuba.algo3.tpfinal.modelo.construcciones.Atacable;
+import fiuba.algo3.tpfinal.modelo.construcciones.ConstruccionProtoss;
+import fiuba.algo3.tpfinal.modelo.construcciones.Constructible;
+import fiuba.algo3.tpfinal.modelo.construcciones.Pilon;
+import fiuba.algo3.tpfinal.modelo.construcciones.PuertoEstelarProtoss;
+import fiuba.algo3.tpfinal.modelo.excepciones.ConstruccionRequeridaInexistente;
+import fiuba.algo3.tpfinal.modelo.programa.Coordenada;
+import fiuba.algo3.tpfinal.modelo.programa.JugadorProtoss;
+import fiuba.algo3.tpfinal.modelo.programa.Mapa;
+import fiuba.algo3.tpfinal.modelo.unidades.AltoTemplario;
+import fiuba.algo3.tpfinal.modelo.unidades.RangoDeAtaque;
 
 public class ArchivosTemplariosTest {
 

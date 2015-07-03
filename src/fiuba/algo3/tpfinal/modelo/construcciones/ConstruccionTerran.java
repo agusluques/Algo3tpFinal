@@ -1,15 +1,15 @@
-package fiuba.algo3.tpfinal.construcciones;
+package fiuba.algo3.tpfinal.modelo.construcciones;
 
 import java.util.Collection;
 
-import fiuba.algo3.tpfinal.excepciones.ConstruccionRequeridaInexistente;
-import fiuba.algo3.tpfinal.excepciones.ParcelaOcupada;
-import fiuba.algo3.tpfinal.excepciones.TerrenoInapropiado;
-import fiuba.algo3.tpfinal.programa.Coordenada;
-import fiuba.algo3.tpfinal.programa.Costo;
-import fiuba.algo3.tpfinal.programa.Parcela;
-import fiuba.algo3.tpfinal.programa.Superficie;
-import fiuba.algo3.tpfinal.programa.Terran;
+import fiuba.algo3.tpfinal.modelo.excepciones.ConstruccionRequeridaInexistente;
+import fiuba.algo3.tpfinal.modelo.excepciones.ParcelaOcupada;
+import fiuba.algo3.tpfinal.modelo.excepciones.TerrenoInapropiado;
+import fiuba.algo3.tpfinal.modelo.programa.Coordenada;
+import fiuba.algo3.tpfinal.modelo.programa.Costo;
+import fiuba.algo3.tpfinal.modelo.programa.Parcela;
+import fiuba.algo3.tpfinal.modelo.programa.Superficie;
+import fiuba.algo3.tpfinal.modelo.programa.Terran;
 
 public abstract class ConstruccionTerran extends Terran implements
 		Constructible {

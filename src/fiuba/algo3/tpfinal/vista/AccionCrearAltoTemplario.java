@@ -5,9 +5,9 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JOptionPane;
 
-import fiuba.algo3.tpfinal.construcciones.ArchivosTemplarios;
-import fiuba.algo3.tpfinal.excepciones.GasInsuficiente;
-import fiuba.algo3.tpfinal.excepciones.MineralInsuficiente;
+import fiuba.algo3.tpfinal.modelo.construcciones.ArchivosTemplarios;
+import fiuba.algo3.tpfinal.modelo.excepciones.GasInsuficiente;
+import fiuba.algo3.tpfinal.modelo.excepciones.MineralInsuficiente;
 
 public class AccionCrearAltoTemplario implements ActionListener{
 	

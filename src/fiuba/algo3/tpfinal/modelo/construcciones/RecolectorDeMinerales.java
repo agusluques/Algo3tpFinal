@@ -1,6 +1,6 @@
-package fiuba.algo3.tpfinal.construcciones;
+package fiuba.algo3.tpfinal.modelo.construcciones;
 
-import fiuba.algo3.tpfinal.programa.Mapa;
+import fiuba.algo3.tpfinal.modelo.programa.Mapa;
 
 public interface RecolectorDeMinerales extends Recolector {
 

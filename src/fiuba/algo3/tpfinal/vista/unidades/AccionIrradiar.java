@@ -1,14 +1,15 @@
 package fiuba.algo3.tpfinal.vista.unidades;
 
 import java.awt.event.MouseEvent;
+
 import javax.swing.JOptionPane;
 
-import fiuba.algo3.tpfinal.construcciones.Atacable;
-import fiuba.algo3.tpfinal.excepciones.EnergiaInsuficiente;
-import fiuba.algo3.tpfinal.excepciones.ParcelaVacia;
-import fiuba.algo3.tpfinal.excepciones.UnidadInvalida;
-import fiuba.algo3.tpfinal.programa.Coordenada;
-import fiuba.algo3.tpfinal.unidades.NaveCiencia;
+import fiuba.algo3.tpfinal.modelo.construcciones.Atacable;
+import fiuba.algo3.tpfinal.modelo.excepciones.EnergiaInsuficiente;
+import fiuba.algo3.tpfinal.modelo.excepciones.ParcelaVacia;
+import fiuba.algo3.tpfinal.modelo.excepciones.UnidadInvalida;
+import fiuba.algo3.tpfinal.modelo.programa.Coordenada;
+import fiuba.algo3.tpfinal.modelo.unidades.NaveCiencia;
 
 public class AccionIrradiar extends AccionMagia {
 

@@ -3,11 +3,11 @@ package fiuba.algo3.tpfinal.vista;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-import fiuba.algo3.tpfinal.construcciones.Atacable;
-import fiuba.algo3.tpfinal.programa.Coordenada;
-import fiuba.algo3.tpfinal.programa.Mapa;
-import fiuba.algo3.tpfinal.programa.Parcela;
-import fiuba.algo3.tpfinal.programa.Superficie;
+import fiuba.algo3.tpfinal.modelo.construcciones.Atacable;
+import fiuba.algo3.tpfinal.modelo.programa.Coordenada;
+import fiuba.algo3.tpfinal.modelo.programa.Mapa;
+import fiuba.algo3.tpfinal.modelo.programa.Parcela;
+import fiuba.algo3.tpfinal.modelo.programa.Superficie;
 
 public class AccionClickMouse implements MouseListener {
 

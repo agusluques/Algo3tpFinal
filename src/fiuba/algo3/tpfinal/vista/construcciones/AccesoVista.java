@@ -9,7 +9,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import fiuba.algo3.tpfinal.construcciones.Acceso;
+import fiuba.algo3.tpfinal.modelo.construcciones.Acceso;
 import fiuba.algo3.tpfinal.vista.AccionCrearDragon;
 import fiuba.algo3.tpfinal.vista.AccionCrearZealot;
 import fiuba.algo3.tpfinal.vista.HashImagenesConColor;

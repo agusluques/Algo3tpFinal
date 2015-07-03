@@ -7,7 +7,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 
-import fiuba.algo3.tpfinal.construcciones.Atacable;
+import fiuba.algo3.tpfinal.modelo.construcciones.Atacable;
 
 public class ControladorDeMagias implements ActionListener {
 

@@ -5,6 +5,9 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
+import fiuba.algo3.tpfinal.modelo.programa.Vida;
+import fiuba.algo3.tpfinal.modelo.programa.VidaSimple;
+
 public class VidaSimpleTest {
 
 	@Test

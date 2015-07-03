@@ -4,9 +4,9 @@ import java.awt.event.MouseEvent;
 
 import javax.swing.JOptionPane;
 
-import fiuba.algo3.tpfinal.excepciones.EnergiaInsuficiente;
-import fiuba.algo3.tpfinal.programa.Coordenada;
-import fiuba.algo3.tpfinal.unidades.NaveCiencia;
+import fiuba.algo3.tpfinal.modelo.excepciones.EnergiaInsuficiente;
+import fiuba.algo3.tpfinal.modelo.programa.Coordenada;
+import fiuba.algo3.tpfinal.modelo.unidades.NaveCiencia;
 
 public class AccionLanzarEMP extends AccionMagia {
 	

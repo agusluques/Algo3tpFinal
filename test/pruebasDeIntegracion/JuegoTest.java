@@ -5,14 +5,14 @@ import junit.framework.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import fiuba.algo3.tpfinal.construcciones.Barraca;
-import fiuba.algo3.tpfinal.construcciones.CentroDeMineral;
-import fiuba.algo3.tpfinal.construcciones.ConstruccionTerran;
-import fiuba.algo3.tpfinal.programa.Coordenada;
-import fiuba.algo3.tpfinal.programa.Juego;
-import fiuba.algo3.tpfinal.programa.JugadorTerran;
-import fiuba.algo3.tpfinal.programa.Mapa;
-import fiuba.algo3.tpfinal.unidades.UnidadTerran;
+import fiuba.algo3.tpfinal.modelo.construcciones.Barraca;
+import fiuba.algo3.tpfinal.modelo.construcciones.CentroDeMineral;
+import fiuba.algo3.tpfinal.modelo.construcciones.ConstruccionTerran;
+import fiuba.algo3.tpfinal.modelo.programa.Coordenada;
+import fiuba.algo3.tpfinal.modelo.programa.Juego;
+import fiuba.algo3.tpfinal.modelo.programa.JugadorTerran;
+import fiuba.algo3.tpfinal.modelo.programa.Mapa;
+import fiuba.algo3.tpfinal.modelo.unidades.UnidadTerran;
 
 public class JuegoTest {
 

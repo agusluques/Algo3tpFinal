@@ -9,12 +9,12 @@ import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import fiuba.algo3.tpfinal.programa.Coordenada;
-import fiuba.algo3.tpfinal.unidades.NaveTransporteProtoss;
-import fiuba.algo3.tpfinal.unidades.Trasladable;
+import fiuba.algo3.tpfinal.controlador.ControladorSubirPasajeroProtoss;
+import fiuba.algo3.tpfinal.controlador.ControladorTraslado;
+import fiuba.algo3.tpfinal.modelo.programa.Coordenada;
+import fiuba.algo3.tpfinal.modelo.unidades.NaveTransporteProtoss;
+import fiuba.algo3.tpfinal.modelo.unidades.Trasladable;
 import fiuba.algo3.tpfinal.vista.AccionBajarPasajerosProtoss;
-import fiuba.algo3.tpfinal.vista.ControladorSubirPasajeroProtoss;
-import fiuba.algo3.tpfinal.vista.ControladorTraslado;
 import fiuba.algo3.tpfinal.vista.HashImagenes;
 import fiuba.algo3.tpfinal.vista.HashImagenesConColor;
 import fiuba.algo3.tpfinal.vista.Observable;

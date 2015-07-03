@@ -5,20 +5,20 @@ import java.util.ArrayList;
 import org.junit.Assert;
 import org.junit.Test;
 
-import fiuba.algo3.tpfinal.construcciones.Atacable;
-import fiuba.algo3.tpfinal.programa.Coordenada;
-import fiuba.algo3.tpfinal.programa.Jugador;
-import fiuba.algo3.tpfinal.programa.JugadorProtoss;
-import fiuba.algo3.tpfinal.programa.JugadorTerran;
-import fiuba.algo3.tpfinal.programa.Mapa;
-import fiuba.algo3.tpfinal.unidades.AltoTemplario;
-import fiuba.algo3.tpfinal.unidades.Dragon;
-import fiuba.algo3.tpfinal.unidades.Espectro;
-import fiuba.algo3.tpfinal.unidades.Golliat;
-import fiuba.algo3.tpfinal.unidades.Marine;
-import fiuba.algo3.tpfinal.unidades.NaveCiencia;
-import fiuba.algo3.tpfinal.unidades.Scout;
-import fiuba.algo3.tpfinal.unidades.Zealot;
+import fiuba.algo3.tpfinal.modelo.construcciones.Atacable;
+import fiuba.algo3.tpfinal.modelo.programa.Coordenada;
+import fiuba.algo3.tpfinal.modelo.programa.Jugador;
+import fiuba.algo3.tpfinal.modelo.programa.JugadorProtoss;
+import fiuba.algo3.tpfinal.modelo.programa.JugadorTerran;
+import fiuba.algo3.tpfinal.modelo.programa.Mapa;
+import fiuba.algo3.tpfinal.modelo.unidades.AltoTemplario;
+import fiuba.algo3.tpfinal.modelo.unidades.Dragon;
+import fiuba.algo3.tpfinal.modelo.unidades.Espectro;
+import fiuba.algo3.tpfinal.modelo.unidades.Golliat;
+import fiuba.algo3.tpfinal.modelo.unidades.Marine;
+import fiuba.algo3.tpfinal.modelo.unidades.NaveCiencia;
+import fiuba.algo3.tpfinal.modelo.unidades.Scout;
+import fiuba.algo3.tpfinal.modelo.unidades.Zealot;
 
 public class AtaquesTest {
 

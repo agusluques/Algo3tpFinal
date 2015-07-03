@@ -1,18 +1,18 @@
-package fiuba.algo3.tpfinal.unidades;
+package fiuba.algo3.tpfinal.modelo.unidades;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 
-import fiuba.algo3.tpfinal.excepciones.CapacidadInsuficiente;
-import fiuba.algo3.tpfinal.excepciones.NoHayPasajerosEnLaNave;
-import fiuba.algo3.tpfinal.excepciones.ParcelaOcupada;
-import fiuba.algo3.tpfinal.programa.Aire;
-import fiuba.algo3.tpfinal.programa.Costo;
-import fiuba.algo3.tpfinal.programa.Danio;
-import fiuba.algo3.tpfinal.programa.Mapa;
-import fiuba.algo3.tpfinal.programa.Parcela;
-import fiuba.algo3.tpfinal.programa.VidaSimple;
+import fiuba.algo3.tpfinal.modelo.excepciones.CapacidadInsuficiente;
+import fiuba.algo3.tpfinal.modelo.excepciones.NoHayPasajerosEnLaNave;
+import fiuba.algo3.tpfinal.modelo.excepciones.ParcelaOcupada;
+import fiuba.algo3.tpfinal.modelo.programa.Aire;
+import fiuba.algo3.tpfinal.modelo.programa.Costo;
+import fiuba.algo3.tpfinal.modelo.programa.Danio;
+import fiuba.algo3.tpfinal.modelo.programa.Mapa;
+import fiuba.algo3.tpfinal.modelo.programa.Parcela;
+import fiuba.algo3.tpfinal.modelo.programa.VidaSimple;
 
 public class NaveTransporteTerran extends UnidadTerran {
 

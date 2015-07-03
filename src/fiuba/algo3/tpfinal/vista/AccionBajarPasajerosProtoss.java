@@ -6,9 +6,9 @@ import java.net.MalformedURLException;
 
 import javax.swing.JOptionPane;
 
-import fiuba.algo3.tpfinal.excepciones.NoHayPasajerosEnLaNave;
-import fiuba.algo3.tpfinal.excepciones.ParcelaOcupada;
-import fiuba.algo3.tpfinal.unidades.NaveTransporteProtoss;
+import fiuba.algo3.tpfinal.modelo.excepciones.NoHayPasajerosEnLaNave;
+import fiuba.algo3.tpfinal.modelo.excepciones.ParcelaOcupada;
+import fiuba.algo3.tpfinal.modelo.unidades.NaveTransporteProtoss;
 import fiuba.algo3.tpfinal.vista.sonidos.SonidoError;
 
 public class AccionBajarPasajerosProtoss implements ActionListener{

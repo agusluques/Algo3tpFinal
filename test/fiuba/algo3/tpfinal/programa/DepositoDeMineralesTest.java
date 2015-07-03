@@ -4,6 +4,8 @@ import junit.framework.Assert;
 
 import org.junit.Test;
 
+import fiuba.algo3.tpfinal.modelo.programa.DepositoDeMinerales;
+
 public class DepositoDeMineralesTest {
 
 	@Test

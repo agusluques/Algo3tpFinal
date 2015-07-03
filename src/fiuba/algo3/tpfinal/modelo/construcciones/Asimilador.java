@@ -1,13 +1,13 @@
-package fiuba.algo3.tpfinal.construcciones;
+package fiuba.algo3.tpfinal.modelo.construcciones;
 
-import fiuba.algo3.tpfinal.excepciones.ParcelaOcupada;
-import fiuba.algo3.tpfinal.programa.Costo;
-import fiuba.algo3.tpfinal.programa.DepositoDeGas;
-import fiuba.algo3.tpfinal.programa.Mapa;
-import fiuba.algo3.tpfinal.programa.Parcela;
-import fiuba.algo3.tpfinal.programa.Presupuesto;
-import fiuba.algo3.tpfinal.programa.VidaConEscudo;
-import fiuba.algo3.tpfinal.unidades.RangoDeAtaque;
+import fiuba.algo3.tpfinal.modelo.excepciones.ParcelaOcupada;
+import fiuba.algo3.tpfinal.modelo.programa.Costo;
+import fiuba.algo3.tpfinal.modelo.programa.DepositoDeGas;
+import fiuba.algo3.tpfinal.modelo.programa.Mapa;
+import fiuba.algo3.tpfinal.modelo.programa.Parcela;
+import fiuba.algo3.tpfinal.modelo.programa.Presupuesto;
+import fiuba.algo3.tpfinal.modelo.programa.VidaConEscudo;
+import fiuba.algo3.tpfinal.modelo.unidades.RangoDeAtaque;
 
 public class Asimilador extends ConstruccionProtoss implements RecolectorDeGas {
 

@@ -5,10 +5,10 @@ import java.util.HashMap;
 
 import javax.swing.ImageIcon;
 
-import fiuba.algo3.tpfinal.programa.Aire;
-import fiuba.algo3.tpfinal.programa.DepositoDeGas;
-import fiuba.algo3.tpfinal.programa.DepositoDeMinerales;
-import fiuba.algo3.tpfinal.programa.Tierra;
+import fiuba.algo3.tpfinal.modelo.programa.Aire;
+import fiuba.algo3.tpfinal.modelo.programa.DepositoDeGas;
+import fiuba.algo3.tpfinal.modelo.programa.DepositoDeMinerales;
+import fiuba.algo3.tpfinal.modelo.programa.Tierra;
 
 @SuppressWarnings({ "rawtypes", "serial" })
 public class HashImagenes extends HashMap<Class, Image> {

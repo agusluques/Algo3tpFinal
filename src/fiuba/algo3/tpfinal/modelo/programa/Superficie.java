@@ -1,6 +1,6 @@
-package fiuba.algo3.tpfinal.programa;
+package fiuba.algo3.tpfinal.modelo.programa;
 
-import fiuba.algo3.tpfinal.unidades.Trasladable;
+import fiuba.algo3.tpfinal.modelo.unidades.Trasladable;
 import fiuba.algo3.tpfinal.vista.Observable;
 
 public abstract class Superficie extends Observable{

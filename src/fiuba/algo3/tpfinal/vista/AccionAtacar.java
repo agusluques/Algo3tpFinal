@@ -7,9 +7,9 @@ import java.net.MalformedURLException;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 
-import fiuba.algo3.tpfinal.construcciones.Atacable;
-import fiuba.algo3.tpfinal.programa.Coordenada;
-import fiuba.algo3.tpfinal.unidades.Atacante;
+import fiuba.algo3.tpfinal.modelo.construcciones.Atacable;
+import fiuba.algo3.tpfinal.modelo.programa.Coordenada;
+import fiuba.algo3.tpfinal.modelo.unidades.Atacante;
 import fiuba.algo3.tpfinal.vista.sonidos.SonidoAtaque;
 import fiuba.algo3.tpfinal.vista.sonidos.SonidoErrorAtaque;
 

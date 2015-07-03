@@ -7,8 +7,8 @@ import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.JScrollPane;
 
-import fiuba.algo3.tpfinal.programa.Juego;
-import fiuba.algo3.tpfinal.programa.Mapa;
+import fiuba.algo3.tpfinal.modelo.programa.Juego;
+import fiuba.algo3.tpfinal.modelo.programa.Mapa;
 import fiuba.algo3.tpfinal.vista.HashConector;
 import fiuba.algo3.tpfinal.vista.MapaVista;
 import fiuba.algo3.tpfinal.vista.Observable;

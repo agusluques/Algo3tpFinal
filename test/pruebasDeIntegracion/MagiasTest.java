@@ -4,25 +4,25 @@ import junit.framework.Assert;
 
 import org.junit.Test;
 
-import fiuba.algo3.tpfinal.construcciones.Atacable;
-import fiuba.algo3.tpfinal.construcciones.DepositoSuministro;
-import fiuba.algo3.tpfinal.construcciones.Pilon;
-import fiuba.algo3.tpfinal.excepciones.EnergiaInsuficiente;
-import fiuba.algo3.tpfinal.programa.Coordenada;
-import fiuba.algo3.tpfinal.programa.JugadorProtoss;
-import fiuba.algo3.tpfinal.programa.JugadorTerran;
-import fiuba.algo3.tpfinal.programa.Mapa;
-import fiuba.algo3.tpfinal.programa.Protoss;
-import fiuba.algo3.tpfinal.unidades.AltoTemplario;
-import fiuba.algo3.tpfinal.unidades.Alucinacion;
-import fiuba.algo3.tpfinal.unidades.Atacante;
-import fiuba.algo3.tpfinal.unidades.Dragon;
-import fiuba.algo3.tpfinal.unidades.Golliat;
-import fiuba.algo3.tpfinal.unidades.NaveCiencia;
-import fiuba.algo3.tpfinal.unidades.TormentaPsionica;
-import fiuba.algo3.tpfinal.unidades.UnidadProtoss;
-import fiuba.algo3.tpfinal.unidades.UnidadTerran;
-import fiuba.algo3.tpfinal.unidades.Zealot;
+import fiuba.algo3.tpfinal.modelo.construcciones.Atacable;
+import fiuba.algo3.tpfinal.modelo.construcciones.DepositoSuministro;
+import fiuba.algo3.tpfinal.modelo.construcciones.Pilon;
+import fiuba.algo3.tpfinal.modelo.excepciones.EnergiaInsuficiente;
+import fiuba.algo3.tpfinal.modelo.programa.Coordenada;
+import fiuba.algo3.tpfinal.modelo.programa.JugadorProtoss;
+import fiuba.algo3.tpfinal.modelo.programa.JugadorTerran;
+import fiuba.algo3.tpfinal.modelo.programa.Mapa;
+import fiuba.algo3.tpfinal.modelo.programa.Protoss;
+import fiuba.algo3.tpfinal.modelo.unidades.AltoTemplario;
+import fiuba.algo3.tpfinal.modelo.unidades.Alucinacion;
+import fiuba.algo3.tpfinal.modelo.unidades.Atacante;
+import fiuba.algo3.tpfinal.modelo.unidades.Dragon;
+import fiuba.algo3.tpfinal.modelo.unidades.Golliat;
+import fiuba.algo3.tpfinal.modelo.unidades.NaveCiencia;
+import fiuba.algo3.tpfinal.modelo.unidades.TormentaPsionica;
+import fiuba.algo3.tpfinal.modelo.unidades.UnidadProtoss;
+import fiuba.algo3.tpfinal.modelo.unidades.UnidadTerran;
+import fiuba.algo3.tpfinal.modelo.unidades.Zealot;
 
 public class MagiasTest {
 
