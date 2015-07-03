@@ -11,6 +11,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import fiuba.algo3.tpfinal.modelo.construcciones.NexoMineral;
+import fiuba.algo3.tpfinal.modelo.programa.DepositoDeMinerales;
 import fiuba.algo3.tpfinal.vista.HashImagenesConColor;
 import fiuba.algo3.tpfinal.vista.Observable;
 import fiuba.algo3.tpfinal.vista.Vista;
@@ -58,14 +59,20 @@ public class NexoMineralVista extends Vista{
 		miPanel.add(capaVida);
 		
 	
-		if(miNexo.getTiempoRestante()>0){
-			JLabel enConstruccion = new JLabel("Edificio en Construccion");
-			enConstruccion.setAlignmentX(Component.CENTER_ALIGNMENT);
-			miPanel.add(enConstruccion);
-			
-			JLabel tiempo = new JLabel("Tiempo restante: " + miNexo.getTiempoRestante());
-			tiempo.setAlignmentX(Component.CENTER_ALIGNMENT);
-			miPanel.add(tiempo);
+		if(miJuego.jugadorActual.equals(miNexo.getJugador())){
+			if(miNexo.getTiempoRestante()>0){
+				JLabel enConstruccion = new JLabel("Edificio en Construccion");
+				enConstruccion.setAlignmentX(Component.CENTER_ALIGNMENT);
+				miPanel.add(enConstruccion);
+				
+				JLabel tiempo = new JLabel("Tiempo restante: " + miNexo.getTiempoRestante());
+				tiempo.setAlignmentX(Component.CENTER_ALIGNMENT);
+				miPanel.add(tiempo);
+			} else {
+				JLabel recursos = new JLabel("Recursos restantes: "+((DepositoDeMinerales) miNexo.getJugador().getMapa().getParcela(miNexo.getPosicion()).getSuperficie()).getRecursos());
+				recursos.setAlignmentX(Component.CENTER_ALIGNMENT);
+				miPanel.add(recursos);
+			}
 		}
 	}
 	

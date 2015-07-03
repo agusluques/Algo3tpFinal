@@ -1,5 +1,6 @@
 package fiuba.algo3.tpfinal.vista.programa;
 
+import java.awt.Component;
 import java.awt.Graphics;
 import java.awt.Image;
 
@@ -29,7 +30,12 @@ public class DepositoDeGasVista extends Vista {
 		}
 		miPanel = new JPanel();
 		JLabel capaNombre = new JLabel("Gas Vespeno");
+		capaNombre.setAlignmentX(Component.CENTER_ALIGNMENT);
 		miPanel.add(capaNombre);
+		
+		JLabel capaRecursos = new JLabel("Gas restante: "+miGas.getRecursos());
+		capaRecursos.setAlignmentX(Component.CENTER_ALIGNMENT);
+		miPanel.add(capaRecursos);
 		
 		miPanel.setVisible(false);
 		

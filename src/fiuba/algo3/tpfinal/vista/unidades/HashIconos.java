@@ -1,6 +1,5 @@
 package fiuba.algo3.tpfinal.vista.unidades;
 
-import java.awt.Image;
 import java.util.HashMap;
 
 import javax.swing.ImageIcon;

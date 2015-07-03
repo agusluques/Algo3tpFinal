@@ -13,6 +13,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
 import fiuba.algo3.tpfinal.controlador.AccionAcercaDe;
+import fiuba.algo3.tpfinal.controlador.AccionCrearJuegoAvanzado;
 import fiuba.algo3.tpfinal.controlador.AccionCrearMapaTierra;
 import fiuba.algo3.tpfinal.controlador.AccionIniciarApagarSonido;
 import fiuba.algo3.tpfinal.controlador.AccionNuevoJuego;
@@ -51,6 +52,10 @@ public class PantallaPrincipal {
 		JMenuItem menuItem = new JMenuItem("Nuevo juego");
 		menuItem.addActionListener(new AccionNuevoJuego(capa));
 		menuJuego.add(menuItem);
+		
+		JMenuItem menuJuegoAvanzado = new JMenuItem("Crear juego avanzado");
+		menuJuegoAvanzado.addActionListener(new AccionCrearJuegoAvanzado(capa));
+		menuJuego.add(menuJuegoAvanzado);
 
 		// Creo el item de salir, le vinculo su accion y lo agrego al menu
 		JMenuItem itemSalir = new JMenuItem("Salir");

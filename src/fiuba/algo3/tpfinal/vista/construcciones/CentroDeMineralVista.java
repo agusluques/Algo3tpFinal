@@ -11,6 +11,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import fiuba.algo3.tpfinal.modelo.construcciones.CentroDeMineral;
+import fiuba.algo3.tpfinal.modelo.programa.DepositoDeMinerales;
 import fiuba.algo3.tpfinal.vista.HashImagenesConColor;
 import fiuba.algo3.tpfinal.vista.Observable;
 import fiuba.algo3.tpfinal.vista.Vista;
@@ -57,15 +58,22 @@ public class CentroDeMineralVista extends Vista {
 		capaVida.setAlignmentX(Component.CENTER_ALIGNMENT);
 		miPanel.add(capaVida);
 		
-		if(miCentroDeMineral.getTiempoRestante()>0){
-			JLabel enConstruccion = new JLabel("Edificio en Construccion");
-			enConstruccion.setAlignmentX(Component.CENTER_ALIGNMENT);
-			miPanel.add(enConstruccion);
-			
-			JLabel tiempo = new JLabel("Tiempo restante: " + miCentroDeMineral.getTiempoRestante());
-			tiempo.setAlignmentX(Component.CENTER_ALIGNMENT);
-			miPanel.add(tiempo);
+		if(miJuego.jugadorActual.equals(miCentroDeMineral.getJugador())){
+			if(miCentroDeMineral.getTiempoRestante()>0){
+				JLabel enConstruccion = new JLabel("Edificio en Construccion");
+				enConstruccion.setAlignmentX(Component.CENTER_ALIGNMENT);
+				miPanel.add(enConstruccion);
+				
+				JLabel tiempo = new JLabel("Tiempo restante: " + miCentroDeMineral.getTiempoRestante());
+				tiempo.setAlignmentX(Component.CENTER_ALIGNMENT);
+				miPanel.add(tiempo);
+			} else {
+				JLabel recursos = new JLabel("Recursos restantes: "+((DepositoDeMinerales) miCentroDeMineral.getJugador().getMapa().getParcela(miCentroDeMineral.getPosicion()).getSuperficie()).getRecursos());
+				recursos.setAlignmentX(Component.CENTER_ALIGNMENT);
+				miPanel.add(recursos);
+			}
 		}
+		
 	}
 	
 	@Override

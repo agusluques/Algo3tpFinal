@@ -11,6 +11,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import fiuba.algo3.tpfinal.modelo.construcciones.Asimilador;
+import fiuba.algo3.tpfinal.modelo.programa.DepositoDeGas;
 import fiuba.algo3.tpfinal.vista.HashImagenesConColor;
 import fiuba.algo3.tpfinal.vista.Observable;
 import fiuba.algo3.tpfinal.vista.Vista;
@@ -57,14 +58,20 @@ public class AsimiladorVista extends Vista{
 		capaVida.setAlignmentX(Component.CENTER_ALIGNMENT);
 		miPanel.add(capaVida);
 			
-		if(miAsimilador.getTiempoRestante()>0){
-			JLabel enConstruccion = new JLabel("Edificio en Construccion");
-			enConstruccion.setAlignmentX(Component.CENTER_ALIGNMENT);
-			miPanel.add(enConstruccion);
-			
-			JLabel tiempo = new JLabel("Tiempo restante: " + miAsimilador.getTiempoRestante());
-			tiempo.setAlignmentX(Component.CENTER_ALIGNMENT);
-			miPanel.add(tiempo);
+		if(miJuego.jugadorActual.equals(miAsimilador.getJugador())){
+			if(miAsimilador.getTiempoRestante()>0){
+				JLabel enConstruccion = new JLabel("Edificio en Construccion");
+				enConstruccion.setAlignmentX(Component.CENTER_ALIGNMENT);
+				miPanel.add(enConstruccion);
+				
+				JLabel tiempo = new JLabel("Tiempo restante: " + miAsimilador.getTiempoRestante());
+				tiempo.setAlignmentX(Component.CENTER_ALIGNMENT);
+				miPanel.add(tiempo);
+			} else {
+				JLabel recursos = new JLabel("Recursos restantes: "+((DepositoDeGas) miAsimilador.getJugador().getMapa().getParcela(miAsimilador.getPosicion()).getSuperficie()).getRecursos());
+				recursos.setAlignmentX(Component.CENTER_ALIGNMENT);
+				miPanel.add(recursos);
+			}
 		}
 	}
 	

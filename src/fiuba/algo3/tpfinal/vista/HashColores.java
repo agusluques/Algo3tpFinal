@@ -10,7 +10,7 @@ public class HashColores extends HashMap<String, Color> {
 
 	public HashColores() {
 
-		hash.put("Rojo",Color.RED);
+		hash.put("Rojo", Color.RED);
 		hash.put("Azul", Color.BLUE);
 		hash.put("Verde", Color.GREEN);
 

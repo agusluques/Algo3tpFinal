@@ -48,9 +48,6 @@ public class CrearJuego implements ActionListener {
 		menu = elFrame;
 	}
 
-	/**
-	 * @wbp.parser.entryPoint
-	 */
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		if (!datosSonCorrectos()) {
