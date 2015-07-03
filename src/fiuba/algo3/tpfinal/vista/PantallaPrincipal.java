@@ -14,7 +14,6 @@ import javax.swing.JMenuItem;
 
 import fiuba.algo3.tpfinal.controlador.AccionAcercaDe;
 import fiuba.algo3.tpfinal.controlador.AccionCrearJuegoAvanzado;
-import fiuba.algo3.tpfinal.controlador.AccionCrearMapaTierra;
 import fiuba.algo3.tpfinal.controlador.AccionIniciarApagarSonido;
 import fiuba.algo3.tpfinal.controlador.AccionNuevoJuego;
 import fiuba.algo3.tpfinal.controlador.AccionSalir;
@@ -81,20 +80,6 @@ public class PantallaPrincipal {
 		JMenuItem itemAcercaDe = new JMenuItem("Acerca de");
 		itemAcercaDe.addActionListener(new AccionAcercaDe());
 		menuAyuda.add(itemAcercaDe);
-		
-		//// Creo el menu de tests y lo agrego a la barra
-		JMenu menuTests = new JMenu("Tests");
-		barraMenu.add(menuTests);
-
-		// Seteo accion CrearMapaTierra en MenuTests
-		JMenuItem itemCrearMapaTierra = new JMenuItem("CrearMapaTierra");
-		itemCrearMapaTierra.addActionListener(new AccionCrearMapaTierra(capa));
-		menuTests.add(itemCrearMapaTierra);
-
-		// Seteo accion CrearPruebaAtaque en MenuTests
-		JMenuItem itemCrearPruebaAtaque = new JMenuItem("CrearPruebaAtaque");
-		itemCrearPruebaAtaque.addActionListener(new PruebaDeAtaque(capa));
-		menuTests.add(itemCrearPruebaAtaque);
 
 		// Agrego la barra de menu a la ventana principal
 		ventanaPrincipal.setJMenuBar(barraMenu);
