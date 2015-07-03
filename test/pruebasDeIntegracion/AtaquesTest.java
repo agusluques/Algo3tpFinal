@@ -392,7 +392,7 @@ public class AtaquesTest {
 		Jugador jugador1 = new JugadorTerran("Damian", mapa);
 		jugador1.inicializarEnPrimeraBase();
 		Jugador jugador2 = new JugadorProtoss("Juan", mapa);
-		jugador2.inicializarEnUltimaBase();
+		jugador2.inicializarEnPrimeraBase();
 
 		Assert.assertFalse(jugador1.estaExtinto());
 		Assert.assertFalse(jugador1.estaExtinto());
