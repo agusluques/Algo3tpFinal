@@ -58,7 +58,6 @@ public class JuegoVista {
 		panelMapaConScroll.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		panelMapaConScroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
 		panelMapaConScroll.setBounds(300, 0, 850, 600);
-
 		
 		panelMapa.setPanelConCapasParaUnidades(panelConCapas);
 		panelMapa.setVentanaDeAccionParaLasUnidades(infoUnidades);

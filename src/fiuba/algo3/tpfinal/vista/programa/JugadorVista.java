@@ -1,14 +1,15 @@
 package fiuba.algo3.tpfinal.vista.programa;
 
 
+import java.awt.Rectangle;
 import java.awt.event.MouseListener;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-
 import fiuba.algo3.tpfinal.controlador.AccionClickMouse;
 import fiuba.algo3.tpfinal.controlador.AccionPasarTurno;
+import fiuba.algo3.tpfinal.modelo.programa.Coordenada;
 import fiuba.algo3.tpfinal.modelo.programa.Jugador;
 import fiuba.algo3.tpfinal.vista.MapaVista;
 import fiuba.algo3.tpfinal.vista.Observable;
@@ -19,14 +20,18 @@ public class JugadorVista extends Vista {
 	
 	protected Jugador miJugador;
 	protected MapaVista miMapaVista;
+	protected Rectangle puntoDeVision;
 	
 	@Override
 	public void setObservable(Observable jugador) {
 		miJugador = (Jugador) jugador;
+		Coordenada coordDeInicio = miJugador.getUnidades().get(0).getCoordenada();
+		puntoDeVision = new Rectangle((coordDeInicio.getColumna()*40)-200,(coordDeInicio.getFila()*40)-200,400,400);
 		
 		crearPanel();
 
 		miPanel.setVisible(false);	
+	
 	}
 
 	protected void crearControladores() {
@@ -62,6 +67,16 @@ public class JugadorVista extends Vista {
 	}
 	
 	@Override
+	public void imprimirMenuObservador() {
+		
+		crearPanel();
+		miPanel.setVisible(true);
+		miVentanaDeAccion.add(miPanel);
+		ventanaMapa.scrollRectToVisible(puntoDeVision);
+		
+	}
+	
+	@Override
 	public void ocultarMenuObservador() {
 		miPanel.setVisible(false);
 		miVentanaDeAccion.remove(miPanel);
@@ -81,5 +96,7 @@ public class JugadorVista extends Vista {
 	public void setMapaVista(MapaVista mapaVista) {
 		miMapaVista = mapaVista;
 	}
+
+
 
 }
