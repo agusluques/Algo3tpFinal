@@ -37,6 +37,7 @@ public class ControladorAtaque implements ActionListener {
 		
 		//Agrego el mouse listener que cree a la capa invisible
 		capaQueEscuchaClicks.addMouseListener(accion);
+		capaQueEscuchaClicks.addMouseMotionListener(accion);
 		capaQueEscuchaClicks.setVisible(true);
 		
 		//Agrego la capa invisible al layeredPane donde esta el mapa y la muevo adelante

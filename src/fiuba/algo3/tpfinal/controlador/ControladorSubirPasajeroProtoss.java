@@ -28,6 +28,7 @@ public class ControladorSubirPasajeroProtoss implements ActionListener {
 		AccionSubirPasajeroProtoss accion = new AccionSubirPasajeroProtoss(capaQueEscuchaClicks, miNave, ventanaMapa);
 		
 		capaQueEscuchaClicks.addMouseListener(accion);
+		capaQueEscuchaClicks.addMouseMotionListener(accion);
 		capaQueEscuchaClicks.setVisible(true);
 		
 		ventanaMapa.add(capaQueEscuchaClicks);

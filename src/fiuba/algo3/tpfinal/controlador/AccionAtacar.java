@@ -1,7 +1,9 @@
 package fiuba.algo3.tpfinal.controlador;
 
+import java.awt.Rectangle;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
 import java.net.MalformedURLException;
 
 import javax.swing.JLayeredPane;
@@ -13,7 +15,7 @@ import fiuba.algo3.tpfinal.modelo.unidades.Atacante;
 import fiuba.algo3.tpfinal.vista.sonidos.SonidoAtaque;
 import fiuba.algo3.tpfinal.vista.sonidos.SonidoErrorAtaque;
 
-public class AccionAtacar implements MouseListener {
+public class AccionAtacar implements MouseListener, MouseMotionListener {
 
 	private Atacante miUnidad;
 	private JPanel capaQueEscucho;
@@ -26,6 +28,18 @@ public class AccionAtacar implements MouseListener {
 		this.capaQueEscucho = capaQueEscuchaClicks;
 		this.ventanaMapa = ventanaMapa;
 		this.urlAtaque = url;
+	}
+	
+	@Override
+	public void mouseDragged(MouseEvent arg0) {
+			
+	}
+
+	@Override
+	public void mouseMoved(MouseEvent arg0) {
+		
+		capaQueEscucho.scrollRectToVisible(new Rectangle(arg0.getX()-50,arg0.getY()-50,100,100));
+		
 	}
 
 	@Override

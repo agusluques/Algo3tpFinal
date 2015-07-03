@@ -3,6 +3,7 @@ package fiuba.algo3.tpfinal.vista;
 import java.awt.Component;
 import java.awt.GridLayout;
 import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
 
 import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
@@ -25,6 +26,7 @@ public class MapaVista extends Vista {
 	public MapaVista(Mapa mapa) throws Exception {
 		MouseListener clickEnMapa = new AccionClickMouse(mapa);
 		this.addMouseListener(clickEnMapa);
+		this.addMouseMotionListener((MouseMotionListener) clickEnMapa);
 		miMapa = mapa;
 
 		setBounds(0, 0, miMapa.getAncho()*40, miMapa.getAlto()*40);
@@ -33,6 +35,7 @@ public class MapaVista extends Vista {
 		setLayout(new GridLayout(miMapa.getAncho(), miMapa.getAlto()));
 	
 	}
+	
 
 	public void imprimirMapa() throws InstantiationException,
 			IllegalAccessException {

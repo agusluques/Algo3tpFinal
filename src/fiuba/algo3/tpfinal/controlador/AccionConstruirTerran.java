@@ -1,7 +1,9 @@
 package fiuba.algo3.tpfinal.controlador;
 
+import java.awt.Rectangle;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
 
 import javax.swing.JLayeredPane;
 import javax.swing.JOptionPane;
@@ -16,7 +18,7 @@ import fiuba.algo3.tpfinal.modelo.excepciones.TerrenoInapropiado;
 import fiuba.algo3.tpfinal.modelo.programa.Coordenada;
 import fiuba.algo3.tpfinal.modelo.programa.JugadorTerran;
 
-public class AccionConstruirTerran implements MouseListener {
+public class AccionConstruirTerran implements MouseListener, MouseMotionListener {
 	
 	private ConstruccionTerran miConstruccion;
 	private JugadorTerran miJugador;
@@ -29,6 +31,18 @@ public class AccionConstruirTerran implements MouseListener {
 		this.miJugador = jugador;
 		this.capaQueEscucho = capaQueEscuchaClicks;
 		this.ventanaMapa = ventanaMapa;
+	}
+	
+	@Override
+	public void mouseDragged(MouseEvent arg0) {
+			
+	}
+
+	@Override
+	public void mouseMoved(MouseEvent arg0) {
+		
+		capaQueEscucho.scrollRectToVisible(new Rectangle(arg0.getX()-50,arg0.getY()-50,100,100));
+		
 	}
 
 	@Override

@@ -28,6 +28,7 @@ public class ControladorSubirPasajeroTerran implements ActionListener {
 		AccionSubirPasajeroTerran accion = new AccionSubirPasajeroTerran(capaQueEscuchaClicks, miNave, ventanaMapa);
 		
 		capaQueEscuchaClicks.addMouseListener(accion);
+		capaQueEscuchaClicks.addMouseMotionListener(accion);
 		capaQueEscuchaClicks.setVisible(true);
 		
 		ventanaMapa.add(capaQueEscuchaClicks);

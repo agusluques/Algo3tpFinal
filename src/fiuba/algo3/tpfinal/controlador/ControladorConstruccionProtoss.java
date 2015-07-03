@@ -33,6 +33,7 @@ public class ControladorConstruccionProtoss implements ActionListener{
 					(ConstruccionProtoss) construccionAConstruir.newInstance(), ventanaMapa);
 
 			capaQueEscuchaClicks.addMouseListener(accion);
+			capaQueEscuchaClicks.addMouseMotionListener(accion);
 			capaQueEscuchaClicks.setVisible(true);
 			
 			ventanaMapa.add(capaQueEscuchaClicks);

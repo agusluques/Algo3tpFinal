@@ -33,6 +33,7 @@ public class ControladorConstruccionTerran implements ActionListener {
 					(ConstruccionTerran) construccionAConstruir.newInstance(), ventanaMapa);
 
 			capaQueEscuchaClicks.addMouseListener(accion);
+			capaQueEscuchaClicks.addMouseMotionListener(accion);
 			capaQueEscuchaClicks.setVisible(true);
 			
 			ventanaMapa.add(capaQueEscuchaClicks);

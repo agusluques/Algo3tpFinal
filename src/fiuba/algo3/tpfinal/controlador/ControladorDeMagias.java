@@ -31,6 +31,7 @@ public class ControladorDeMagias implements ActionListener {
 			
 		
 		capaQueEscuchaClicks.addMouseListener(this.accionMagia);
+		capaQueEscuchaClicks.addMouseMotionListener(this.accionMagia);
 		capaQueEscuchaClicks.setVisible(true);
 		
 	

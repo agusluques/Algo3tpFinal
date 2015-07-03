@@ -30,6 +30,7 @@ public class ControladorTraslado implements ActionListener{
 		AccionTrasladar accion = new AccionTrasladar(capaQueEscuchaClicks, miUnidad, ventanaMapa, urlTraslado);
 		
 		capaQueEscuchaClicks.addMouseListener(accion);
+		capaQueEscuchaClicks.addMouseMotionListener(accion);
 		capaQueEscuchaClicks.setVisible(true);
 		
 		ventanaMapa.add(capaQueEscuchaClicks);

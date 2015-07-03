@@ -1,7 +1,11 @@
 package fiuba.algo3.tpfinal.controlador;
 
+import java.awt.Rectangle;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
+
+import javax.swing.JPanel;
 
 import fiuba.algo3.tpfinal.modelo.construcciones.Atacable;
 import fiuba.algo3.tpfinal.modelo.programa.Coordenada;
@@ -10,7 +14,7 @@ import fiuba.algo3.tpfinal.modelo.programa.Parcela;
 import fiuba.algo3.tpfinal.modelo.programa.Superficie;
 import fiuba.algo3.tpfinal.vista.Observable;
 
-public class AccionClickMouse implements MouseListener {
+public class AccionClickMouse implements MouseListener, MouseMotionListener {
 
 	private Mapa miMapa;
 	public Observable unidadSeleccionada;
@@ -52,8 +56,8 @@ public class AccionClickMouse implements MouseListener {
 
 	@Override
 	public void mouseEntered(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-
+		
+		
 	}
 
 	@Override
@@ -72,6 +76,18 @@ public class AccionClickMouse implements MouseListener {
 	public void mouseReleased(MouseEvent arg0) {
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public void mouseDragged(MouseEvent arg0) {
+			
+	}
+
+	@Override
+	public void mouseMoved(MouseEvent arg0) {
+		
+		((JPanel)arg0.getComponent()).scrollRectToVisible(new Rectangle(arg0.getX()-50,arg0.getY()-50,100,100));
+		
 	}
 
 }
