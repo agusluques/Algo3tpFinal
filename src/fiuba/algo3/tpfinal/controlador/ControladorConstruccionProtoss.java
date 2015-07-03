@@ -9,7 +9,6 @@ import javax.swing.JPanel;
 
 import fiuba.algo3.tpfinal.modelo.construcciones.ConstruccionProtoss;
 import fiuba.algo3.tpfinal.modelo.programa.JugadorProtoss;
-import fiuba.algo3.tpfinal.vista.AccionConstruirProtoss;
 
 public class ControladorConstruccionProtoss implements ActionListener{
 	

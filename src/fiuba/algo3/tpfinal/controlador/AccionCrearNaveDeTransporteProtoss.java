@@ -1,26 +1,26 @@
-package fiuba.algo3.tpfinal.vista;
+package fiuba.algo3.tpfinal.controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JOptionPane;
 
-import fiuba.algo3.tpfinal.modelo.construcciones.Barraca;
+import fiuba.algo3.tpfinal.modelo.construcciones.PuertoEstelarProtoss;
 import fiuba.algo3.tpfinal.modelo.excepciones.GasInsuficiente;
 import fiuba.algo3.tpfinal.modelo.excepciones.MineralInsuficiente;
 
-public class AccionCrearMarine implements ActionListener {
+public class AccionCrearNaveDeTransporteProtoss implements ActionListener{
 	
-	private Barraca miBarraca;
+	private PuertoEstelarProtoss miPuertoEstelar;
 
-	public AccionCrearMarine(Barraca barraca) {
-		miBarraca = barraca;
+	public AccionCrearNaveDeTransporteProtoss(PuertoEstelarProtoss puertoEstelar) {
+		miPuertoEstelar = puertoEstelar;
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		try {
-			miBarraca.fabricarMarine();
+			miPuertoEstelar.fabricarNaveDeTransporte();
 		} catch (GasInsuficiente e1) {
 			JOptionPane.showMessageDialog(null, "No te alcanza el gas",
 					"Error",

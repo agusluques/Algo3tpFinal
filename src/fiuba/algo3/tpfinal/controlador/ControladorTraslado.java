@@ -8,7 +8,6 @@ import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 
 import fiuba.algo3.tpfinal.modelo.unidades.Trasladable;
-import fiuba.algo3.tpfinal.vista.AccionTrasladar;
 
 public class ControladorTraslado implements ActionListener{
 	

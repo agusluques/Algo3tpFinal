@@ -9,8 +9,8 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import fiuba.algo3.tpfinal.controlador.AccionCrearAltoTemplario;
 import fiuba.algo3.tpfinal.modelo.construcciones.ArchivosTemplarios;
-import fiuba.algo3.tpfinal.vista.AccionCrearAltoTemplario;
 import fiuba.algo3.tpfinal.vista.HashImagenesConColor;
 import fiuba.algo3.tpfinal.vista.Observable;
 import fiuba.algo3.tpfinal.vista.Vista;

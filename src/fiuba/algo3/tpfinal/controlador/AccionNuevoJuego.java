@@ -1,4 +1,4 @@
-package fiuba.algo3.tpfinal.vista;
+package fiuba.algo3.tpfinal.controlador;
 
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
@@ -11,6 +11,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSplitPane;
 import javax.swing.JTextField;
+
+import fiuba.algo3.tpfinal.vista.CrearJuego;
+import fiuba.algo3.tpfinal.vista.LectorDeLetras;
 
 public class AccionNuevoJuego implements ActionListener {
 

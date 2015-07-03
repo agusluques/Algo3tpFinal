@@ -1,4 +1,4 @@
-package fiuba.algo3.tpfinal.vista;
+package fiuba.algo3.tpfinal.controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -16,6 +16,7 @@ import fiuba.algo3.tpfinal.modelo.unidades.NaveCiencia;
 import fiuba.algo3.tpfinal.modelo.unidades.NaveTransporteProtoss;
 import fiuba.algo3.tpfinal.modelo.unidades.Scout;
 import fiuba.algo3.tpfinal.modelo.unidades.Zealot;
+import fiuba.algo3.tpfinal.vista.MapaVista;
 
 public class AccionCrearMapaTierra implements ActionListener {
 

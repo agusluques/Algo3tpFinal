@@ -9,6 +9,9 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import fiuba.algo3.tpfinal.controlador.AccionAlucinacion;
+import fiuba.algo3.tpfinal.controlador.AccionTormentaPsionica;
+import fiuba.algo3.tpfinal.controlador.ControladorDeMagias;
 import fiuba.algo3.tpfinal.controlador.ControladorTraslado;
 import fiuba.algo3.tpfinal.modelo.construcciones.Atacable;
 import fiuba.algo3.tpfinal.modelo.unidades.AltoTemplario;

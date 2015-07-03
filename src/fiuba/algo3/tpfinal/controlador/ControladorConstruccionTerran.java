@@ -9,7 +9,6 @@ import javax.swing.JPanel;
 
 import fiuba.algo3.tpfinal.modelo.construcciones.ConstruccionTerran;
 import fiuba.algo3.tpfinal.modelo.programa.JugadorTerran;
-import fiuba.algo3.tpfinal.vista.AccionConstruirTerran;
 
 public class ControladorConstruccionTerran implements ActionListener {
 

@@ -1,26 +1,26 @@
-package fiuba.algo3.tpfinal.vista;
+package fiuba.algo3.tpfinal.controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JOptionPane;
 
-import fiuba.algo3.tpfinal.modelo.construcciones.Fabrica;
+import fiuba.algo3.tpfinal.modelo.construcciones.Acceso;
 import fiuba.algo3.tpfinal.modelo.excepciones.GasInsuficiente;
 import fiuba.algo3.tpfinal.modelo.excepciones.MineralInsuficiente;
 
-public class AccionCrearGolliat implements ActionListener {
+public class AccionCrearDragon implements ActionListener{
 	
-	private Fabrica miFabrica;
+	private Acceso miAcceso;
 
-	public AccionCrearGolliat(Fabrica fabrica) {
-		miFabrica = fabrica;
+	public AccionCrearDragon(Acceso acceso) {
+		miAcceso = acceso;
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		try {
-			miFabrica.fabricarGolliat();
+			miAcceso.fabricarDragon();
 		} catch (GasInsuficiente e1) {
 			JOptionPane.showMessageDialog(null, "No te alcanza el gas",
 					"Error",
@@ -33,5 +33,4 @@ public class AccionCrearGolliat implements ActionListener {
 		
 	}
 
-	
 }

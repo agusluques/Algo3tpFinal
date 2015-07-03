@@ -1,7 +1,9 @@
-package fiuba.algo3.tpfinal.vista.sonidos;
+package fiuba.algo3.tpfinal.controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+import fiuba.algo3.tpfinal.vista.sonidos.SonidoPrincipal;
 
 public class AccionIniciarApagarSonido implements ActionListener {
 

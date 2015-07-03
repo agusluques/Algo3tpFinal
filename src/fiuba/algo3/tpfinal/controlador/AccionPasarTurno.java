@@ -1,4 +1,4 @@
-package fiuba.algo3.tpfinal.vista.programa;
+package fiuba.algo3.tpfinal.controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

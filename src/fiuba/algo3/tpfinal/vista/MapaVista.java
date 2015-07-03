@@ -8,6 +8,7 @@ import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
 import javax.swing.JLayeredPane;
 
+import fiuba.algo3.tpfinal.controlador.AccionClickMouse;
 import fiuba.algo3.tpfinal.modelo.programa.Coordenada;
 import fiuba.algo3.tpfinal.modelo.programa.Mapa;
 import fiuba.algo3.tpfinal.modelo.programa.Parcela;

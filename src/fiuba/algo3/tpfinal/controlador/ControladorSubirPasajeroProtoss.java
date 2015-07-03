@@ -8,7 +8,6 @@ import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 
 import fiuba.algo3.tpfinal.modelo.unidades.NaveTransporteProtoss;
-import fiuba.algo3.tpfinal.vista.AccionSubirPasajeroProtoss;
 
 public class ControladorSubirPasajeroProtoss implements ActionListener {
 	

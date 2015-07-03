@@ -12,7 +12,10 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
-import fiuba.algo3.tpfinal.vista.sonidos.AccionIniciarApagarSonido;
+import fiuba.algo3.tpfinal.controlador.AccionCrearMapaTierra;
+import fiuba.algo3.tpfinal.controlador.AccionIniciarApagarSonido;
+import fiuba.algo3.tpfinal.controlador.AccionNuevoJuego;
+import fiuba.algo3.tpfinal.controlador.AccionSalir;
 import fiuba.algo3.tpfinal.vista.sonidos.SonidoPrincipal;
 
 

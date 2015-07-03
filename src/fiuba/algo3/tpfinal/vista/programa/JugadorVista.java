@@ -7,8 +7,9 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import fiuba.algo3.tpfinal.controlador.AccionClickMouse;
+import fiuba.algo3.tpfinal.controlador.AccionPasarTurno;
 import fiuba.algo3.tpfinal.modelo.programa.Jugador;
-import fiuba.algo3.tpfinal.vista.AccionClickMouse;
 import fiuba.algo3.tpfinal.vista.MapaVista;
 import fiuba.algo3.tpfinal.vista.Observable;
 import fiuba.algo3.tpfinal.vista.Vista;

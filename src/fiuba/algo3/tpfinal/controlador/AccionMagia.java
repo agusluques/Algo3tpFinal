@@ -1,4 +1,4 @@
-package fiuba.algo3.tpfinal.vista.unidades;
+package fiuba.algo3.tpfinal.controlador;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
