@@ -52,6 +52,7 @@ public class PuertoEstelarProtoss extends ConstruccionProtoss {
 				jugador.getPresupuesto().gastar(unidad.getCosto());
 				unidadesEnConstruccion.add(unidad);
 				jugador.notificarObservador();
+				this.notificarObservador();
 		}
 	}
 
@@ -83,4 +84,9 @@ public class PuertoEstelarProtoss extends ConstruccionProtoss {
 		return (this.esValidaLaUbicacion(ubicacion) && this
 				.construccionesRequeridasEncontradas(this.construccionesNecesarias));
 	}
+	
+	//Solo para usar en la vista
+		public ArrayList<Fabricable> getUnidadesEnConstruccion(){
+			return this.unidadesEnConstruccion;
+		}
 }

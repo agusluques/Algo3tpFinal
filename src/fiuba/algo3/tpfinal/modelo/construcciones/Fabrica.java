@@ -43,6 +43,7 @@ public class Fabrica extends ConstruccionTerran {
 				jugador.getPresupuesto().gastar(new Golliat().getCosto());
 				unidadesEnConstruccion.add(new Golliat());
 				jugador.notificarObservador();
+				this.notificarObservador();
 			} catch (MineralInsuficiente e) {
 				throw e;
 			} catch (GasInsuficiente e) {
@@ -77,4 +78,9 @@ public class Fabrica extends ConstruccionTerran {
 		return (this.esValidaLaUbicacion(ubicacion) && this
 				.construccionesRequeridasEncontradas(this.construccionesNecesarias));
 	}
+	
+	//Solo para usar en la vista
+		public ArrayList<Fabricable> getUnidadesEnConstruccion(){
+			return this.unidadesEnConstruccion;
+		}
 }

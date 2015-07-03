@@ -42,6 +42,7 @@ public class Acceso extends ConstruccionProtoss {
 				jugador.getPresupuesto().gastar(unidad.getCosto());
 				unidadesEnConstruccion.add(unidad);
 				jugador.notificarObservador();
+				this.notificarObservador();
 			} catch (MineralInsuficiente e) {
 				throw e;
 			} catch (GasInsuficiente e) {
@@ -73,4 +74,8 @@ public class Acceso extends ConstruccionProtoss {
 		return rango.getRangoTierra();
 	}
 
+	//Solo para usar en la vista
+		public ArrayList<Fabricable> getUnidadesEnConstruccion(){
+			return this.unidadesEnConstruccion;
+		}
 }

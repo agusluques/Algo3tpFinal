@@ -1,9 +1,11 @@
 package fiuba.algo3.tpfinal.vista.construcciones;
 
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
 
+import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -12,9 +14,11 @@ import javax.swing.JPanel;
 import fiuba.algo3.tpfinal.controlador.AccionCrearNaveDeTransporteProtoss;
 import fiuba.algo3.tpfinal.controlador.AccionCrearScout;
 import fiuba.algo3.tpfinal.modelo.construcciones.PuertoEstelarProtoss;
+import fiuba.algo3.tpfinal.modelo.unidades.Fabricable;
 import fiuba.algo3.tpfinal.vista.HashImagenesConColor;
 import fiuba.algo3.tpfinal.vista.Observable;
 import fiuba.algo3.tpfinal.vista.Vista;
+import fiuba.algo3.tpfinal.vista.unidades.UnidadEnFabricacionVista;
 
 @SuppressWarnings("serial")
 public class PuertoEstelarProtossVista extends Vista {
@@ -47,37 +51,47 @@ public class PuertoEstelarProtossVista extends Vista {
 	@Override
 	protected void crearPanel() {
 		miPanel = new JPanel();
+		miPanel.setLayout(new BoxLayout(miPanel,BoxLayout.PAGE_AXIS));
 		
 		JLabel capaNombre = new JLabel("Puerto Estelar");
+		capaNombre.setAlignmentX(Component.CENTER_ALIGNMENT);
 		miPanel.add(capaNombre);
 		
-		JLabel capaVida = new JLabel("Vida: " + miPuertoEstelar.getCantidadDeVida());
+		JLabel capaVida = new JLabel("Vida: " + miPuertoEstelar.getCantidadDeVida() + "  " + "Escudo: " + miPuertoEstelar.getCantidadDeEscudo());
+		capaVida.setAlignmentX(Component.CENTER_ALIGNMENT);
 		miPanel.add(capaVida);
-		
-		JLabel capaEscudo = new JLabel("Escudo: " + miPuertoEstelar.getCantidadDeEscudo());
-		miPanel.add(capaEscudo);
-		
+	
 		if(miJuego.jugadorActual.equals(miPuertoEstelar.getJugador())){
 			if(miPuertoEstelar.getTiempoRestante()>0){
 				JLabel enConstruccion = new JLabel("Edificio en Construccion");
+				enConstruccion.setAlignmentX(Component.CENTER_ALIGNMENT);
 				miPanel.add(enConstruccion);
 			}else{
 				crearControladores();
+				mostrarUnidadesEnFabricacion();
 			}
 		}
-		
-	
 	}
 	
+	private void mostrarUnidadesEnFabricacion() {
+		for (Fabricable unidadActual : miPuertoEstelar.getUnidadesEnConstruccion() ){
+			UnidadEnFabricacionVista vistaUnidad = new UnidadEnFabricacionVista(unidadActual);
+			vistaUnidad.setAlignmentX(Component.CENTER_ALIGNMENT);
+			miPanel.add(vistaUnidad);
+		}
+		
+	}
 	private void crearControladores() {
 		AccionCrearScout controladorScout = new AccionCrearScout(miPuertoEstelar);
 		JButton botonScout = new JButton("Construir Scout");
 		botonScout.addActionListener(controladorScout);
+		botonScout.setAlignmentX(Component.CENTER_ALIGNMENT);
 		miPanel.add(botonScout);
 		
 		AccionCrearNaveDeTransporteProtoss controladorNaveTransporte = new AccionCrearNaveDeTransporteProtoss(miPuertoEstelar);
 		JButton botonNaveTransporte = new JButton("Construir nave de transporte");
 		botonNaveTransporte.addActionListener(controladorNaveTransporte);
+		botonNaveTransporte.setAlignmentX(Component.CENTER_ALIGNMENT);
 		miPanel.add(botonNaveTransporte);
 	}
 

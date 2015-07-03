@@ -33,6 +33,7 @@ public class Barraca extends ConstruccionTerran {
 				jugador.getPresupuesto().gastar(new Marine().getCosto());
 				unidadesEnConstruccion.add(new Marine());
 				jugador.notificarObservador();
+				this.notificarObservador();
 			} catch (MineralInsuficiente e) {
 				throw e;
 			}
@@ -59,5 +60,9 @@ public class Barraca extends ConstruccionTerran {
 	public int rangoDeAtaqueCorrespondiente(RangoDeAtaque rango) {
 		return rango.getRangoTierra();
 	}
-
+	
+	//Solo para usar en la vista
+	public ArrayList<Fabricable> getUnidadesEnConstruccion(){
+		return this.unidadesEnConstruccion;
+	}
 }

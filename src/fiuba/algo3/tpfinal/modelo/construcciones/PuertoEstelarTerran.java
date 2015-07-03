@@ -57,6 +57,7 @@ public class PuertoEstelarTerran extends ConstruccionTerran {
 				jugador.getPresupuesto().gastar(unidad.getCosto());
 				unidadesEnConstruccion.add(unidad);
 				jugador.notificarObservador();
+				this.notificarObservador();
 		}
 	}
 
@@ -86,4 +87,9 @@ public class PuertoEstelarTerran extends ConstruccionTerran {
 		return (this.esValidaLaUbicacion(ubicacion) && this
 				.construccionesRequeridasEncontradas(this.construccionesNecesarias));
 	}
+	
+	//Solo para usar en la vista
+		public ArrayList<Fabricable> getUnidadesEnConstruccion(){
+			return this.unidadesEnConstruccion;
+		}
 }

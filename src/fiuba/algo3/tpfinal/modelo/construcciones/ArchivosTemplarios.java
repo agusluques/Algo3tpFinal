@@ -44,6 +44,7 @@ public class ArchivosTemplarios extends ConstruccionProtoss {
 				jugador.getPresupuesto().gastar(new AltoTemplario().getCosto());
 				unidadesEnConstruccion.add(new AltoTemplario());
 				jugador.notificarObservador();
+				this.notificarObservador();
 			} catch (MineralInsuficiente e) {
 				throw e;
 			} catch (GasInsuficiente e) {
@@ -81,4 +82,8 @@ public class ArchivosTemplarios extends ConstruccionProtoss {
 				.construccionesRequeridasEncontradas(this.construccionesNecesarias));
 	}
 
+	//Solo para usar en la vista
+		public ArrayList<Fabricable> getUnidadesEnConstruccion(){
+			return this.unidadesEnConstruccion;
+		}
 }
