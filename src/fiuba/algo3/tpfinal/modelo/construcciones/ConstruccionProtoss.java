@@ -86,4 +86,6 @@ public abstract class ConstruccionProtoss extends Protoss implements
 		return this.posicion;
 	}
 
+	@Override
+	public void recibirImpactoEMP(){}
 }
