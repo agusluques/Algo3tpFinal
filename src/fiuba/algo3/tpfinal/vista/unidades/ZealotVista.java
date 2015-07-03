@@ -36,7 +36,6 @@ public class ZealotVista extends Vista implements Observador {
 	@Override
 	public void actualizar() {
 		if (miZealot.estaMuerto()){
-			System.out.println("Me mori");
 			ventanaMapa.repaint();
 			miPanel.setVisible(false);
 			miVentanaDeAccion.remove(miPanel);
@@ -67,7 +66,6 @@ public class ZealotVista extends Vista implements Observador {
 	}
 	@Override
 	protected void crearPanel() {
-		System.out.println("Llegue aca");
 		miPanel = new JPanel();
 		
 		JLabel capaNombre = new JLabel("Zealot");

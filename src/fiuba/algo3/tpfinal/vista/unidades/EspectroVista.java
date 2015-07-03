@@ -75,7 +75,6 @@ public class EspectroVista extends Vista {
 	@Override
 	public void actualizar() {
 		if (miEspectro.estaMuerto()){
-			System.out.println("Me mori");
 			ventanaMapa.repaint();
 			miPanel.setVisible(false);
 			miVentanaDeAccion.remove(miPanel);

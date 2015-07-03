@@ -64,7 +64,6 @@ public class PilonVista extends Vista{
 	@Override
 	public void actualizar() {
 		if (miPilon.estaMuerto()){
-			System.out.println("Me mori");
 			ventanaMapa.repaint();
 			miPanel.setVisible(false);
 			miVentanaDeAccion.remove(miPanel);

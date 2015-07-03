@@ -78,7 +78,6 @@ public class MarineVista extends Vista {
 	@Override
 	public void actualizar() {
 		if (miMarine.estaMuerto()){
-			System.out.println("Me mori");
 			ventanaMapa.repaint();
 			miPanel.setVisible(false);
 			miVentanaDeAccion.remove(miPanel);

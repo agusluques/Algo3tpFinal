@@ -83,7 +83,6 @@ public class AccesoVista extends Vista {
 	@Override
 	public void actualizar() {
 		if (miAcceso.estaMuerto()){
-			System.out.println("Me mori");
 			ventanaMapa.repaint();
 			miPanel.setVisible(false);
 			miVentanaDeAccion.remove(miPanel);

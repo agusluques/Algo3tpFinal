@@ -23,7 +23,6 @@ public class ControladorAtaque implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		System.out.println("Hiciste cliick en le boton de atacar!");
 		
 		//Cuando le hacen click al boton de atacar, crea un panel invisible y lo
 		//agrega al layeredPane que teniamos, este panel invisible es el que va a

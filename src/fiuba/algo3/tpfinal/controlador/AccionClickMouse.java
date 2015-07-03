@@ -23,9 +23,7 @@ public class AccionClickMouse implements MouseListener {
 	public void mouseClicked(MouseEvent arg0) {
 		int fila = arg0.getY();
 		int columna = arg0.getX();
-		System.out.println("Coordenada en el Dibujo: " + fila + " " + columna);
-		System.out.println("Coordenada en el hash: " + (fila / 40 + 1) + "  "
-				+ (columna / 40 + 1));
+		
 		Parcela parcela = miMapa.getParcela(new Coordenada(fila / 40 + 1,
 				columna / 40 + 1));
 		Observable observado;

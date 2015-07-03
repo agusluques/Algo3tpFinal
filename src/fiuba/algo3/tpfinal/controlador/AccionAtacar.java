@@ -37,6 +37,7 @@ public class AccionAtacar implements MouseListener {
 		try {
 			Atacable unidad = ((Atacable) miUnidad).getJugador().getMapa()
 					.getParcela(new Coordenada(fila, columna)).getOcupante();
+			//esto se deberia verificar en el modelo
 			if (!unidad.getJugador().equals(((Atacable) miUnidad).getJugador()) && ((Atacante) miUnidad).getCantidadDeAtaques() == 0){ 
 				miUnidad.atacar(unidad);
 				new SonidoAtaque(urlAtaque);

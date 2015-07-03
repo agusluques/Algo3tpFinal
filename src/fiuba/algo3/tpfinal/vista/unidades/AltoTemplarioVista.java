@@ -93,7 +93,6 @@ public class AltoTemplarioVista extends Vista {
 	@Override
 	public void actualizar() {
 		if (miAltoTemplario.estaMuerto()){
-			System.out.println("Me mori");
 			ventanaMapa.repaint();
 			miPanel.setVisible(false);
 			miVentanaDeAccion.remove(miPanel);

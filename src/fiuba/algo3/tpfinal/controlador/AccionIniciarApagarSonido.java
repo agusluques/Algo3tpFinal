@@ -22,7 +22,6 @@ public class AccionIniciarApagarSonido implements ActionListener {
 				e.printStackTrace();
 			}
 		} else {
-			System.out.println("Inicia");
 			miSonido.run();
 		}
 

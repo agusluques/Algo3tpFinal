@@ -35,7 +35,6 @@ public class AlucinacionVista extends Vista implements Observador {
 	@Override
 	public void actualizar() {
 		if (miAlucinacion.estaMuerto()){
-			System.out.println("Me mori");
 			ventanaMapa.repaint();
 			miPanel.setVisible(false);
 			miVentanaDeAccion.remove(miPanel);

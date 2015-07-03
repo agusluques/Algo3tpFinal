@@ -75,7 +75,6 @@ public class ScoutVista extends Vista implements Observador {
 	@Override
 	public void actualizar() {
 		if (miScout.estaMuerto()){
-			System.out.println("Me mori");
 			ventanaMapa.repaint();
 			miPanel.setVisible(false);
 			miVentanaDeAccion.remove(miPanel);

@@ -61,7 +61,6 @@ public class DepositoSuministroVista extends Vista{
 	@Override
 	public void actualizar() {
 		if (miDeposito.estaMuerto()){
-			System.out.println("Me mori");
 			ventanaMapa.repaint();
 			miPanel.setVisible(false);
 			miVentanaDeAccion.remove(miPanel);

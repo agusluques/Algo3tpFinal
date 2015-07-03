@@ -61,7 +61,6 @@ public class CentroDeMineralVista extends Vista {
 	@Override
 	public void actualizar() {
 		if (miCentroDeMineral.estaMuerto()){
-			System.out.println("Me mori");
 			ventanaMapa.repaint();
 			miPanel.setVisible(false);
 			miVentanaDeAccion.remove(miPanel);

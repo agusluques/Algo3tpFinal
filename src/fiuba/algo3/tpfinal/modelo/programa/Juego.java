@@ -30,8 +30,7 @@ public class Juego {
 			if (jugador.estaExtinto()) {
 				ganador = otroJugador;
 			}
-			System.out.print("GANOOOOO: ");
-			System.out.println(ganador.nombre);
+
 		}
 		jugadorActual = otroJugador;
 	}

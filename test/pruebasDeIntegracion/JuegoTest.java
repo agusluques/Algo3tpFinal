@@ -171,7 +171,7 @@ public class JuegoTest {
 
 	@Test
 	public void siElJugadorUnoDestruyeTodosLosEdificiosYUnidadesDelJugadorDosGanaJugadorUno() {
-		System.out.print("PABLO CRACK");
+		
 	}
 
 }

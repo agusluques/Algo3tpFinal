@@ -61,7 +61,6 @@ public class RefineriaVista extends Vista{
 	@Override
 	public void actualizar() {
 		if (miRefineria.estaMuerto()){
-			System.out.println("Me mori");
 			ventanaMapa.repaint();
 			miPanel.setVisible(false);
 			miVentanaDeAccion.remove(miPanel);

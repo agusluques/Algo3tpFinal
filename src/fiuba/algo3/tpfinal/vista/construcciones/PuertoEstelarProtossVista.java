@@ -84,7 +84,6 @@ public class PuertoEstelarProtossVista extends Vista {
 	@Override
 	public void actualizar() {
 		if (miPuertoEstelar.estaMuerto()){
-			System.out.println("Me mori");
 			ventanaMapa.repaint();
 			miPanel.setVisible(false);
 			miVentanaDeAccion.remove(miPanel);

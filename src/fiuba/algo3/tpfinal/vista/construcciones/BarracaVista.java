@@ -74,7 +74,6 @@ public class BarracaVista extends Vista{
 	@Override
 	public void actualizar() {
 		if (miBarraca.estaMuerto()){
-			System.out.println("Me mori");
 			ventanaMapa.repaint();
 			miPanel.setVisible(false);
 			miVentanaDeAccion.remove(miPanel);
