@@ -33,6 +33,10 @@ public class AccionAlucinacion extends AccionMagia {
 		} catch (ParcelaOcupada e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} catch (ClassCastException e2) {
+			JOptionPane.showMessageDialog(null, "No se puede crear Alucionacion de una construccion!",
+					"Error",
+			    	JOptionPane.ERROR_MESSAGE);
 		}
 
 		capaQueEscucho.setVisible(false);
