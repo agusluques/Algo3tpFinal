@@ -5,7 +5,7 @@ import java.awt.Image;
 
 import fiuba.algo3.tpfinal.vista.HashImagenesConColor;
 
-public class ImagenesParaAlucinacion {
+public class ImagenesAlucinacionParaEnemigos {
 
 	@SuppressWarnings("rawtypes")
 	public Image obtener(Class clase,Color color){

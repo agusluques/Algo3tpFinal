@@ -1,6 +1,7 @@
 package fiuba.algo3.tpfinal.modelo.unidades;
 
 import fiuba.algo3.tpfinal.modelo.programa.Danio;
+import fiuba.algo3.tpfinal.modelo.programa.Superficie;
 import fiuba.algo3.tpfinal.modelo.programa.VidaConEscudo;
 
 public class Alucinacion extends UnidadProtoss {
@@ -21,5 +22,10 @@ public class Alucinacion extends UnidadProtoss {
 
 	public UnidadProtoss getUnidadCopiada(){
 		return unidadCopiada;
+	}
+	
+	@Override
+	public boolean sePuedeMoverA(Superficie superficie) {
+		return unidadCopiada.sePuedeMoverA(superficie);
 	}
 }

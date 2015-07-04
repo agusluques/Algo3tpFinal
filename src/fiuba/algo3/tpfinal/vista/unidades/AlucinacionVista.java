@@ -4,14 +4,15 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
 
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import fiuba.algo3.tpfinal.controlador.ControladorTraslado;
+import fiuba.algo3.tpfinal.modelo.programa.Coordenada;
 import fiuba.algo3.tpfinal.modelo.unidades.Alucinacion;
 import fiuba.algo3.tpfinal.modelo.unidades.Trasladable;
+import fiuba.algo3.tpfinal.vista.HashImagenes;
 import fiuba.algo3.tpfinal.vista.Observable;
 import fiuba.algo3.tpfinal.vista.Observador;
 import fiuba.algo3.tpfinal.vista.Vista;
@@ -20,16 +21,17 @@ import fiuba.algo3.tpfinal.vista.Vista;
 public class AlucinacionVista extends Vista implements Observador {
 
 	private Alucinacion miAlucinacion;
-	private Image img;
-	private Image fondo;
+	private Image imgParaEnemigos;
+	private Image imgParaAliados;
 	private String urlTraslado = "trasladoZealot.wav";
 	private int vidaFicticia;
-	private ImagenesParaAlucinacion imagenes = new ImagenesParaAlucinacion();
+	private ImagenesAlucinacionParaEnemigos imagenes = new ImagenesAlucinacionParaEnemigos();
 	private HashNombreUnidades nombres = new HashNombreUnidades();
+	private HashImagenes imgSuperficies = new HashImagenes();
+	private ImagenesAlucinacionParaAliados imagenesAliados = new ImagenesAlucinacionParaAliados();
 
 	public AlucinacionVista() {
 		setPreferredSize(new Dimension(40, 40));
-		fondo = (new ImageIcon("imagenes/superficies/tierra.png")).getImage();
 	}
 
 	@Override
@@ -60,8 +62,8 @@ public class AlucinacionVista extends Vista implements Observador {
 			
 		vidaFicticia = miAlucinacion.getUnidadCopiada().getCantidadDeVida();
 		
-		img = imagenes.obtener(miAlucinacion.getUnidadCopiada().getClass(), miAlucinacion.getJugador().getColor());
-		
+		imgParaEnemigos = imagenes.obtener(miAlucinacion.getUnidadCopiada().getClass(), miAlucinacion.getJugador().getColor());
+		imgParaAliados = imagenesAliados.get(miAlucinacion.getUnidadCopiada().getClass());
 
 		
 	}
@@ -99,10 +101,19 @@ public class AlucinacionVista extends Vista implements Observador {
 	}
 	
 	public void paint(Graphics g) {
+		
+		Coordenada miCoord = miAlucinacion.getCoordenada();
+		Class<?> sup = miAlucinacion.getJugador().getMapa().getParcela(miCoord)
+				.getSuperficie().getClass();
 	
-		g.drawImage(fondo, 0, 0, 40, 40, null);
+		g.drawImage(imgSuperficies.get(sup), 0, 0, 40, 40, null);
 		if (!miAlucinacion.estaMuerto())
-			g.drawImage(img, 0, 0, 40, 40, null);
+			if(miJuego.jugadorActual.equals(miAlucinacion.getJugador())){
+				g.drawImage(imgParaAliados,0,0,40,40,null);
+			}else{
+				g.drawImage(imgParaEnemigos, 0, 0, 40, 40, null);
+			}
+			
 
 	}
 
