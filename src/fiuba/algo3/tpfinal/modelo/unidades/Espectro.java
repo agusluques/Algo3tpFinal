@@ -14,7 +14,7 @@ public class Espectro extends UnidadTerran {
 		this.tiempoDeConstruccion = 8;
 		this.suministro = 2;
 		this.costo = new Costo(150, 100);
-		this.transporte = 0;
+		this.transporte = 9;
 
 	}
 

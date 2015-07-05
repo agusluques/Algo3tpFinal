@@ -13,7 +13,7 @@ public class Scout extends UnidadProtoss {
 		this.tiempoDeConstruccion = 9;
 		this.suministro = 3;
 		this.costo = new Costo(300, 100);
-		this.transporte = 0;
+		this.transporte = 9;
 		this.rangoDeAtaque = new RangoDeAtaque(4, 4);
 
 	}

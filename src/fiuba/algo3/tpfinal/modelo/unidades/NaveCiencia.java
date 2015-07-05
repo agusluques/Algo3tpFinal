@@ -20,7 +20,7 @@ public class NaveCiencia extends UnidadTerran {
 		this.tiempoDeConstruccion = 10;
 		this.suministro = 2;
 		this.costo = new Costo(100, 225);
-		this.transporte = 0;
+		this.transporte = 9;
 
 	}
 

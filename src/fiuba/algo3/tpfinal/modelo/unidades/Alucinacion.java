@@ -14,6 +14,7 @@ public class Alucinacion extends UnidadProtoss {
 		this.rangoDeAtaque = unidad.getRangoCompleto();
 		this.suministro = 0;
 		this.unidadCopiada = unidad;
+		this.transporte = unidadCopiada.transporte;
 	}
 
 	public int rangoDeAtaqueCorrespondiente(RangoDeAtaque rango) {
